@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.Helper;
+using FamilySprout.Dashboard.Forms;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -84,5 +85,19 @@ namespace FamilySprout.Dashboard
             dragFormPoint = this.ParentForm.Location;
         }
         #endregion DRAG_AND_DROP
+
+        private void btnEmployeeInfo_Click(object sender, EventArgs e)
+        {
+            // Create an instance of the floating form
+            FloatingForm floatingForm = new FloatingForm();
+
+            // Set the start position near the button
+            var buttonPosition = btnEmployeeInfo.PointToScreen(Point.Empty);
+            floatingForm.StartPosition = FormStartPosition.Manual;
+            floatingForm.Location = new Point(buttonPosition.X, buttonPosition.Y + btnEmployeeInfo.Height);
+
+            // Show the floating form
+            floatingForm.Show();
+        }
     }
 }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.lblAdminName = new System.Windows.Forms.Label();
+            this.lblCurrentDate = new System.Windows.Forms.Label();
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleNavPanel = new System.Windows.Forms.Button();
             this.btnLogout2 = new System.Windows.Forms.Button();
             this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
-            this.lblCurrentDate = new System.Windows.Forms.Label();
+            this.lblAdminName = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.SuspendLayout();
@@ -61,18 +61,14 @@
             this.panelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
             this.panelTitle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseUp);
             // 
-            // lblAdminName
+            // lblCurrentDate
             // 
-            this.lblAdminName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAdminName.AutoSize = true;
-            this.lblAdminName.BackColor = System.Drawing.Color.White;
-            this.lblAdminName.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminName.ForeColor = System.Drawing.Color.Purple;
-            this.lblAdminName.Location = new System.Drawing.Point(597, 24);
-            this.lblAdminName.Name = "lblAdminName";
-            this.lblAdminName.Size = new System.Drawing.Size(70, 22);
-            this.lblAdminName.TabIndex = 0;
-            this.lblAdminName.Text = "ADMIN";
+            this.lblCurrentDate.AutoSize = true;
+            this.lblCurrentDate.Location = new System.Drawing.Point(12, 25);
+            this.lblCurrentDate.Name = "lblCurrentDate";
+            this.lblCurrentDate.Size = new System.Drawing.Size(190, 22);
+            this.lblCurrentDate.TabIndex = 7;
+            this.lblCurrentDate.Text = "August 26, 2024";
             // 
             // btnFullScreen
             // 
@@ -147,15 +143,20 @@
             this.btnEmployeeInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnEmployeeInfo.TabIndex = 4;
             this.btnEmployeeInfo.TabStop = false;
+            this.btnEmployeeInfo.Click += new System.EventHandler(this.btnEmployeeInfo_Click);
             // 
-            // lblCurrentDate
+            // lblAdminName
             // 
-            this.lblCurrentDate.AutoSize = true;
-            this.lblCurrentDate.Location = new System.Drawing.Point(12, 25);
-            this.lblCurrentDate.Name = "lblCurrentDate";
-            this.lblCurrentDate.Size = new System.Drawing.Size(190, 22);
-            this.lblCurrentDate.TabIndex = 7;
-            this.lblCurrentDate.Text = "August 26, 2024";
+            this.lblAdminName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAdminName.AutoSize = true;
+            this.lblAdminName.BackColor = System.Drawing.Color.White;
+            this.lblAdminName.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminName.ForeColor = System.Drawing.Color.Purple;
+            this.lblAdminName.Location = new System.Drawing.Point(597, 24);
+            this.lblAdminName.Name = "lblAdminName";
+            this.lblAdminName.Size = new System.Drawing.Size(70, 22);
+            this.lblAdminName.TabIndex = 0;
+            this.lblAdminName.Text = "ADMIN";
             // 
             // DashboardMainScreen
             // 

@@ -68,11 +68,18 @@
     <Compile Include="Core\DB\DBConfig.cs" />
     <Compile Include="Core\DB\DBFamily.cs" />
     <Compile Include="Core\Helper\Utils.cs" />
+    <Compile Include="Core\Model\FamilyModel.cs" />
     <Compile Include="Dashboard\DashboardMainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dashboard\DashboardMainScreen.Designer.cs">
       <DependentUpon>DashboardMainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\Forms\FloatingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\Forms\FloatingForm.Designer.cs">
+      <DependentUpon>FloatingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Families\FamiliesList\FamiliesListMainScreen.cs">
       <SubType>Form</SubType>
@@ -96,6 +103,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Dashboard\DashboardMainScreen.resx">
       <DependentUpon>DashboardMainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\Forms\FloatingForm.resx">
+      <DependentUpon>FloatingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Families\NewFamily\NewFamilyMainScreen.resx">
+      <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
@@ -124,9 +137,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\icons8-full-screen-48.png" />
   </ItemGroup>

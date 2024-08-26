@@ -49,7 +49,7 @@ namespace FamilySprout
 
         private void btnNewFamily_Click(object sender, EventArgs e)
         {
-
+            OpenFormInPanel(new Families.NewFamily.NewFamilyMainScreen());
         }
 
         private void btnTrash_Click(object sender, EventArgs e)
