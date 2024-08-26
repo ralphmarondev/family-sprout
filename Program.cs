@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FamilySprout.Core.DB;
+using System;
 using System.Windows.Forms;
 
 namespace FamilySprout
@@ -16,6 +14,9 @@ namespace FamilySprout
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            DBConfig.InitializeDatabase();
+
             Application.Run(new MainScreen());
         }
     }
