@@ -87,6 +87,24 @@
     <Compile Include="Families\FamiliesList\FamiliesListMainScreen.Designer.cs">
       <DependentUpon>FamiliesListMainScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Families\NewFamily\Forms\ConfirmInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Families\NewFamily\Forms\ConfirmInputForm.Designer.cs">
+      <DependentUpon>ConfirmInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Families\NewFamily\Forms\HusbandWifeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Families\NewFamily\Forms\HusbandWifeForm.Designer.cs">
+      <DependentUpon>HusbandWifeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Families\NewFamily\Forms\NewChildrenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Families\NewFamily\Forms\NewChildrenForm.Designer.cs">
+      <DependentUpon>NewChildrenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Families\NewFamily\NewFamilyMainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +124,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\Forms\FloatingForm.resx">
       <DependentUpon>FloatingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Families\NewFamily\Forms\ConfirmInputForm.resx">
+      <DependentUpon>ConfirmInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Families\NewFamily\Forms\HusbandWifeForm.resx">
+      <DependentUpon>HusbandWifeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Families\NewFamily\Forms\NewChildrenForm.resx">
+      <DependentUpon>NewChildrenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Families\NewFamily\NewFamilyMainScreen.resx">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>

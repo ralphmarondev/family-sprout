@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.Helper;
 using FamilySprout.Core.Model;
+using FamilySprout.Families.NewFamily.Forms;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,6 +9,8 @@ namespace FamilySprout.Families.NewFamily
 {
     public partial class NewFamilyMainScreen : Form
     {
+        private string name;
+        private int age;
         public NewFamilyMainScreen()
         {
             InitializeComponent();
@@ -19,9 +22,63 @@ namespace FamilySprout.Families.NewFamily
             lblAdminName.Text = Utils.GetAdmin();
 
             SaveToDatabase();
+            OnLoad();
         }
 
 
+
+        #region NAVIGATION
+        private void OnLoad()
+        {
+            OpenFormInPanel(new Forms.HusbandWifeForm());
+        }
+
+        public void OnHusbandWifeNext()
+        {
+            OpenFormInPanel(new Forms.NewChildrenForm());
+            Console.WriteLine($"[Next] Name: {name}, Age: {age}");
+        }
+
+        public void OnBackToHusbandWifeForm()
+        {
+            OpenFormInPanel(new Forms.HusbandWifeForm());
+            Console.WriteLine($"[Back] Name: {name}, Age: {age}");
+        }
+
+        public void OnSave()
+        { // triggered when the save from newchildren form is clicked
+            Console.WriteLine($"[Save] Name: {name}, Age: {age}");
+
+            ConfirmInputForm confirm = new ConfirmInputForm();
+            confirm.StartPosition = FormStartPosition.CenterParent;
+            confirm.ShowDialog(this);
+        }
+
+        public void PrintData(string _name, int _age)
+        {
+            name = _name;
+            age = _age;
+        }
+
+        private void OpenFormInPanel(Form form)
+        {
+            foreach (Control control in mainPanel.Controls)
+            {
+                if (control is Form)
+                {
+                    ((Form)control).Close();
+                }
+            }
+
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            mainPanel.Controls.Add(form);
+            mainPanel.Tag = form;
+            form.BringToFront();
+            form.Show();
+        }
+        #endregion NAVIGATION
 
         #region SAVING
 
@@ -76,10 +133,5 @@ namespace FamilySprout.Families.NewFamily
             Console.WriteLine();
         }
         #endregion SAVING
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
