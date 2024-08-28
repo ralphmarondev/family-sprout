@@ -1,6 +1,5 @@
 ﻿using FamilySprout.Core.Helper;
 using FamilySprout.Core.Model;
-using FamilySprout.Families.NewFamily.Forms;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,8 +8,8 @@ namespace FamilySprout.Families.NewFamily
 {
     public partial class NewFamilyMainScreen : Form
     {
-        private string name;
-        private int age;
+        private int childCount;
+        private string name, bday, baptism, holyCom, matrimony, obitus;
         public NewFamilyMainScreen()
         {
             InitializeComponent();
@@ -21,64 +20,21 @@ namespace FamilySprout.Families.NewFamily
             lblCurrentDate.Text = Utils.GetCurrentDate();
             lblAdminName.Text = Utils.GetAdmin();
 
-            SaveToDatabase();
             OnLoad();
         }
 
 
-
-        #region NAVIGATION
+        #region ONLOAD
         private void OnLoad()
         {
-            OpenFormInPanel(new Forms.HusbandWifeForm());
+            childCount = 0;
+            panelHusbandWife.Visible = true;
+            panelChildrenInformation.Visible = false;
+
+            SetChildCount();
         }
+        #endregion ONLOAD
 
-        public void OnHusbandWifeNext()
-        {
-            OpenFormInPanel(new Forms.NewChildrenForm());
-            Console.WriteLine($"[Next] Name: {name}, Age: {age}");
-        }
-
-        public void OnBackToHusbandWifeForm()
-        {
-            OpenFormInPanel(new Forms.HusbandWifeForm());
-            Console.WriteLine($"[Back] Name: {name}, Age: {age}");
-        }
-
-        public void OnSave()
-        { // triggered when the save from newchildren form is clicked
-            Console.WriteLine($"[Save] Name: {name}, Age: {age}");
-
-            ConfirmInputForm confirm = new ConfirmInputForm();
-            confirm.StartPosition = FormStartPosition.CenterParent;
-            confirm.ShowDialog(this);
-        }
-
-        public void PrintData(string _name, int _age)
-        {
-            name = _name;
-            age = _age;
-        }
-
-        private void OpenFormInPanel(Form form)
-        {
-            foreach (Control control in mainPanel.Controls)
-            {
-                if (control is Form)
-                {
-                    ((Form)control).Close();
-                }
-            }
-
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-            mainPanel.Controls.Add(form);
-            mainPanel.Tag = form;
-            form.BringToFront();
-            form.Show();
-        }
-        #endregion NAVIGATION
 
         #region SAVING
 
@@ -133,5 +89,100 @@ namespace FamilySprout.Families.NewFamily
             Console.WriteLine();
         }
         #endregion SAVING
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            panelHusbandWife.Visible = false;
+            panelChildrenInformation.Visible = true;
+        }
+
+
+        #region ADDING_CHILDREN
+        private List<Children> childrens = new List<Children>();
+
+        private void SetChildCount()
+        {
+            lblChildIndex.Text = $"{childCount + 1}";
+        }
+
+        private void IncrementChildCount()
+        {
+            childCount++;
+        }
+
+        private void DecrementChildCount()
+        {
+            if (childCount > 0)
+            {
+                childCount--;
+            }
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            DecrementChildCount();
+            SetChildCount();
+
+            if (childCount >= 0)
+            {
+                tbChildName.Text = childrens[childCount].name;
+                tbBirthday.Text = childrens[childCount].bday;
+                tbHolyCom.Text = childrens[childCount].hc;
+                tbBaptism.Text = childrens[childCount].baptism;
+                tbMatrimony.Text = childrens[childCount].matrimony;
+                tbObitus.Text = childrens[childCount].obitus;
+            }
+        }
+
+        private void btnNextChild_Click(object sender, EventArgs e)
+        {
+            IncrementChildCount();
+            SetChildCount();
+
+            Children child = new Children();
+            child.name = tbChildName.Text;
+            child.bday = tbBirthday.Text;
+            child.hc = tbHolyCom.Text;
+            child.baptism = tbBaptism.Text;
+            child.matrimony = tbMatrimony.Text;
+            child.obitus = tbObitus.Text;
+
+            childrens.Add(child);
+
+            tbChildName.Text = "";
+            tbBirthday.Text = "";
+            tbHolyCom.Text = "";
+            tbBaptism.Text = "";
+            tbMatrimony.Text = "";
+            tbObitus.Text = "";
+
+            //TODO: error childs are duplicating. Fix  this!
+            if (childCount < childrens.Count)
+            {
+                tbChildName.Text = childrens[childCount].name;
+                tbBirthday.Text = childrens[childCount].bday;
+                tbHolyCom.Text = childrens[childCount].hc;
+                tbBaptism.Text = childrens[childCount].baptism;
+                tbMatrimony.Text = childrens[childCount].matrimony;
+                tbObitus.Text = childrens[childCount].obitus;
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Children:");
+            foreach (var child in childrens)
+            {
+                Console.WriteLine($"- {child.name}, Birthday: {child.bday}, Baptism: {child.baptism}, HC: {child.hc}");
+            }
+            Console.WriteLine();
+        }
+        #endregion ADDING_CHILDREN
+
+        private void lblBack_Click(object sender, EventArgs e)
+        {
+            panelHusbandWife.Visible = true;
+            panelChildrenInformation.Visible = false;
+        }
     }
 }
