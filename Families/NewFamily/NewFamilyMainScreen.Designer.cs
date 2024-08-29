@@ -37,6 +37,7 @@
             this.lblAdminName = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panelChildrenInformation = new System.Windows.Forms.Panel();
+            this.lblBack = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnNextChild = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
@@ -72,7 +73,6 @@
             this.tbHusbandFullName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
-            this.lblBack = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -219,6 +219,18 @@
             this.panelChildrenInformation.Name = "panelChildrenInformation";
             this.panelChildrenInformation.Size = new System.Drawing.Size(595, 408);
             this.panelChildrenInformation.TabIndex = 19;
+            // 
+            // lblBack
+            // 
+            this.lblBack.AutoSize = true;
+            this.lblBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblBack.Font = new System.Drawing.Font("Courier New", 10F);
+            this.lblBack.Location = new System.Drawing.Point(529, 320);
+            this.lblBack.Name = "lblBack";
+            this.lblBack.Size = new System.Drawing.Size(49, 20);
+            this.lblBack.TabIndex = 19;
+            this.lblBack.Text = "BACK";
+            this.lblBack.Click += new System.EventHandler(this.lblBack_Click);
             // 
             // label3
             // 
@@ -611,17 +623,6 @@
             this.tbRemarks.Size = new System.Drawing.Size(538, 54);
             this.tbRemarks.TabIndex = 8;
             this.tbRemarks.Text = "No Remarks";
-            // 
-            // lblBack
-            // 
-            this.lblBack.AutoSize = true;
-            this.lblBack.Font = new System.Drawing.Font("Courier New", 10F);
-            this.lblBack.Location = new System.Drawing.Point(529, 320);
-            this.lblBack.Name = "lblBack";
-            this.lblBack.Size = new System.Drawing.Size(49, 20);
-            this.lblBack.TabIndex = 19;
-            this.lblBack.Text = "BACK";
-            this.lblBack.Click += new System.EventHandler(this.lblBack_Click);
             // 
             // NewFamilyMainScreen
             // 

@@ -170,6 +170,16 @@ namespace FamilySprout.Families.NewFamily
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string husband = tbHusbandFullName.Text.Trim();
+            string husbandFrom = tbHusbandFrom.Text.Trim();
+            string wife = tbWifeFullName.Text.Trim();
+            string wifeFrom = tbWifeFrom.Text.Trim();
+            string remarks = tbRemarks.Text.Trim();
+
+            Console.WriteLine("Family Card");
+            Console.WriteLine($"Husband: {husband}, From: {husbandFrom}");
+            Console.WriteLine($"Wife: {wife}, From: {wifeFrom}");
+            Console.WriteLine($"Remarks: {remarks}");
             Console.WriteLine("Children:");
             foreach (var child in childrens)
             {

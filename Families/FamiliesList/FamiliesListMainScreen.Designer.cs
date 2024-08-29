@@ -36,12 +36,10 @@
             this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
             this.lblAdminName = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.baptism = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matrimony = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obtuse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.husband = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wife = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.childrens = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -169,12 +167,10 @@
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.bday,
-            this.baptism,
-            this.hc,
-            this.matrimony,
-            this.obtuse});
+            this.husband,
+            this.wife,
+            this.childrens,
+            this.actions});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 68);
             this.dataGridView1.Name = "dataGridView1";
@@ -185,53 +181,37 @@
             this.dataGridView1.Size = new System.Drawing.Size(958, 522);
             this.dataGridView1.TabIndex = 16;
             // 
-            // name
+            // husband
             // 
-            this.name.HeaderText = "Children";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 125;
+            this.husband.HeaderText = "Husband";
+            this.husband.MinimumWidth = 6;
+            this.husband.Name = "husband";
+            this.husband.ReadOnly = true;
+            this.husband.Width = 125;
             // 
-            // bday
+            // wife
             // 
-            this.bday.HeaderText = "Birthday";
-            this.bday.MinimumWidth = 6;
-            this.bday.Name = "bday";
-            this.bday.ReadOnly = true;
-            this.bday.Width = 125;
+            this.wife.HeaderText = "Wife";
+            this.wife.MinimumWidth = 6;
+            this.wife.Name = "wife";
+            this.wife.ReadOnly = true;
+            this.wife.Width = 125;
             // 
-            // baptism
+            // childrens
             // 
-            this.baptism.HeaderText = "Baptism";
-            this.baptism.MinimumWidth = 6;
-            this.baptism.Name = "baptism";
-            this.baptism.ReadOnly = true;
-            this.baptism.Width = 125;
+            this.childrens.HeaderText = "Childrens";
+            this.childrens.MinimumWidth = 6;
+            this.childrens.Name = "childrens";
+            this.childrens.ReadOnly = true;
+            this.childrens.Width = 125;
             // 
-            // hc
+            // actions
             // 
-            this.hc.HeaderText = "HC";
-            this.hc.MinimumWidth = 6;
-            this.hc.Name = "hc";
-            this.hc.ReadOnly = true;
-            this.hc.Width = 125;
-            // 
-            // matrimony
-            // 
-            this.matrimony.HeaderText = "Matrimony";
-            this.matrimony.MinimumWidth = 6;
-            this.matrimony.Name = "matrimony";
-            this.matrimony.ReadOnly = true;
-            this.matrimony.Width = 125;
-            // 
-            // obtuse
-            // 
-            this.obtuse.HeaderText = "Obtuse";
-            this.obtuse.MinimumWidth = 6;
-            this.obtuse.Name = "obtuse";
-            this.obtuse.ReadOnly = true;
-            this.obtuse.Width = 125;
+            this.actions.HeaderText = "Actions";
+            this.actions.MinimumWidth = 6;
+            this.actions.Name = "actions";
+            this.actions.ReadOnly = true;
+            this.actions.Width = 125;
             // 
             // FamiliesListMainScreen
             // 
@@ -264,11 +244,9 @@
         private System.Windows.Forms.PictureBox btnEmployeeInfo;
         private System.Windows.Forms.Label lblAdminName;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn baptism;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matrimony;
-        private System.Windows.Forms.DataGridViewTextBoxColumn obtuse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn husband;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wife;
+        private System.Windows.Forms.DataGridViewTextBoxColumn childrens;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actions;
     }
 }
