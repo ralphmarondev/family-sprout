@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FamilySprout.Core.Helper;
+using System;
 using System.Windows.Forms;
 
 namespace FamilySprout.Families.FamiliesList
@@ -16,5 +10,19 @@ namespace FamilySprout.Families.FamiliesList
         {
             InitializeComponent();
         }
+
+        private void FamiliesListMainScreen_Load(object sender, EventArgs e)
+        {
+            lblCurrentDate.Text = Utils.GetCurrentDate();
+            lblAdminName.Text = Utils.GetAdmin();
+        }
+
+
+        #region FETCH_DATA
+        private void FetchData()
+        {
+
+        }
+        #endregion FETCH_DATA
     }
 }

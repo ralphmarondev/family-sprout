@@ -44,7 +44,7 @@ namespace FamilySprout
 
         private void btnFamilies_Click(object sender, EventArgs e)
         {
-
+            OpenFormInPanel(new Families.FamiliesList.FamiliesListMainScreen());
         }
 
         private void btnNewFamily_Click(object sender, EventArgs e)

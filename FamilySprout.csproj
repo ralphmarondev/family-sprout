@@ -107,6 +107,9 @@
     <EmbeddedResource Include="Dashboard\Forms\FloatingForm.resx">
       <DependentUpon>FloatingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Families\FamiliesList\FamiliesListMainScreen.resx">
+      <DependentUpon>FamiliesListMainScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Families\NewFamily\NewFamilyMainScreen.resx">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
     </EmbeddedResource>
