@@ -16,7 +16,7 @@ namespace FamilySprout.Core.Helper
 
         public static string GetAdmin()
         {
-            return "RALPH MARON EDA";
+            return "Ralph Maron Eda";
         }
 
 

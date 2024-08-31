@@ -87,6 +87,12 @@
     <Compile Include="Families\FamiliesList\FamiliesListMainScreen.Designer.cs">
       <DependentUpon>FamiliesListMainScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Families\FamiliesList\Forms\FamilyDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Families\FamiliesList\Forms\FamilyDetailsForm.Designer.cs">
+      <DependentUpon>FamilyDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Families\NewFamily\NewFamilyMainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Families\FamiliesList\FamiliesListMainScreen.resx">
       <DependentUpon>FamiliesListMainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Families\FamiliesList\Forms\FamilyDetailsForm.resx">
+      <DependentUpon>FamilyDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Families\NewFamily\NewFamilyMainScreen.resx">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
