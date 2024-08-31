@@ -1,6 +1,8 @@
-﻿using FamilySprout.Core.Model;
+﻿using FamilySprout.Core.Helper;
+using FamilySprout.Core.Model;
 using System;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace FamilySprout.Core.DB
 {
@@ -10,8 +12,6 @@ namespace FamilySprout.Core.DB
         {
             try
             {
-                Console.WriteLine("Initializing family table...");
-
                 using (var connection = new SQLiteConnection(DBConfig.connectionString))
                 {
                     connection.Open();
@@ -20,35 +20,41 @@ namespace FamilySprout.Core.DB
                         "families (" +
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "husband TEXT NOT NULL, " +
-                        "husbandFrom TEXT NOT NULL," +
+                        "husband_from TEXT NOT NULL," +
                         "wife TEXT NOT NULL, " +
-                        "wifeFrom TEXT NOT NULL, " +
+                        "wife_from TEXT NOT NULL, " +
                         "remarks TEXT NOT NULL, " +
-                        "createdBy TEXT NOT NULL, " +
-                        "createDate TEXT NOT NULL, " +
+                        "created_by TEXT NOT NULL, " +
+                        "create_date TEXT NOT NULL, " +
                         "is_deleted BOOLEAN DEFAULT 0);";
 
+                    Console.WriteLine("Initializing families table...");
                     using (var command = new SQLiteCommand(createFamiliesTableQuery, connection))
                     {
                         command.ExecuteNonQuery();
                     }
+                    Console.WriteLine("families table initialized successfuly!");
 
-                    string createChildrenTableQuery = @"
-                CREATE TABLE IF NOT EXISTS childrens (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    famId INTEGER NOT NULL,
-                    name TEXT NOT NULL,
-                    bday TEXT NOT NULL,
-                    hc TEXT NOT NULL,
-                    FOREIGN KEY (famId) REFERENCES families(id)
-                );";
+                    Console.WriteLine("Initializing childrens table...");
+                    string createChildrenTableQuery = "CREATE TABLE IF NOT EXISTS childrens (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "fam_id INTEGER NOT NULL, " +
+                        "name TEXT NOT NULL," +
+                        "bday TEXT NOT NULL, " +
+                        "hc TEXT NOT NULL, " +
+                        "matrimony TEXT, " +
+                        "obitus TEXT, " +
+                        "created_by TEXT, " +
+                        "create_date TEXT, " +
+                        "is_deleted BOOLEAN DEFAULT 0," +
+                        "FOREIGN KEY (fam_id) REFERENCES families(id)" +
+                        ");";
 
                     using (var command = new SQLiteCommand(createChildrenTableQuery, connection))
                     {
                         command.ExecuteNonQuery();
                     }
-
-                    Console.WriteLine("Families table initialized successfully.");
+                    Console.WriteLine("childrens table initialized successfully.");
                 }
 
             }
@@ -64,14 +70,17 @@ namespace FamilySprout.Core.DB
             {
                 InitializeFamiliesTable();
 
+                string createDate = Utils.GetCurrentDate();
+                string createdBy = Utils.GetAdmin();
+                Console.WriteLine($"CreateDate: {createDate}, CreatedBy: {createdBy}");
+
                 Console.WriteLine("Creating new family...");
                 using (var connection = new SQLiteConnection(DBConfig.connectionString))
                 {
                     connection.Open();
-                    //// Begin a transaction to ensure both family and children are inserted atomically
-                    //using (var transaction = connection.BeginTransaction())
-                    //{
-                    string insertNewEmployeeQuery = "INSERT INTO families (husband, husbandFrom, wife, wifeFrom, remarks, createdBy, createDate) " +
+
+                    string insertNewEmployeeQuery = "INSERT INTO families (" +
+                        "husband, husband_from, wife, wife_from, remarks, created_by, create_date) " +
                     "VALUES (@husband, @husbandFrom, @wife, @wifeFrom, @remarks, @createdBy, @createDate);";
                     using (var command = new SQLiteCommand(insertNewEmployeeQuery, connection))
                     {
@@ -80,8 +89,8 @@ namespace FamilySprout.Core.DB
                         command.Parameters.AddWithValue("@wife", family.wife);
                         command.Parameters.AddWithValue("@wifeFrom", family.wifeFrom);
                         command.Parameters.AddWithValue("@remarks", family.remarks);
-                        command.Parameters.AddWithValue("@createdBy", family.createdBy);
-                        command.Parameters.AddWithValue("@createDate", family.createDate);
+                        command.Parameters.AddWithValue("@createdBy", createdBy);
+                        command.Parameters.AddWithValue("@createDate", createDate);
 
                         command.ExecuteNonQuery();
                     }
@@ -95,32 +104,32 @@ namespace FamilySprout.Core.DB
                     // Insert children records associated with the family
                     foreach (var child in family.childrens)
                     {
-                        string insertNewChildQuery = "INSERT INTO childrens (famId, name, bday, hc) " +
-                            "VALUES (@famId, @name, @bday, @hc);";
+                        string insertNewChildQuery = "INSERT INTO childrens (fam_id, name, bday, hc, matrimony, obitus, created_by, create_date) " +
+                            "VALUES (@famId, @name, @bday, @hc, @matrimony, @obitus, @createdBy, @createDate);";
                         using (var command = new SQLiteCommand(insertNewChildQuery, connection))
                         {
                             command.Parameters.AddWithValue("@famId", familyId);
                             command.Parameters.AddWithValue("@name", child.name);
                             command.Parameters.AddWithValue("@bday", child.bday);
                             command.Parameters.AddWithValue("@hc", child.hc);
+                            command.Parameters.AddWithValue("@matrimony", child.matrimony);
+                            command.Parameters.AddWithValue("@obitus", child.obitus);
+                            command.Parameters.AddWithValue("@createdBy", createdBy);
+                            command.Parameters.AddWithValue("@createDate", createDate);
 
                             command.ExecuteNonQuery();
                         }
                     }
                 }
 
-                //}
-
-                //// Commit the transaction
-                //transaction.Commit();
                 Console.WriteLine("Family created successfully.");
-
+                MessageBox.Show("Family created successfully.");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
-
         }
     }
 }

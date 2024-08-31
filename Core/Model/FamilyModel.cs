@@ -38,6 +38,8 @@ namespace FamilySprout.Core.Model
         public string hc { get; set; }
         public string matrimony { get; set; }
         public string obitus { get; set; }
+        public string createdBy { get; set; }
+        public string createDate { get; set; }
 
         public Children() { }
 
@@ -49,6 +51,8 @@ namespace FamilySprout.Core.Model
             this.hc = _hc;
             this.matrimony = _matrimony;
             this.obitus = _obitus;
+            this.createDate = Utils.GetCurrentDate();
+            this.createdBy = Utils.GetAdmin();
         }
     }
 }
