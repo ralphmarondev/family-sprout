@@ -1,7 +1,9 @@
-﻿using FamilySprout.Core.Helper;
+﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Helper;
 using FamilySprout.Core.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace FamilySprout.Families.NewFamily
@@ -123,6 +125,9 @@ namespace FamilySprout.Families.NewFamily
             DecrementChildCount();
             SetChildCount();
 
+            if (childCount == 0)
+                return;
+
             if (childCount >= 0)
             {
                 tbChildName.Text = childrens[childCount].name;
@@ -176,6 +181,15 @@ namespace FamilySprout.Families.NewFamily
             string wifeFrom = tbWifeFrom.Text.Trim();
             string remarks = tbRemarks.Text.Trim();
 
+            DBFamily.CreateNewFamily(new FamilyModel(
+                   _husband: husband,
+                   _husbandFrom: husbandFrom,
+                   _wife: wife,
+                   _wifeFrom: wifeFrom,
+                   _remarks: remarks,
+                   _childrens: childrens
+                ));
+
             Console.WriteLine("Family Card");
             Console.WriteLine($"Husband: {husband}, From: {husbandFrom}");
             Console.WriteLine($"Wife: {wife}, From: {wifeFrom}");
@@ -194,5 +208,72 @@ namespace FamilySprout.Families.NewFamily
             panelHusbandWife.Visible = true;
             panelChildrenInformation.Visible = false;
         }
+
+
+
+        #region TOPBAR
+        private void btnFullScreen_Click(object sender, EventArgs e)
+        {
+            MainScreen main = this.ParentForm as MainScreen;
+
+            if (main != null)
+            {
+                main.ToggleFullScreen();
+            }
+        }
+
+        private void btnLogout2_Click(object sender, EventArgs e)
+        {
+            MainScreen main = this.ParentForm as MainScreen;
+
+            if (main != null)
+            {
+                main.LogoutForm();
+            }
+        }
+
+        private void btnToggleNavPanel_Click(object sender, EventArgs e)
+        {
+            MainScreen main = this.ParentForm as MainScreen;
+
+            if (main != null)
+            {
+                main.ToggleNavigationPanel();
+            }
+        }
+        #endregion TOPBAR
+
+
+        #region DRAG_AND_DROP
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+        private void panelTitle_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        private void panelTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.ParentForm.Location;
+
+        }
+
+        private void panelTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                MainScreen mainScreen = this.ParentForm as MainScreen;
+
+                if (mainScreen != null)
+                {
+                    mainScreen.Location = Point.Add(dragFormPoint, new Size(diff));
+                }
+            }
+        }
+        #endregion DRAG_AND_DROP
     }
 }
