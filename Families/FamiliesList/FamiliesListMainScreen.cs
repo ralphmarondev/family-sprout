@@ -1,5 +1,7 @@
-﻿using FamilySprout.Core.Helper;
+﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Helper;
 using System;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -18,7 +20,7 @@ namespace FamilySprout.Families.FamiliesList
             lblAdminName.Text = Utils.GetAdmin();
 
             InitializeDataGridView();
-            AddStaticRow();
+            AddRowsFromDatabase();
         }
 
 
@@ -57,16 +59,44 @@ namespace FamilySprout.Families.FamiliesList
 
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
         }
-        private void AddStaticRow()
-        {
-            // Static data for the first row
-            string husband = "John Doe";
-            string wife = "Jane Doe";
-            int childrenCount = 3; // Static count for demonstration
 
-            // Add row to DataGridView
-            dataGridView1.Rows.Add(husband, wife, childrenCount);
-            dataGridView1.Rows.Add(wife, husband, 2);
+        // TODO: Refactor this, database operations should be on core/db module
+        private void AddRowsFromDatabase()
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = @"
+                SELECT f.husband, f.wife, COUNT(c.id) AS childrenCount
+                FROM families f
+                LEFT JOIN childrens c ON f.id = c.fam_id
+                GROUP BY f.husband, f.wife;";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        // Clear existing rows
+                        dataGridView1.Rows.Clear();
+
+                        while (reader.Read())
+                        {
+                            string husband = reader["husband"].ToString();
+                            string wife = reader["wife"].ToString();
+                            int childrenCount = Convert.ToInt32(reader["childrenCount"]);
+
+                            // Add row to DataGridView
+                            dataGridView1.Rows.Add(husband, wife, childrenCount);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading data: {ex.Message}");
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -76,6 +106,12 @@ namespace FamilySprout.Families.FamiliesList
             {
                 // Fetch data as needed and show a form
                 MessageBox.Show("View Details clicked for " + dataGridView1.Rows[e.RowIndex].Cells["Husband"].Value);
+
+                string husband = dataGridView1.Rows[e.RowIndex].Cells["Husband"].Value.ToString();
+                string wife = dataGridView1.Rows[e.RowIndex].Cells["Wife"].Value.ToString();
+
+                int famId = DBFamily.GetFamilyIdByHusbandAndWife(husband: husband, wife: wife);
+                Console.WriteLine($"FamID: {famId}, Husband: {husband}, Wife: {wife}");
             }
         }
         #endregion ON_LOAD

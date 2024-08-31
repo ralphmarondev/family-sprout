@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuthScreen.Designer.cs">
+      <DependentUpon>AuthScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\DB\DBConfig.cs" />
     <Compile Include="Core\DB\DBFamily.cs" />
     <Compile Include="Core\Helper\Utils.cs" />
@@ -107,6 +113,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AuthScreen.resx">
+      <DependentUpon>AuthScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\DashboardMainScreen.resx">
       <DependentUpon>DashboardMainScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,7 +158,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\sprout.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-full-screen-48.png" />
   </ItemGroup>

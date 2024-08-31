@@ -1,6 +1,7 @@
 ﻿using FamilySprout.Core.Helper;
 using FamilySprout.Core.Model;
 using System;
+using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
@@ -130,6 +131,82 @@ namespace FamilySprout.Core.DB
                 Console.WriteLine($"Error: {ex.Message}");
                 MessageBox.Show($"Error: {ex.Message}");
             }
+        }
+
+
+
+        public static int GetFamilyIdByHusbandAndWife(string husband, string wife)
+        {
+            int familyId = -1;
+
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT id FROM families WHERE husband = @husband AND wife = @wife";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        // Adding parameters to prevent SQL injection
+                        command.Parameters.AddWithValue("@husband", husband);
+                        command.Parameters.AddWithValue("@wife", wife);
+
+                        // Execute the query and read the result
+                        using (var reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Convert the result to an integer
+                                familyId = reader.GetInt32(0);
+                            }
+                            else
+                            {
+                                throw new InvalidOperationException("No matching family found.");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return familyId;
+        }
+        public static DataTable GetFamilyDetailsAndChildrenCount()
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = @"
+                        SELECT f.husband, f.wife, COUNT(c.id) AS childrenCount
+                        FROM families f
+                        LEFT JOIN childrens c ON f.id = c.fam_id
+                        GROUP BY f.husband, f.wife;
+                    ";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        using (var adapter = new SQLiteDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return dataTable;
         }
     }
 }

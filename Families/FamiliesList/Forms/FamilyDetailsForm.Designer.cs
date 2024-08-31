@@ -48,10 +48,12 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FamilyDetailsForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FamilyDetailsForm";
+            this.Text = "Family Details";
+            this.Load += new System.EventHandler(this.FamilyDetailsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

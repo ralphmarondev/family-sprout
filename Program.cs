@@ -19,7 +19,7 @@ namespace FamilySprout
             DBConfig.InitializeDatabase();
             Utils.ReadFamilySproutConfig();
 
-            Application.Run(new MainScreen());
+            Application.Run(new AuthScreen());
         }
     }
 }

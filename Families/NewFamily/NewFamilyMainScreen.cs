@@ -175,6 +175,19 @@ namespace FamilySprout.Families.NewFamily
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            IncrementChildCount();
+            SetChildCount();
+
+            Children child = new Children();
+            child.name = tbChildName.Text;
+            child.bday = tbBirthday.Text;
+            child.hc = tbHolyCom.Text;
+            child.baptism = tbBaptism.Text;
+            child.matrimony = tbMatrimony.Text;
+            child.obitus = tbObitus.Text;
+
+            childrens.Add(child);
+
             string husband = tbHusbandFullName.Text.Trim();
             string husbandFrom = tbHusbandFrom.Text.Trim();
             string wife = tbWifeFullName.Text.Trim();
@@ -195,11 +208,12 @@ namespace FamilySprout.Families.NewFamily
             Console.WriteLine($"Wife: {wife}, From: {wifeFrom}");
             Console.WriteLine($"Remarks: {remarks}");
             Console.WriteLine("Children:");
-            foreach (var child in childrens)
+            foreach (var childr in childrens)
             {
-                Console.WriteLine($"- {child.name}, Birthday: {child.bday}, Baptism: {child.baptism}, HC: {child.hc}");
+                Console.WriteLine($"- {childr.name}, Birthday: {childr.bday}, Baptism: {childr.baptism}, HC: {childr.hc}");
             }
             Console.WriteLine();
+            Close();
         }
         #endregion ADDING_CHILDREN
 
