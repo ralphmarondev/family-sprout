@@ -92,79 +92,106 @@ namespace FamilySprout.Families.NewFamily
 
         private void btnNextChild_Click(object sender, EventArgs e)
         {
-            IncrementChildCount();
-            SetChildCount();
-
-            Children child = new Children();
-            child.name = tbChildName.Text;
-            child.bday = tbBirthday.Text;
-            child.hc = tbHolyCom.Text;
-            child.baptism = tbBaptism.Text;
-            child.matrimony = tbMatrimony.Text;
-            child.obitus = tbObitus.Text;
-
-            childrens.Add(child);
-
-            tbChildName.Text = "";
-            tbBirthday.Text = "";
-            tbHolyCom.Text = "";
-            tbBaptism.Text = "";
-            tbMatrimony.Text = "";
-            tbObitus.Text = "";
-
-            //TODO: error childs are duplicating. Fix  this!
-            if (childCount < childrens.Count)
+            if (tbChildName.Text != "" && tbBirthday.Text != "")
             {
-                tbChildName.Text = childrens[childCount].name;
-                tbBirthday.Text = childrens[childCount].bday;
-                tbHolyCom.Text = childrens[childCount].hc;
-                tbBaptism.Text = childrens[childCount].baptism;
-                tbMatrimony.Text = childrens[childCount].matrimony;
-                tbObitus.Text = childrens[childCount].obitus;
+                IncrementChildCount();
+                SetChildCount();
+
+                Children child = new Children();
+                child.id = Utils.DEFAULT_ID;
+                child.famId = Utils.DEFAULT_FAMID;
+                child.name = tbChildName.Text;
+                child.bday = tbBirthday.Text;
+                child.hc = tbHolyCom.Text;
+                child.baptism = tbBaptism.Text;
+                child.matrimony = tbMatrimony.Text;
+                child.obitus = tbObitus.Text;
+                child.createdBy = lblAdminName.Text.Trim();
+                child.createDate = Utils.GetCreateDate();
+
+                childrens.Add(child);
+
+                tbChildName.Text = "";
+                tbBirthday.Text = "";
+                tbHolyCom.Text = "";
+                tbBaptism.Text = "";
+                tbMatrimony.Text = "";
+                tbObitus.Text = "";
+
+                //TODO: error childs are duplicating. Fix  this!
+                if (childCount < childrens.Count)
+                {
+                    tbChildName.Text = childrens[childCount].name;
+                    tbBirthday.Text = childrens[childCount].bday;
+                    tbHolyCom.Text = childrens[childCount].hc;
+                    tbBaptism.Text = childrens[childCount].baptism;
+                    tbMatrimony.Text = childrens[childCount].matrimony;
+                    tbObitus.Text = childrens[childCount].obitus;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Name and Birthday cannot be empty!");
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            IncrementChildCount();
-            SetChildCount();
-
-            Children child = new Children();
-            child.name = tbChildName.Text;
-            child.bday = tbBirthday.Text;
-            child.hc = tbHolyCom.Text;
-            child.baptism = tbBaptism.Text;
-            child.matrimony = tbMatrimony.Text;
-            child.obitus = tbObitus.Text;
-
-            childrens.Add(child);
-
-            string husband = tbHusbandFullName.Text.Trim();
-            string husbandFrom = tbHusbandFrom.Text.Trim();
-            string wife = tbWifeFullName.Text.Trim();
-            string wifeFrom = tbWifeFrom.Text.Trim();
-            string remarks = tbRemarks.Text.Trim();
-
-            DBFamily.CreateNewFamily(new FamilyModel(
-                   _husband: husband,
-                   _husbandFrom: husbandFrom,
-                   _wife: wife,
-                   _wifeFrom: wifeFrom,
-                   _remarks: remarks,
-                   _childrens: childrens
-                ));
-
-            Console.WriteLine("Family Card");
-            Console.WriteLine($"Husband: {husband}, From: {husbandFrom}");
-            Console.WriteLine($"Wife: {wife}, From: {wifeFrom}");
-            Console.WriteLine($"Remarks: {remarks}");
-            Console.WriteLine("Children:");
-            foreach (var childr in childrens)
+            if (tbChildName.Text != "" && tbBirthday.Text != "")
             {
-                Console.WriteLine($"- {childr.name}, Birthday: {childr.bday}, Baptism: {childr.baptism}, HC: {childr.hc}");
+                IncrementChildCount();
+                SetChildCount();
+
+                string husband = tbHusbandFullName.Text.Trim();
+                string husbandFrom = tbHusbandFrom.Text.Trim();
+                string wife = tbWifeFullName.Text.Trim();
+                string wifeFrom = tbWifeFrom.Text.Trim();
+                string remarks = tbRemarks.Text.Trim();
+                string createdBy = lblAdminName.Text.Trim();
+                string createDate = Utils.GetCreateDate();
+
+                Children child = new Children();
+                child.id = Utils.DEFAULT_ID;
+                child.famId = Utils.DEFAULT_FAMID;
+                child.name = tbChildName.Text;
+                child.bday = tbBirthday.Text;
+                child.hc = tbHolyCom.Text;
+                child.baptism = tbBaptism.Text;
+                child.matrimony = tbMatrimony.Text;
+                child.obitus = tbObitus.Text;
+                child.createdBy = createdBy;
+                child.createDate = createDate;
+
+                childrens.Add(child);
+
+                DBFamily.CreateNewFamily(new FamilyModel(
+                       _id: Utils.DEFAULT_ID,
+                       _husband: husband,
+                       _husbandFrom: husbandFrom,
+                       _wife: wife,
+                       _wifeFrom: wifeFrom,
+                       _remarks: remarks,
+                       _childrens: childrens,
+                       _createdBy: createdBy,
+                       _createDate: createDate
+                    ));
+
+                Console.WriteLine("Family Card");
+                Console.WriteLine($"Husband: {husband}, From: {husbandFrom}");
+                Console.WriteLine($"Wife: {wife}, From: {wifeFrom}");
+                Console.WriteLine($"Remarks: {remarks}");
+                Console.WriteLine("Children:");
+                foreach (var childr in childrens)
+                {
+                    Console.WriteLine($"- {childr.name}, Birthday: {childr.bday}, Baptism: {childr.baptism}, HC: {childr.hc}");
+                }
+                Console.WriteLine();
+                Close();
             }
-            Console.WriteLine();
-            Close();
+            else
+            {
+                MessageBox.Show("Name and Birthday cannot be empty!");
+            }
         }
         #endregion ADDING_CHILDREN
 

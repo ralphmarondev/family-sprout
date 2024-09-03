@@ -1,5 +1,4 @@
-﻿using FamilySprout.Core.Helper;
-using FamilySprout.Core.Model;
+﻿using FamilySprout.Core.Model;
 using System;
 using System.Data;
 using System.Data.SQLite;
@@ -38,15 +37,16 @@ namespace FamilySprout.Core.DB
 
                     Console.WriteLine("Initializing childrens table...");
                     string createChildrenTableQuery = "CREATE TABLE IF NOT EXISTS childrens (" +
-                        "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        "fam_id INTEGER NOT NULL, " +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "fam_id INTEGER NOT NULL," +
                         "name TEXT NOT NULL," +
                         "bday TEXT NOT NULL, " +
-                        "hc TEXT NOT NULL, " +
-                        "matrimony TEXT, " +
-                        "obitus TEXT, " +
-                        "created_by TEXT, " +
-                        "create_date TEXT, " +
+                        "baptism TEXT," +
+                        "hc TEXT," +
+                        "matrimony TEXT," +
+                        "obitus TEXT," +
+                        "created_by TEXT," +
+                        "create_date TEXT," +
                         "is_deleted BOOLEAN DEFAULT 0," +
                         "FOREIGN KEY (fam_id) REFERENCES families(id)" +
                         ");";
@@ -55,7 +55,7 @@ namespace FamilySprout.Core.DB
                     {
                         command.ExecuteNonQuery();
                     }
-                    Console.WriteLine("childrens table initialized successfully.");
+                    Console.WriteLine("Childrens table initialized successfully.");
                 }
 
             }
@@ -71,9 +71,7 @@ namespace FamilySprout.Core.DB
             {
                 InitializeFamiliesTable();
 
-                string createDate = Utils.GetCurrentDate();
-                string createdBy = Utils.GetAdmin();
-                Console.WriteLine($"CreateDate: {createDate}, CreatedBy: {createdBy}");
+                Console.WriteLine($"CreateDate: {family.createDate}, CreatedBy: {family.createdBy}");
 
                 Console.WriteLine("Creating new family...");
                 using (var connection = new SQLiteConnection(DBConfig.connectionString))
@@ -90,8 +88,8 @@ namespace FamilySprout.Core.DB
                         command.Parameters.AddWithValue("@wife", family.wife);
                         command.Parameters.AddWithValue("@wifeFrom", family.wifeFrom);
                         command.Parameters.AddWithValue("@remarks", family.remarks);
-                        command.Parameters.AddWithValue("@createdBy", createdBy);
-                        command.Parameters.AddWithValue("@createDate", createDate);
+                        command.Parameters.AddWithValue("@createdBy", family.createdBy);
+                        command.Parameters.AddWithValue("@createDate", family.createDate);
 
                         command.ExecuteNonQuery();
                     }
@@ -115,8 +113,8 @@ namespace FamilySprout.Core.DB
                             command.Parameters.AddWithValue("@hc", child.hc);
                             command.Parameters.AddWithValue("@matrimony", child.matrimony);
                             command.Parameters.AddWithValue("@obitus", child.obitus);
-                            command.Parameters.AddWithValue("@createdBy", createdBy);
-                            command.Parameters.AddWithValue("@createDate", createDate);
+                            command.Parameters.AddWithValue("@createdBy", child.createdBy);
+                            command.Parameters.AddWithValue("@createDate", child.createDate);
 
                             command.ExecuteNonQuery();
                         }
@@ -148,16 +146,13 @@ namespace FamilySprout.Core.DB
                     string query = "SELECT id FROM families WHERE husband = @husband AND wife = @wife";
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        // Adding parameters to prevent SQL injection
                         command.Parameters.AddWithValue("@husband", husband);
                         command.Parameters.AddWithValue("@wife", wife);
 
-                        // Execute the query and read the result
                         using (var reader = command.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                // Convert the result to an integer
                                 familyId = reader.GetInt32(0);
                             }
                             else
@@ -175,6 +170,7 @@ namespace FamilySprout.Core.DB
 
             return familyId;
         }
+
         public static DataTable GetFamilyDetailsAndChildrenCount()
         {
             DataTable dataTable = new DataTable();
