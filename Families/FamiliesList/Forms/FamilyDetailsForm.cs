@@ -20,7 +20,21 @@ namespace FamilySprout.Families.FamiliesList.Forms
 
         private void FamilyDetailsForm_Load(object sender, EventArgs e)
         {
+            GetDetailsWithId();
+        }
 
+        private void GetDetailsWithId()
+        {
+            tbHusbandFullName.Text = "HusbandName";
+            tbHusbandFrom.Text = "Earth";
+            tbWifeFullName.Text = "WifeName";
+            tbWifeFrom.Text = "Mars";
+            tbRemarks.Text = "No Remarks";
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

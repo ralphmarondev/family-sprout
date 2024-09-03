@@ -208,5 +208,39 @@ namespace FamilySprout.Core.DB
 
             return dataTable;
         }
+
+        public static FamilyModel GetFamilyDetailsById(int _id)
+        {
+            FamilyModel family = null;
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM families WHERE id = @id";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", _id);
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                family = new FamilyModel(
+                                    //id: reader.GetInt32(0),
+                                    //name: reader.GetString(1),
+                                    );
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return family;
+        }
     }
 }

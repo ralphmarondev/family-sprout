@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.DB;
 using FamilySprout.Core.Helper;
+using FamilySprout.Families.FamiliesList.Forms;
 using System;
 using System.Data.SQLite;
 using System.Drawing;
@@ -16,7 +17,6 @@ namespace FamilySprout.Families.FamiliesList
 
         private void FamiliesListMainScreen_Load(object sender, EventArgs e)
         {
-            lblCurrentDate.Text = Utils.GetCurrentDate();
             lblAdminName.Text = Utils.GetAdmin();
 
             InitializeDataGridView();
@@ -50,7 +50,7 @@ namespace FamilySprout.Families.FamiliesList
             DataGridViewButtonColumn actionColumn = new DataGridViewButtonColumn();
             actionColumn.Name = "Action";
             actionColumn.HeaderText = "Action";
-            actionColumn.Text = "View Details";
+            actionColumn.Text = "Details";
             actionColumn.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(actionColumn);
 
@@ -105,15 +105,22 @@ namespace FamilySprout.Families.FamiliesList
             if (e.ColumnIndex == dataGridView1.Columns["Action"].Index && e.RowIndex >= 0)
             {
                 // Fetch data as needed and show a form
-                MessageBox.Show("View Details clicked for " + dataGridView1.Rows[e.RowIndex].Cells["Husband"].Value);
+                //MessageBox.Show("View Details clicked for " + dataGridView1.Rows[e.RowIndex].Cells["Husband"].Value);
 
                 string husband = dataGridView1.Rows[e.RowIndex].Cells["Husband"].Value.ToString();
                 string wife = dataGridView1.Rows[e.RowIndex].Cells["Wife"].Value.ToString();
 
                 int famId = DBFamily.GetFamilyIdByHusbandAndWife(husband: husband, wife: wife);
                 Console.WriteLine($"FamID: {famId}, Husband: {husband}, Wife: {wife}");
+                FamilyDetailsForm details = new FamilyDetailsForm(_id: famId);
+                details.ShowDialog(this);
             }
         }
         #endregion ON_LOAD
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Searching for: {tbSearch.Text.Trim()}");
+        }
     }
 }

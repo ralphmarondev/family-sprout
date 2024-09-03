@@ -63,9 +63,29 @@ namespace FamilySprout.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_angry_face_with_horns_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-angry-face-with-horns-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_full_screen_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-full-screen-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_google_web_search_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-google-web-search-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
