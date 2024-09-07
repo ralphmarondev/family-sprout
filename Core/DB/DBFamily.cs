@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.Model;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
@@ -103,13 +104,14 @@ namespace FamilySprout.Core.DB
                     // Insert children records associated with the family
                     foreach (var child in family.childrens)
                     {
-                        string insertNewChildQuery = "INSERT INTO childrens (fam_id, name, bday, hc, matrimony, obitus, created_by, create_date) " +
-                            "VALUES (@famId, @name, @bday, @hc, @matrimony, @obitus, @createdBy, @createDate);";
+                        string insertNewChildQuery = "INSERT INTO childrens (fam_id, name, bday, baptism, hc, matrimony, obitus, created_by, create_date) " +
+                            "VALUES (@famId, @name, @bday, @baptism, @hc, @matrimony, @obitus, @createdBy, @createDate);";
                         using (var command = new SQLiteCommand(insertNewChildQuery, connection))
                         {
                             command.Parameters.AddWithValue("@famId", familyId);
                             command.Parameters.AddWithValue("@name", child.name);
                             command.Parameters.AddWithValue("@bday", child.bday);
+                            command.Parameters.AddWithValue("@baptism", child.baptism);
                             command.Parameters.AddWithValue("@hc", child.hc);
                             command.Parameters.AddWithValue("@matrimony", child.matrimony);
                             command.Parameters.AddWithValue("@obitus", child.obitus);
@@ -208,11 +210,39 @@ namespace FamilySprout.Core.DB
         public static FamilyModel GetFamilyDetailsById(int _id)
         {
             FamilyModel family = null;
+            var children = new List<Children>();
             try
             {
                 using (var connection = new SQLiteConnection(DBConfig.connectionString))
                 {
                     connection.Open();
+
+                    string selectAllChildrensQuery = "SELECT * FROM childrens WHERE fam_id = @id";
+                    using (var command = new SQLiteCommand(selectAllChildrensQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", _id);
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var child = new Children
+                                {
+                                    id = reader.GetInt32(reader.GetOrdinal("id")),
+                                    famId = reader.GetInt32(reader.GetOrdinal("fam_id")),
+                                    name = reader.GetString(reader.GetOrdinal("name")),
+                                    bday = reader.GetString(reader.GetOrdinal("bday")),
+                                    baptism = reader.GetString(reader.GetOrdinal("baptism")),
+                                    hc = reader.GetString(reader.GetOrdinal("hc")),
+                                    matrimony = reader.GetString(reader.GetOrdinal("matrimony")),
+                                    obitus = reader.GetString(reader.GetOrdinal("obitus")),
+                                    createdBy = reader.GetString(reader.GetOrdinal("created_by")),
+                                    createDate = reader.GetString(reader.GetOrdinal("create_date"))
+                                };
+                                children.Add(child);
+                            }
+                        }
+                    }
 
                     string query = "SELECT * FROM families WHERE id = @id";
                     using (var command = new SQLiteCommand(query, connection))
@@ -224,8 +254,15 @@ namespace FamilySprout.Core.DB
                             if (reader.Read())
                             {
                                 family = new FamilyModel(
-                                    //id: reader.GetInt32(0),
-                                    //name: reader.GetString(1),
+                                    _id: reader.GetInt32(0),
+                                    _husband: reader.GetString(1),
+                                    _husbandFrom: reader.GetString(2),
+                                    _wife: reader.GetString(3),
+                                    _wifeFrom: reader.GetString(4),
+                                    _remarks: reader.GetString(5),
+                                    _createdBy: reader.GetString(6),
+                                    _createDate: reader.GetString(7),
+                                    _childrens: children
                                     );
                             }
                         }

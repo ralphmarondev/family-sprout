@@ -1,5 +1,4 @@
-﻿using FamilySprout.Core.DB;
-using FamilySprout.Core.Helper;
+﻿using FamilySprout.Core.Helper;
 using FamilySprout.Core.Model;
 using System;
 using System.Collections.Generic;
@@ -10,8 +9,6 @@ namespace FamilySprout.Families.NewFamily
 {
     public partial class NewFamilyMainScreen : Form
     {
-        private int childCount;
-        private string name, bday, baptism, holyCom, matrimony, obitus;
         public NewFamilyMainScreen()
         {
             InitializeComponent();
@@ -29,11 +26,12 @@ namespace FamilySprout.Families.NewFamily
         #region ONLOAD
         private void OnLoad()
         {
-            childCount = 0;
             panelHusbandWife.Visible = true;
             panelChildrenInformation.Visible = false;
 
-            SetChildCount();
+            childrens.Clear();
+            lblChildIndex.Text = $"{count + 1}";
+            btnPrev.Enabled = false;
         }
         #endregion ONLOAD
 
@@ -41,7 +39,7 @@ namespace FamilySprout.Families.NewFamily
         {
             if (tbHusbandFullName.Text == "" || tbHusbandFrom.Text == "" || tbWifeFullName.Text == "" || tbWifeFrom.Text == "" || tbRemarks.Text == "")
             {
-                MessageBox.Show("Please fill in all fields!");
+                MessageBox.Show("Please fill in all fields!", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -51,54 +49,54 @@ namespace FamilySprout.Families.NewFamily
 
 
         #region ADDING_CHILDREN
-        private List<Children> childrens = new List<Children>();
-
-        private void SetChildCount()
-        {
-            lblChildIndex.Text = $"{childCount + 1}";
-        }
-
-        private void IncrementChildCount()
-        {
-            childCount++;
-        }
-
-        private void DecrementChildCount()
-        {
-            if (childCount > 0)
-            {
-                childCount--;
-            }
-        }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            DecrementChildCount();
-            SetChildCount();
-
-            if (childCount == 0)
-                return;
-
-            if (childCount >= 0)
-            {
-                tbChildName.Text = childrens[childCount].name;
-                tbBirthday.Text = childrens[childCount].bday;
-                tbHolyCom.Text = childrens[childCount].hc;
-                tbBaptism.Text = childrens[childCount].baptism;
-                tbMatrimony.Text = childrens[childCount].matrimony;
-                tbObitus.Text = childrens[childCount].obitus;
-            }
+            OnPrev();
         }
 
         private void btnNextChild_Click(object sender, EventArgs e)
         {
-            if (tbChildName.Text != "" && tbBirthday.Text != "")
-            {
-                IncrementChildCount();
-                SetChildCount();
+            OnNext();
+        }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            OnSave();
+        }
+        #endregion ADDING_CHILDREN
+
+
+        #region PrevNextSave
+        private List<Children> childrens = new List<Children>();
+        private int count = 0, maxCount = 0, prevMaxCount = 0;
+        private void OnPrev()
+        {
+            count--;
+            int index = count;
+            if (index >= 0)
+            {
+                tbChildName.Text = childrens[index].name;
+                tbBirthday.Text = childrens[index].bday;
+                tbHolyCom.Text = childrens[index].hc;
+                tbBaptism.Text = childrens[index].baptism;
+                tbMatrimony.Text = childrens[index].matrimony;
+                tbObitus.Text = childrens[index].obitus;
+
+                lblChildIndex.Text = $"{count + 1}";
+                if (count <= 0)
+                {
+                    btnPrev.Enabled = false;
+                }
+            }
+        }
+
+        private void OnNext()
+        {
+            if (InputsValid())
+            {
                 Children child = new Children();
-                child.id = Utils.DEFAULT_ID;
+                child.id = count; // setting count as id
                 child.famId = Utils.DEFAULT_FAMID;
                 child.name = tbChildName.Text;
                 child.bday = tbBirthday.Text;
@@ -110,90 +108,76 @@ namespace FamilySprout.Families.NewFamily
                 child.createDate = Utils.GetCreateDate();
 
                 childrens.Add(child);
-
-                tbChildName.Text = "";
-                tbBirthday.Text = "";
-                tbHolyCom.Text = "";
-                tbBaptism.Text = "";
-                tbMatrimony.Text = "";
-                tbObitus.Text = "";
-
-                //TODO: error childs are duplicating. Fix  this!
-                if (childCount < childrens.Count)
+                ClearFields();
+                count++; // 0 + 1 = 1
+                prevMaxCount = maxCount; // 0
+                maxCount = count; // count = 0 + 1 = 1
+                if (maxCount > prevMaxCount)
                 {
-                    tbChildName.Text = childrens[childCount].name;
-                    tbBirthday.Text = childrens[childCount].bday;
-                    tbHolyCom.Text = childrens[childCount].hc;
-                    tbBaptism.Text = childrens[childCount].baptism;
-                    tbMatrimony.Text = childrens[childCount].matrimony;
-                    tbObitus.Text = childrens[childCount].obitus;
+                    prevMaxCount = maxCount;
                 }
-            }
-            else
-            {
-                MessageBox.Show("Name and Birthday cannot be empty!");
+
+                lblChildIndex.Text = $"{count + 1}";
+                if (count > 0)
+                {
+                    btnPrev.Enabled = true;
+                }
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void OnSave()
         {
-            if (tbChildName.Text != "" && tbBirthday.Text != "")
+            if (count == 0 && maxCount == 0)
             {
-                IncrementChildCount();
-                SetChildCount();
+                DialogResult result = MessageBox.Show("No Children is added, are you sure you want to continue?\nYou can still add later.", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                string husband = tbHusbandFullName.Text.Trim();
-                string husbandFrom = tbHusbandFrom.Text.Trim();
-                string wife = tbWifeFullName.Text.Trim();
-                string wifeFrom = tbWifeFrom.Text.Trim();
-                string remarks = tbRemarks.Text.Trim();
-                string createdBy = lblAdminName.Text.Trim();
-                string createDate = Utils.GetCreateDate();
-
-                Children child = new Children();
-                child.id = Utils.DEFAULT_ID;
-                child.famId = Utils.DEFAULT_FAMID;
-                child.name = tbChildName.Text;
-                child.bday = tbBirthday.Text;
-                child.hc = tbHolyCom.Text;
-                child.baptism = tbBaptism.Text;
-                child.matrimony = tbMatrimony.Text;
-                child.obitus = tbObitus.Text;
-                child.createdBy = createdBy;
-                child.createDate = createDate;
-
-                childrens.Add(child);
-
-                DBFamily.CreateNewFamily(new FamilyModel(
-                       _id: Utils.DEFAULT_ID,
-                       _husband: husband,
-                       _husbandFrom: husbandFrom,
-                       _wife: wife,
-                       _wifeFrom: wifeFrom,
-                       _remarks: remarks,
-                       _childrens: childrens,
-                       _createdBy: createdBy,
-                       _createDate: createDate
-                    ));
-
-                Console.WriteLine("Family Card");
-                Console.WriteLine($"Husband: {husband}, From: {husbandFrom}");
-                Console.WriteLine($"Wife: {wife}, From: {wifeFrom}");
-                Console.WriteLine($"Remarks: {remarks}");
-                Console.WriteLine("Children:");
-                foreach (var childr in childrens)
+                if (result == DialogResult.Yes)
                 {
-                    Console.WriteLine($"- {childr.name}, Birthday: {childr.bday}, Baptism: {childr.baptism}, HC: {childr.hc}");
+                    MessageBox.Show("Saving to database.");
                 }
-                Console.WriteLine();
-                Close();
             }
             else
             {
-                MessageBox.Show("Name and Birthday cannot be empty!");
+                if (InputsValid())
+                {
+                    MessageBox.Show("Saving to database.");
+                }
             }
+            //DBFamily.CreateNewFamily(new FamilyModel(
+            //       _id: Utils.DEFAULT_ID,
+            //       _husband: husband,
+            //       _husbandFrom: husbandFrom,
+            //       _wife: wife,
+            //       _wifeFrom: wifeFrom,
+            //       _remarks: remarks,
+            //       _childrens: childrens,
+            //       _createdBy: createdBy,
+            //       _createDate: createDate
+            //    ));
         }
-        #endregion ADDING_CHILDREN
+
+        private bool InputsValid()
+        {
+            if (tbChildName.Text == "" || tbBirthday.Text == "")
+            {
+                MessageBox.Show("Child Name or birthday cannot be empty!", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        private void ClearFields()
+        {
+            tbChildName.Text = "";
+            tbBirthday.Text = "";
+            tbHolyCom.Text = "";
+            tbBaptism.Text = "";
+            tbMatrimony.Text = "";
+            tbObitus.Text = "";
+        }
+        #endregion PrevNextSave
+
 
         private void lblBack_Click(object sender, EventArgs e)
         {
