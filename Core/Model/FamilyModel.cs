@@ -10,6 +10,7 @@ namespace FamilySprout.Core.Model
         public string wife { get; set; }
         public string wifeFrom { get; set; }
         public string remarks { get; set; }
+        public int childCount { get; set; }
         public List<Children> childrens { get; set; } = new List<Children>();
 
         public string createdBy { get; set; }
@@ -24,6 +25,7 @@ namespace FamilySprout.Core.Model
             string _wife,
             string _wifeFrom,
             string _remarks,
+            int _childCount,
             string _createdBy,
             string _createDate,
             List<Children> _childrens
@@ -35,6 +37,7 @@ namespace FamilySprout.Core.Model
             this.wife = _wife;
             this.wifeFrom = _wifeFrom;
             this.remarks = _remarks;
+            this.childCount = _childCount;
             this.childrens = _childrens;
             this.createdBy = _createdBy;
             this.createDate = _createDate;

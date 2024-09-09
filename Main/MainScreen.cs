@@ -102,5 +102,10 @@ namespace FamilySprout
         {
             OpenFormInPanel(new Dashboard.DashboardMainScreen());
         }
+
+        public void OpenFamilyList()
+        {
+            OpenFormInPanel(new Families.FamiliesList.FamiliesListMainScreen());
+        }
     }
 }

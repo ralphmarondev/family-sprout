@@ -70,10 +70,10 @@ namespace FamilySprout.Families.FamiliesList
                     connection.Open();
 
                     string query = @"
-                SELECT f.husband, f.wife, COUNT(c.id) AS childrenCount
-                FROM families f
-                LEFT JOIN childrens c ON f.id = c.fam_id
-                GROUP BY f.husband, f.wife;";
+                        SELECT f.husband, f.wife, COUNT(c.id) AS childrenCount
+                        FROM families f
+                        LEFT JOIN childrens c ON f.id = c.fam_id
+                        GROUP BY f.husband, f.wife;";
 
                     using (var command = new SQLiteCommand(query, connection))
                     using (var reader = command.ExecuteReader())

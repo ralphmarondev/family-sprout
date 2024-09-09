@@ -25,6 +25,7 @@ namespace FamilySprout.Core.DB
                         "wife TEXT NOT NULL, " +
                         "wife_from TEXT NOT NULL, " +
                         "remarks TEXT NOT NULL, " +
+                        "child_count INTEGER NOT NULL, " +
                         "created_by TEXT NOT NULL, " +
                         "create_date TEXT NOT NULL, " +
                         "is_deleted BOOLEAN DEFAULT 0);";
@@ -80,8 +81,8 @@ namespace FamilySprout.Core.DB
                     connection.Open();
 
                     string insertNewEmployeeQuery = "INSERT INTO families (" +
-                        "husband, husband_from, wife, wife_from, remarks, created_by, create_date) " +
-                    "VALUES (@husband, @husbandFrom, @wife, @wifeFrom, @remarks, @createdBy, @createDate);";
+                        "husband, husband_from, wife, wife_from, remarks, child_count, created_by, create_date) " +
+                    "VALUES (@husband, @husbandFrom, @wife, @wifeFrom, @remarks, @childCount, @createdBy, @createDate);";
                     using (var command = new SQLiteCommand(insertNewEmployeeQuery, connection))
                     {
                         command.Parameters.AddWithValue("@husband", family.husband);
@@ -89,6 +90,7 @@ namespace FamilySprout.Core.DB
                         command.Parameters.AddWithValue("@wife", family.wife);
                         command.Parameters.AddWithValue("@wifeFrom", family.wifeFrom);
                         command.Parameters.AddWithValue("@remarks", family.remarks);
+                        command.Parameters.AddWithValue("@childCount", family.childCount);
                         command.Parameters.AddWithValue("@createdBy", family.createdBy);
                         command.Parameters.AddWithValue("@createDate", family.createDate);
 
@@ -124,7 +126,6 @@ namespace FamilySprout.Core.DB
                 }
 
                 Console.WriteLine("Family created successfully.");
-                MessageBox.Show("Family created successfully.");
             }
             catch (Exception ex)
             {
@@ -260,8 +261,9 @@ namespace FamilySprout.Core.DB
                                     _wife: reader.GetString(3),
                                     _wifeFrom: reader.GetString(4),
                                     _remarks: reader.GetString(5),
-                                    _createdBy: reader.GetString(6),
-                                    _createDate: reader.GetString(7),
+                                    _childCount: reader.GetInt32(6),
+                                    _createdBy: reader.GetString(7),
+                                    _createDate: reader.GetString(8),
                                     _childrens: children
                                     );
                             }

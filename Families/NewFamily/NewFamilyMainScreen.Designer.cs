@@ -30,18 +30,18 @@
         {
             this.panelTitle = new System.Windows.Forms.Panel();
             this.lblCurrentDate = new System.Windows.Forms.Label();
-            this.lblAdminName = new System.Windows.Forms.Label();
-            this.mainPanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnNewChild = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleNavPanel = new System.Windows.Forms.Button();
             this.btnLogout2 = new System.Windows.Forms.Button();
             this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
+            this.lblAdminName = new System.Windows.Forms.Label();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnNewChild = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelTitle.SuspendLayout();
-            this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
+            this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitle
@@ -74,76 +74,6 @@
             this.lblCurrentDate.Size = new System.Drawing.Size(190, 22);
             this.lblCurrentDate.TabIndex = 7;
             this.lblCurrentDate.Text = "August 26, 2024";
-            // 
-            // lblAdminName
-            // 
-            this.lblAdminName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAdminName.AutoSize = true;
-            this.lblAdminName.BackColor = System.Drawing.Color.White;
-            this.lblAdminName.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminName.ForeColor = System.Drawing.Color.Purple;
-            this.lblAdminName.Location = new System.Drawing.Point(597, 24);
-            this.lblAdminName.Name = "lblAdminName";
-            this.lblAdminName.Size = new System.Drawing.Size(70, 22);
-            this.lblAdminName.TabIndex = 0;
-            this.lblAdminName.Text = "ADMIN";
-            // 
-            // mainPanel
-            // 
-            this.mainPanel.Controls.Add(this.btnSave);
-            this.mainPanel.Controls.Add(this.btnNewChild);
-            this.mainPanel.Controls.Add(this.panel1);
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(0, 68);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(958, 522);
-            this.mainPanel.TabIndex = 16;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Location = new System.Drawing.Point(27, 67);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(840, 403);
-            this.panel1.TabIndex = 22;
-            // 
-            // btnNewChild
-            // 
-            this.btnNewChild.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnNewChild.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNewChild.FlatAppearance.BorderSize = 0;
-            this.btnNewChild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewChild.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewChild.ForeColor = System.Drawing.Color.Purple;
-            this.btnNewChild.Location = new System.Drawing.Point(27, 13);
-            this.btnNewChild.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNewChild.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnNewChild.Name = "btnNewChild";
-            this.btnNewChild.Size = new System.Drawing.Size(200, 36);
-            this.btnNewChild.TabIndex = 23;
-            this.btnNewChild.Text = "NEW CHILD";
-            this.btnNewChild.UseVisualStyleBackColor = false;
-            this.btnNewChild.Click += new System.EventHandler(this.btnNewChild_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Purple;
-            this.btnSave.Location = new System.Drawing.Point(248, 13);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSave.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(200, 36);
-            this.btnSave.TabIndex = 24;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnFullScreen
             // 
@@ -220,6 +150,77 @@
             this.btnEmployeeInfo.TabIndex = 4;
             this.btnEmployeeInfo.TabStop = false;
             // 
+            // lblAdminName
+            // 
+            this.lblAdminName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAdminName.AutoSize = true;
+            this.lblAdminName.BackColor = System.Drawing.Color.White;
+            this.lblAdminName.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminName.ForeColor = System.Drawing.Color.Purple;
+            this.lblAdminName.Location = new System.Drawing.Point(597, 24);
+            this.lblAdminName.Name = "lblAdminName";
+            this.lblAdminName.Size = new System.Drawing.Size(70, 22);
+            this.lblAdminName.TabIndex = 0;
+            this.lblAdminName.Text = "ADMIN";
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.Controls.Add(this.btnSave);
+            this.mainPanel.Controls.Add(this.btnNewChild);
+            this.mainPanel.Controls.Add(this.panel1);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(0, 68);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(958, 522);
+            this.mainPanel.TabIndex = 16;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Purple;
+            this.btnSave.Location = new System.Drawing.Point(248, 13);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSave.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(200, 36);
+            this.btnSave.TabIndex = 24;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnNewChild
+            // 
+            this.btnNewChild.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnNewChild.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewChild.FlatAppearance.BorderSize = 0;
+            this.btnNewChild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewChild.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewChild.ForeColor = System.Drawing.Color.Purple;
+            this.btnNewChild.Location = new System.Drawing.Point(27, 13);
+            this.btnNewChild.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNewChild.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnNewChild.Name = "btnNewChild";
+            this.btnNewChild.Size = new System.Drawing.Size(200, 36);
+            this.btnNewChild.TabIndex = 23;
+            this.btnNewChild.Text = "NEW CHILD";
+            this.btnNewChild.UseVisualStyleBackColor = false;
+            this.btnNewChild.Click += new System.EventHandler(this.btnNewChild_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Location = new System.Drawing.Point(27, 67);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(840, 403);
+            this.panel1.TabIndex = 22;
+            // 
             // NewFamilyMainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -235,8 +236,8 @@
             this.Load += new System.EventHandler(this.NewFamilyMainScreen_Load);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
-            this.mainPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).EndInit();
+            this.mainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

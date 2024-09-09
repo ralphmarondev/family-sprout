@@ -1,4 +1,6 @@
-﻿using FamilySprout.Core.Helper;
+﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Helper;
+using FamilySprout.Core.Model;
 using FamilySprout.Families.NewFamily.Components;
 using FamilySprout.Families.NewFamily.Forms;
 using System;
@@ -10,6 +12,9 @@ namespace FamilySprout.Families.NewFamily
 {
     public partial class NewFamilyMainScreen : Form
     {
+        private string husbandName, husbandFrom, wifeName, wifeFrom, remarks;
+        private List<Children> childrens = new List<Children>();
+        private List<Parents> parents = new List<Parents>();
         public NewFamilyMainScreen()
         {
             InitializeComponent();
@@ -24,11 +29,35 @@ namespace FamilySprout.Families.NewFamily
 
             if (newParentForm.ShowDialog(this) == DialogResult.OK)
             {
+                husbandName = newParentForm.husband;
+                husbandFrom = newParentForm.husbandFrom;
+                wifeName = newParentForm.wife;
+                wifeFrom = newParentForm.wifeFrom;
+                remarks = newParentForm.remarks;
 
-                List<string> parents = new List<string> { "Husband: John Doe", "Wife: Jane Doe" };
-                List<string> children = new List<string> { "Child 1: Alice", "Child 2: Bob", "Child 3: Charlie" };
+                parents.Clear();
+                var parent1 = new Parents(
+                    name: husbandName,
+                    from: husbandFrom,
+                    husband: husbandName,
+                    husbandFrom: husbandFrom,
+                    wife: wifeName,
+                    wifeFrom: wifeFrom,
+                    remarks: remarks);
 
-                PopulatePanel(parents, children);
+                var parent2 = new Parents(
+                    name: wifeName,
+                    from: wifeFrom,
+                    husband: husbandName,
+                    husbandFrom: husbandFrom,
+                    wife: wifeName,
+                    wifeFrom: wifeFrom,
+                    remarks: remarks);
+
+                parents.Add(parent1);
+                parents.Add(parent2);
+
+                PopulatePanel();
             }
             else
             {
@@ -107,9 +136,7 @@ namespace FamilySprout.Families.NewFamily
         #endregion DRAG_AND_DROP
 
 
-        private void PopulatePanel(
-            List<string> parentDetails,
-            List<string> childDetails)
+        private void PopulatePanel()
         {
             panel1.Controls.Clear(); // Clear existing controls
             panel1.AutoScroll = true; // Enable scrolling
@@ -121,23 +148,27 @@ namespace FamilySprout.Families.NewFamily
             parentInfoLabel.Text = "Parent Information";
             parentInfoLabel.Location = new Point(10, currentY);
             parentInfoLabel.AutoSize = true;
-            parentInfoLabel.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            parentInfoLabel.ForeColor = System.Drawing.Color.Purple;
+            parentInfoLabel.Font = new Font("Courier New", 14F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            parentInfoLabel.ForeColor = Color.Purple;
             panel1.Controls.Add(parentInfoLabel);
             currentY += parentInfoLabel.Height + 10; // Update Y position
 
-            // Add Parent Controls
-            foreach (var parent in parentDetails)
+            foreach (var parent in parents)
             {
-                Components.ParentUserControl parentControl = new Components.ParentUserControl();
+                ParentUserControl parentControl = new ParentUserControl();
                 parentControl.SetParentDetails(
-                    _name: parent, _from: "From: Earth");
+                    name: parent.name,
+                    from: parent.from,
+                    _husband: parent.husband,
+                    _husbandFrom: parent.husbandFrom,
+                    _wife: parent.wife,
+                    _wifeFrom: parent.wifeFrom,
+                    _remarks: parent.remarks);
                 parentControl.Location = new Point(10, currentY); // Set location
                 panel1.Controls.Add(parentControl);
                 currentY += parentControl.Height + 10; // Update Y position
             }
 
-            // Add Children Information label
             Label childrenInfoLabel = new Label();
             childrenInfoLabel.Text = "Children Information";
             childrenInfoLabel.Location = new Point(10, currentY);
@@ -147,11 +178,10 @@ namespace FamilySprout.Families.NewFamily
             panel1.Controls.Add(childrenInfoLabel);
             currentY += childrenInfoLabel.Height + 10; // Update Y position
 
-            // Add Child Controls
-            foreach (var child in childDetails)
+            foreach (var child in childrens)
             {
                 ChildrenUserControl childControl = new ChildrenUserControl();
-                childControl.SetChildrenDetails(_name: child, _bday: "September 9, 2024");
+                childControl.SetChildrenDetails(_name: child.name, _bday: child.bday);
                 childControl.Location = new Point(10, currentY); // Set location
                 panel1.Controls.Add(childControl);
                 currentY += childControl.Height + 10; // Update Y position
@@ -164,12 +194,87 @@ namespace FamilySprout.Families.NewFamily
 
             if (newChildForm.ShowDialog(this) == DialogResult.OK)
             {
-                string childName = newChildForm.name;
+                Children child = new Children();
 
-                MessageBox.Show($"Child Name: {childName}");
-                // add to list
-                // populate panel
+                child.name = newChildForm.name;
+                child.bday = newChildForm.bday;
+                child.baptism = newChildForm.baptism;
+                child.hc = newChildForm.hc;
+                child.matrimony = newChildForm.matrimony;
+                child.obitus = newChildForm.obitus;
+                child.createdBy = Utils.GetAdmin();
+                child.createDate = Utils.GetCreateDate();
+
+                childrens.Add(child);
+                PopulatePanel();
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var family = new FamilyModel(
+                _id: Utils.DEFAULT_ID,
+                _husband: husbandName,
+                _husbandFrom: husbandFrom,
+                _wife: wifeName,
+                _wifeFrom: wifeFrom,
+                _remarks: remarks,
+                _childCount: childrens.Count,
+                _childrens: childrens,
+                _createdBy: Utils.GetAdmin(),
+                _createDate: Utils.GetCreateDate()
+                );
+
+            Console.WriteLine($"Saving to database...");
+            Console.WriteLine("Parent details.....");
+            Console.WriteLine($"Husband: {husbandName}, From: {husbandFrom}");
+            Console.WriteLine($"Wife: {wifeName}, From: {wifeFrom}");
+            Console.WriteLine("Children details....");
+            foreach (var child in family.childrens)
+            {
+                Console.WriteLine($"Name: {child.name}, birthday: {child.bday}, Baptism: {child.baptism}");
+                Console.WriteLine($"HC: {child.hc}, Matrimony: {child.matrimony}, Obitus: {child.obitus}");
+            }
+            Console.WriteLine();
+
+            try
+            {
+                DBFamily.CreateNewFamily(family);
+                MessageBox.Show("Family created successfully!", "Saved Successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MainScreen mainScreen = this.ParentForm as MainScreen;
+
+                if (mainScreen != null)
+                {
+                    mainScreen.OpenFamilyList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed! {ex.Message}", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+
+    public class Parents
+    {
+        public string name { get; set; }
+        public string from { get; set; }
+        public string husband { get; set; }
+        public string husbandFrom { get; set; }
+        public string wife { get; set; }
+        public string wifeFrom { get; set; }
+        public string remarks { get; set; }
+        public Parents(string name, string from, string husband, string husbandFrom, string wife,
+            string wifeFrom, string remarks)
+        {
+            this.name = name;
+            this.from = from;
+            this.husband = husband;
+            this.husbandFrom = husbandFrom;
+            this.wife = wife;
+            this.wifeFrom = wifeFrom;
+            this.remarks = remarks;
         }
     }
 }
