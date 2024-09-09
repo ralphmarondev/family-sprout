@@ -65,10 +65,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthScreen.cs">
+    <Compile Include="Auth\AuthScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AuthScreen.Designer.cs">
+    <Compile Include="Auth\AuthScreen.Designer.cs">
       <DependentUpon>AuthScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\DB\DBConfig.cs" />
@@ -105,15 +105,15 @@
     <Compile Include="Families\NewFamily\NewFamilyMainScreen.Designer.cs">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainScreen.cs">
+    <Compile Include="Main\MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainScreen.Designer.cs">
+    <Compile Include="Main\MainScreen.Designer.cs">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AuthScreen.resx">
+    <EmbeddedResource Include="Auth\AuthScreen.resx">
       <DependentUpon>AuthScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\DashboardMainScreen.resx">
@@ -131,7 +131,7 @@
     <EmbeddedResource Include="Families\NewFamily\NewFamilyMainScreen.resx">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainScreen.resx">
+    <EmbeddedResource Include="Main\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

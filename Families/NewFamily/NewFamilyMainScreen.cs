@@ -93,34 +93,56 @@ namespace FamilySprout.Families.NewFamily
 
         private void OnNext()
         {
-            if (InputsValid())
+            count++;
+            if (prevMaxCount > count)
             {
-                Children child = new Children();
-                child.id = count; // setting count as id
-                child.famId = Utils.DEFAULT_FAMID;
-                child.name = tbChildName.Text;
-                child.bday = tbBirthday.Text;
-                child.hc = tbHolyCom.Text;
-                child.baptism = tbBaptism.Text;
-                child.matrimony = tbMatrimony.Text;
-                child.obitus = tbObitus.Text;
-                child.createdBy = lblAdminName.Text.Trim();
-                child.createDate = Utils.GetCreateDate();
+                int index = count;
 
-                childrens.Add(child);
-                ClearFields();
-                count++; // 0 + 1 = 1
-                prevMaxCount = maxCount; // 0
-                maxCount = count; // count = 0 + 1 = 1
-                if (maxCount > prevMaxCount)
-                {
-                    prevMaxCount = maxCount;
-                }
+                tbChildName.Text = childrens[index].name;
+                tbBirthday.Text = childrens[index].bday;
+                tbHolyCom.Text = childrens[index].hc;
+                tbBaptism.Text = childrens[index].baptism;
+                tbMatrimony.Text = childrens[index].matrimony;
+                tbObitus.Text = childrens[index].obitus;
 
                 lblChildIndex.Text = $"{count + 1}";
-                if (count > 0)
+
+                childrens[index].name = tbChildName.Text;
+                childrens[index].bday = tbBirthday.Text;
+                childrens[index].hc = tbHolyCom.Text;
+                childrens[index].baptism = tbBaptism.Text;
+                childrens[index].obitus = tbObitus.Text;
+                childrens[index].matrimony = tbMatrimony.Text;
+            }
+            else
+            {
+                if (InputsValid())
                 {
-                    btnPrev.Enabled = true;
+                    Children child = new Children();
+                    child.id = count; // setting count as id
+                    child.famId = Utils.DEFAULT_FAMID;
+                    child.name = tbChildName.Text;
+                    child.bday = tbBirthday.Text;
+                    child.hc = tbHolyCom.Text;
+                    child.baptism = tbBaptism.Text;
+                    child.matrimony = tbMatrimony.Text;
+                    child.obitus = tbObitus.Text;
+                    child.createdBy = lblAdminName.Text.Trim();
+                    child.createDate = Utils.GetCreateDate();
+
+                    childrens.Add(child);
+                    ClearFields();
+
+                    if (count > prevMaxCount)
+                    {
+                        prevMaxCount = count;
+                    }
+                    lblChildIndex.Text = $"{count + 1}";
+
+                    if (count > 0)
+                    {
+                        btnPrev.Enabled = true;
+                    }
                 }
             }
         }
