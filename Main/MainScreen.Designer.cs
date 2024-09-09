@@ -187,14 +187,14 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(217, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(741, 590);
+            this.mainPanel.Size = new System.Drawing.Size(860, 590);
             this.mainPanel.TabIndex = 3;
             // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 590);
+            this.ClientSize = new System.Drawing.Size(1077, 590);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.panelNavigation);
             this.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

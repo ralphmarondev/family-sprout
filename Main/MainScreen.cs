@@ -96,5 +96,11 @@ namespace FamilySprout
             }
         }
         #endregion TOP_BAR
+
+
+        public void OpenDashboard()
+        {
+            OpenFormInPanel(new Dashboard.DashboardMainScreen());
+        }
     }
 }

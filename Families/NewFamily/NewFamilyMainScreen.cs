@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.Helper;
-using FamilySprout.Core.Model;
+using FamilySprout.Families.NewFamily.Components;
+using FamilySprout.Families.NewFamily.Forms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -19,195 +20,26 @@ namespace FamilySprout.Families.NewFamily
             lblCurrentDate.Text = Utils.GetCurrentDate();
             lblAdminName.Text = Utils.GetAdmin();
 
-            OnLoad();
-        }
+            NewParentForm newParentForm = new NewParentForm();
 
-
-        #region ONLOAD
-        private void OnLoad()
-        {
-            panelHusbandWife.Visible = true;
-            panelChildrenInformation.Visible = false;
-
-            childrens.Clear();
-            lblChildIndex.Text = $"{count + 1}";
-            btnPrev.Enabled = false;
-        }
-        #endregion ONLOAD
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            if (tbHusbandFullName.Text == "" || tbHusbandFrom.Text == "" || tbWifeFullName.Text == "" || tbWifeFrom.Text == "" || tbRemarks.Text == "")
+            if (newParentForm.ShowDialog(this) == DialogResult.OK)
             {
-                MessageBox.Show("Please fill in all fields!", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
-            panelHusbandWife.Visible = false;
-            panelChildrenInformation.Visible = true;
-        }
+                List<string> parents = new List<string> { "Husband: John Doe", "Wife: Jane Doe" };
+                List<string> children = new List<string> { "Child 1: Alice", "Child 2: Bob", "Child 3: Charlie" };
 
-
-        #region ADDING_CHILDREN
-
-        private void btnPrev_Click(object sender, EventArgs e)
-        {
-            OnPrev();
-        }
-
-        private void btnNextChild_Click(object sender, EventArgs e)
-        {
-            OnNext();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            OnSave();
-        }
-        #endregion ADDING_CHILDREN
-
-
-        #region PrevNextSave
-        private List<Children> childrens = new List<Children>();
-        private int count = 0, maxCount = 0, prevMaxCount = 0;
-        private void OnPrev()
-        {
-            count--;
-            int index = count;
-            if (index >= 0)
-            {
-                tbChildName.Text = childrens[index].name;
-                tbBirthday.Text = childrens[index].bday;
-                tbHolyCom.Text = childrens[index].hc;
-                tbBaptism.Text = childrens[index].baptism;
-                tbMatrimony.Text = childrens[index].matrimony;
-                tbObitus.Text = childrens[index].obitus;
-
-                lblChildIndex.Text = $"{count + 1}";
-                if (count <= 0)
-                {
-                    btnPrev.Enabled = false;
-                }
-            }
-        }
-
-        private void OnNext()
-        {
-            count++;
-            if (prevMaxCount > count)
-            {
-                int index = count;
-
-                tbChildName.Text = childrens[index].name;
-                tbBirthday.Text = childrens[index].bday;
-                tbHolyCom.Text = childrens[index].hc;
-                tbBaptism.Text = childrens[index].baptism;
-                tbMatrimony.Text = childrens[index].matrimony;
-                tbObitus.Text = childrens[index].obitus;
-
-                lblChildIndex.Text = $"{count + 1}";
-
-                childrens[index].name = tbChildName.Text;
-                childrens[index].bday = tbBirthday.Text;
-                childrens[index].hc = tbHolyCom.Text;
-                childrens[index].baptism = tbBaptism.Text;
-                childrens[index].obitus = tbObitus.Text;
-                childrens[index].matrimony = tbMatrimony.Text;
+                PopulatePanel(parents, children);
             }
             else
             {
-                if (InputsValid())
+                MainScreen mainScreen = this.ParentForm as MainScreen;
+
+                if (mainScreen != null)
                 {
-                    Children child = new Children();
-                    child.id = count; // setting count as id
-                    child.famId = Utils.DEFAULT_FAMID;
-                    child.name = tbChildName.Text;
-                    child.bday = tbBirthday.Text;
-                    child.hc = tbHolyCom.Text;
-                    child.baptism = tbBaptism.Text;
-                    child.matrimony = tbMatrimony.Text;
-                    child.obitus = tbObitus.Text;
-                    child.createdBy = lblAdminName.Text.Trim();
-                    child.createDate = Utils.GetCreateDate();
-
-                    childrens.Add(child);
-                    ClearFields();
-
-                    if (count > prevMaxCount)
-                    {
-                        prevMaxCount = count;
-                    }
-                    lblChildIndex.Text = $"{count + 1}";
-
-                    if (count > 0)
-                    {
-                        btnPrev.Enabled = true;
-                    }
+                    mainScreen.OpenDashboard();
                 }
             }
         }
-
-        private void OnSave()
-        {
-            if (count == 0 && maxCount == 0)
-            {
-                DialogResult result = MessageBox.Show("No Children is added, are you sure you want to continue?\nYou can still add later.", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                if (result == DialogResult.Yes)
-                {
-                    MessageBox.Show("Saving to database.");
-                }
-            }
-            else
-            {
-                if (InputsValid())
-                {
-                    MessageBox.Show("Saving to database.");
-                }
-            }
-            //DBFamily.CreateNewFamily(new FamilyModel(
-            //       _id: Utils.DEFAULT_ID,
-            //       _husband: husband,
-            //       _husbandFrom: husbandFrom,
-            //       _wife: wife,
-            //       _wifeFrom: wifeFrom,
-            //       _remarks: remarks,
-            //       _childrens: childrens,
-            //       _createdBy: createdBy,
-            //       _createDate: createDate
-            //    ));
-        }
-
-        private bool InputsValid()
-        {
-            if (tbChildName.Text == "" || tbBirthday.Text == "")
-            {
-                MessageBox.Show("Child Name or birthday cannot be empty!", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            return true;
-        }
-
-        private void ClearFields()
-        {
-            tbChildName.Text = "";
-            tbBirthday.Text = "";
-            tbHolyCom.Text = "";
-            tbBaptism.Text = "";
-            tbMatrimony.Text = "";
-            tbObitus.Text = "";
-        }
-        #endregion PrevNextSave
-
-
-        private void lblBack_Click(object sender, EventArgs e)
-        {
-            panelHusbandWife.Visible = true;
-            panelChildrenInformation.Visible = false;
-        }
-
-
 
         #region TOPBAR
         private void btnFullScreen_Click(object sender, EventArgs e)
@@ -273,5 +105,71 @@ namespace FamilySprout.Families.NewFamily
             }
         }
         #endregion DRAG_AND_DROP
+
+
+        private void PopulatePanel(
+            List<string> parentDetails,
+            List<string> childDetails)
+        {
+            panel1.Controls.Clear(); // Clear existing controls
+            panel1.AutoScroll = true; // Enable scrolling
+
+            int currentY = 10; // Initial Y position for stacking controls
+
+            // Add Parent Information label
+            Label parentInfoLabel = new Label();
+            parentInfoLabel.Text = "Parent Information";
+            parentInfoLabel.Location = new Point(10, currentY);
+            parentInfoLabel.AutoSize = true;
+            parentInfoLabel.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            parentInfoLabel.ForeColor = System.Drawing.Color.Purple;
+            panel1.Controls.Add(parentInfoLabel);
+            currentY += parentInfoLabel.Height + 10; // Update Y position
+
+            // Add Parent Controls
+            foreach (var parent in parentDetails)
+            {
+                Components.ParentUserControl parentControl = new Components.ParentUserControl();
+                parentControl.SetParentDetails(
+                    _name: parent, _from: "From: Earth");
+                parentControl.Location = new Point(10, currentY); // Set location
+                panel1.Controls.Add(parentControl);
+                currentY += parentControl.Height + 10; // Update Y position
+            }
+
+            // Add Children Information label
+            Label childrenInfoLabel = new Label();
+            childrenInfoLabel.Text = "Children Information";
+            childrenInfoLabel.Location = new Point(10, currentY);
+            childrenInfoLabel.AutoSize = true;
+            childrenInfoLabel.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            childrenInfoLabel.ForeColor = System.Drawing.Color.Purple;
+            panel1.Controls.Add(childrenInfoLabel);
+            currentY += childrenInfoLabel.Height + 10; // Update Y position
+
+            // Add Child Controls
+            foreach (var child in childDetails)
+            {
+                ChildrenUserControl childControl = new ChildrenUserControl();
+                childControl.SetChildrenDetails(_name: child, _bday: "September 9, 2024");
+                childControl.Location = new Point(10, currentY); // Set location
+                panel1.Controls.Add(childControl);
+                currentY += childControl.Height + 10; // Update Y position
+            }
+        }
+
+        private void btnNewChild_Click(object sender, EventArgs e)
+        {
+            NewChildForm newChildForm = new NewChildForm();
+
+            if (newChildForm.ShowDialog(this) == DialogResult.OK)
+            {
+                string childName = newChildForm.name;
+
+                MessageBox.Show($"Child Name: {childName}");
+                // add to list
+                // populate panel
+            }
+        }
     }
 }

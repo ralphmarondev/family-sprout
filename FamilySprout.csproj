@@ -99,6 +99,30 @@
     <Compile Include="Families\FamiliesList\Forms\FamilyDetailsForm.Designer.cs">
       <DependentUpon>FamilyDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Families\NewFamily\Components\ChildrenUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Families\NewFamily\Components\ChildrenUserControl.Designer.cs">
+      <DependentUpon>ChildrenUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Families\NewFamily\Components\ParentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Families\NewFamily\Components\ParentUserControl.Designer.cs">
+      <DependentUpon>ParentUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Families\NewFamily\Forms\NewChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Families\NewFamily\Forms\NewChildForm.Designer.cs">
+      <DependentUpon>NewChildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Families\NewFamily\Forms\NewParentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Families\NewFamily\Forms\NewParentForm.Designer.cs">
+      <DependentUpon>NewParentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Families\NewFamily\NewFamilyMainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +151,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Families\FamiliesList\Forms\FamilyDetailsForm.resx">
       <DependentUpon>FamilyDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Families\NewFamily\Components\ChildrenUserControl.resx">
+      <DependentUpon>ChildrenUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Families\NewFamily\Components\ParentUserControl.resx">
+      <DependentUpon>ParentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Families\NewFamily\Forms\NewChildForm.resx">
+      <DependentUpon>NewChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Families\NewFamily\Forms\NewParentForm.resx">
+      <DependentUpon>NewParentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Families\NewFamily\NewFamilyMainScreen.resx">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
