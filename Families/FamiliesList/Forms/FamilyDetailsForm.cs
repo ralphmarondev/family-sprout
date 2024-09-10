@@ -29,6 +29,8 @@ namespace FamilySprout.Families.FamiliesList.Forms
             GetDetailsWithId();
 
             PopulateChildrenListPanel();
+
+            this.Text = "Family Details - View";
         }
 
         private void GetDetailsWithId()
@@ -76,6 +78,64 @@ namespace FamilySprout.Families.FamiliesList.Forms
             GetDetailsWithId();
 
             PopulateChildrenListPanel();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteFamilyForm deleteForm = new DeleteFamilyForm(
+                _husband: family.husband,
+                _husbandFrom: family.husbandFrom,
+                _wife: family.wife,
+                _wifeFrom: family.wifeFrom,
+                _childCount: family.childCount,
+                _createDate: family.createDate,
+                _id: family.id
+                );
+
+            if (deleteForm.ShowDialog(this) == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            this.Text = "Family Details - View";
+
+            tbHusbandFullName.ReadOnly = true;
+            tbHusbandFrom.ReadOnly = true;
+            tbWifeFullName.ReadOnly = true;
+            tbWifeFrom.ReadOnly = true;
+            tbRemarks.ReadOnly = true;
+
+            tbHusbandFullName.BackColor = SystemColors.Window;
+            tbHusbandFrom.BackColor = SystemColors.Window;
+            tbWifeFullName.BackColor = SystemColors.Window;
+            tbWifeFrom.BackColor = SystemColors.Window;
+            tbRemarks.BackColor = SystemColors.Window;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            this.Text = "Family Details - Update";
+
+            tbHusbandFullName.ReadOnly = false;
+            tbHusbandFrom.ReadOnly = false;
+            tbWifeFullName.ReadOnly = false;
+            tbWifeFrom.ReadOnly = false;
+            tbRemarks.ReadOnly = false;
+
+            tbHusbandFullName.BackColor = SystemColors.Window;
+            tbHusbandFrom.BackColor = SystemColors.Window;
+            tbWifeFullName.BackColor = SystemColors.Window;
+            tbWifeFrom.BackColor = SystemColors.Window;
+            tbRemarks.BackColor = SystemColors.Window;
+        }
+
+        private void tbHusbandFullName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

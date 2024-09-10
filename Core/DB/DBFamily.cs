@@ -218,7 +218,7 @@ namespace FamilySprout.Core.DB
                 {
                     connection.Open();
 
-                    string selectAllChildrensQuery = "SELECT * FROM childrens WHERE fam_id = @id";
+                    string selectAllChildrensQuery = "SELECT * FROM childrens WHERE fam_id = @id AND is_deleted = 0";
                     using (var command = new SQLiteCommand(selectAllChildrensQuery, connection))
                     {
                         command.Parameters.AddWithValue("@id", _id);
@@ -245,7 +245,7 @@ namespace FamilySprout.Core.DB
                         }
                     }
 
-                    string query = "SELECT * FROM families WHERE id = @id";
+                    string query = "SELECT * FROM families WHERE id = @id AND is_deleted = 0";
                     using (var command = new SQLiteCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@id", _id);
@@ -276,6 +276,64 @@ namespace FamilySprout.Core.DB
                 Console.WriteLine($"Error: {ex.Message}");
             }
             return family;
+        }
+
+        public static void UpdateFamily(FamilyModel family)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE families SET " +
+                        "name = @name," +
+                        "bday = @bday," +
+                        "baptism = @baptism," +
+                        "hc = @hc," +
+                        "matrimony = @matrimony," +
+                        "obitus = @obitus" +
+                        "WHERE id = @id";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+
+
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        Console.WriteLine($"Rows affected: {rowsAffected}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+
+        public static void DeleteFamily(int id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE families SET is_deleted = 1 WHERE id = @id";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        Console.WriteLine($"Rows affected: {rowsAffected}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }

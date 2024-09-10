@@ -72,7 +72,8 @@ namespace FamilySprout.Families.FamiliesList
                     string query = @"
                         SELECT f.husband, f.wife, COUNT(c.id) AS childrenCount
                         FROM families f
-                        LEFT JOIN childrens c ON f.id = c.fam_id
+                        LEFT JOIN childrens c ON f.id = c.fam_id AND c.is_deleted = 0 
+                        WHERE f.is_deleted = 0 
                         GROUP BY f.husband, f.wife;";
 
                     using (var command = new SQLiteCommand(query, connection))
@@ -113,7 +114,10 @@ namespace FamilySprout.Families.FamiliesList
                 int famId = DBFamily.GetFamilyIdByHusbandAndWife(husband: husband, wife: wife);
                 Console.WriteLine($"FamID: {famId}, Husband: {husband}, Wife: {wife}");
                 FamilyDetailsForm details = new FamilyDetailsForm(_id: famId);
-                details.ShowDialog(this);
+                if (details.ShowDialog(this) == DialogResult.OK)
+                {
+                    AddRowsFromDatabase();
+                }
             }
         }
         #endregion ON_LOAD
