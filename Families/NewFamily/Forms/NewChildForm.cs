@@ -47,6 +47,7 @@ namespace FamilySprout.Families.NewFamily.Forms
             if (tbChildName.Text == "" || tbBirthday.Text == "")
             {
                 MessageBox.Show("Name and Birthday cannot be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             name = tbChildName.Text.Trim();
@@ -57,6 +58,11 @@ namespace FamilySprout.Families.NewFamily.Forms
             obitus = tbObitus.Text.Trim();
 
             this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

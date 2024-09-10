@@ -91,7 +91,7 @@
             this.btnFullScreen.Size = new System.Drawing.Size(45, 41);
             this.btnFullScreen.TabIndex = 7;
             this.btnFullScreen.UseVisualStyleBackColor = false;
-            this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
+            this.btnFullScreen.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // ChildrenUserControl
             // 

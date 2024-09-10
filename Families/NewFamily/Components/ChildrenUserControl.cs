@@ -43,7 +43,7 @@ namespace FamilySprout.Families.NewFamily.Components
             bday = _bday;
         }
 
-        private void btnFullScreen_Click(object sender, System.EventArgs e)
+        private void btnEdit_Click(object sender, System.EventArgs e)
         {
             PanelChildInfo_Click(sender, e);
         }
