@@ -180,9 +180,18 @@ namespace FamilySprout.Families.NewFamily
 
             foreach (var child in childrens)
             {
-                ChildrenUserControl childControl = new ChildrenUserControl();
-                childControl.SetChildrenDetails(_name: child.name, _bday: child.bday);
+                ChildrenUserControl childControl = new ChildrenUserControl(
+                    _name: child.name,
+                    _bday: child.bday,
+                    _baptism: child.baptism,
+                    _hc: child.hc,
+                    _matrimony: child.matrimony,
+                    _obitus: child.obitus
+                    );
                 childControl.Location = new Point(10, currentY); // Set location
+
+                childControl.Click += (sender, args) => ChildControl_Click(childControl);
+
                 panel1.Controls.Add(childControl);
                 currentY += childControl.Height + 10; // Update Y position
             }
@@ -252,6 +261,40 @@ namespace FamilySprout.Families.NewFamily
             catch (Exception ex)
             {
                 MessageBox.Show($"Failed! {ex.Message}", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // adding click event on child usercontrol
+        public void ChildControl_Click(ChildrenUserControl childControl)
+        {
+            string currentChildName = childControl.name;
+            var child = childrens.Find(c => c.name == currentChildName);
+
+            Console.WriteLine($"Current child name: {currentChildName}");
+
+            if (child != null)
+            {
+                NewChildForm childForm = new NewChildForm(
+                    _name: child.name,
+                    _bday: child.bday,
+                    _baptism: child.baptism,
+                    _hc: child.hc,
+                    _matrimony: child.matrimony,
+                    _obitus: child.obitus
+                    );
+
+                if (childForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    child.name = childForm.name;
+                    child.bday = childForm.bday;
+                    child.baptism = childForm.baptism;
+                    child.hc = childForm.hc;
+                    child.matrimony = childForm.matrimony;
+                    child.obitus = childForm.obitus;
+
+                    childControl.SetChildrenDetails(_name: child.name,
+                        _bday: child.bday);
+                }
             }
         }
     }

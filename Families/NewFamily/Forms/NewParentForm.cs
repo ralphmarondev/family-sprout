@@ -16,6 +16,17 @@ namespace FamilySprout.Families.NewFamily.Forms
             InitializeComponent();
         }
 
+        public NewParentForm(string _husband, string _husbandFrom, string _wife, string _wifeFrom, string _remarks)
+        {
+            InitializeComponent();
+
+            tbHusbandFullName.Text = _husband;
+            tbHusbandFrom.Text = _husbandFrom;
+            tbWifeFullName.Text = _wife;
+            tbWifeFrom.Text = _wifeFrom;
+            tbRemarks.Text = _remarks;
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

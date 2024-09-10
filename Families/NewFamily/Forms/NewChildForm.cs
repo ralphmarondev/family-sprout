@@ -17,6 +17,26 @@ namespace FamilySprout.Families.NewFamily.Forms
             InitializeComponent();
         }
 
+        public NewChildForm(
+            string _name, string _bday, string _baptism, string _hc, string _matrimony, string _obitus)
+        {
+            InitializeComponent();
+
+            name = _name;
+            bday = _bday;
+            baptism = _baptism;
+            hc = _hc;
+            matrimony = _matrimony;
+            obitus = _obitus;
+
+            tbChildName.Text = _name;
+            tbBirthday.Text = _bday;
+            tbBaptism.Text = _baptism;
+            tbHolyCom.Text = _hc;
+            tbMatrimony.Text = _matrimony;
+            tbObitus.Text = _obitus;
+        }
+
         private void NewChildForm_Load(object sender, EventArgs e)
         {
 
