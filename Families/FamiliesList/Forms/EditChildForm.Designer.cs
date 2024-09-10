@@ -1,6 +1,6 @@
-﻿namespace FamilySprout.Families.NewFamily.Forms
+﻿namespace FamilySprout.Families.FamiliesList.Forms
 {
-    partial class NewChildForm
+    partial class EditChildForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelChildrenInformation = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.tbBirthday = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tbChildName = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.panelChildrenInformation.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -56,14 +56,34 @@
             this.panelChildrenInformation.Controls.Add(this.btnSave);
             this.panelChildrenInformation.Controls.Add(this.panel5);
             this.panelChildrenInformation.ForeColor = System.Drawing.Color.Purple;
-            this.panelChildrenInformation.Location = new System.Drawing.Point(23, 24);
+            this.panelChildrenInformation.Location = new System.Drawing.Point(22, 27);
             this.panelChildrenInformation.Name = "panelChildrenInformation";
             this.panelChildrenInformation.Size = new System.Drawing.Size(595, 399);
-            this.panelChildrenInformation.TabIndex = 20;
+            this.panelChildrenInformation.TabIndex = 21;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.LightYellow;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Purple;
+            this.btnCancel.Location = new System.Drawing.Point(181, 337);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(191, 43);
+            this.btnCancel.TabIndex = 20;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.BackColor = System.Drawing.Color.PaleGreen;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -220,27 +240,7 @@
             this.tbChildName.Size = new System.Drawing.Size(252, 30);
             this.tbChildName.TabIndex = 4;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.LightYellow;
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.Purple;
-            this.btnCancel.Location = new System.Drawing.Point(181, 337);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(191, 43);
-            this.btnCancel.TabIndex = 20;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // NewChildForm
+            // EditChildForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -249,13 +249,12 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "NewChildForm";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "EditChildForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NEW CHILD";
-            this.Load += new System.EventHandler(this.NewChildForm_Load);
+            this.Text = "EDIT CHILD";
             this.panelChildrenInformation.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -266,6 +265,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panelChildrenInformation;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
@@ -281,6 +281,5 @@
         private System.Windows.Forms.TextBox tbBirthday;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tbChildName;
-        private System.Windows.Forms.Button btnCancel;
     }
 }
