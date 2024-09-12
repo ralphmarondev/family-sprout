@@ -1,5 +1,4 @@
 ﻿using FamilySprout.Core.DB;
-using FamilySprout.Core.Helper;
 using System;
 using System.Windows.Forms;
 
@@ -17,9 +16,8 @@ namespace FamilySprout
             Application.SetCompatibleTextRenderingDefault(false);
 
             DBConfig.InitializeDatabase();
-            Utils.ReadFamilySproutConfig();
 
-            Application.Run(new MainScreen());
+            Application.Run(new MainForm());
         }
     }
 }

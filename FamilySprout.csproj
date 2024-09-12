@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{02D016BD-C063-4B6C-9FA1-B7A05EBD823C}</ProjectGuid>
+    <ProjectGuid>{ECAA6451-CF79-4A86-ABF6-3BB2B68B25AA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>FamilySprout</RootNamespace>
     <AssemblyName>FamilySprout</AssemblyName>
@@ -65,138 +65,104 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Auth\AuthScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Auth\AuthScreen.Designer.cs">
-      <DependentUpon>AuthScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Core\DB\DBChildren.cs" />
     <Compile Include="Core\DB\DBConfig.cs" />
     <Compile Include="Core\DB\DBFamily.cs" />
-    <Compile Include="Core\Helper\Utils.cs" />
-    <Compile Include="Core\Model\FamilyModel.cs" />
-    <Compile Include="Dashboard\DashboardMainScreen.cs">
+    <Compile Include="Core\DB\DBParents.cs" />
+    <Compile Include="Core\Utils\DateUtils.cs" />
+    <Compile Include="Core\Utils\Defaults.cs" />
+    <Compile Include="Features\FamilyList\FamilyListMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard\DashboardMainScreen.Designer.cs">
-      <DependentUpon>DashboardMainScreen.cs</DependentUpon>
+    <Compile Include="Features\FamilyList\FamilyListMainForm.Designer.cs">
+      <DependentUpon>FamilyListMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard\Forms\FloatingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dashboard\Forms\FloatingForm.Designer.cs">
-      <DependentUpon>FloatingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Families\FamiliesList\Components\ChildControlFL.cs">
+    <Compile Include="Features\NewFamily\Controls\ChildUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Families\FamiliesList\Components\ChildControlFL.Designer.cs">
-      <DependentUpon>ChildControlFL.cs</DependentUpon>
+    <Compile Include="Features\NewFamily\Controls\ChildUserControl.Designer.cs">
+      <DependentUpon>ChildUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Families\FamiliesList\FamiliesListMainScreen.cs">
+    <Compile Include="Features\NewFamily\Dialog\ConfirmAddingNewFamily.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Families\FamiliesList\FamiliesListMainScreen.Designer.cs">
-      <DependentUpon>FamiliesListMainScreen.cs</DependentUpon>
+    <Compile Include="Features\NewFamily\Dialog\ConfirmAddingNewFamily.Designer.cs">
+      <DependentUpon>ConfirmAddingNewFamily.cs</DependentUpon>
     </Compile>
-    <Compile Include="Families\FamiliesList\Forms\DeleteFamilyForm.cs">
+    <Compile Include="Features\NewFamily\Dialog\DeleteChildDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Families\FamiliesList\Forms\DeleteFamilyForm.Designer.cs">
-      <DependentUpon>DeleteFamilyForm.cs</DependentUpon>
+    <Compile Include="Features\NewFamily\Dialog\DeleteChildDialog.Designer.cs">
+      <DependentUpon>DeleteChildDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Families\FamiliesList\Forms\EditChildForm.cs">
+    <Compile Include="Features\NewFamily\Dialog\NewChildDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Families\FamiliesList\Forms\EditChildForm.Designer.cs">
-      <DependentUpon>EditChildForm.cs</DependentUpon>
+    <Compile Include="Features\NewFamily\Dialog\NewChildDialog.Designer.cs">
+      <DependentUpon>NewChildDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Families\FamiliesList\Forms\FamilyDetailsForm.cs">
+    <Compile Include="Features\NewFamily\Dialog\UpdateChildDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Families\FamiliesList\Forms\FamilyDetailsForm.Designer.cs">
-      <DependentUpon>FamilyDetailsForm.cs</DependentUpon>
+    <Compile Include="Features\NewFamily\Dialog\UpdateChildDialog.Designer.cs">
+      <DependentUpon>UpdateChildDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Families\NewFamily\Components\ChildrenUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Families\NewFamily\Components\ChildrenUserControl.Designer.cs">
-      <DependentUpon>ChildrenUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Families\NewFamily\Components\ParentUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Families\NewFamily\Components\ParentUserControl.Designer.cs">
-      <DependentUpon>ParentUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Families\NewFamily\Forms\NewChildForm.cs">
+    <Compile Include="Features\NewFamily\Dialog\ViewChildDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Families\NewFamily\Forms\NewChildForm.Designer.cs">
+    <Compile Include="Features\NewFamily\Dialog\ViewChildDialog.Designer.cs">
+      <DependentUpon>ViewChildDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\NewFamily\Forms\NewChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\NewFamily\Forms\NewChildForm.Designer.cs">
       <DependentUpon>NewChildForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Families\NewFamily\Forms\NewParentForm.cs">
+    <Compile Include="Features\NewFamily\NewFamilyMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Families\NewFamily\Forms\NewParentForm.Designer.cs">
-      <DependentUpon>NewParentForm.cs</DependentUpon>
+    <Compile Include="Features\NewFamily\NewFamilyMainForm.Designer.cs">
+      <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Families\NewFamily\NewFamilyMainScreen.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Families\NewFamily\NewFamilyMainScreen.Designer.cs">
-      <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\MainScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main\MainScreen.Designer.cs">
-      <DependentUpon>MainScreen.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Auth\AuthScreen.resx">
-      <DependentUpon>AuthScreen.cs</DependentUpon>
+    <Compile Include="Shared\Model\ChildModel.cs" />
+    <EmbeddedResource Include="Features\FamilyList\FamilyListMainForm.resx">
+      <DependentUpon>FamilyListMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard\DashboardMainScreen.resx">
-      <DependentUpon>DashboardMainScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Features\NewFamily\Controls\ChildUserControl.resx">
+      <DependentUpon>ChildUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard\Forms\FloatingForm.resx">
-      <DependentUpon>FloatingForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\NewFamily\Dialog\ConfirmAddingNewFamily.resx">
+      <DependentUpon>ConfirmAddingNewFamily.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Families\FamiliesList\Components\ChildControlFL.resx">
-      <DependentUpon>ChildControlFL.cs</DependentUpon>
+    <EmbeddedResource Include="Features\NewFamily\Dialog\DeleteChildDialog.resx">
+      <DependentUpon>DeleteChildDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Families\FamiliesList\FamiliesListMainScreen.resx">
-      <DependentUpon>FamiliesListMainScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Features\NewFamily\Dialog\NewChildDialog.resx">
+      <DependentUpon>NewChildDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Families\FamiliesList\Forms\DeleteFamilyForm.resx">
-      <DependentUpon>DeleteFamilyForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\NewFamily\Dialog\UpdateChildDialog.resx">
+      <DependentUpon>UpdateChildDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Families\FamiliesList\Forms\EditChildForm.resx">
-      <DependentUpon>EditChildForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\NewFamily\Dialog\ViewChildDialog.resx">
+      <DependentUpon>ViewChildDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Families\FamiliesList\Forms\FamilyDetailsForm.resx">
-      <DependentUpon>FamilyDetailsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Families\NewFamily\Components\ChildrenUserControl.resx">
-      <DependentUpon>ChildrenUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Families\NewFamily\Components\ParentUserControl.resx">
-      <DependentUpon>ParentUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Families\NewFamily\Forms\NewChildForm.resx">
+    <EmbeddedResource Include="Features\NewFamily\Forms\NewChildForm.resx">
       <DependentUpon>NewChildForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Families\NewFamily\Forms\NewParentForm.resx">
-      <DependentUpon>NewParentForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\NewFamily\NewFamilyMainForm.resx">
+      <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Families\NewFamily\NewFamilyMainScreen.resx">
-      <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\MainScreen.resx">
-      <DependentUpon>MainScreen.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -222,44 +188,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\sprout.jpg" />
+    <None Include="Resources\icons8-angry-face-with-horns-100.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-full-screen-48.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-shutdown-64.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8-hide-sidepanel-50.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-test-account-80.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-google-web-search-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-angry-face-with-horns-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-delete-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-edit-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-view-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-view-64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-view-24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-delete-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
