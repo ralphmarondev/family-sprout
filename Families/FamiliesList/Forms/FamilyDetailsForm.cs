@@ -58,6 +58,7 @@ namespace FamilySprout.Families.FamiliesList.Forms
             foreach (var child in family.childrens)
             {
                 ChildControlFL childControl = new ChildControlFL(
+                    _id: child.id,
                     _name: child.name,
                     _bday: child.bday,
                     _baptism: child.baptism,

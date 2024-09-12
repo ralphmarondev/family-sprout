@@ -1,5 +1,4 @@
-﻿using FamilySprout.Core.Model;
-using System;
+﻿using System;
 using System.Data.SQLite;
 
 namespace FamilySprout.Core.DB
@@ -44,7 +43,14 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        public static void UpdateChild(Children child)
+        public static void UpdateChild(
+            int _id,
+            string _name,
+            string _bday,
+            string _baptism,
+            string _hc,
+            string _matrimony,
+            string _obitus)
         {
             try
             {
@@ -58,18 +64,18 @@ namespace FamilySprout.Core.DB
                         "baptism = @baptism," +
                         "hc = @hc," +
                         "matrimony = @matrimony," +
-                        "obitus = @obitus" +
+                        "obitus = @obitus " +
                         "WHERE id = @id";
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@name", child.name);
-                        command.Parameters.AddWithValue("@bday", child.bday);
-                        command.Parameters.AddWithValue("@baptism", child.baptism);
-                        command.Parameters.AddWithValue("@hc", child.hc);
-                        command.Parameters.AddWithValue("@obitus", child.obitus);
-                        command.Parameters.AddWithValue("@matrimony", child.matrimony);
-                        command.Parameters.AddWithValue("@id", child.id);
+                        command.Parameters.AddWithValue("@name", _name);
+                        command.Parameters.AddWithValue("@bday", _bday);
+                        command.Parameters.AddWithValue("@baptism", _baptism);
+                        command.Parameters.AddWithValue("@hc", _hc);
+                        command.Parameters.AddWithValue("@obitus", _obitus);
+                        command.Parameters.AddWithValue("@matrimony", _matrimony);
+                        command.Parameters.AddWithValue("@id", _id);
 
 
                         int rowsAffected = command.ExecuteNonQuery();

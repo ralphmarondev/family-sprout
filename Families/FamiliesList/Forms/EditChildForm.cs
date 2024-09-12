@@ -1,9 +1,12 @@
-﻿using System.Windows.Forms;
+﻿using FamilySprout.Core.DB;
+using System;
+using System.Windows.Forms;
 
 namespace FamilySprout.Families.FamiliesList.Forms
 {
     public partial class EditChildForm : Form
     {
+        public int id { get; set; }
         public string name { get; private set; }
         public string bday { get; private set; }
         public string baptism { get; private set; }
@@ -16,10 +19,11 @@ namespace FamilySprout.Families.FamiliesList.Forms
             InitializeComponent();
         }
         public EditChildForm(
-            string _name, string _bday, string _baptism, string _hc, string _matrimony, string _obitus)
+           int _id, string _name, string _bday, string _baptism, string _hc, string _matrimony, string _obitus)
         {
             InitializeComponent();
 
+            id = _id;
             name = _name;
             bday = _bday;
             baptism = _baptism;
@@ -33,6 +37,8 @@ namespace FamilySprout.Families.FamiliesList.Forms
             tbHolyCom.Text = _hc;
             tbMatrimony.Text = _matrimony;
             tbObitus.Text = _obitus;
+
+            Console.WriteLine($"Editing child with id: {id}");
         }
 
         private void btnSave_Click(object sender, System.EventArgs e)
@@ -43,15 +49,35 @@ namespace FamilySprout.Families.FamiliesList.Forms
                 return;
             }
 
-            name = tbChildName.Text.Trim();
-            bday = tbBirthday.Text.Trim();
-            baptism = tbBaptism.Text.Trim();
-            hc = tbHolyCom.Text.Trim();
-            matrimony = tbMatrimony.Text.Trim();
-            obitus = tbObitus.Text.Trim();
+            try
+            {
+                name = tbChildName.Text.Trim();
+                bday = tbBirthday.Text.Trim();
+                baptism = tbBaptism.Text.Trim();
+                hc = tbHolyCom.Text.Trim();
+                matrimony = tbMatrimony.Text.Trim();
+                obitus = tbObitus.Text.Trim();
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                // updating child
+                DBChildren.UpdateChild(
+                    _id: id,
+                    _name: name,
+                    _bday: bday,
+                    _baptism: baptism,
+                    _hc: hc,
+                    _matrimony: matrimony,
+                    _obitus: obitus
+                    );
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                this.DialogResult = DialogResult.Abort;
+                this.Close();
+            }
         }
 
         private void btnCancel_Click(object sender, System.EventArgs e)

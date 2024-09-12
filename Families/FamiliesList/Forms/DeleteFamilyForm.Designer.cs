@@ -32,6 +32,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tbCreateDate = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.tbHusbandFrom = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tbHusband = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelChildrenInformation.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +124,16 @@
             this.panel5.Size = new System.Drawing.Size(561, 297);
             this.panel5.TabIndex = 10;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Courier New", 11F);
+            this.label1.Location = new System.Drawing.Point(14, 273);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(494, 21);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "ARE YOU SURE YOU WANT TO DELETE THIS FAMILY?";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -136,9 +146,11 @@
             // 
             // tbCreateDate
             // 
+            this.tbCreateDate.BackColor = System.Drawing.SystemColors.Window;
             this.tbCreateDate.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbCreateDate.Location = new System.Drawing.Point(285, 224);
             this.tbCreateDate.Name = "tbCreateDate";
+            this.tbCreateDate.ReadOnly = true;
             this.tbCreateDate.Size = new System.Drawing.Size(252, 30);
             this.tbCreateDate.TabIndex = 15;
             // 
@@ -154,9 +166,11 @@
             // 
             // tbChildCount
             // 
+            this.tbChildCount.BackColor = System.Drawing.SystemColors.Window;
             this.tbChildCount.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbChildCount.Location = new System.Drawing.Point(14, 224);
             this.tbChildCount.Name = "tbChildCount";
+            this.tbChildCount.ReadOnly = true;
             this.tbChildCount.Size = new System.Drawing.Size(252, 30);
             this.tbChildCount.TabIndex = 13;
             // 
@@ -172,9 +186,11 @@
             // 
             // tbWifeFrom
             // 
+            this.tbWifeFrom.BackColor = System.Drawing.SystemColors.Window;
             this.tbWifeFrom.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbWifeFrom.Location = new System.Drawing.Point(285, 156);
             this.tbWifeFrom.Name = "tbWifeFrom";
+            this.tbWifeFrom.ReadOnly = true;
             this.tbWifeFrom.Size = new System.Drawing.Size(252, 30);
             this.tbWifeFrom.TabIndex = 11;
             // 
@@ -190,9 +206,11 @@
             // 
             // tbWife
             // 
+            this.tbWife.BackColor = System.Drawing.SystemColors.Window;
             this.tbWife.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbWife.Location = new System.Drawing.Point(14, 156);
             this.tbWife.Name = "tbWife";
+            this.tbWife.ReadOnly = true;
             this.tbWife.Size = new System.Drawing.Size(252, 30);
             this.tbWife.TabIndex = 9;
             // 
@@ -218,9 +236,11 @@
             // 
             // tbHusbandFrom
             // 
+            this.tbHusbandFrom.BackColor = System.Drawing.SystemColors.Window;
             this.tbHusbandFrom.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbHusbandFrom.Location = new System.Drawing.Point(285, 85);
             this.tbHusbandFrom.Name = "tbHusbandFrom";
+            this.tbHusbandFrom.ReadOnly = true;
             this.tbHusbandFrom.Size = new System.Drawing.Size(252, 30);
             this.tbHusbandFrom.TabIndex = 6;
             // 
@@ -236,21 +256,13 @@
             // 
             // tbHusband
             // 
+            this.tbHusband.BackColor = System.Drawing.SystemColors.Window;
             this.tbHusband.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbHusband.Location = new System.Drawing.Point(14, 85);
             this.tbHusband.Name = "tbHusband";
+            this.tbHusband.ReadOnly = true;
             this.tbHusband.Size = new System.Drawing.Size(252, 30);
             this.tbHusband.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 11F);
-            this.label1.Location = new System.Drawing.Point(14, 273);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(494, 21);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "ARE YOU SURE YOU WANT TO DELETE THIS FAMILY?";
             // 
             // DeleteFamilyForm
             // 
@@ -260,7 +272,7 @@
             this.Controls.Add(this.panelChildrenInformation);
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DeleteFamilyForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

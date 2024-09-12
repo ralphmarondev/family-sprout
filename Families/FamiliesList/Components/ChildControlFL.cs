@@ -6,6 +6,7 @@ namespace FamilySprout.Families.FamiliesList.Components
 {
     public partial class ChildControlFL : UserControl
     {
+        public int id { get; private set; }
         public string name { get; private set; }
         public string bday { get; private set; }
         public string baptism { get; private set; }
@@ -19,6 +20,7 @@ namespace FamilySprout.Families.FamiliesList.Components
         }
 
         public ChildControlFL(
+            int _id,
             string _name,
             string _bday,
             string _baptism,
@@ -29,6 +31,7 @@ namespace FamilySprout.Families.FamiliesList.Components
         {
             InitializeComponent();
 
+            id = _id;
             name = _name;
             bday = _bday;
             baptism = _baptism;
@@ -43,6 +46,7 @@ namespace FamilySprout.Families.FamiliesList.Components
         private void btnEdit_Click(object sender, System.EventArgs e)
         {
             EditChildForm childForm = new EditChildForm(
+                _id: id,
                 _name: name,
                 _bday: bday,
                 _baptism: baptism,

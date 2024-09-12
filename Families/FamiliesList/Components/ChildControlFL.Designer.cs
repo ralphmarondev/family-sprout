@@ -31,6 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblChildBirthday = new System.Windows.Forms.Label();
             this.lblChildName = new System.Windows.Forms.Label();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -41,6 +43,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.Controls.Add(this.btnView);
+            this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.lblChildBirthday);
             this.panel1.Controls.Add(this.lblChildName);
             this.panel1.Controls.Add(this.btnEdit);
@@ -48,7 +52,7 @@
             this.panel1.Location = new System.Drawing.Point(7, 9);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(550, 65);
+            this.panel1.Size = new System.Drawing.Size(595, 65);
             this.panel1.TabIndex = 2;
             // 
             // lblChildBirthday
@@ -73,18 +77,56 @@
             this.lblChildName.TabIndex = 8;
             this.lblChildName.Text = "CHILD Name";
             // 
+            // btnView
+            // 
+            this.btnView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnView.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnView.BackgroundImage = global::FamilySprout.Properties.Resources.icons8_view_64;
+            this.btnView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnView.FlatAppearance.BorderSize = 0;
+            this.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnView.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.ForeColor = System.Drawing.Color.Purple;
+            this.btnView.Location = new System.Drawing.Point(429, 12);
+            this.btnView.Margin = new System.Windows.Forms.Padding(0);
+            this.btnView.MaximumSize = new System.Drawing.Size(300, 94);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(45, 41);
+            this.btnView.TabIndex = 11;
+            this.btnView.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDelete.BackgroundImage = global::FamilySprout.Properties.Resources.icons8_delete_50;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.Purple;
+            this.btnDelete.Location = new System.Drawing.Point(540, 12);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.MaximumSize = new System.Drawing.Size(300, 94);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(45, 41);
+            this.btnDelete.TabIndex = 10;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEdit.BackgroundImage = global::FamilySprout.Properties.Resources.icons8_full_screen_48;
+            this.btnEdit.BackgroundImage = global::FamilySprout.Properties.Resources.icons8_edit_100;
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.Purple;
-            this.btnEdit.Location = new System.Drawing.Point(495, 12);
+            this.btnEdit.Location = new System.Drawing.Point(486, 12);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnEdit.Name = "btnEdit";
@@ -100,9 +142,9 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChildControlFL";
-            this.Size = new System.Drawing.Size(564, 83);
+            this.Size = new System.Drawing.Size(609, 83);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -115,5 +157,7 @@
         private System.Windows.Forms.Label lblChildBirthday;
         private System.Windows.Forms.Label lblChildName;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnView;
     }
 }
