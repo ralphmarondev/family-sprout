@@ -47,9 +47,9 @@ namespace FamilySprout
             OpenFormInPanel(new Features.FamilyList.Forms.FamilyDetailsForm(_famId: _famId));
         }
 
-        public void OpenFamilyChildListForm(Features.FamilyList.Forms.FamilyData familyData)
+        public void OpenFamilyChildListForm(Shared.Model.FamilyModel familyModel)
         {
-            OpenFormInPanel(new Features.FamilyList.Forms.FamilyChildListForm(familyData));
+            OpenFormInPanel(new Features.FamilyList.Forms.FamilyChildListForm(familyModel));
         }
 
 

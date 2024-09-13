@@ -153,6 +153,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Model\ChildModel.cs" />
+    <Compile Include="Shared\Model\FamilyModel.cs" />
     <EmbeddedResource Include="Features\FamilyList\Dialog\UpdateParentDialog.resx">
       <DependentUpon>UpdateParentDialog.cs</DependentUpon>
     </EmbeddedResource>

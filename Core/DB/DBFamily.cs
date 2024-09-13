@@ -1,5 +1,4 @@
 ﻿using FamilySprout.Core.Utils;
-using FamilySprout.Features.FamilyList.Forms;
 using FamilySprout.Shared.Model;
 using System;
 using System.Data.SQLite;
@@ -85,9 +84,9 @@ namespace FamilySprout.Core.DB
             return -1;
         }
 
-        public static FamilyData GetFamilyDetails(long _famId)
+        public static FamilyModel GetFamilyDetails(long _famId)
         {
-            FamilyData familyData = new FamilyData();
+            FamilyModel familyModel = new FamilyModel();
 
             try
             {
@@ -117,14 +116,14 @@ namespace FamilySprout.Core.DB
                         {
                             if (reader.Read())
                             {
-                                familyData.id = reader.GetInt64(reader.GetOrdinal("FamilyId"));
-                                familyData.husband = reader["Husband"] != DBNull.Value ? reader["Husband"].ToString() : string.Empty;
-                                familyData.husbandFrom = reader["HusbandFrom"] != DBNull.Value ? reader["HusbandFrom"].ToString() : string.Empty;
-                                familyData.wife = reader["Wife"] != DBNull.Value ? reader["Wife"].ToString() : string.Empty;
-                                familyData.wifeFrom = reader["WifeFrom"] != DBNull.Value ? reader["WifeFrom"].ToString() : string.Empty;
-                                familyData.remarks = reader["remarks"] != DBNull.Value ? reader["remarks"].ToString() : string.Empty;
-                                familyData.createdBy = reader["created_by"] != DBNull.Value ? reader["created_by"].ToString() : string.Empty;
-                                familyData.createDate = reader["create_date"] != DBNull.Value ? reader["create_date"].ToString() : string.Empty;
+                                familyModel.id = reader.GetInt64(reader.GetOrdinal("FamilyId"));
+                                familyModel.husband = reader["Husband"] != DBNull.Value ? reader["Husband"].ToString() : string.Empty;
+                                familyModel.husbandFrom = reader["HusbandFrom"] != DBNull.Value ? reader["HusbandFrom"].ToString() : string.Empty;
+                                familyModel.wife = reader["Wife"] != DBNull.Value ? reader["Wife"].ToString() : string.Empty;
+                                familyModel.wifeFrom = reader["WifeFrom"] != DBNull.Value ? reader["WifeFrom"].ToString() : string.Empty;
+                                familyModel.remarks = reader["remarks"] != DBNull.Value ? reader["remarks"].ToString() : string.Empty;
+                                familyModel.createdBy = reader["created_by"] != DBNull.Value ? reader["created_by"].ToString() : string.Empty;
+                                familyModel.createDate = reader["create_date"] != DBNull.Value ? reader["create_date"].ToString() : string.Empty;
                             }
                         }
                     }
@@ -155,7 +154,7 @@ namespace FamilySprout.Core.DB
                                     reader["create_date"] != DBNull.Value ? reader["create_date"].ToString() : string.Empty
                                     );
 
-                                familyData.childrens.Add(child);
+                                familyModel.childrens.Add(child);
                             }
                         }
                     }
@@ -166,7 +165,7 @@ namespace FamilySprout.Core.DB
                 Console.WriteLine($"Error: {ex.Message}");
             }
 
-            return familyData;
+            return familyModel;
         }
     }
 }

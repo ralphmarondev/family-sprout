@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Features.NewFamily.Controls;
 using FamilySprout.Features.NewFamily.Dialog;
+using FamilySprout.Shared.Model;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -8,14 +9,14 @@ namespace FamilySprout.Features.FamilyList.Forms
 {
     public partial class FamilyChildListForm : Form
     {
-        private FamilyData familyData;
+        private FamilyModel familyModel;
         public FamilyChildListForm(
-            FamilyData _familyData
+            FamilyModel _familyModel
             )
         {
             InitializeComponent();
 
-            familyData = _familyData;
+            familyModel = _familyModel;
             PopulatePanel();
         }
 
@@ -25,7 +26,7 @@ namespace FamilySprout.Features.FamilyList.Forms
 
             if (mainForm != null)
             {
-                mainForm.OpenFamilyDetailsForm(_famId: familyData.id);
+                mainForm.OpenFamilyDetailsForm(_famId: familyModel.id);
             }
         }
 
@@ -35,7 +36,7 @@ namespace FamilySprout.Features.FamilyList.Forms
             childListPanel.AutoScroll = true;
             int currentY = 10;
 
-            if (familyData.childrens.Count == 0)
+            if (familyModel.childrens.Count == 0)
             {
                 Label label = new Label();
                 label.Text = "No children found!";
@@ -62,7 +63,7 @@ namespace FamilySprout.Features.FamilyList.Forms
             }
             else
             {
-                foreach (var child in familyData.childrens)
+                foreach (var child in familyModel.childrens)
                 {
                     ChildUserControl childUserControl = new ChildUserControl(
                         _id: child.id,
@@ -83,7 +84,7 @@ namespace FamilySprout.Features.FamilyList.Forms
 
         private void btnNewChild_Click(object sender, EventArgs e)
         {
-            NewChildDialog newChild = new NewChildDialog(familyData.id);
+            NewChildDialog newChild = new NewChildDialog(familyModel.id);
 
             if (newChild.ShowDialog(this) == DialogResult.OK)
             {
