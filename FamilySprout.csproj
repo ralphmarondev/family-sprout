@@ -152,6 +152,24 @@
     <Compile Include="Features\NewFamily\NewFamilyMainForm.Designer.cs">
       <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\User\Controls\AdminUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\User\Controls\AdminUserControl.Designer.cs">
+      <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\User\Dialog\NewUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\User\Dialog\NewUserDialog.Designer.cs">
+      <DependentUpon>NewUserDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\User\UserMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\User\UserMainForm.Designer.cs">
+      <DependentUpon>UserMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +218,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\NewFamily\NewFamilyMainForm.resx">
       <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\User\Controls\AdminUserControl.resx">
+      <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\User\Dialog\NewUserDialog.resx">
+      <DependentUpon>NewUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\User\UserMainForm.resx">
+      <DependentUpon>UserMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

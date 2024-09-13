@@ -8,7 +8,7 @@
         public string password { get; set; }
         public string createdBy { get; set; }
         public string createDate { get; set; }
-
+        public int role { get; set; } = 1;
 
         public UserModel()
         {

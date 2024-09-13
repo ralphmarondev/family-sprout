@@ -19,6 +19,11 @@ namespace FamilySprout.Features.FamilyList.Forms
 
             lblAdminName.Text = SessionManager.CurrentUser.fullName;
 
+            if (SessionManager.CurrentUser.role == 1)
+            {
+                btnNewChild.Enabled = false;
+            }
+
             familyModel = _familyModel;
             PopulatePanel();
         }

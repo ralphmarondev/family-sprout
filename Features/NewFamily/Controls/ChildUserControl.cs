@@ -1,4 +1,5 @@
-﻿using FamilySprout.Features.NewFamily.Dialog;
+﻿using FamilySprout.Core.Utils;
+using FamilySprout.Features.NewFamily.Dialog;
 using FamilySprout.Features.NewFamily.Forms;
 using System.Windows.Forms;
 
@@ -39,6 +40,12 @@ namespace FamilySprout.Features.NewFamily.Controls
 
             lblName.Text = name;
             lblBday.Text = bday;
+
+            if (SessionManager.CurrentUser.role == 1)
+            {
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
+            }
         }
 
         private void btnView_Click(object sender, System.EventArgs e)

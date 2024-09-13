@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using FamilySprout.Core.Utils;
+using FamilySprout.Features.Auth;
+using System.Windows.Forms;
 
 namespace FamilySprout
 {
@@ -11,7 +13,14 @@ namespace FamilySprout
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
-            OpenNewFamilyMainForm();
+            OpenFamilyListForm();
+
+            if (SessionManager.CurrentUser.role == 1)
+            {
+                btnNewFamily.Enabled = false;
+                btnTrash.Enabled = false;
+                btnUsers.Enabled = false;
+            }
         }
 
         private void OpenFormInPanel(Form form)
@@ -52,6 +61,10 @@ namespace FamilySprout
             OpenFormInPanel(new Features.FamilyList.Forms.FamilyChildListForm(familyModel));
         }
 
+        public void OpenUserMainForm()
+        {
+            OpenFormInPanel(new Features.User.UserMainForm());
+        }
 
         #region NAVIGATION_BUTTON_CLICKS
         private void btnFamilies_Click(object sender, System.EventArgs e)
@@ -62,6 +75,17 @@ namespace FamilySprout
         private void btnNewFamily_Click(object sender, System.EventArgs e)
         {
             OpenNewFamilyMainForm();
+        }
+        private void btnUsers_Click(object sender, System.EventArgs e)
+        {
+            OpenUserMainForm();
+        }
+        private void btnLogout_Click(object sender, System.EventArgs e)
+        {
+            Close();
+            AuthenticationForm authenticationForm = new AuthenticationForm();
+
+            authenticationForm.Show();
         }
         #endregion NAVIGATION_BUTTON_CLICKS
     }
