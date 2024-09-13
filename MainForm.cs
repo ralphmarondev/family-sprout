@@ -61,10 +61,21 @@ namespace FamilySprout
             OpenFormInPanel(new Features.FamilyList.Forms.FamilyChildListForm(familyModel));
         }
 
+        public void OpenTrashMainForm()
+        {
+            OpenFormInPanel(new Features.Trash.TrashMainForm());
+        }
+
         public void OpenUserMainForm()
         {
             OpenFormInPanel(new Features.User.UserMainForm());
         }
+        public void OpenDashboard()
+        {
+            OpenFormInPanel(new Features.Dashboard.DashboardMainScreen());
+        }
+
+
 
         #region NAVIGATION_BUTTON_CLICKS
         private void btnFamilies_Click(object sender, System.EventArgs e)
@@ -87,6 +98,15 @@ namespace FamilySprout
 
             authenticationForm.Show();
         }
+        private void btnTrash_Click(object sender, System.EventArgs e)
+        {
+            OpenTrashMainForm();
+        }
+        private void btnDashboard_Click(object sender, System.EventArgs e)
+        {
+            OpenDashboard();
+        }
         #endregion NAVIGATION_BUTTON_CLICKS
+
     }
 }

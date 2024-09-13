@@ -116,6 +116,7 @@
             this.btnTrash.TabIndex = 4;
             this.btnTrash.Text = "TRASH";
             this.btnTrash.UseVisualStyleBackColor = false;
+            this.btnTrash.Click += new System.EventHandler(this.btnTrash_Click);
             // 
             // btnNewFamily
             // 
@@ -155,6 +156,7 @@
             this.btnDashboard.TabIndex = 2;
             this.btnDashboard.Text = "DASHBOARD";
             this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnLogout
             // 

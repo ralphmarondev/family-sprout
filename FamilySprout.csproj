@@ -80,6 +80,12 @@
     <Compile Include="Features\Auth\AuthenticationForm.Designer.cs">
       <DependentUpon>AuthenticationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Dashboard\DashboardMainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Dashboard\DashboardMainScreen.Designer.cs">
+      <DependentUpon>DashboardMainScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\FamilyList\Dialog\UpdateParentDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,12 @@
     <Compile Include="Features\NewFamily\NewFamilyMainForm.Designer.cs">
       <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Trash\TrashMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\TrashMainForm.Designer.cs">
+      <DependentUpon>TrashMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\User\Controls\AdminUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,6 +213,9 @@
     <EmbeddedResource Include="Features\Auth\AuthenticationForm.resx">
       <DependentUpon>AuthenticationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Dashboard\DashboardMainScreen.resx">
+      <DependentUpon>DashboardMainScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\FamilyList\Dialog\UpdateParentDialog.resx">
       <DependentUpon>UpdateParentDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\NewFamily\NewFamilyMainForm.resx">
       <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\TrashMainForm.resx">
+      <DependentUpon>TrashMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\User\Controls\AdminUserControl.resx">
       <DependentUpon>AdminUserControl.cs</DependentUpon>
