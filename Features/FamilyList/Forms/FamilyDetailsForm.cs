@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Utils;
 using FamilySprout.Features.FamilyList.Dialog;
 using FamilySprout.Shared.Model;
 using System.Windows.Forms;
@@ -13,6 +14,8 @@ namespace FamilySprout.Features.FamilyList.Forms
         {
             InitializeComponent();
             famId = _famId;
+
+            lblAdminName.Text = SessionManager.CurrentUser.fullName;
 
             familyModel = DBFamily.GetFamilyDetails(_famId);
 

@@ -16,6 +16,7 @@ namespace FamilySprout.Core.DB
                 {
                     SQLiteConnection.CreateFile("familysprout.db");
                 }
+                DBUsers.InitializeUsersTable();
                 DBFamily.InitializeFamiliesTable();
                 DBParents.InitializeParentsTable();
                 DBChildren.InitializeChildrenTable();

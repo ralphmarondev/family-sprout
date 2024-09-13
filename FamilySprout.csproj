@@ -69,9 +69,17 @@
     <Compile Include="Core\DB\DBConfig.cs" />
     <Compile Include="Core\DB\DBFamily.cs" />
     <Compile Include="Core\DB\DBParents.cs" />
+    <Compile Include="Core\DB\DBUsers.cs" />
+    <Compile Include="Core\Model\UserModel.cs" />
     <Compile Include="Core\Utils\DateUtils.cs" />
     <Compile Include="Core\Utils\Defaults.cs" />
     <Compile Include="Core\Utils\SessionManager.cs" />
+    <Compile Include="Features\Auth\AuthenticationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Auth\AuthenticationForm.Designer.cs">
+      <DependentUpon>AuthenticationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\FamilyList\Dialog\UpdateParentDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +162,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Model\ChildModel.cs" />
     <Compile Include="Shared\Model\FamilyModel.cs" />
+    <EmbeddedResource Include="Features\Auth\AuthenticationForm.resx">
+      <DependentUpon>AuthenticationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\FamilyList\Dialog\UpdateParentDialog.resx">
       <DependentUpon>UpdateParentDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,7 +228,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\content-management-system-icon-design-free-vector.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-angry-face-with-horns-100.png" />
   </ItemGroup>
@@ -226,6 +239,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-hide-sidepanel-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-view-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

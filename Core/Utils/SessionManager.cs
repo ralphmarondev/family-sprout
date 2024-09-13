@@ -1,8 +1,9 @@
-﻿namespace FamilySprout.Core.Utils
+﻿using FamilySprout.Core.Model;
+
+namespace FamilySprout.Core.Utils
 {
     public static class SessionManager
     {
-        public static string CurrentUserName { get; set; }
-        public static string CurrentUserRole { get; set; }
+        public static UserModel CurrentUser { get; set; }
     }
 }

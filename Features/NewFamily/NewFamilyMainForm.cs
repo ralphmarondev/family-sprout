@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Utils;
 using FamilySprout.Features.NewFamily.Dialog;
 using System;
 using System.Windows.Forms;
@@ -10,6 +11,8 @@ namespace FamilySprout.Features.NewFamily
         public NewFamilyMainForm()
         {
             InitializeComponent();
+
+            lblAdminName.Text = SessionManager.CurrentUser.fullName;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

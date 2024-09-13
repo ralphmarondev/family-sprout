@@ -1,4 +1,5 @@
-﻿using FamilySprout.Features.NewFamily.Controls;
+﻿using FamilySprout.Core.Utils;
+using FamilySprout.Features.NewFamily.Controls;
 using FamilySprout.Features.NewFamily.Dialog;
 using FamilySprout.Shared.Model;
 using System;
@@ -15,6 +16,8 @@ namespace FamilySprout.Features.FamilyList.Forms
             )
         {
             InitializeComponent();
+
+            lblAdminName.Text = SessionManager.CurrentUser.fullName;
 
             familyModel = _familyModel;
             PopulatePanel();

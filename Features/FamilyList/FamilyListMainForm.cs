@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Utils;
 using System;
 using System.Data.SQLite;
 using System.Drawing;
@@ -11,6 +12,8 @@ namespace FamilySprout.Features.FamilyList
         public FamilyListMainForm()
         {
             InitializeComponent();
+
+            lblAdminName.Text = SessionManager.CurrentUser.fullName;
         }
 
         private void FamilyListMainForm_Load(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Utils;
 using FamilySprout.Features.NewFamily.Controls;
 using FamilySprout.Features.NewFamily.Dialog;
 using FamilySprout.Shared.Model;
@@ -15,6 +16,8 @@ namespace FamilySprout.Features.NewFamily.Forms
         public NewChildForm()
         {
             InitializeComponent();
+
+            lblAdminName.Text = SessionManager.CurrentUser.fullName;
         }
 
         public NewChildForm(long _famId)

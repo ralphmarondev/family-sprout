@@ -17,8 +17,7 @@ namespace FamilySprout.Core.DB
                     "hometown TEXT," +
                     "created_by TEXT," +
                     "create_date TEXT," +
-                    "is_deleted BOOLEAN DEFAULT 0," +
-                    "FOREIGN KEY(fam_id) REFERENCES families(id));";
+                    "is_deleted BOOLEAN DEFAULT 0);";
 
                 using (var command = new SQLiteCommand(query, connection))
                 {
