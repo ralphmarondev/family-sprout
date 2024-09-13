@@ -198,5 +198,57 @@ namespace FamilySprout.Core.DB
 
             return users;
         }
+
+        public static void UpdateUser(UserModel user)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE users SET " +
+                        "full_name = @full_name, username = @username, password = @password, role = @role " +
+                        "WHERE username = @username AND is_deleted = 0;";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@full_name", user.fullName);
+                        command.Parameters.AddWithValue("@username", user.username);
+                        command.Parameters.AddWithValue("@password", user.password);
+                        command.Parameters.AddWithValue("@role", user.role);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+
+        public static void DeleteUser(long _id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE users SET is_deleted = 1 WHERE id = @id";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", _id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
     }
 }

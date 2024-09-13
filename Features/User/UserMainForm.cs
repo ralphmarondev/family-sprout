@@ -21,7 +21,7 @@ namespace FamilySprout.Features.User
         }
 
         List<UserModel> users = new List<UserModel>();
-        private void PopulatePanel()
+        public void PopulatePanel()
         {
             users.Clear();
             users = DBUsers.GetAllUsers();

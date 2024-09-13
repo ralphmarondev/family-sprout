@@ -158,11 +158,23 @@
     <Compile Include="Features\User\Controls\AdminUserControl.Designer.cs">
       <DependentUpon>AdminUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\User\Dialog\DeleteUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\User\Dialog\DeleteUserDialog.Designer.cs">
+      <DependentUpon>DeleteUserDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\User\Dialog\NewUserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Features\User\Dialog\NewUserDialog.Designer.cs">
       <DependentUpon>NewUserDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\User\Dialog\UpdateUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\User\Dialog\UpdateUserDialog.Designer.cs">
+      <DependentUpon>UpdateUserDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\User\UserMainForm.cs">
       <SubType>Form</SubType>
@@ -222,8 +234,14 @@
     <EmbeddedResource Include="Features\User\Controls\AdminUserControl.resx">
       <DependentUpon>AdminUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\User\Dialog\DeleteUserDialog.resx">
+      <DependentUpon>DeleteUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\User\Dialog\NewUserDialog.resx">
       <DependentUpon>NewUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\User\Dialog\UpdateUserDialog.resx">
+      <DependentUpon>UpdateUserDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\User\UserMainForm.resx">
       <DependentUpon>UserMainForm.cs</DependentUpon>

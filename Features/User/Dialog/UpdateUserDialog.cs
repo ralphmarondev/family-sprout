@@ -5,14 +5,22 @@ using System.Windows.Forms;
 
 namespace FamilySprout.Features.User.Dialog
 {
-    public partial class NewUserDialog : Form
+    public partial class UpdateUserDialog : Form
     {
-        public NewUserDialog()
+        private UserModel user;
+        public UpdateUserDialog(UserModel _user)
         {
             InitializeComponent();
+
+            user = _user;
+
+            tbName.Text = user.fullName;
+            tbUsername.Text = user.username;
+            tbPassword.Text = user.password;
+            tbConfirmPassword.Text = user.password;
         }
 
-        private void btnRegister_Click(object sender, System.EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (IsRequiredFieldsEmpty()) return;
 
@@ -37,12 +45,12 @@ namespace FamilySprout.Features.User.Dialog
                     return;
                 }
 
-                DBUsers.CreateNewUser(user);
+                DBUsers.UpdateUser(user);
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Registration Failed!\nError: {ex.Message}", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Update Failed!\nError: {ex.Message}", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Close();
         }

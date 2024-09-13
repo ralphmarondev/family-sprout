@@ -73,6 +73,7 @@
             this.btnView.Size = new System.Drawing.Size(45, 41);
             this.btnView.TabIndex = 11;
             this.btnView.UseVisualStyleBackColor = false;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // btnUpdate
             // 
@@ -92,6 +93,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(45, 41);
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lblRole
             // 
@@ -133,6 +135,7 @@
             this.btnDelete.Size = new System.Drawing.Size(45, 41);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // AdminUserControl
             // 
@@ -141,7 +144,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminUserControl";
             this.Size = new System.Drawing.Size(696, 83);
             this.panel1.ResumeLayout(false);
