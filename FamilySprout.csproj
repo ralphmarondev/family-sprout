@@ -71,11 +71,30 @@
     <Compile Include="Core\DB\DBParents.cs" />
     <Compile Include="Core\Utils\DateUtils.cs" />
     <Compile Include="Core\Utils\Defaults.cs" />
+    <Compile Include="Core\Utils\SessionManager.cs" />
+    <Compile Include="Features\FamilyList\Dialog\UpdateParentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyList\Dialog\UpdateParentDialog.Designer.cs">
+      <DependentUpon>UpdateParentDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\FamilyList\FamilyListMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Features\FamilyList\FamilyListMainForm.Designer.cs">
       <DependentUpon>FamilyListMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FamilyList\Forms\FamilyChildListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyList\Forms\FamilyChildListForm.Designer.cs">
+      <DependentUpon>FamilyChildListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FamilyList\Forms\FamilyDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyList\Forms\FamilyDetailsForm.Designer.cs">
+      <DependentUpon>FamilyDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\NewFamily\Controls\ChildUserControl.cs">
       <SubType>UserControl</SubType>
@@ -134,8 +153,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Model\ChildModel.cs" />
+    <EmbeddedResource Include="Features\FamilyList\Dialog\UpdateParentDialog.resx">
+      <DependentUpon>UpdateParentDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\FamilyList\FamilyListMainForm.resx">
       <DependentUpon>FamilyListMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FamilyList\Forms\FamilyChildListForm.resx">
+      <DependentUpon>FamilyChildListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FamilyList\Forms\FamilyDetailsForm.resx">
+      <DependentUpon>FamilyDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\NewFamily\Controls\ChildUserControl.resx">
       <DependentUpon>ChildUserControl.cs</DependentUpon>

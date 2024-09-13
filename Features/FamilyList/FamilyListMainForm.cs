@@ -121,6 +121,13 @@ namespace FamilySprout.Features.FamilyList
                 string wife = dataGridViewFamilies.Rows[e.RowIndex].Cells["WifeName"].Value.ToString();
 
                 Console.WriteLine($"Family ID: {famId},Husband: {husband}, wife: {wife}");
+
+                MainForm mainForm = this.ParentForm as MainForm;
+
+                if (mainForm != null)
+                {
+                    mainForm.OpenFamilyDetailsForm(_famId: Convert.ToInt64(famId));
+                }
             }
         }
     }

@@ -42,6 +42,16 @@ namespace FamilySprout
             OpenFormInPanel(new Features.FamilyList.FamilyListMainForm());
         }
 
+        public void OpenFamilyDetailsForm(long _famId)
+        {
+            OpenFormInPanel(new Features.FamilyList.Forms.FamilyDetailsForm(_famId: _famId));
+        }
+
+        public void OpenFamilyChildListForm(Features.FamilyList.Forms.FamilyData familyData)
+        {
+            OpenFormInPanel(new Features.FamilyList.Forms.FamilyChildListForm(familyData));
+        }
+
 
         #region NAVIGATION_BUTTON_CLICKS
         private void btnFamilies_Click(object sender, System.EventArgs e)
