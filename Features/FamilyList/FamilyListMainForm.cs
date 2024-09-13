@@ -99,7 +99,7 @@ namespace FamilySprout.Features.FamilyList
                                 int childCount = reader.GetInt32(3);
 
                                 // Add a row to the DataGridView
-                                dataGridViewFamilies.Rows.Add(husbandName, wifeName, childCount);
+                                dataGridViewFamilies.Rows.Add(familyId, husbandName, wifeName, childCount);
                             }
                         }
                     }
@@ -116,10 +116,11 @@ namespace FamilySprout.Features.FamilyList
             // Ensure that the click is in a valid row and the action column
             if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewFamilies.Columns["Action"].Index)
             {
+                string famId = dataGridViewFamilies.Rows[e.RowIndex].Cells["FamilyId"].Value.ToString();
                 string husband = dataGridViewFamilies.Rows[e.RowIndex].Cells["HusbandName"].Value.ToString();
                 string wife = dataGridViewFamilies.Rows[e.RowIndex].Cells["WifeName"].Value.ToString();
 
-                Console.WriteLine($"Husband: {husband}, wife: {wife}");
+                Console.WriteLine($"Family ID: {famId},Husband: {husband}, wife: {wife}");
             }
         }
     }
