@@ -209,7 +209,7 @@ namespace FamilySprout.Core.DB
 
                     string query = "UPDATE users SET " +
                         "full_name = @full_name, username = @username, password = @password, role = @role " +
-                        "WHERE username = @username AND is_deleted = 0;";
+                        "WHERE id = @id AND is_deleted = 0;";
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
@@ -217,6 +217,7 @@ namespace FamilySprout.Core.DB
                         command.Parameters.AddWithValue("@username", user.username);
                         command.Parameters.AddWithValue("@password", user.password);
                         command.Parameters.AddWithValue("@role", user.role);
+                        command.Parameters.AddWithValue("@id", user.id);
 
                         command.ExecuteNonQuery();
                     }

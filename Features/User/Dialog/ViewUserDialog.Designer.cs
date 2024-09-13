@@ -1,6 +1,6 @@
 ﻿namespace FamilySprout.Features.User.Dialog
 {
-    partial class DeleteUserDialog
+    partial class ViewUserDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.tbRoles = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbConfirmPassword = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
-            this.tbRoles = new System.Windows.Forms.TextBox();
             this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,17 +53,26 @@
             this.loginPanel.Controls.Add(this.tbUsername);
             this.loginPanel.Controls.Add(this.label7);
             this.loginPanel.Controls.Add(this.tbConfirmPassword);
-            this.loginPanel.Controls.Add(this.btnCancel);
+            this.loginPanel.Controls.Add(this.btnClose);
             this.loginPanel.Controls.Add(this.label5);
             this.loginPanel.Controls.Add(this.tbName);
-            this.loginPanel.Controls.Add(this.btnDelete);
             this.loginPanel.Controls.Add(this.label3);
             this.loginPanel.Controls.Add(this.label1);
             this.loginPanel.Controls.Add(this.tbPassword);
             this.loginPanel.Location = new System.Drawing.Point(22, 22);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(580, 398);
-            this.loginPanel.TabIndex = 24;
+            this.loginPanel.TabIndex = 25;
+            // 
+            // tbRoles
+            // 
+            this.tbRoles.BackColor = System.Drawing.SystemColors.Window;
+            this.tbRoles.Font = new System.Drawing.Font("Courier New", 14F);
+            this.tbRoles.Location = new System.Drawing.Point(46, 252);
+            this.tbRoles.Name = "tbRoles";
+            this.tbRoles.ReadOnly = true;
+            this.tbRoles.Size = new System.Drawing.Size(234, 34);
+            this.tbRoles.TabIndex = 33;
             // 
             // label2
             // 
@@ -116,25 +124,25 @@
             this.tbConfirmPassword.Size = new System.Drawing.Size(234, 34);
             this.tbConfirmPassword.TabIndex = 27;
             // 
-            // btnCancel
+            // btnClose
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.LightYellow;
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.Purple;
-            this.btnCancel.Location = new System.Drawing.Point(89, 322);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(200, 43);
-            this.btnCancel.TabIndex = 26;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnClose.BackColor = System.Drawing.Color.LightYellow;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.Purple;
+            this.btnClose.Location = new System.Drawing.Point(329, 321);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(0);
+            this.btnClose.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(200, 43);
+            this.btnClose.TabIndex = 26;
+            this.btnClose.Text = "CLOSE";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label5
             // 
@@ -156,35 +164,15 @@
             this.tbName.Size = new System.Drawing.Size(234, 34);
             this.tbName.TabIndex = 24;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.BackColor = System.Drawing.Color.Plum;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.ForeColor = System.Drawing.Color.Purple;
-            this.btnDelete.Location = new System.Drawing.Point(329, 321);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDelete.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(200, 43);
-            this.btnDelete.TabIndex = 21;
-            this.btnDelete.Text = "DELETE";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(48, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 31);
+            this.label3.Size = new System.Drawing.Size(78, 31);
             this.label3.TabIndex = 10;
-            this.label3.Text = "DELETE";
+            this.label3.Text = "VIEW";
             // 
             // label1
             // 
@@ -206,17 +194,7 @@
             this.tbPassword.Size = new System.Drawing.Size(234, 34);
             this.tbPassword.TabIndex = 6;
             // 
-            // tbRoles
-            // 
-            this.tbRoles.BackColor = System.Drawing.SystemColors.Window;
-            this.tbRoles.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbRoles.Location = new System.Drawing.Point(46, 252);
-            this.tbRoles.Name = "tbRoles";
-            this.tbRoles.ReadOnly = true;
-            this.tbRoles.Size = new System.Drawing.Size(234, 34);
-            this.tbRoles.TabIndex = 33;
-            // 
-            // DeleteUserDialog
+            // ViewUserDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -225,12 +203,12 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "DeleteUserDialog";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "ViewUserDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DELETE USER INFORMATION";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "VIEW USER INFORMATION";
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -240,18 +218,17 @@
         #endregion
 
         private System.Windows.Forms.Panel loginPanel;
+        private System.Windows.Forms.TextBox tbRoles;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbConfirmPassword;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbPassword;
-        private System.Windows.Forms.TextBox tbRoles;
     }
 }

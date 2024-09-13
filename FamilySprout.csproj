@@ -176,6 +176,12 @@
     <Compile Include="Features\User\Dialog\UpdateUserDialog.Designer.cs">
       <DependentUpon>UpdateUserDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\User\Dialog\ViewUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\User\Dialog\ViewUserDialog.Designer.cs">
+      <DependentUpon>ViewUserDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\User\UserMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\User\Dialog\UpdateUserDialog.resx">
       <DependentUpon>UpdateUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\User\Dialog\ViewUserDialog.resx">
+      <DependentUpon>ViewUserDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\User\UserMainForm.resx">
       <DependentUpon>UserMainForm.cs</DependentUpon>

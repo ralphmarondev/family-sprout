@@ -18,6 +18,8 @@ namespace FamilySprout.Features.User.Dialog
             tbUsername.Text = user.username;
             tbPassword.Text = user.password;
             tbConfirmPassword.Text = user.password;
+
+            tbRoles.Text = (user.role == 0) ? "SUPERUSER" : "USER";
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -32,7 +34,6 @@ namespace FamilySprout.Features.User.Dialog
 
             try
             {
-                UserModel user = new UserModel();
                 user.fullName = tbName.Text.Trim();
                 user.username = tbUsername.Text.Trim();
                 user.password = tbPassword.Text.Trim();

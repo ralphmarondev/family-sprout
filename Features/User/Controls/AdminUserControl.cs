@@ -19,7 +19,9 @@ namespace FamilySprout.Features.User.Controls
 
         private void btnView_Click(object sender, System.EventArgs e)
         {
+            ViewUserDialog viewUser = new ViewUserDialog(user);
 
+            viewUser.ShowDialog(this);
         }
 
         private void btnUpdate_Click(object sender, System.EventArgs e)

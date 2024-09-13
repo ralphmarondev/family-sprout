@@ -17,6 +17,7 @@ namespace FamilySprout.Features.User.Dialog
             tbUsername.Text = user.username;
             tbPassword.Text = user.password;
             tbConfirmPassword.Text = user.password;
+            tbRoles.Text = (user.role == 0) ? "SUPERUSER" : "USER";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
