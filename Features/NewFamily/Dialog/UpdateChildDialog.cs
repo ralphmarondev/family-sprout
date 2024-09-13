@@ -38,6 +38,8 @@ namespace FamilySprout.Features.NewFamily.Dialog
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (IsRequiredFieldsEmpty()) return;
+
             name = tbName.Text.Trim();
             bday = tbBday.Text.Trim();
             baptism = tbBaptism.Text.Trim();
@@ -67,6 +69,28 @@ namespace FamilySprout.Features.NewFamily.Dialog
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+
+        private bool IsRequiredFieldsEmpty()
+        {
+            if (tbName.Text == "" && tbBday.Text == "")
+            {
+                MessageBox.Show("Name and birthday cannot be empty!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+            else if (tbName.Text == "" && tbBday.Text != "")
+            {
+                MessageBox.Show("Name cannot be empty!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+            else if (tbName.Text != "" && tbBday.Text == "")
+            {
+                MessageBox.Show("Birthday cannot be empty!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+
+            return false;
         }
     }
 }

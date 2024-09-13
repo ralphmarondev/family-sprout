@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FamilyDetailsForm));
             this.panelTitle = new System.Windows.Forms.Panel();
             this.lblDestination = new System.Windows.Forms.Label();
+            this.btnFullScreen = new System.Windows.Forms.Button();
+            this.btnToggleNavPanel = new System.Windows.Forms.Button();
+            this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
             this.lblAdminName = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,16 +55,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
             this.lblBack = new System.Windows.Forms.LinkLabel();
-            this.btnFullScreen = new System.Windows.Forms.Button();
-            this.btnToggleNavPanel = new System.Windows.Forms.Button();
-            this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
             this.panelTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHusbandWife.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitle
@@ -90,6 +90,58 @@
             this.lblDestination.Size = new System.Drawing.Size(322, 22);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "FAMILY LIST/DETAILS/PARENT\r\n";
+            // 
+            // btnFullScreen
+            // 
+            this.btnFullScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFullScreen.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnFullScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFullScreen.BackgroundImage")));
+            this.btnFullScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFullScreen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFullScreen.FlatAppearance.BorderSize = 0;
+            this.btnFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFullScreen.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFullScreen.ForeColor = System.Drawing.Color.Purple;
+            this.btnFullScreen.Location = new System.Drawing.Point(851, 17);
+            this.btnFullScreen.Margin = new System.Windows.Forms.Padding(0);
+            this.btnFullScreen.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnFullScreen.Name = "btnFullScreen";
+            this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
+            this.btnFullScreen.TabIndex = 6;
+            this.btnFullScreen.UseVisualStyleBackColor = false;
+            // 
+            // btnToggleNavPanel
+            // 
+            this.btnToggleNavPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnToggleNavPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnToggleNavPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnToggleNavPanel.BackgroundImage")));
+            this.btnToggleNavPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnToggleNavPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnToggleNavPanel.FlatAppearance.BorderSize = 0;
+            this.btnToggleNavPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToggleNavPanel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToggleNavPanel.ForeColor = System.Drawing.Color.Purple;
+            this.btnToggleNavPanel.Location = new System.Drawing.Point(891, 17);
+            this.btnToggleNavPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.btnToggleNavPanel.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnToggleNavPanel.Name = "btnToggleNavPanel";
+            this.btnToggleNavPanel.Size = new System.Drawing.Size(30, 30);
+            this.btnToggleNavPanel.TabIndex = 5;
+            this.btnToggleNavPanel.UseVisualStyleBackColor = false;
+            // 
+            // btnEmployeeInfo
+            // 
+            this.btnEmployeeInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEmployeeInfo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEmployeeInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmployeeInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmployeeInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployeeInfo.Image")));
+            this.btnEmployeeInfo.Location = new System.Drawing.Point(533, 16);
+            this.btnEmployeeInfo.Name = "btnEmployeeInfo";
+            this.btnEmployeeInfo.Size = new System.Drawing.Size(30, 30);
+            this.btnEmployeeInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnEmployeeInfo.TabIndex = 4;
+            this.btnEmployeeInfo.TabStop = false;
             // 
             // lblAdminName
             // 
@@ -216,9 +268,11 @@
             // 
             // tbWifeFrom
             // 
+            this.tbWifeFrom.BackColor = System.Drawing.SystemColors.Window;
             this.tbWifeFrom.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbWifeFrom.Location = new System.Drawing.Point(15, 137);
             this.tbWifeFrom.Name = "tbWifeFrom";
+            this.tbWifeFrom.ReadOnly = true;
             this.tbWifeFrom.Size = new System.Drawing.Size(252, 30);
             this.tbWifeFrom.TabIndex = 6;
             // 
@@ -234,9 +288,11 @@
             // 
             // tbWifeFullName
             // 
+            this.tbWifeFullName.BackColor = System.Drawing.SystemColors.Window;
             this.tbWifeFullName.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbWifeFullName.Location = new System.Drawing.Point(15, 75);
             this.tbWifeFullName.Name = "tbWifeFullName";
+            this.tbWifeFullName.ReadOnly = true;
             this.tbWifeFullName.Size = new System.Drawing.Size(252, 30);
             this.tbWifeFullName.TabIndex = 4;
             // 
@@ -275,9 +331,11 @@
             // 
             // tbHusbandFrom
             // 
+            this.tbHusbandFrom.BackColor = System.Drawing.SystemColors.Window;
             this.tbHusbandFrom.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbHusbandFrom.Location = new System.Drawing.Point(15, 137);
             this.tbHusbandFrom.Name = "tbHusbandFrom";
+            this.tbHusbandFrom.ReadOnly = true;
             this.tbHusbandFrom.Size = new System.Drawing.Size(252, 30);
             this.tbHusbandFrom.TabIndex = 6;
             // 
@@ -293,9 +351,11 @@
             // 
             // tbHusbandFullName
             // 
+            this.tbHusbandFullName.BackColor = System.Drawing.SystemColors.Window;
             this.tbHusbandFullName.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbHusbandFullName.Location = new System.Drawing.Point(15, 75);
             this.tbHusbandFullName.Name = "tbHusbandFullName";
+            this.tbHusbandFullName.ReadOnly = true;
             this.tbHusbandFullName.Size = new System.Drawing.Size(252, 30);
             this.tbHusbandFullName.TabIndex = 4;
             // 
@@ -311,10 +371,12 @@
             // 
             // tbRemarks
             // 
+            this.tbRemarks.BackColor = System.Drawing.SystemColors.Window;
             this.tbRemarks.Font = new System.Drawing.Font("Courier New", 12F);
             this.tbRemarks.Location = new System.Drawing.Point(27, 251);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
+            this.tbRemarks.ReadOnly = true;
             this.tbRemarks.Size = new System.Drawing.Size(538, 54);
             this.tbRemarks.TabIndex = 8;
             this.tbRemarks.Text = "No Remarks";
@@ -329,58 +391,6 @@
             this.lblBack.TabStop = true;
             this.lblBack.Text = "BACK";
             this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
-            // 
-            // btnFullScreen
-            // 
-            this.btnFullScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFullScreen.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnFullScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFullScreen.BackgroundImage")));
-            this.btnFullScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFullScreen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFullScreen.FlatAppearance.BorderSize = 0;
-            this.btnFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFullScreen.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFullScreen.ForeColor = System.Drawing.Color.Purple;
-            this.btnFullScreen.Location = new System.Drawing.Point(851, 17);
-            this.btnFullScreen.Margin = new System.Windows.Forms.Padding(0);
-            this.btnFullScreen.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnFullScreen.Name = "btnFullScreen";
-            this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
-            this.btnFullScreen.TabIndex = 6;
-            this.btnFullScreen.UseVisualStyleBackColor = false;
-            // 
-            // btnToggleNavPanel
-            // 
-            this.btnToggleNavPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnToggleNavPanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnToggleNavPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnToggleNavPanel.BackgroundImage")));
-            this.btnToggleNavPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnToggleNavPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnToggleNavPanel.FlatAppearance.BorderSize = 0;
-            this.btnToggleNavPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToggleNavPanel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToggleNavPanel.ForeColor = System.Drawing.Color.Purple;
-            this.btnToggleNavPanel.Location = new System.Drawing.Point(891, 17);
-            this.btnToggleNavPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.btnToggleNavPanel.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnToggleNavPanel.Name = "btnToggleNavPanel";
-            this.btnToggleNavPanel.Size = new System.Drawing.Size(30, 30);
-            this.btnToggleNavPanel.TabIndex = 5;
-            this.btnToggleNavPanel.UseVisualStyleBackColor = false;
-            // 
-            // btnEmployeeInfo
-            // 
-            this.btnEmployeeInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEmployeeInfo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEmployeeInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEmployeeInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmployeeInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployeeInfo.Image")));
-            this.btnEmployeeInfo.Location = new System.Drawing.Point(533, 16);
-            this.btnEmployeeInfo.Name = "btnEmployeeInfo";
-            this.btnEmployeeInfo.Size = new System.Drawing.Size(30, 30);
-            this.btnEmployeeInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnEmployeeInfo.TabIndex = 4;
-            this.btnEmployeeInfo.TabStop = false;
             // 
             // FamilyDetailsForm
             // 
@@ -400,6 +410,7 @@
             this.Load += new System.EventHandler(this.FamilyDetailsForm_Load);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -409,7 +420,6 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).EndInit();
             this.ResumeLayout(false);
 
         }

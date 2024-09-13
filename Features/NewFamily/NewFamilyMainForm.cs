@@ -14,6 +14,8 @@ namespace FamilySprout.Features.NewFamily
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (IsRequiredFieldEmpty()) return;
+
             try
             {
                 long familyId = DBFamily.CreateNewFamily(
@@ -48,6 +50,17 @@ namespace FamilySprout.Features.NewFamily
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+        }
+
+        private bool IsRequiredFieldEmpty()
+        {
+            if (tbHusbandFullName.Text == "" || tbWifeFullName.Text == "" || tbHusbandFrom.Text == "" || tbWifeFrom.Text == "" || tbRemarks.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+
+            return false;
         }
     }
 }

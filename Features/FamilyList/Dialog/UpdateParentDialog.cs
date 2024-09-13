@@ -33,6 +33,8 @@ namespace FamilySprout.Features.FamilyList.Dialog
 
         private void btnUpdate_Click(object sender, System.EventArgs e)
         {
+            if (IsRequiredFieldEmpty()) return;
+
             try
             {
                 DBParents.UpdateParentInformation(
@@ -50,6 +52,17 @@ namespace FamilySprout.Features.FamilyList.Dialog
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+        }
+
+        private bool IsRequiredFieldEmpty()
+        {
+            if (tbHusbandFullName.Text == "" || tbWifeFullName.Text == "" || tbHusbandFrom.Text == "" || tbWifeFrom.Text == "" || tbRemarks.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+
+            return false;
         }
     }
 }
