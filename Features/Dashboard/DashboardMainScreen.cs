@@ -1,4 +1,5 @@
-﻿using FamilySprout.Core.Utils;
+﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Utils;
 using FamilySprout.Features.Home;
 using System.Drawing;
 using System.Windows.Forms;
@@ -12,7 +13,12 @@ namespace FamilySprout.Features.Dashboard
             InitializeComponent();
 
             lblAdminName.Text = SessionManager.CurrentUser.fullName;
-            lblGreetings.Text = $"Hello, {SessionManager.CurrentUser.fullName}";
+            var role = (SessionManager.CurrentUser.role == 0) ? "SUPERUSER" : "USER";
+            lblGreetings.Text = $"Hello, {SessionManager.CurrentUser.fullName} [{role}]";
+
+            lblFamiliesCount.Text = $"{DBFamily.GetTotalFamilyCount()}";
+            lblChildrenCount.Text = $"{DBChildren.GetTotalChildCount()}";
+            lblUserCount.Text = $"{DBUsers.GetTotalUserCount()}";
         }
 
         private void btnFullScreen_Click(object sender, System.EventArgs e)

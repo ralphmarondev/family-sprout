@@ -21,6 +21,7 @@ namespace FamilySprout.Features.FamilyList.Forms
             if (SessionManager.CurrentUser.role == 1)
             {
                 btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
             }
 
             familyModel = DBFamily.GetFamilyDetails(_famId);

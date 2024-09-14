@@ -40,6 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.childListPanel = new System.Windows.Forms.Panel();
             this.lblBack = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -140,6 +141,7 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.label3);
             this.mainPanel.Controls.Add(this.btnNewChild);
             this.mainPanel.Controls.Add(this.panel1);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -197,6 +199,16 @@
             this.lblBack.Text = "BACK";
             this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 10F);
+            this.label3.Location = new System.Drawing.Point(237, 504);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(659, 20);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "**Adding, Updating, and Deleting is Disabled for non-superusers**";
+            // 
             // FamilyChildListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
@@ -217,6 +229,7 @@
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).EndInit();
             this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -236,5 +249,6 @@
         private System.Windows.Forms.LinkLabel lblBack;
         private System.Windows.Forms.Panel childListPanel;
         private System.Windows.Forms.Button btnNewChild;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -336,5 +336,28 @@ namespace FamilySprout.Core.DB
 
             return families;
         }
+
+        public static int GetTotalFamilyCount()
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM families WHERE is_deleted = 0;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        int count = Convert.ToInt32(command.ExecuteScalar());
+                        return count;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return 0;
+        }
     }
 }
