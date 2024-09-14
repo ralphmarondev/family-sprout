@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.lblDestination = new System.Windows.Forms.Label();
             this.btnFullScreen = new System.Windows.Forms.Button();
@@ -39,6 +37,9 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewFamilies = new System.Windows.Forms.DataGridView();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblEmpty = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -49,6 +50,8 @@
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.White;
+            this.panelTitle.Controls.Add(this.label1);
+            this.panelTitle.Controls.Add(this.tbSearch);
             this.panelTitle.Controls.Add(this.lblDestination);
             this.panelTitle.Controls.Add(this.btnFullScreen);
             this.panelTitle.Controls.Add(this.btnToggleNavPanel);
@@ -153,6 +156,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.lblEmpty);
             this.panel1.Controls.Add(this.dataGridViewFamilies);
             this.panel1.Location = new System.Drawing.Point(22, 22);
             this.panel1.Name = "panel1";
@@ -165,28 +169,40 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewFamilies.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFamilies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewFamilies.ColumnHeadersHeight = 50;
             this.dataGridViewFamilies.Location = new System.Drawing.Point(26, 24);
             this.dataGridViewFamilies.Name = "dataGridViewFamilies";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFamilies.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewFamilies.RowHeadersWidth = 51;
             this.dataGridViewFamilies.Size = new System.Drawing.Size(833, 429);
             this.dataGridViewFamilies.TabIndex = 0;
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(208, 26);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(209, 30);
+            this.tbSearch.TabIndex = 1;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Courier New", 10F);
+            this.label1.Location = new System.Drawing.Point(205, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "SEARCH HUSBAND:";
+            // 
+            // lblEmpty
+            // 
+            this.lblEmpty.AutoSize = true;
+            this.lblEmpty.Font = new System.Drawing.Font("Courier New", 18F);
+            this.lblEmpty.Location = new System.Drawing.Point(137, 234);
+            this.lblEmpty.Name = "lblEmpty";
+            this.lblEmpty.Size = new System.Drawing.Size(555, 33);
+            this.lblEmpty.TabIndex = 1;
+            this.lblEmpty.Text = "TABLE IS EMPTY. NO DATA FOUND!";
             // 
             // FamilyListMainForm
             // 
@@ -209,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFamilies)).EndInit();
             this.ResumeLayout(false);
 
@@ -225,5 +242,8 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridViewFamilies;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Label lblEmpty;
     }
 }
