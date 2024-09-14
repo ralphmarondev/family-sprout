@@ -38,11 +38,17 @@ namespace FamilySprout.Features.Trash.Controls
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            PermanentlyDeleteFamily permanentlyDeleteFamily = new PermanentlyDeleteFamily();
+            PermanentlyDeleteFamily permanentlyDeleteFamily = new PermanentlyDeleteFamily(family);
 
             if (permanentlyDeleteFamily.ShowDialog(this) == DialogResult.OK)
             {
+                this.Hide();
+                TrashMainForm trashMainForm = this.ParentForm as TrashMainForm;
 
+                if (trashMainForm != null)
+                {
+                    trashMainForm.PopulatePanelWithDeletedFamilies();
+                }
             }
         }
     }

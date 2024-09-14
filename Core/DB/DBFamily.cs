@@ -117,13 +117,26 @@ namespace FamilySprout.Core.DB
                 {
                     connection.Open();
 
-                    string query = "UPDATE families SET is_deleted = 1 WHERE id = @id AND is_deleted = 0";
-
-                    using (var command = new SQLiteCommand(query, connection))
+                    using (var transaction = connection.BeginTransaction())
                     {
-                        command.Parameters.AddWithValue("@id", _famId);
+                        string query = "DELETE FROM families WHERE id = @id AND is_deleted = 1";
 
-                        command.ExecuteNonQuery();
+                        using (var command = new SQLiteCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@id", _famId);
+
+                            int rowsAffected = command.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                Console.WriteLine($"Family with Id: {_famId} permanently deleted.");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"No family found with id: {_famId} to delete.");
+                            }
+                        }
+                        transaction.Commit();
                     }
                 }
             }
