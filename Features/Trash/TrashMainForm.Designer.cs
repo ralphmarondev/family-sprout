@@ -160,7 +160,7 @@
             this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsers.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsers.ForeColor = System.Drawing.Color.Purple;
-            this.btnUsers.Location = new System.Drawing.Point(441, 521);
+            this.btnUsers.Location = new System.Drawing.Point(441, 502);
             this.btnUsers.Margin = new System.Windows.Forms.Padding(0);
             this.btnUsers.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnUsers.Name = "btnUsers";
@@ -178,7 +178,7 @@
             this.btnChildrens.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChildrens.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChildrens.ForeColor = System.Drawing.Color.Purple;
-            this.btnChildrens.Location = new System.Drawing.Point(232, 521);
+            this.btnChildrens.Location = new System.Drawing.Point(232, 502);
             this.btnChildrens.Margin = new System.Windows.Forms.Padding(0);
             this.btnChildrens.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnChildrens.Name = "btnChildrens";
@@ -196,7 +196,7 @@
             this.btnFamilies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFamilies.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFamilies.ForeColor = System.Drawing.Color.Purple;
-            this.btnFamilies.Location = new System.Drawing.Point(22, 521);
+            this.btnFamilies.Location = new System.Drawing.Point(22, 502);
             this.btnFamilies.Margin = new System.Windows.Forms.Padding(0);
             this.btnFamilies.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnFamilies.Name = "btnFamilies";
@@ -212,15 +212,15 @@
             this.panel1.Controls.Add(this.listOfItemsPanel);
             this.panel1.Location = new System.Drawing.Point(22, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(845, 487);
+            this.panel1.Size = new System.Drawing.Size(840, 463);
             this.panel1.TabIndex = 0;
             // 
             // listOfItemsPanel
             // 
             this.listOfItemsPanel.Controls.Add(this.lblEmpty);
-            this.listOfItemsPanel.Location = new System.Drawing.Point(22, 18);
+            this.listOfItemsPanel.Location = new System.Drawing.Point(22, 22);
             this.listOfItemsPanel.Name = "listOfItemsPanel";
-            this.listOfItemsPanel.Size = new System.Drawing.Size(806, 451);
+            this.listOfItemsPanel.Size = new System.Drawing.Size(798, 424);
             this.listOfItemsPanel.TabIndex = 0;
             // 
             // lblEmpty

@@ -36,10 +36,12 @@
             this.lblAdminName = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.btnNew = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.userListPanel = new System.Windows.Forms.Panel();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitle
@@ -137,7 +139,7 @@
             // mainPanel
             // 
             this.mainPanel.Controls.Add(this.btnNew);
-            this.mainPanel.Controls.Add(this.userListPanel);
+            this.mainPanel.Controls.Add(this.panel1);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 68);
             this.mainPanel.Name = "mainPanel";
@@ -162,16 +164,24 @@
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // userListPanel
+            // panel1
             // 
-            this.userListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.userListPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.userListPanel);
+            this.panel1.Location = new System.Drawing.Point(22, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(869, 472);
+            this.panel1.TabIndex = 24;
+            // 
+            // userListPanel
+            // 
             this.userListPanel.Location = new System.Drawing.Point(22, 22);
             this.userListPanel.Name = "userListPanel";
-            this.userListPanel.Size = new System.Drawing.Size(845, 472);
-            this.userListPanel.TabIndex = 24;
+            this.userListPanel.Size = new System.Drawing.Size(821, 437);
+            this.userListPanel.TabIndex = 0;
             // 
             // UserMainForm
             // 
@@ -193,6 +203,7 @@
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).EndInit();
             this.mainPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -206,7 +217,8 @@
         private System.Windows.Forms.PictureBox btnEmployeeInfo;
         private System.Windows.Forms.Label lblAdminName;
         private System.Windows.Forms.Panel mainPanel;
-        private System.Windows.Forms.Panel userListPanel;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Panel userListPanel;
     }
 }

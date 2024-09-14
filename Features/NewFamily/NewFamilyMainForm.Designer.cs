@@ -30,9 +30,6 @@
         {
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelTitle = new System.Windows.Forms.Panel();
-            this.lblDestination = new System.Windows.Forms.Label();
-            this.lblAdminName = new System.Windows.Forms.Label();
             this.panelHusbandWife = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -50,15 +47,18 @@
             this.tbHusbandFullName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
+            this.panelTitle = new System.Windows.Forms.Panel();
+            this.lblDestination = new System.Windows.Forms.Label();
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleNavPanel = new System.Windows.Forms.Button();
             this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
+            this.lblAdminName = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panelTitle.SuspendLayout();
             this.panelHusbandWife.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,48 +80,8 @@
             this.panel1.Controls.Add(this.panelHusbandWife);
             this.panel1.Location = new System.Drawing.Point(22, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(812, 472);
+            this.panel1.Size = new System.Drawing.Size(873, 472);
             this.panel1.TabIndex = 22;
-            // 
-            // panelTitle
-            // 
-            this.panelTitle.BackColor = System.Drawing.Color.White;
-            this.panelTitle.Controls.Add(this.lblDestination);
-            this.panelTitle.Controls.Add(this.btnFullScreen);
-            this.panelTitle.Controls.Add(this.btnToggleNavPanel);
-            this.panelTitle.Controls.Add(this.btnEmployeeInfo);
-            this.panelTitle.Controls.Add(this.lblAdminName);
-            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitle.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTitle.ForeColor = System.Drawing.Color.Purple;
-            this.panelTitle.Location = new System.Drawing.Point(0, 0);
-            this.panelTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.panelTitle.MinimumSize = new System.Drawing.Size(717, 68);
-            this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(930, 68);
-            this.panelTitle.TabIndex = 17;
-            // 
-            // lblDestination
-            // 
-            this.lblDestination.AutoSize = true;
-            this.lblDestination.Location = new System.Drawing.Point(12, 25);
-            this.lblDestination.Name = "lblDestination";
-            this.lblDestination.Size = new System.Drawing.Size(214, 22);
-            this.lblDestination.TabIndex = 7;
-            this.lblDestination.Text = "NEW FAMILY/PARENT";
-            // 
-            // lblAdminName
-            // 
-            this.lblAdminName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAdminName.AutoSize = true;
-            this.lblAdminName.BackColor = System.Drawing.Color.White;
-            this.lblAdminName.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminName.ForeColor = System.Drawing.Color.Purple;
-            this.lblAdminName.Location = new System.Drawing.Point(569, 24);
-            this.lblAdminName.Name = "lblAdminName";
-            this.lblAdminName.Size = new System.Drawing.Size(70, 22);
-            this.lblAdminName.TabIndex = 0;
-            this.lblAdminName.Text = "ADMIN";
             // 
             // panelHusbandWife
             // 
@@ -133,7 +93,7 @@
             this.panelHusbandWife.Controls.Add(this.label5);
             this.panelHusbandWife.Controls.Add(this.tbRemarks);
             this.panelHusbandWife.ForeColor = System.Drawing.Color.Purple;
-            this.panelHusbandWife.Location = new System.Drawing.Point(109, 32);
+            this.panelHusbandWife.Location = new System.Drawing.Point(145, 32);
             this.panelHusbandWife.Name = "panelHusbandWife";
             this.panelHusbandWife.Size = new System.Drawing.Size(595, 408);
             this.panelHusbandWife.TabIndex = 20;
@@ -315,6 +275,33 @@
             this.tbRemarks.TabIndex = 8;
             this.tbRemarks.Text = "No Remarks";
             // 
+            // panelTitle
+            // 
+            this.panelTitle.BackColor = System.Drawing.Color.White;
+            this.panelTitle.Controls.Add(this.lblDestination);
+            this.panelTitle.Controls.Add(this.btnFullScreen);
+            this.panelTitle.Controls.Add(this.btnToggleNavPanel);
+            this.panelTitle.Controls.Add(this.btnEmployeeInfo);
+            this.panelTitle.Controls.Add(this.lblAdminName);
+            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitle.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTitle.ForeColor = System.Drawing.Color.Purple;
+            this.panelTitle.Location = new System.Drawing.Point(0, 0);
+            this.panelTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.panelTitle.MinimumSize = new System.Drawing.Size(717, 68);
+            this.panelTitle.Name = "panelTitle";
+            this.panelTitle.Size = new System.Drawing.Size(930, 68);
+            this.panelTitle.TabIndex = 17;
+            // 
+            // lblDestination
+            // 
+            this.lblDestination.AutoSize = true;
+            this.lblDestination.Location = new System.Drawing.Point(12, 25);
+            this.lblDestination.Name = "lblDestination";
+            this.lblDestination.Size = new System.Drawing.Size(214, 22);
+            this.lblDestination.TabIndex = 7;
+            this.lblDestination.Text = "NEW FAMILY/PARENT";
+            // 
             // btnFullScreen
             // 
             this.btnFullScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -367,6 +354,19 @@
             this.btnEmployeeInfo.TabIndex = 4;
             this.btnEmployeeInfo.TabStop = false;
             // 
+            // lblAdminName
+            // 
+            this.lblAdminName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAdminName.AutoSize = true;
+            this.lblAdminName.BackColor = System.Drawing.Color.White;
+            this.lblAdminName.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminName.ForeColor = System.Drawing.Color.Purple;
+            this.lblAdminName.Location = new System.Drawing.Point(569, 24);
+            this.lblAdminName.Name = "lblAdminName";
+            this.lblAdminName.Size = new System.Drawing.Size(70, 22);
+            this.lblAdminName.TabIndex = 0;
+            this.lblAdminName.Text = "ADMIN";
+            // 
             // NewFamilyMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
@@ -378,7 +378,7 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewFamilyMainForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -386,14 +386,14 @@
             this.Text = "NewFamilyForm";
             this.mainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panelTitle.ResumeLayout(false);
-            this.panelTitle.PerformLayout();
             this.panelHusbandWife.ResumeLayout(false);
             this.panelHusbandWife.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelTitle.ResumeLayout(false);
+            this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).EndInit();
             this.ResumeLayout(false);
 

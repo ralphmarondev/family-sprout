@@ -36,11 +36,11 @@
             this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
             this.lblAdminName = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.lblNonSuperUserIndicator = new System.Windows.Forms.Label();
             this.btnNewChild = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.childListPanel = new System.Windows.Forms.Panel();
             this.lblBack = new System.Windows.Forms.LinkLabel();
-            this.label3 = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -141,7 +141,7 @@
             // 
             // mainPanel
             // 
-            this.mainPanel.Controls.Add(this.label3);
+            this.mainPanel.Controls.Add(this.lblNonSuperUserIndicator);
             this.mainPanel.Controls.Add(this.btnNewChild);
             this.mainPanel.Controls.Add(this.panel1);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -149,6 +149,16 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(930, 591);
             this.mainPanel.TabIndex = 21;
+            // 
+            // lblNonSuperUserIndicator
+            // 
+            this.lblNonSuperUserIndicator.AutoSize = true;
+            this.lblNonSuperUserIndicator.Font = new System.Drawing.Font("Courier New", 10F);
+            this.lblNonSuperUserIndicator.Location = new System.Drawing.Point(237, 504);
+            this.lblNonSuperUserIndicator.Name = "lblNonSuperUserIndicator";
+            this.lblNonSuperUserIndicator.Size = new System.Drawing.Size(659, 20);
+            this.lblNonSuperUserIndicator.TabIndex = 26;
+            this.lblNonSuperUserIndicator.Text = "**Adding, Updating, and Deleting is Disabled for non-superusers**";
             // 
             // btnNewChild
             // 
@@ -183,9 +193,9 @@
             // 
             // childListPanel
             // 
-            this.childListPanel.Location = new System.Drawing.Point(14, 35);
+            this.childListPanel.Location = new System.Drawing.Point(22, 35);
             this.childListPanel.Name = "childListPanel";
-            this.childListPanel.Size = new System.Drawing.Size(845, 423);
+            this.childListPanel.Size = new System.Drawing.Size(837, 423);
             this.childListPanel.TabIndex = 2;
             // 
             // lblBack
@@ -198,16 +208,6 @@
             this.lblBack.TabStop = true;
             this.lblBack.Text = "BACK";
             this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label3.Location = new System.Drawing.Point(237, 504);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(659, 20);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "**Adding, Updating, and Deleting is Disabled for non-superusers**";
             // 
             // FamilyChildListForm
             // 
@@ -249,6 +249,6 @@
         private System.Windows.Forms.LinkLabel lblBack;
         private System.Windows.Forms.Panel childListPanel;
         private System.Windows.Forms.Button btnNewChild;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblNonSuperUserIndicator;
     }
 }

@@ -23,10 +23,12 @@ namespace FamilySprout.Features.FamilyList.Forms
 
             famId = _famId;
             lblAdminName.Text = SessionManager.CurrentUser.fullName;
+            lblNonSuperUserIndicator.Visible = false;
 
             if (SessionManager.CurrentUser.role == Roles.USER)
             {
                 btnNewChild.Enabled = false;
+                lblNonSuperUserIndicator.Visible = true;
             }
 
             childrens = DBChildren.GetChildrenByFamilyId(famId);

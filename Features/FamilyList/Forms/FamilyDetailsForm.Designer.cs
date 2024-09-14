@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FamilyDetailsForm));
             this.panelTitle = new System.Windows.Forms.Panel();
             this.lblDestination = new System.Windows.Forms.Label();
-            this.btnFullScreen = new System.Windows.Forms.Button();
-            this.btnToggleNavPanel = new System.Windows.Forms.Button();
-            this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
             this.lblAdminName = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,14 +53,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
             this.lblBack = new System.Windows.Forms.LinkLabel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblNonSuperUserIndicator = new System.Windows.Forms.Label();
+            this.btnFullScreen = new System.Windows.Forms.Button();
+            this.btnToggleNavPanel = new System.Windows.Forms.Button();
+            this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
             this.panelTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHusbandWife.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitle
@@ -92,58 +92,6 @@
             this.lblDestination.Size = new System.Drawing.Size(370, 22);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "FAMILY LIST/PARENT INFORMATION\r\n";
-            // 
-            // btnFullScreen
-            // 
-            this.btnFullScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFullScreen.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnFullScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFullScreen.BackgroundImage")));
-            this.btnFullScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFullScreen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFullScreen.FlatAppearance.BorderSize = 0;
-            this.btnFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFullScreen.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFullScreen.ForeColor = System.Drawing.Color.Purple;
-            this.btnFullScreen.Location = new System.Drawing.Point(851, 17);
-            this.btnFullScreen.Margin = new System.Windows.Forms.Padding(0);
-            this.btnFullScreen.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnFullScreen.Name = "btnFullScreen";
-            this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
-            this.btnFullScreen.TabIndex = 6;
-            this.btnFullScreen.UseVisualStyleBackColor = false;
-            // 
-            // btnToggleNavPanel
-            // 
-            this.btnToggleNavPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnToggleNavPanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnToggleNavPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnToggleNavPanel.BackgroundImage")));
-            this.btnToggleNavPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnToggleNavPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnToggleNavPanel.FlatAppearance.BorderSize = 0;
-            this.btnToggleNavPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToggleNavPanel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToggleNavPanel.ForeColor = System.Drawing.Color.Purple;
-            this.btnToggleNavPanel.Location = new System.Drawing.Point(891, 17);
-            this.btnToggleNavPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.btnToggleNavPanel.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnToggleNavPanel.Name = "btnToggleNavPanel";
-            this.btnToggleNavPanel.Size = new System.Drawing.Size(30, 30);
-            this.btnToggleNavPanel.TabIndex = 5;
-            this.btnToggleNavPanel.UseVisualStyleBackColor = false;
-            // 
-            // btnEmployeeInfo
-            // 
-            this.btnEmployeeInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEmployeeInfo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEmployeeInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEmployeeInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmployeeInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployeeInfo.Image")));
-            this.btnEmployeeInfo.Location = new System.Drawing.Point(533, 16);
-            this.btnEmployeeInfo.Name = "btnEmployeeInfo";
-            this.btnEmployeeInfo.Size = new System.Drawing.Size(30, 30);
-            this.btnEmployeeInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnEmployeeInfo.TabIndex = 4;
-            this.btnEmployeeInfo.TabStop = false;
             // 
             // lblAdminName
             // 
@@ -183,7 +131,7 @@
             // panelHusbandWife
             // 
             this.panelHusbandWife.BackColor = System.Drawing.Color.White;
-            this.panelHusbandWife.Controls.Add(this.label3);
+            this.panelHusbandWife.Controls.Add(this.lblNonSuperUserIndicator);
             this.panelHusbandWife.Controls.Add(this.btnDelete);
             this.panelHusbandWife.Controls.Add(this.btnUpdate);
             this.panelHusbandWife.Controls.Add(this.btnNext);
@@ -416,15 +364,67 @@
             this.lblBack.Text = "BACK";
             this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
             // 
-            // label3
+            // lblNonSuperUserIndicator
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label3.Location = new System.Drawing.Point(8, 308);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(529, 20);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "**Delete and Update is Disabled for non-superusers**";
+            this.lblNonSuperUserIndicator.AutoSize = true;
+            this.lblNonSuperUserIndicator.Font = new System.Drawing.Font("Courier New", 10F);
+            this.lblNonSuperUserIndicator.Location = new System.Drawing.Point(8, 308);
+            this.lblNonSuperUserIndicator.Name = "lblNonSuperUserIndicator";
+            this.lblNonSuperUserIndicator.Size = new System.Drawing.Size(529, 20);
+            this.lblNonSuperUserIndicator.TabIndex = 21;
+            this.lblNonSuperUserIndicator.Text = "**Delete and Update is Disabled for non-superusers**";
+            // 
+            // btnFullScreen
+            // 
+            this.btnFullScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFullScreen.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnFullScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFullScreen.BackgroundImage")));
+            this.btnFullScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFullScreen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFullScreen.FlatAppearance.BorderSize = 0;
+            this.btnFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFullScreen.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFullScreen.ForeColor = System.Drawing.Color.Purple;
+            this.btnFullScreen.Location = new System.Drawing.Point(851, 17);
+            this.btnFullScreen.Margin = new System.Windows.Forms.Padding(0);
+            this.btnFullScreen.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnFullScreen.Name = "btnFullScreen";
+            this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
+            this.btnFullScreen.TabIndex = 6;
+            this.btnFullScreen.UseVisualStyleBackColor = false;
+            // 
+            // btnToggleNavPanel
+            // 
+            this.btnToggleNavPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnToggleNavPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnToggleNavPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnToggleNavPanel.BackgroundImage")));
+            this.btnToggleNavPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnToggleNavPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnToggleNavPanel.FlatAppearance.BorderSize = 0;
+            this.btnToggleNavPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToggleNavPanel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToggleNavPanel.ForeColor = System.Drawing.Color.Purple;
+            this.btnToggleNavPanel.Location = new System.Drawing.Point(891, 17);
+            this.btnToggleNavPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.btnToggleNavPanel.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnToggleNavPanel.Name = "btnToggleNavPanel";
+            this.btnToggleNavPanel.Size = new System.Drawing.Size(30, 30);
+            this.btnToggleNavPanel.TabIndex = 5;
+            this.btnToggleNavPanel.UseVisualStyleBackColor = false;
+            // 
+            // btnEmployeeInfo
+            // 
+            this.btnEmployeeInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEmployeeInfo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEmployeeInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmployeeInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmployeeInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployeeInfo.Image")));
+            this.btnEmployeeInfo.Location = new System.Drawing.Point(533, 16);
+            this.btnEmployeeInfo.Name = "btnEmployeeInfo";
+            this.btnEmployeeInfo.Size = new System.Drawing.Size(30, 30);
+            this.btnEmployeeInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnEmployeeInfo.TabIndex = 4;
+            this.btnEmployeeInfo.TabStop = false;
             // 
             // FamilyDetailsForm
             // 
@@ -444,7 +444,6 @@
             this.Load += new System.EventHandler(this.FamilyDetailsForm_Load);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -454,6 +453,7 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -487,6 +487,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbRemarks;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblNonSuperUserIndicator;
     }
 }

@@ -17,11 +17,13 @@ namespace FamilySprout.Features.FamilyList.Forms
             famId = _famId;
 
             lblAdminName.Text = SessionManager.CurrentUser.fullName;
+            lblNonSuperUserIndicator.Visible = false;
 
             if (SessionManager.CurrentUser.role == 1)
             {
                 btnUpdate.Enabled = false;
                 btnDelete.Enabled = false;
+                lblNonSuperUserIndicator.Visible = true;
             }
 
             familyModel = DBFamily.GetFamilyDetails(_famId);
