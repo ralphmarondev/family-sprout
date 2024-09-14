@@ -1,6 +1,7 @@
 ﻿using FamilySprout.Core.DB;
 using FamilySprout.Core.Model;
 using FamilySprout.Core.Utils;
+using FamilySprout.Features.Trash.Controls;
 using FamilySprout.Shared.Model;
 using System.Collections.Generic;
 using System.Drawing;
@@ -25,14 +26,10 @@ namespace FamilySprout.Features.Trash
             PopulatePanelWithDeletedFamilies();
         }
 
-        private void btnParents_Click(object sender, System.EventArgs e)
-        {
-            lblDestination.Text = "TRASH/PARENTS";
-        }
-
         private void btnChildrens_Click(object sender, System.EventArgs e)
         {
             lblDestination.Text = "TRASH/CHILDRENS";
+            PopulatePanelWithDeletedChildrens();
         }
 
         private void btnUsers_Click(object sender, System.EventArgs e)
@@ -43,6 +40,7 @@ namespace FamilySprout.Features.Trash
 
 
         List<FamilyModel> deletedFamilies = new List<FamilyModel>();
+        List<ChildModel> deletedChildren = new List<ChildModel>();
         List<UserModel> deletedUsers = new List<UserModel>();
         public void PopulatePanelWithDeletedFamilies()
         {
@@ -69,11 +67,45 @@ namespace FamilySprout.Features.Trash
             {
                 foreach (var family in deletedFamilies)
                 {
-                    Controls.FamilyRestoreUserControl familyControl = new Controls.FamilyRestoreUserControl(family);
+                    FamilyRestoreUserControl familyControl = new FamilyRestoreUserControl(family);
 
                     familyControl.Location = new System.Drawing.Point(10, currentY);
                     listOfItemsPanel.Controls.Add(familyControl);
                     currentY += familyControl.Height + 10;
+                }
+            }
+        }
+
+        public void PopulatePanelWithDeletedChildrens()
+        {
+            deletedChildren.Clear();
+            deletedChildren = DBChildren.GetAllDeletedChildren();
+            listOfItemsPanel.Controls.Clear();
+            listOfItemsPanel.AutoScroll = true;
+            int currentY = 10;
+
+            if (deletedChildren.Count == 0)
+            {
+                Label lblEmpty = new Label();
+                lblEmpty.AutoSize = true;
+                lblEmpty.Font = new Font("Courier New", 18F);
+                lblEmpty.Location = new Point(164, 201);  // Adjust the location as needed
+                lblEmpty.Name = "lblEmpty";
+                lblEmpty.Size = new Size(483, 33);
+                lblEmpty.TabIndex = 0;
+                lblEmpty.Text = "NO DELETED CHILDREN FOUND!";
+
+                listOfItemsPanel.Controls.Add(lblEmpty);
+            }
+            else
+            {
+                foreach (var family in deletedChildren)
+                {
+                    ChildRestoreUserControl childRestoreUserControl = new ChildRestoreUserControl(family);
+
+                    childRestoreUserControl.Location = new Point(10, currentY);
+                    listOfItemsPanel.Controls.Add(childRestoreUserControl);
+                    currentY += childRestoreUserControl.Height + 10;
                 }
             }
         }

@@ -164,11 +164,29 @@
     <Compile Include="Features\NewFamily\NewFamilyMainForm.Designer.cs">
       <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Trash\Controls\ChildRestoreUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Controls\ChildRestoreUserControl.Designer.cs">
+      <DependentUpon>ChildRestoreUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Trash\Controls\FamilyRestoreUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Features\Trash\Controls\FamilyRestoreUserControl.Designer.cs">
       <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\Dialogs\Children\PermanentlyDeleteChildren.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Dialogs\Children\PermanentlyDeleteChildren.Designer.cs">
+      <DependentUpon>PermanentlyDeleteChildren.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\Dialogs\Children\RestoreChildren.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Dialogs\Children\RestoreChildren.Designer.cs">
+      <DependentUpon>RestoreChildren.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Trash\Dialogs\Family\PermanentlyDeleteFamily.cs">
       <SubType>Form</SubType>
@@ -279,8 +297,14 @@
     <EmbeddedResource Include="Features\NewFamily\NewFamilyMainForm.resx">
       <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Controls\ChildRestoreUserControl.resx">
+      <DependentUpon>ChildRestoreUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\Controls\FamilyRestoreUserControl.resx">
       <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Dialogs\Children\RestoreChildren.resx">
+      <DependentUpon>RestoreChildren.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\Dialogs\Family\PermanentlyDeleteFamily.resx">
       <DependentUpon>PermanentlyDeleteFamily.cs</DependentUpon>
@@ -362,6 +386,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Home\" />
+    <Folder Include="Features\Trash\Dialogs\Users\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-restore-48.png" />

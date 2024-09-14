@@ -37,7 +37,6 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnChildrens = new System.Windows.Forms.Button();
-            this.btnParents = new System.Windows.Forms.Button();
             this.btnFamilies = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listOfItemsPanel = new System.Windows.Forms.Panel();
@@ -145,7 +144,6 @@
             // 
             this.mainPanel.Controls.Add(this.btnUsers);
             this.mainPanel.Controls.Add(this.btnChildrens);
-            this.mainPanel.Controls.Add(this.btnParents);
             this.mainPanel.Controls.Add(this.btnFamilies);
             this.mainPanel.Controls.Add(this.panel1);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -162,7 +160,7 @@
             this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsers.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsers.ForeColor = System.Drawing.Color.Purple;
-            this.btnUsers.Location = new System.Drawing.Point(650, 521);
+            this.btnUsers.Location = new System.Drawing.Point(441, 521);
             this.btnUsers.Margin = new System.Windows.Forms.Padding(0);
             this.btnUsers.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnUsers.Name = "btnUsers";
@@ -180,7 +178,7 @@
             this.btnChildrens.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChildrens.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChildrens.ForeColor = System.Drawing.Color.Purple;
-            this.btnChildrens.Location = new System.Drawing.Point(439, 521);
+            this.btnChildrens.Location = new System.Drawing.Point(232, 521);
             this.btnChildrens.Margin = new System.Windows.Forms.Padding(0);
             this.btnChildrens.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnChildrens.Name = "btnChildrens";
@@ -189,24 +187,6 @@
             this.btnChildrens.Text = "CHILDRENS";
             this.btnChildrens.UseVisualStyleBackColor = false;
             this.btnChildrens.Click += new System.EventHandler(this.btnChildrens_Click);
-            // 
-            // btnParents
-            // 
-            this.btnParents.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnParents.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnParents.FlatAppearance.BorderSize = 0;
-            this.btnParents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnParents.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnParents.ForeColor = System.Drawing.Color.Purple;
-            this.btnParents.Location = new System.Drawing.Point(232, 521);
-            this.btnParents.Margin = new System.Windows.Forms.Padding(0);
-            this.btnParents.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnParents.Name = "btnParents";
-            this.btnParents.Size = new System.Drawing.Size(200, 36);
-            this.btnParents.TabIndex = 27;
-            this.btnParents.Text = "PARENTS";
-            this.btnParents.UseVisualStyleBackColor = false;
-            this.btnParents.Click += new System.EventHandler(this.btnParents_Click);
             // 
             // btnFamilies
             // 
@@ -292,7 +272,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnChildrens;
-        private System.Windows.Forms.Button btnParents;
         private System.Windows.Forms.Button btnFamilies;
         private System.Windows.Forms.Panel listOfItemsPanel;
         private System.Windows.Forms.Label lblEmpty;

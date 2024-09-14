@@ -190,5 +190,73 @@ namespace FamilySprout.Core.DB
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
+
+        public static List<ChildModel> GetAllDeletedChildren()
+        {
+            List<ChildModel> deletedChildren = new List<ChildModel>();
+
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT id, fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, create_date " +
+                        "FROM children WHERE is_deleted = 1;";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ChildModel child = new ChildModel(
+                                        reader.GetInt64(reader.GetOrdinal("id")),
+                                        reader.GetInt64(reader.GetOrdinal("fam_id")),
+                                        reader["name"] != DBNull.Value ? reader["name"].ToString() : string.Empty,
+                                        reader["bday"] != DBNull.Value ? reader["bday"].ToString() : string.Empty,
+                                        reader["baptism"] != DBNull.Value ? reader["baptism"].ToString() : string.Empty,
+                                        reader["hc"] != DBNull.Value ? reader["hc"].ToString() : string.Empty,
+                                        reader["obitus"] != DBNull.Value ? reader["obitus"].ToString() : string.Empty,
+                                        reader["matrimony"] != DBNull.Value ? reader["matrimony"].ToString() : string.Empty,
+                                        reader["created_by"] != DBNull.Value ? reader["created_by"].ToString() : string.Empty,
+                                        reader["create_date"] != DBNull.Value ? reader["create_date"].ToString() : string.Empty
+                                        );
+                                deletedChildren.Add(child);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return deletedChildren;
+        }
+
+        public static void RestoreChild(long _id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE children SET is_deleted = 0 WHERE id = @id;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", _id);
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
     }
 }
