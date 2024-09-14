@@ -113,6 +113,7 @@
             this.btnDelete.Size = new System.Drawing.Size(45, 41);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // UserRestoreUserControl
             // 
@@ -121,7 +122,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserRestoreUserControl";
             this.Size = new System.Drawing.Size(696, 83);
             this.panel1.ResumeLayout(false);

@@ -1,6 +1,6 @@
 ﻿namespace FamilySprout.Features.Trash.Dialogs.User
 {
-    partial class RestoreUser
+    partial class PermanentlyDeleteUser
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.loginPanel = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnRestore = new System.Windows.Forms.Button();
             this.tbRoles = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,6 +39,8 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnPermanentlyDelete = new System.Windows.Forms.Button();
             this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +48,7 @@
             // 
             this.loginPanel.BackColor = System.Drawing.SystemColors.Window;
             this.loginPanel.Controls.Add(this.btnCancel);
-            this.loginPanel.Controls.Add(this.btnRestore);
+            this.loginPanel.Controls.Add(this.btnPermanentlyDelete);
             this.loginPanel.Controls.Add(this.tbRoles);
             this.loginPanel.Controls.Add(this.label2);
             this.loginPanel.Controls.Add(this.label6);
@@ -62,47 +62,7 @@
             this.loginPanel.Location = new System.Drawing.Point(22, 22);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(580, 348);
-            this.loginPanel.TabIndex = 26;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.LightYellow;
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.Purple;
-            this.btnCancel.Location = new System.Drawing.Point(132, 273);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(191, 43);
-            this.btnCancel.TabIndex = 35;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnRestore
-            // 
-            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestore.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestore.FlatAppearance.BorderSize = 0;
-            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestore.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestore.ForeColor = System.Drawing.Color.Purple;
-            this.btnRestore.Location = new System.Drawing.Point(339, 273);
-            this.btnRestore.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRestore.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(191, 43);
-            this.btnRestore.TabIndex = 34;
-            this.btnRestore.Text = "RESTORE";
-            this.btnRestore.UseVisualStyleBackColor = false;
-            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
+            this.loginPanel.TabIndex = 27;
             // 
             // tbRoles
             // 
@@ -204,7 +164,46 @@
             this.tbPassword.Size = new System.Drawing.Size(234, 34);
             this.tbPassword.TabIndex = 6;
             // 
-            // RestoreUser
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.LightYellow;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Purple;
+            this.btnCancel.Location = new System.Drawing.Point(80, 271);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(191, 43);
+            this.btnCancel.TabIndex = 35;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnPermanentlyDelete
+            // 
+            this.btnPermanentlyDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPermanentlyDelete.BackColor = System.Drawing.Color.HotPink;
+            this.btnPermanentlyDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPermanentlyDelete.FlatAppearance.BorderSize = 0;
+            this.btnPermanentlyDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPermanentlyDelete.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPermanentlyDelete.ForeColor = System.Drawing.Color.Purple;
+            this.btnPermanentlyDelete.Location = new System.Drawing.Point(282, 271);
+            this.btnPermanentlyDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPermanentlyDelete.Name = "btnPermanentlyDelete";
+            this.btnPermanentlyDelete.Size = new System.Drawing.Size(248, 43);
+            this.btnPermanentlyDelete.TabIndex = 34;
+            this.btnPermanentlyDelete.Text = "PERMANENTLY DELETE";
+            this.btnPermanentlyDelete.UseVisualStyleBackColor = false;
+            this.btnPermanentlyDelete.Click += new System.EventHandler(this.btnPermanentlyDelete_Click);
+            // 
+            // PermanentlyDeleteUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -213,12 +212,12 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "RestoreUser";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "PermanentlyDeleteUser";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "RESTORE USER INFORMATION";
+            this.Text = "PERMANENTLY DELETE USER - IRREVERSIBLE";
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -239,6 +238,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnRestore;
+        private System.Windows.Forms.Button btnPermanentlyDelete;
     }
 }

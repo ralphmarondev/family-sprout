@@ -32,5 +32,21 @@ namespace FamilySprout.Features.Trash.Controls
                 }
             }
         }
+
+        private void btnDelete_Click(object sender, System.EventArgs e)
+        {
+            PermanentlyDeleteUser permanentlyDelete = new PermanentlyDeleteUser(user);
+
+            if (permanentlyDelete.ShowDialog(this) == DialogResult.OK)
+            {
+                this.Hide();
+                TrashMainForm trashMainForm = this.ParentForm as TrashMainForm;
+
+                if (trashMainForm != null)
+                {
+                    trashMainForm.PopulatePanelWithDeletedUsers();
+                }
+            }
+        }
     }
 }

@@ -206,6 +206,12 @@
     <Compile Include="Features\Trash\Dialogs\Family\RestoreFamily.Designer.cs">
       <DependentUpon>RestoreFamily.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Trash\Dialogs\User\PermanentlyDeleteUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Dialogs\User\PermanentlyDeleteUser.Designer.cs">
+      <DependentUpon>PermanentlyDeleteUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Trash\Dialogs\User\RestoreUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\Dialogs\Family\RestoreFamily.resx">
       <DependentUpon>RestoreFamily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Dialogs\User\PermanentlyDeleteUser.resx">
+      <DependentUpon>PermanentlyDeleteUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\Dialogs\User\RestoreUser.resx">
       <DependentUpon>RestoreUser.cs</DependentUpon>
