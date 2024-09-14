@@ -1,6 +1,7 @@
 ﻿using FamilySprout.Core.Utils;
 using FamilySprout.Shared.Model;
 using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 
 namespace FamilySprout.Core.DB
@@ -166,6 +167,87 @@ namespace FamilySprout.Core.DB
             }
 
             return familyModel;
+        }
+
+        public static List<FamilyModel> GetDeletedFamilies()
+        {
+            List<FamilyModel> families = new List<FamilyModel>();
+
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string familyQuery = "SELECT f.id AS fam_id," +
+                        "h.name AS husband," +
+                        "h.hometown AS husband_from," +
+                        "w.name AS wife," +
+                        "w.hometown AS wife_from," +
+                        "f.remarks," +
+                        "f.created_by," +
+                        "f.create_date " +
+                        "FROM families f " +
+                        "LEFT JOIN parents h ON f.husband = h.id " +
+                        "LEFT JOIN parents w ON f.wife = w.id " +
+                        "WHERE f.is_deleted = 1;";
+
+                    using (var command = new SQLiteCommand(familyQuery, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                FamilyModel family = new FamilyModel();
+                                family.id = reader.GetInt64(reader.GetOrdinal("fam_id"));
+                                family.husband = reader["husband"] != DBNull.Value ? reader["husband"].ToString() : string.Empty;
+                                family.husbandFrom = reader["husband_from"] != DBNull.Value ? reader["husband_from"].ToString() : string.Empty;
+                                family.wife = reader["wife"] != DBNull.Value ? reader["wife"].ToString() : string.Empty;
+                                family.wifeFrom = reader["wife_from"] != DBNull.Value ? reader["wife_from"].ToString() : string.Empty;
+                                family.remarks = reader["remarks"] != DBNull.Value ? reader["remarks"].ToString() : string.Empty;
+                                family.createdBy = reader["created_by"] != DBNull.Value ? reader["created_by"].ToString() : string.Empty;
+                                family.createDate = reader["create_date"] != DBNull.Value ? reader["create_date"].ToString() : string.Empty;
+
+                                string childrenQuery = "SELECT " +
+                                    "id, fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, create_date " +
+                                    "FROM children WHERE fam_id = @fam_id AND is_deleted = 0;";
+
+                                using (var childCommand = new SQLiteCommand(childrenQuery, connection))
+                                {
+                                    childCommand.Parameters.AddWithValue("@fam_id", family.id);
+
+                                    using (var childReader = childCommand.ExecuteReader())
+                                    {
+                                        while (childReader.Read())
+                                        {
+                                            var child = new ChildModel(
+                                                 childReader.GetInt64(childReader.GetOrdinal("id")),
+                                        childReader.GetInt64(childReader.GetOrdinal("fam_id")),
+                                        childReader["name"] != DBNull.Value ? childReader["name"].ToString() : string.Empty,
+                                        childReader["bday"] != DBNull.Value ? childReader["bday"].ToString() : string.Empty,
+                                        childReader["baptism"] != DBNull.Value ? childReader["baptism"].ToString() : string.Empty,
+                                        childReader["hc"] != DBNull.Value ? childReader["hc"].ToString() : string.Empty,
+                                        childReader["obitus"] != DBNull.Value ? childReader["obitus"].ToString() : string.Empty,
+                                        childReader["matrimony"] != DBNull.Value ? childReader["matrimony"].ToString() : string.Empty,
+                                        childReader["created_by"] != DBNull.Value ? childReader["created_by"].ToString() : string.Empty,
+                                        childReader["create_date"] != DBNull.Value ? childReader["create_date"].ToString() : string.Empty
+                                                );
+                                            family.childrens.Add(child);
+                                        }
+                                    }
+                                }
+                                families.Add(family);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return families;
         }
     }
 }

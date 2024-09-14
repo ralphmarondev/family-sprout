@@ -13,7 +13,7 @@ namespace FamilySprout
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
-            OpenFamilyListForm();
+            OpenDashboard();
 
             if (SessionManager.CurrentUser.role == 1)
             {
@@ -108,5 +108,19 @@ namespace FamilySprout
         }
         #endregion NAVIGATION_BUTTON_CLICKS
 
+
+        #region TOP_BAR
+        public void ToggleFullScreen()
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+        #endregion TOP_BAR
     }
 }

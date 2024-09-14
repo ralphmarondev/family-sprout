@@ -158,6 +158,12 @@
     <Compile Include="Features\NewFamily\NewFamilyMainForm.Designer.cs">
       <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Trash\Controls\FamilyRestoreUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Controls\FamilyRestoreUserControl.Designer.cs">
+      <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Trash\TrashMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     <EmbeddedResource Include="Features\NewFamily\NewFamilyMainForm.resx">
       <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Controls\FamilyRestoreUserControl.resx">
+      <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\TrashMainForm.resx">
       <DependentUpon>TrashMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +332,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-view-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\Home\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
