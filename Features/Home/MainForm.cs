@@ -20,6 +20,7 @@ namespace FamilySprout.Features.Home
                 btnNewFamily.Enabled = false;
                 btnTrash.Enabled = false;
                 btnUsers.Enabled = false;
+                btnBackup.Enabled = false;
             }
         }
 
@@ -122,5 +123,10 @@ namespace FamilySprout.Features.Home
             }
         }
         #endregion TOP_BAR
+
+        private void btnBackup_Click(object sender, System.EventArgs e)
+        {
+            Backup.CopyDatabase();
+        }
     }
 }

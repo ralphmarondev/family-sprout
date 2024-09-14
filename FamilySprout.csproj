@@ -71,6 +71,7 @@
     <Compile Include="Core\DB\DBParents.cs" />
     <Compile Include="Core\DB\DBUsers.cs" />
     <Compile Include="Core\Model\UserModel.cs" />
+    <Compile Include="Core\Utils\Backup.cs" />
     <Compile Include="Core\Utils\DateUtils.cs" />
     <Compile Include="Core\Utils\Defaults.cs" />
     <Compile Include="Core\Utils\Roles.cs" />
