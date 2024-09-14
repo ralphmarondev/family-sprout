@@ -86,6 +86,12 @@
     <Compile Include="Features\Dashboard\DashboardMainScreen.Designer.cs">
       <DependentUpon>DashboardMainScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\FamilyList\Dialog\DeleteFamilyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyList\Dialog\DeleteFamilyDialog.Designer.cs">
+      <DependentUpon>DeleteFamilyDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\FamilyList\Dialog\UpdateParentDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,18 @@
     <Compile Include="Features\Trash\Controls\FamilyRestoreUserControl.Designer.cs">
       <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Trash\Dialogs\Family\PermanentlyDeleteFamily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Dialogs\Family\PermanentlyDeleteFamily.Designer.cs">
+      <DependentUpon>PermanentlyDeleteFamily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\Dialogs\Family\RestoreFamily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Dialogs\Family\RestoreFamily.Designer.cs">
+      <DependentUpon>RestoreFamily.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Trash\TrashMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +240,9 @@
     <EmbeddedResource Include="Features\Dashboard\DashboardMainScreen.resx">
       <DependentUpon>DashboardMainScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\FamilyList\Dialog\DeleteFamilyDialog.resx">
+      <DependentUpon>DeleteFamilyDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\FamilyList\Dialog\UpdateParentDialog.resx">
       <DependentUpon>UpdateParentDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\Controls\FamilyRestoreUserControl.resx">
       <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Dialogs\Family\PermanentlyDeleteFamily.resx">
+      <DependentUpon>PermanentlyDeleteFamily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Dialogs\Family\RestoreFamily.resx">
+      <DependentUpon>RestoreFamily.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\TrashMainForm.resx">
       <DependentUpon>TrashMainForm.cs</DependentUpon>
@@ -335,6 +362,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-restore-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

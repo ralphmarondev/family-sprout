@@ -76,5 +76,26 @@ namespace FamilySprout.Features.FamilyList.Forms
                 tbRemarks.Text = familyModel.remarks;
             }
         }
+
+        private void btnDelete_Click(object sender, System.EventArgs e)
+        {
+            DeleteFamilyDialog deleteFamily = new DeleteFamilyDialog(
+                _famId: familyModel.id,
+                _husband: familyModel.husband,
+                _husbandFrom: familyModel.husbandFrom,
+                _wife: familyModel.wife,
+                _wifeFrom: familyModel.wifeFrom,
+                _remarks: familyModel.remarks);
+
+            if (deleteFamily.ShowDialog(this) == DialogResult.OK)
+            {
+                MainForm mainForm = this.ParentForm as MainForm;
+
+                if (mainForm != null)
+                {
+                    mainForm.OpenFamilyListForm();
+                }
+            }
+        }
     }
 }

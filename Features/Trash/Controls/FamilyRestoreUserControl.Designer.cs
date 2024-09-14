@@ -57,7 +57,7 @@
             // 
             this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestore.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRestore.BackgroundImage = global::FamilySprout.Properties.Resources.icons8_edit_80;
+            this.btnRestore.BackgroundImage = global::FamilySprout.Properties.Resources.icons8_restore_48;
             this.btnRestore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestore.FlatAppearance.BorderSize = 0;
@@ -80,9 +80,9 @@
             this.lblWife.Location = new System.Drawing.Point(4, 29);
             this.lblWife.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWife.Name = "lblWife";
-            this.lblWife.Size = new System.Drawing.Size(208, 27);
+            this.lblWife.Size = new System.Drawing.Size(138, 27);
             this.lblWife.TabIndex = 9;
-            this.lblWife.Text = "Cazmir Madduma";
+            this.lblWife.Text = "Wife Name";
             // 
             // lblHusband
             // 
@@ -91,9 +91,9 @@
             this.lblHusband.Location = new System.Drawing.Point(4, 7);
             this.lblHusband.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHusband.Name = "lblHusband";
-            this.lblHusband.Size = new System.Drawing.Size(222, 27);
+            this.lblHusband.Size = new System.Drawing.Size(180, 27);
             this.lblHusband.TabIndex = 8;
-            this.lblHusband.Text = "Ralph Maron Eda";
+            this.lblHusband.Text = "Husband Name";
             // 
             // btnDelete
             // 

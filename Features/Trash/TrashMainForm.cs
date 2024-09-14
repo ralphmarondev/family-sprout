@@ -44,7 +44,7 @@ namespace FamilySprout.Features.Trash
 
         List<FamilyModel> deletedFamilies = new List<FamilyModel>();
         List<UserModel> deletedUsers = new List<UserModel>();
-        private void PopulatePanelWithDeletedFamilies()
+        public void PopulatePanelWithDeletedFamilies()
         {
             deletedFamilies.Clear();
             deletedFamilies = DBFamily.GetDeletedFamilies();
@@ -69,11 +69,7 @@ namespace FamilySprout.Features.Trash
             {
                 foreach (var family in deletedFamilies)
                 {
-                    Controls.FamilyRestoreUserControl familyControl = new Controls.FamilyRestoreUserControl(
-                        _famId: family.id,
-                        _husband: family.husband,
-                        _wife: family.wife
-                        );
+                    Controls.FamilyRestoreUserControl familyControl = new Controls.FamilyRestoreUserControl(family);
 
                     familyControl.Location = new System.Drawing.Point(10, currentY);
                     listOfItemsPanel.Controls.Add(familyControl);
@@ -82,7 +78,7 @@ namespace FamilySprout.Features.Trash
             }
         }
 
-        private void PopulatePanelWithDeletedUsers()
+        public void PopulatePanelWithDeletedUsers()
         {
             deletedUsers.Clear();
             listOfItemsPanel.Controls.Clear();

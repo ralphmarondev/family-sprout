@@ -36,10 +36,10 @@
             this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
             this.lblAdminName = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.btnNewChild = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.childListPanel = new System.Windows.Forms.Panel();
             this.lblBack = new System.Windows.Forms.LinkLabel();
-            this.btnNewChild = new System.Windows.Forms.Button();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -69,9 +69,9 @@
             this.lblDestination.AutoSize = true;
             this.lblDestination.Location = new System.Drawing.Point(12, 25);
             this.lblDestination.Name = "lblDestination";
-            this.lblDestination.Size = new System.Drawing.Size(358, 22);
+            this.lblDestination.Size = new System.Drawing.Size(406, 22);
             this.lblDestination.TabIndex = 7;
-            this.lblDestination.Text = "FAMILY LIST/DETAILS/CHILDRENS";
+            this.lblDestination.Text = "FAMILY LIST/CHILDRENS INFORMATION";
             // 
             // btnFullScreen
             // 
@@ -148,6 +148,24 @@
             this.mainPanel.Size = new System.Drawing.Size(930, 591);
             this.mainPanel.TabIndex = 21;
             // 
+            // btnNewChild
+            // 
+            this.btnNewChild.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnNewChild.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewChild.FlatAppearance.BorderSize = 0;
+            this.btnNewChild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewChild.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewChild.ForeColor = System.Drawing.Color.Purple;
+            this.btnNewChild.Location = new System.Drawing.Point(22, 504);
+            this.btnNewChild.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNewChild.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnNewChild.Name = "btnNewChild";
+            this.btnNewChild.Size = new System.Drawing.Size(200, 36);
+            this.btnNewChild.TabIndex = 25;
+            this.btnNewChild.Text = "NEW CHILD";
+            this.btnNewChild.UseVisualStyleBackColor = false;
+            this.btnNewChild.Click += new System.EventHandler(this.btnNewChild_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -178,24 +196,6 @@
             this.lblBack.TabStop = true;
             this.lblBack.Text = "BACK";
             this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
-            // 
-            // btnNewChild
-            // 
-            this.btnNewChild.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnNewChild.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNewChild.FlatAppearance.BorderSize = 0;
-            this.btnNewChild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewChild.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewChild.ForeColor = System.Drawing.Color.Purple;
-            this.btnNewChild.Location = new System.Drawing.Point(22, 504);
-            this.btnNewChild.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNewChild.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnNewChild.Name = "btnNewChild";
-            this.btnNewChild.Size = new System.Drawing.Size(200, 36);
-            this.btnNewChild.TabIndex = 25;
-            this.btnNewChild.Text = "NEW CHILD";
-            this.btnNewChild.UseVisualStyleBackColor = false;
-            this.btnNewChild.Click += new System.EventHandler(this.btnNewChild_Click);
             // 
             // FamilyChildListForm
             // 

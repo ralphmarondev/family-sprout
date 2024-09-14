@@ -55,6 +55,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
             this.lblBack = new System.Windows.Forms.LinkLabel();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -87,9 +88,9 @@
             this.lblDestination.AutoSize = true;
             this.lblDestination.Location = new System.Drawing.Point(12, 25);
             this.lblDestination.Name = "lblDestination";
-            this.lblDestination.Size = new System.Drawing.Size(322, 22);
+            this.lblDestination.Size = new System.Drawing.Size(370, 22);
             this.lblDestination.TabIndex = 7;
-            this.lblDestination.Text = "FAMILY LIST/DETAILS/PARENT\r\n";
+            this.lblDestination.Text = "FAMILY LIST/PARENT INFORMATION\r\n";
             // 
             // btnFullScreen
             // 
@@ -181,6 +182,7 @@
             // panelHusbandWife
             // 
             this.panelHusbandWife.BackColor = System.Drawing.Color.White;
+            this.panelHusbandWife.Controls.Add(this.btnDelete);
             this.panelHusbandWife.Controls.Add(this.btnUpdate);
             this.panelHusbandWife.Controls.Add(this.btnNext);
             this.panelHusbandWife.Controls.Add(this.panel3);
@@ -203,11 +205,11 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.Purple;
-            this.btnUpdate.Location = new System.Drawing.Point(167, 336);
+            this.btnUpdate.Location = new System.Drawing.Point(234, 336);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(0);
             this.btnUpdate.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(191, 43);
+            this.btnUpdate.Size = new System.Drawing.Size(157, 43);
             this.btnUpdate.TabIndex = 19;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -223,11 +225,11 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.Purple;
-            this.btnNext.Location = new System.Drawing.Point(374, 336);
+            this.btnNext.Location = new System.Drawing.Point(408, 336);
             this.btnNext.Margin = new System.Windows.Forms.Padding(0);
             this.btnNext.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(191, 43);
+            this.btnNext.Size = new System.Drawing.Size(157, 43);
             this.btnNext.TabIndex = 18;
             this.btnNext.Text = "NEXT";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -392,6 +394,26 @@
             this.lblBack.Text = "BACK";
             this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.BackColor = System.Drawing.Color.HotPink;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.Purple;
+            this.btnDelete.Location = new System.Drawing.Point(53, 336);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(157, 43);
+            this.btnDelete.TabIndex = 20;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // FamilyDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
@@ -452,5 +474,6 @@
         private System.Windows.Forms.TextBox tbHusbandFullName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbRemarks;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
