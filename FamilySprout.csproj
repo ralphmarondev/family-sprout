@@ -176,6 +176,12 @@
     <Compile Include="Features\Trash\Controls\FamilyRestoreUserControl.Designer.cs">
       <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Trash\Controls\UserRestoreUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Controls\UserRestoreUserControl.Designer.cs">
+      <DependentUpon>UserRestoreUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Trash\Dialogs\Children\PermanentlyDeleteChildren.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,12 @@
     </Compile>
     <Compile Include="Features\Trash\Dialogs\Family\RestoreFamily.Designer.cs">
       <DependentUpon>RestoreFamily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\Dialogs\User\RestoreUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Dialogs\User\RestoreUser.Designer.cs">
+      <DependentUpon>RestoreUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Trash\TrashMainForm.cs">
       <SubType>Form</SubType>
@@ -303,6 +315,9 @@
     <EmbeddedResource Include="Features\Trash\Controls\FamilyRestoreUserControl.resx">
       <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Controls\UserRestoreUserControl.resx">
+      <DependentUpon>UserRestoreUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\Dialogs\Children\PermanentlyDeleteChildren.resx">
       <DependentUpon>PermanentlyDeleteChildren.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\Dialogs\Family\RestoreFamily.resx">
       <DependentUpon>RestoreFamily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Dialogs\User\RestoreUser.resx">
+      <DependentUpon>RestoreUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\TrashMainForm.resx">
       <DependentUpon>TrashMainForm.cs</DependentUpon>
@@ -389,7 +407,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Home\" />
-    <Folder Include="Features\Trash\Dialogs\Users\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-restore-48.png" />

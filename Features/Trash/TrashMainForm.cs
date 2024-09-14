@@ -113,6 +113,7 @@ namespace FamilySprout.Features.Trash
         public void PopulatePanelWithDeletedUsers()
         {
             deletedUsers.Clear();
+            deletedUsers = DBUsers.GetAllDeletedUsers();
             listOfItemsPanel.Controls.Clear();
             listOfItemsPanel.AutoScroll = true;
             int currentY = 10;
@@ -129,6 +130,17 @@ namespace FamilySprout.Features.Trash
                 lblEmpty.Text = "NO DELETED USERS FOUND!";
 
                 listOfItemsPanel.Controls.Add(lblEmpty);
+            }
+            else
+            {
+                foreach (var user in deletedUsers)
+                {
+                    UserRestoreUserControl userRestoreUserControl = new UserRestoreUserControl(user);
+
+                    userRestoreUserControl.Location = new Point(10, currentY);
+                    listOfItemsPanel.Controls.Add(userRestoreUserControl);
+                    currentY += userRestoreUserControl.Height + 10;
+                }
             }
         }
     }

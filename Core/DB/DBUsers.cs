@@ -251,5 +251,72 @@ namespace FamilySprout.Core.DB
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
+
+        public static List<UserModel> GetAllDeletedUsers()
+        {
+            List<UserModel> deletedUsers = new List<UserModel>();
+
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT id, full_name, username, password, created_by, create_date, role " +
+                        "FROM users WHERE is_deleted = 1;";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                UserModel user = new UserModel();
+
+                                user.id = reader.GetInt64(reader.GetOrdinal("id"));
+                                user.fullName = reader.GetString(reader.GetOrdinal("full_name"));
+                                user.username = reader.GetString(reader.GetOrdinal("username"));
+                                user.password = reader.GetString(reader.GetOrdinal("password"));
+                                user.createdBy = reader.GetString(reader.GetOrdinal("created_by"));
+                                user.createDate = reader.GetString(reader.GetOrdinal("create_date"));
+                                user.role = reader.GetInt32(reader.GetOrdinal("role"));
+
+                                deletedUsers.Add(user);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return deletedUsers;
+        }
+
+        public static void RestoreUser(long _id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE users SET is_deleted = 0 WHERE id = @id";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", _id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+
     }
 }
