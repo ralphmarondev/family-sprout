@@ -1,4 +1,4 @@
-﻿namespace FamilySprout
+﻿namespace FamilySprout.Features.Home
 {
     partial class MainForm
     {
@@ -68,7 +68,7 @@
             this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsers.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsers.ForeColor = System.Drawing.Color.Purple;
-            this.btnUsers.Location = new System.Drawing.Point(9, 376);
+            this.btnUsers.Location = new System.Drawing.Point(9, 301);
             this.btnUsers.Margin = new System.Windows.Forms.Padding(0);
             this.btnUsers.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnUsers.Name = "btnUsers";
@@ -108,7 +108,7 @@
             this.btnTrash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrash.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrash.ForeColor = System.Drawing.Color.Purple;
-            this.btnTrash.Location = new System.Drawing.Point(9, 301);
+            this.btnTrash.Location = new System.Drawing.Point(9, 376);
             this.btnTrash.Margin = new System.Windows.Forms.Padding(0);
             this.btnTrash.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnTrash.Name = "btnTrash";

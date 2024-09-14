@@ -39,6 +39,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -51,7 +52,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -210,6 +210,16 @@
             this.panel5.Size = new System.Drawing.Size(493, 207);
             this.panel5.TabIndex = 29;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Courier New", 16F);
+            this.label9.Location = new System.Drawing.Point(64, 89);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(365, 30);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "COMING SOON FEATURE...";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -331,16 +341,6 @@
             this.label1.Size = new System.Drawing.Size(178, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "TOTAL FAMILIES";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Courier New", 16F);
-            this.label9.Location = new System.Drawing.Point(64, 89);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(365, 30);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "COMING SOON FEATURE...";
             // 
             // DashboardMainScreen
             // 

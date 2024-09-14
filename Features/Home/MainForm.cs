@@ -2,7 +2,7 @@
 using FamilySprout.Features.Auth;
 using System.Windows.Forms;
 
-namespace FamilySprout
+namespace FamilySprout.Features.Home
 {
     public partial class MainForm : Form
     {

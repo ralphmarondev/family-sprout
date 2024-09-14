@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.DB;
 using FamilySprout.Core.Utils;
+using FamilySprout.Features.Home;
 using System;
 using System.Data.SQLite;
 using System.Drawing;

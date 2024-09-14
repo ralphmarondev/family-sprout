@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.DB;
 using FamilySprout.Core.Utils;
+using FamilySprout.Features.Home;
 using FamilySprout.Features.NewFamily.Dialog;
 using System;
 using System.Windows.Forms;
