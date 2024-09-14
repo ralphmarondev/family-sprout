@@ -95,7 +95,7 @@ namespace FamilySprout.Features.FamilyList
                     {
                         using (var reader = command.ExecuteReader())
                         {
-                            bool hasResults = true;
+                            bool hasResults = false;
                             while (reader.Read())
                             {
                                 hasResults = true;

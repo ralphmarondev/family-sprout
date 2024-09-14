@@ -126,7 +126,12 @@ namespace FamilySprout.Features.Home
 
         private void btnBackup_Click(object sender, System.EventArgs e)
         {
-            Backup.CopyDatabase();
+            DialogResult result = MessageBox.Show("Do you want to create a backup database?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Backup.CopyDatabase();
+            }
         }
     }
 }
