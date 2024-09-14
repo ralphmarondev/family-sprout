@@ -35,7 +35,18 @@ namespace FamilySprout.Features.Trash.Controls
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            PermanentlyDeleteChildren permanentlyDeleteChildren = new PermanentlyDeleteChildren(child);
 
+            if (permanentlyDeleteChildren.ShowDialog(this) == DialogResult.OK)
+            {
+                Hide();
+                TrashMainForm trashMainForm = this.ParentForm as TrashMainForm;
+
+                if (trashMainForm != null)
+                {
+                    trashMainForm.PopulatePanelWithDeletedChildrens();
+                }
+            }
         }
     }
 }

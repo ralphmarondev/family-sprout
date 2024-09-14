@@ -303,6 +303,9 @@
     <EmbeddedResource Include="Features\Trash\Controls\FamilyRestoreUserControl.resx">
       <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Dialogs\Children\PermanentlyDeleteChildren.resx">
+      <DependentUpon>PermanentlyDeleteChildren.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\Dialogs\Children\RestoreChildren.resx">
       <DependentUpon>RestoreChildren.cs</DependentUpon>
     </EmbeddedResource>
