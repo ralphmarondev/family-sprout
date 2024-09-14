@@ -13,7 +13,7 @@ namespace FamilySprout.Features.Dashboard
             InitializeComponent();
 
             lblAdminName.Text = SessionManager.CurrentUser.fullName;
-            var role = (SessionManager.CurrentUser.role == 0) ? "SUPERUSER" : "USER";
+            var role = (SessionManager.CurrentUser.role == Roles.SUPERUSER) ? "SUPERUSER" : "USER";
             lblGreetings.Text = $"Hello, {SessionManager.CurrentUser.fullName} [{role}]";
 
             lblFamiliesCount.Text = $"{DBFamily.GetTotalFamilyCount()}";

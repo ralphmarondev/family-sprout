@@ -56,9 +56,9 @@ namespace FamilySprout.Features.Home
             OpenFormInPanel(new Features.FamilyList.Forms.FamilyDetailsForm(_famId: _famId));
         }
 
-        public void OpenFamilyChildListForm(Shared.Model.FamilyModel familyModel)
+        public void OpenFamilyChildListForm(long _famId)
         {
-            OpenFormInPanel(new Features.FamilyList.Forms.FamilyChildListForm(familyModel));
+            OpenFormInPanel(new Features.FamilyList.Forms.FamilyChildListForm(_famId));
         }
 
         public void OpenTrashMainForm()

@@ -44,7 +44,7 @@ namespace FamilySprout.Features.FamilyList.Forms
 
             if (mainForm != null)
             {
-                mainForm.OpenFamilyChildListForm(familyModel);
+                mainForm.OpenFamilyChildListForm(famId);
             }
         }
 

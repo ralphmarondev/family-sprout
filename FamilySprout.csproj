@@ -73,6 +73,7 @@
     <Compile Include="Core\Model\UserModel.cs" />
     <Compile Include="Core\Utils\DateUtils.cs" />
     <Compile Include="Core\Utils\Defaults.cs" />
+    <Compile Include="Core\Utils\Roles.cs" />
     <Compile Include="Core\Utils\SessionManager.cs" />
     <Compile Include="Features\Auth\AuthenticationForm.cs">
       <SubType>Form</SubType>
@@ -85,6 +86,12 @@
     </Compile>
     <Compile Include="Features\Dashboard\DashboardMainScreen.Designer.cs">
       <DependentUpon>DashboardMainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FamilyList\Controls\FamilyChildUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyList\Controls\FamilyChildUserControl.Designer.cs">
+      <DependentUpon>FamilyChildUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\FamilyList\Dialog\DeleteFamilyDialog.cs">
       <SubType>Form</SubType>
@@ -275,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Dashboard\DashboardMainScreen.resx">
       <DependentUpon>DashboardMainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FamilyList\Controls\FamilyChildUserControl.resx">
+      <DependentUpon>FamilyChildUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\FamilyList\Dialog\DeleteFamilyDialog.resx">
       <DependentUpon>DeleteFamilyDialog.cs</DependentUpon>

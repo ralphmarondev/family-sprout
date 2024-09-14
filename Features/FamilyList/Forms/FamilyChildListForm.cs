@@ -1,9 +1,11 @@
-﻿using FamilySprout.Core.Utils;
+﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Utils;
+using FamilySprout.Features.FamilyList.Controls;
 using FamilySprout.Features.Home;
-using FamilySprout.Features.NewFamily.Controls;
 using FamilySprout.Features.NewFamily.Dialog;
 using FamilySprout.Shared.Model;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -11,21 +13,23 @@ namespace FamilySprout.Features.FamilyList.Forms
 {
     public partial class FamilyChildListForm : Form
     {
-        private FamilyModel familyModel;
+        private List<ChildModel> childrens = new List<ChildModel>();
+        private long famId;
         public FamilyChildListForm(
-            FamilyModel _familyModel
+            long _famId
             )
         {
             InitializeComponent();
 
+            famId = _famId;
             lblAdminName.Text = SessionManager.CurrentUser.fullName;
 
-            if (SessionManager.CurrentUser.role == 1)
+            if (SessionManager.CurrentUser.role == Roles.USER)
             {
                 btnNewChild.Enabled = false;
             }
 
-            familyModel = _familyModel;
+            childrens = DBChildren.GetChildrenByFamilyId(famId);
             PopulatePanel();
         }
 
@@ -35,17 +39,19 @@ namespace FamilySprout.Features.FamilyList.Forms
 
             if (mainForm != null)
             {
-                mainForm.OpenFamilyDetailsForm(_famId: familyModel.id);
+                mainForm.OpenFamilyDetailsForm(famId);
             }
         }
 
-        private void PopulatePanel()
+        public void PopulatePanel()
         {
+            childrens.Clear();
+            childrens = DBChildren.GetChildrenByFamilyId(famId);
             childListPanel.Controls.Clear();
             childListPanel.AutoScroll = true;
             int currentY = 10;
 
-            if (familyModel.childrens.Count == 0)
+            if (childrens.Count == 0)
             {
                 Label label = new Label();
                 label.Text = "No children found!";
@@ -72,17 +78,9 @@ namespace FamilySprout.Features.FamilyList.Forms
             }
             else
             {
-                foreach (var child in familyModel.childrens)
+                foreach (var child in childrens)
                 {
-                    ChildUserControl childUserControl = new ChildUserControl(
-                        _id: child.id,
-                        _name: child.name,
-                        _bday: child.bday,
-                        _baptism: child.baptism,
-                        _hc: child.hc,
-                        _obitus: child.obitus,
-                        _matrimony: child.matrimony
-                        );
+                    FamilyChildUserControl childUserControl = new FamilyChildUserControl(child);
 
                     childUserControl.Location = new Point(10, currentY);
                     childListPanel.Controls.Add(childUserControl);
@@ -93,7 +91,7 @@ namespace FamilySprout.Features.FamilyList.Forms
 
         private void btnNewChild_Click(object sender, EventArgs e)
         {
-            NewChildDialog newChild = new NewChildDialog(familyModel.id);
+            NewChildDialog newChild = new NewChildDialog(famId);
 
             if (newChild.ShowDialog(this) == DialogResult.OK)
             {
