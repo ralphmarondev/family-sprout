@@ -72,7 +72,7 @@
             this.tbRoles.Name = "tbRoles";
             this.tbRoles.ReadOnly = true;
             this.tbRoles.Size = new System.Drawing.Size(234, 34);
-            this.tbRoles.TabIndex = 33;
+            this.tbRoles.TabIndex = 6;
             // 
             // label2
             // 
@@ -102,7 +102,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.ReadOnly = true;
             this.tbUsername.Size = new System.Drawing.Size(234, 34);
-            this.tbUsername.TabIndex = 29;
+            this.tbUsername.TabIndex = 3;
             // 
             // label7
             // 
@@ -122,7 +122,7 @@
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.ReadOnly = true;
             this.tbConfirmPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbConfirmPassword.TabIndex = 27;
+            this.tbConfirmPassword.TabIndex = 5;
             // 
             // btnClose
             // 
@@ -139,7 +139,7 @@
             this.btnClose.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(200, 43);
-            this.btnClose.TabIndex = 26;
+            this.btnClose.TabIndex = 1;
             this.btnClose.Text = "CLOSE";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -162,7 +162,7 @@
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
             this.tbName.Size = new System.Drawing.Size(234, 34);
-            this.tbName.TabIndex = 24;
+            this.tbName.TabIndex = 2;
             // 
             // label3
             // 
@@ -192,7 +192,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.ReadOnly = true;
             this.tbPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbPassword.TabIndex = 6;
+            this.tbPassword.TabIndex = 4;
             // 
             // ViewUserDialog
             // 

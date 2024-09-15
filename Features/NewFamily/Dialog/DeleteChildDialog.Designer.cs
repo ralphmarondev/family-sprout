@@ -76,7 +76,7 @@
             this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(191, 43);
-            this.btnCancel.TabIndex = 20;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -96,7 +96,7 @@
             this.btnDelete.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(191, 43);
-            this.btnDelete.TabIndex = 11;
+            this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -135,12 +135,12 @@
             // tbObitus
             // 
             this.tbObitus.BackColor = System.Drawing.SystemColors.Window;
-            this.tbObitus.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbObitus.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbObitus.Location = new System.Drawing.Point(285, 224);
             this.tbObitus.Name = "tbObitus";
             this.tbObitus.ReadOnly = true;
-            this.tbObitus.Size = new System.Drawing.Size(252, 30);
-            this.tbObitus.TabIndex = 15;
+            this.tbObitus.Size = new System.Drawing.Size(252, 34);
+            this.tbObitus.TabIndex = 8;
             // 
             // label10
             // 
@@ -155,12 +155,12 @@
             // tbMatrimony
             // 
             this.tbMatrimony.BackColor = System.Drawing.SystemColors.Window;
-            this.tbMatrimony.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbMatrimony.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbMatrimony.Location = new System.Drawing.Point(14, 224);
             this.tbMatrimony.Name = "tbMatrimony";
             this.tbMatrimony.ReadOnly = true;
-            this.tbMatrimony.Size = new System.Drawing.Size(252, 30);
-            this.tbMatrimony.TabIndex = 13;
+            this.tbMatrimony.Size = new System.Drawing.Size(252, 34);
+            this.tbMatrimony.TabIndex = 7;
             // 
             // label11
             // 
@@ -175,12 +175,12 @@
             // tbHc
             // 
             this.tbHc.BackColor = System.Drawing.SystemColors.Window;
-            this.tbHc.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbHc.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbHc.Location = new System.Drawing.Point(285, 156);
             this.tbHc.Name = "tbHc";
             this.tbHc.ReadOnly = true;
-            this.tbHc.Size = new System.Drawing.Size(252, 30);
-            this.tbHc.TabIndex = 11;
+            this.tbHc.Size = new System.Drawing.Size(252, 34);
+            this.tbHc.TabIndex = 6;
             // 
             // label12
             // 
@@ -195,12 +195,12 @@
             // tbBaptism
             // 
             this.tbBaptism.BackColor = System.Drawing.SystemColors.Window;
-            this.tbBaptism.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbBaptism.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbBaptism.Location = new System.Drawing.Point(14, 156);
             this.tbBaptism.Name = "tbBaptism";
             this.tbBaptism.ReadOnly = true;
-            this.tbBaptism.Size = new System.Drawing.Size(252, 30);
-            this.tbBaptism.TabIndex = 9;
+            this.tbBaptism.Size = new System.Drawing.Size(252, 34);
+            this.tbBaptism.TabIndex = 5;
             // 
             // label13
             // 
@@ -225,12 +225,12 @@
             // tbBday
             // 
             this.tbBday.BackColor = System.Drawing.SystemColors.Window;
-            this.tbBday.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbBday.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbBday.Location = new System.Drawing.Point(285, 85);
             this.tbBday.Name = "tbBday";
             this.tbBday.ReadOnly = true;
-            this.tbBday.Size = new System.Drawing.Size(252, 30);
-            this.tbBday.TabIndex = 6;
+            this.tbBday.Size = new System.Drawing.Size(252, 34);
+            this.tbBday.TabIndex = 4;
             // 
             // label15
             // 
@@ -245,12 +245,12 @@
             // tbName
             // 
             this.tbName.BackColor = System.Drawing.SystemColors.Window;
-            this.tbName.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbName.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbName.Location = new System.Drawing.Point(14, 85);
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
-            this.tbName.Size = new System.Drawing.Size(252, 30);
-            this.tbName.TabIndex = 4;
+            this.tbName.Size = new System.Drawing.Size(252, 34);
+            this.tbName.TabIndex = 3;
             // 
             // DeleteChildDialog
             // 
@@ -261,7 +261,7 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DeleteChildDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

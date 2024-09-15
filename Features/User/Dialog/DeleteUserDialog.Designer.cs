@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.tbRoles = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
@@ -41,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
-            this.tbRoles = new System.Windows.Forms.TextBox();
             this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +65,16 @@
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(580, 398);
             this.loginPanel.TabIndex = 24;
+            // 
+            // tbRoles
+            // 
+            this.tbRoles.BackColor = System.Drawing.SystemColors.Window;
+            this.tbRoles.Font = new System.Drawing.Font("Courier New", 14F);
+            this.tbRoles.Location = new System.Drawing.Point(46, 252);
+            this.tbRoles.Name = "tbRoles";
+            this.tbRoles.ReadOnly = true;
+            this.tbRoles.Size = new System.Drawing.Size(234, 34);
+            this.tbRoles.TabIndex = 7;
             // 
             // label2
             // 
@@ -94,7 +104,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.ReadOnly = true;
             this.tbUsername.Size = new System.Drawing.Size(234, 34);
-            this.tbUsername.TabIndex = 29;
+            this.tbUsername.TabIndex = 4;
             // 
             // label7
             // 
@@ -114,7 +124,7 @@
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.ReadOnly = true;
             this.tbConfirmPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbConfirmPassword.TabIndex = 27;
+            this.tbConfirmPassword.TabIndex = 6;
             // 
             // btnCancel
             // 
@@ -131,7 +141,7 @@
             this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(200, 43);
-            this.btnCancel.TabIndex = 26;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -154,7 +164,7 @@
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
             this.tbName.Size = new System.Drawing.Size(234, 34);
-            this.tbName.TabIndex = 24;
+            this.tbName.TabIndex = 3;
             // 
             // btnDelete
             // 
@@ -171,7 +181,7 @@
             this.btnDelete.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(200, 43);
-            this.btnDelete.TabIndex = 21;
+            this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -204,17 +214,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.ReadOnly = true;
             this.tbPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbPassword.TabIndex = 6;
-            // 
-            // tbRoles
-            // 
-            this.tbRoles.BackColor = System.Drawing.SystemColors.Window;
-            this.tbRoles.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbRoles.Location = new System.Drawing.Point(46, 252);
-            this.tbRoles.Name = "tbRoles";
-            this.tbRoles.ReadOnly = true;
-            this.tbRoles.Size = new System.Drawing.Size(234, 34);
-            this.tbRoles.TabIndex = 33;
+            this.tbPassword.TabIndex = 5;
             // 
             // DeleteUserDialog
             // 

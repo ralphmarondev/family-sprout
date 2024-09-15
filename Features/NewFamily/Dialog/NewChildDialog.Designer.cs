@@ -76,7 +76,7 @@
             this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(191, 43);
-            this.btnCancel.TabIndex = 20;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -96,7 +96,7 @@
             this.btnSave.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(191, 43);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -134,11 +134,11 @@
             // 
             // tbObitus
             // 
-            this.tbObitus.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbObitus.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbObitus.Location = new System.Drawing.Point(285, 224);
             this.tbObitus.Name = "tbObitus";
-            this.tbObitus.Size = new System.Drawing.Size(252, 30);
-            this.tbObitus.TabIndex = 15;
+            this.tbObitus.Size = new System.Drawing.Size(252, 34);
+            this.tbObitus.TabIndex = 6;
             // 
             // label10
             // 
@@ -152,11 +152,11 @@
             // 
             // tbMatrimony
             // 
-            this.tbMatrimony.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbMatrimony.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbMatrimony.Location = new System.Drawing.Point(14, 224);
             this.tbMatrimony.Name = "tbMatrimony";
-            this.tbMatrimony.Size = new System.Drawing.Size(252, 30);
-            this.tbMatrimony.TabIndex = 13;
+            this.tbMatrimony.Size = new System.Drawing.Size(252, 34);
+            this.tbMatrimony.TabIndex = 5;
             // 
             // label11
             // 
@@ -170,11 +170,11 @@
             // 
             // tbHc
             // 
-            this.tbHc.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbHc.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbHc.Location = new System.Drawing.Point(285, 156);
             this.tbHc.Name = "tbHc";
-            this.tbHc.Size = new System.Drawing.Size(252, 30);
-            this.tbHc.TabIndex = 11;
+            this.tbHc.Size = new System.Drawing.Size(252, 34);
+            this.tbHc.TabIndex = 4;
             // 
             // label12
             // 
@@ -188,11 +188,11 @@
             // 
             // tbBaptism
             // 
-            this.tbBaptism.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbBaptism.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbBaptism.Location = new System.Drawing.Point(14, 156);
             this.tbBaptism.Name = "tbBaptism";
-            this.tbBaptism.Size = new System.Drawing.Size(252, 30);
-            this.tbBaptism.TabIndex = 9;
+            this.tbBaptism.Size = new System.Drawing.Size(252, 34);
+            this.tbBaptism.TabIndex = 3;
             // 
             // label13
             // 
@@ -216,11 +216,11 @@
             // 
             // tbBirthday
             // 
-            this.tbBirthday.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbBirthday.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbBirthday.Location = new System.Drawing.Point(285, 85);
             this.tbBirthday.Name = "tbBirthday";
-            this.tbBirthday.Size = new System.Drawing.Size(252, 30);
-            this.tbBirthday.TabIndex = 6;
+            this.tbBirthday.Size = new System.Drawing.Size(252, 34);
+            this.tbBirthday.TabIndex = 2;
             // 
             // label15
             // 
@@ -234,11 +234,11 @@
             // 
             // tbName
             // 
-            this.tbName.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbName.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbName.Location = new System.Drawing.Point(14, 85);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(252, 30);
-            this.tbName.TabIndex = 4;
+            this.tbName.Size = new System.Drawing.Size(252, 34);
+            this.tbName.TabIndex = 1;
             // 
             // NewChildDialog
             // 

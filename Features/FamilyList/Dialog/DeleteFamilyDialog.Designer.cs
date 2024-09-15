@@ -80,7 +80,7 @@
             this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(191, 43);
-            this.btnCancel.TabIndex = 19;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -100,7 +100,7 @@
             this.btnDelete.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(191, 43);
-            this.btnDelete.TabIndex = 18;
+            this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -141,11 +141,11 @@
             // tbWifeFrom
             // 
             this.tbWifeFrom.BackColor = System.Drawing.SystemColors.Window;
-            this.tbWifeFrom.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbWifeFrom.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbWifeFrom.Location = new System.Drawing.Point(15, 137);
             this.tbWifeFrom.Name = "tbWifeFrom";
             this.tbWifeFrom.ReadOnly = true;
-            this.tbWifeFrom.Size = new System.Drawing.Size(252, 30);
+            this.tbWifeFrom.Size = new System.Drawing.Size(252, 34);
             this.tbWifeFrom.TabIndex = 6;
             // 
             // label9
@@ -161,12 +161,12 @@
             // tbWifeFullName
             // 
             this.tbWifeFullName.BackColor = System.Drawing.SystemColors.Window;
-            this.tbWifeFullName.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbWifeFullName.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbWifeFullName.Location = new System.Drawing.Point(15, 75);
             this.tbWifeFullName.Name = "tbWifeFullName";
             this.tbWifeFullName.ReadOnly = true;
-            this.tbWifeFullName.Size = new System.Drawing.Size(252, 30);
-            this.tbWifeFullName.TabIndex = 4;
+            this.tbWifeFullName.Size = new System.Drawing.Size(252, 34);
+            this.tbWifeFullName.TabIndex = 5;
             // 
             // panel2
             // 
@@ -204,12 +204,12 @@
             // tbHusbandFrom
             // 
             this.tbHusbandFrom.BackColor = System.Drawing.SystemColors.Window;
-            this.tbHusbandFrom.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbHusbandFrom.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbHusbandFrom.Location = new System.Drawing.Point(15, 137);
             this.tbHusbandFrom.Name = "tbHusbandFrom";
             this.tbHusbandFrom.ReadOnly = true;
-            this.tbHusbandFrom.Size = new System.Drawing.Size(252, 30);
-            this.tbHusbandFrom.TabIndex = 6;
+            this.tbHusbandFrom.Size = new System.Drawing.Size(252, 34);
+            this.tbHusbandFrom.TabIndex = 4;
             // 
             // label1
             // 
@@ -224,12 +224,12 @@
             // tbHusbandFullName
             // 
             this.tbHusbandFullName.BackColor = System.Drawing.SystemColors.Window;
-            this.tbHusbandFullName.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbHusbandFullName.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbHusbandFullName.Location = new System.Drawing.Point(15, 75);
             this.tbHusbandFullName.Name = "tbHusbandFullName";
             this.tbHusbandFullName.ReadOnly = true;
-            this.tbHusbandFullName.Size = new System.Drawing.Size(252, 30);
-            this.tbHusbandFullName.TabIndex = 4;
+            this.tbHusbandFullName.Size = new System.Drawing.Size(252, 34);
+            this.tbHusbandFullName.TabIndex = 3;
             // 
             // label5
             // 
@@ -244,13 +244,13 @@
             // tbRemarks
             // 
             this.tbRemarks.BackColor = System.Drawing.SystemColors.Window;
-            this.tbRemarks.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tbRemarks.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbRemarks.Location = new System.Drawing.Point(27, 251);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
             this.tbRemarks.ReadOnly = true;
             this.tbRemarks.Size = new System.Drawing.Size(538, 54);
-            this.tbRemarks.TabIndex = 8;
+            this.tbRemarks.TabIndex = 7;
             this.tbRemarks.Text = "No Remarks";
             // 
             // DeleteFamilyDialog

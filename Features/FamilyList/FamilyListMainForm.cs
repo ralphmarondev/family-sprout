@@ -49,10 +49,10 @@ namespace FamilySprout.Features.FamilyList
             dataGridViewFamilies.Padding = new Padding(0);
 
             // Set font size for cells
-            dataGridViewFamilies.DefaultCellStyle.Font = new Font("Courier New", 16);
+            dataGridViewFamilies.DefaultCellStyle.Font = new Font("Courier New", 14);
 
             // Set font size for headers (optional)
-            dataGridViewFamilies.ColumnHeadersDefaultCellStyle.Font = new Font("Courier New", 16, FontStyle.Bold);
+            dataGridViewFamilies.ColumnHeadersDefaultCellStyle.Font = new Font("Courier New", 14, FontStyle.Bold);
 
             // Set padding for cells (adjusting row height indirectly)
             dataGridViewFamilies.DefaultCellStyle.Padding = new Padding(10, 5, 10, 5); // Top, Left, Bottom, Right

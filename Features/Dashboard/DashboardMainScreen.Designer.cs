@@ -195,7 +195,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.monthCalendar1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.monthCalendar1.Location = new System.Drawing.Point(0, 0);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 24;

@@ -35,8 +35,6 @@ namespace FamilySprout.Features.NewFamily
 
                 if (confirmAddingNewFamily.ShowDialog(this) == DialogResult.OK)
                 {
-                    MessageBox.Show("Family Created successfully!");
-
                     if (mainForm != null)
                     {
                         mainForm.OpenNewChildrenForm(_famId: familyId);

@@ -79,7 +79,7 @@
             this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(191, 43);
-            this.btnCancel.TabIndex = 35;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -99,7 +99,7 @@
             this.btnRestore.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(191, 43);
-            this.btnRestore.TabIndex = 34;
+            this.btnRestore.TabIndex = 1;
             this.btnRestore.Text = "RESTORE";
             this.btnRestore.UseVisualStyleBackColor = false;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
@@ -112,7 +112,7 @@
             this.tbRoles.Name = "tbRoles";
             this.tbRoles.ReadOnly = true;
             this.tbRoles.Size = new System.Drawing.Size(234, 34);
-            this.tbRoles.TabIndex = 33;
+            this.tbRoles.TabIndex = 7;
             // 
             // label2
             // 
@@ -142,7 +142,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.ReadOnly = true;
             this.tbUsername.Size = new System.Drawing.Size(234, 34);
-            this.tbUsername.TabIndex = 29;
+            this.tbUsername.TabIndex = 4;
             // 
             // label7
             // 
@@ -162,7 +162,7 @@
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.ReadOnly = true;
             this.tbConfirmPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbConfirmPassword.TabIndex = 27;
+            this.tbConfirmPassword.TabIndex = 6;
             // 
             // label5
             // 
@@ -182,7 +182,7 @@
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
             this.tbName.Size = new System.Drawing.Size(234, 34);
-            this.tbName.TabIndex = 24;
+            this.tbName.TabIndex = 3;
             // 
             // label1
             // 
@@ -202,7 +202,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.ReadOnly = true;
             this.tbPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbPassword.TabIndex = 6;
+            this.tbPassword.TabIndex = 5;
             // 
             // RestoreUser
             // 

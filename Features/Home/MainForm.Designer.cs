@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelNavigation = new System.Windows.Forms.Panel();
+            this.btnBackup = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnFamilies = new System.Windows.Forms.Button();
             this.btnTrash = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.btnBackup = new System.Windows.Forms.Button();
             this.panelNavigation.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,26 @@
             this.panelNavigation.Size = new System.Drawing.Size(217, 648);
             this.panelNavigation.TabIndex = 3;
             // 
+            // btnBackup
+            // 
+            this.btnBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackup.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackup.FlatAppearance.BorderSize = 0;
+            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackup.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.ForeColor = System.Drawing.Color.Purple;
+            this.btnBackup.Location = new System.Drawing.Point(9, 453);
+            this.btnBackup.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBackup.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(200, 60);
+            this.btnBackup.TabIndex = 6;
+            this.btnBackup.Text = "BACKUP";
+            this.btnBackup.UseVisualStyleBackColor = false;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
             // btnUsers
             // 
             this.btnUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -75,7 +95,7 @@
             this.btnUsers.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(200, 60);
-            this.btnUsers.TabIndex = 6;
+            this.btnUsers.TabIndex = 4;
             this.btnUsers.Text = "USERS";
             this.btnUsers.UseVisualStyleBackColor = false;
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
@@ -95,7 +115,7 @@
             this.btnFamilies.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnFamilies.Name = "btnFamilies";
             this.btnFamilies.Size = new System.Drawing.Size(200, 60);
-            this.btnFamilies.TabIndex = 5;
+            this.btnFamilies.TabIndex = 2;
             this.btnFamilies.Text = "FAMILIES";
             this.btnFamilies.UseVisualStyleBackColor = false;
             this.btnFamilies.Click += new System.EventHandler(this.btnFamilies_Click);
@@ -115,7 +135,7 @@
             this.btnTrash.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnTrash.Name = "btnTrash";
             this.btnTrash.Size = new System.Drawing.Size(200, 60);
-            this.btnTrash.TabIndex = 4;
+            this.btnTrash.TabIndex = 5;
             this.btnTrash.Text = "TRASH";
             this.btnTrash.UseVisualStyleBackColor = false;
             this.btnTrash.Click += new System.EventHandler(this.btnTrash_Click);
@@ -155,7 +175,7 @@
             this.btnDashboard.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(200, 60);
-            this.btnDashboard.TabIndex = 2;
+            this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "DASHBOARD";
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
@@ -175,7 +195,7 @@
             this.btnLogout.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(200, 60);
-            this.btnLogout.TabIndex = 1;
+            this.btnLogout.TabIndex = 7;
             this.btnLogout.Text = "LOGOUT";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -213,26 +233,6 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(905, 648);
             this.mainPanel.TabIndex = 4;
-            // 
-            // btnBackup
-            // 
-            this.btnBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBackup.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackup.FlatAppearance.BorderSize = 0;
-            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackup.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackup.ForeColor = System.Drawing.Color.Purple;
-            this.btnBackup.Location = new System.Drawing.Point(9, 453);
-            this.btnBackup.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBackup.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(200, 60);
-            this.btnBackup.TabIndex = 7;
-            this.btnBackup.Text = "BACKUP";
-            this.btnBackup.UseVisualStyleBackColor = false;
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
             // MainForm
             // 

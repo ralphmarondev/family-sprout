@@ -87,7 +87,7 @@
             this.tbRoles.Location = new System.Drawing.Point(46, 252);
             this.tbRoles.Name = "tbRoles";
             this.tbRoles.Size = new System.Drawing.Size(234, 33);
-            this.tbRoles.TabIndex = 31;
+            this.tbRoles.TabIndex = 5;
             this.tbRoles.Text = "USER";
             // 
             // label6
@@ -106,7 +106,7 @@
             this.tbUsername.Location = new System.Drawing.Point(295, 113);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(234, 34);
-            this.tbUsername.TabIndex = 29;
+            this.tbUsername.TabIndex = 2;
             // 
             // label7
             // 
@@ -124,7 +124,7 @@
             this.tbConfirmPassword.Location = new System.Drawing.Point(295, 183);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbConfirmPassword.TabIndex = 27;
+            this.tbConfirmPassword.TabIndex = 4;
             // 
             // btnCancel
             // 
@@ -141,7 +141,7 @@
             this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(200, 43);
-            this.btnCancel.TabIndex = 26;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -162,7 +162,7 @@
             this.tbName.Location = new System.Drawing.Point(46, 113);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(234, 34);
-            this.tbName.TabIndex = 24;
+            this.tbName.TabIndex = 1;
             // 
             // btnRegister
             // 
@@ -179,7 +179,7 @@
             this.btnRegister.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(200, 43);
-            this.btnRegister.TabIndex = 21;
+            this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "REGISTER";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -210,7 +210,7 @@
             this.tbPassword.Location = new System.Drawing.Point(46, 183);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbPassword.TabIndex = 6;
+            this.tbPassword.TabIndex = 3;
             // 
             // NewUserDialog
             // 
