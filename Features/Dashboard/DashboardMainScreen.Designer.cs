@@ -171,6 +171,9 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.SystemColors.Window;
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel5);
@@ -185,17 +188,16 @@
             // 
             // panel6
             // 
-            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.BackColor = System.Drawing.Color.GhostWhite;
             this.panel6.Controls.Add(this.monthCalendar1);
             this.panel6.Location = new System.Drawing.Point(34, 74);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(264, 207);
+            this.panel6.Size = new System.Drawing.Size(247, 207);
             this.panel6.TabIndex = 29;
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.monthCalendar1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.monthCalendar1.Location = new System.Drawing.Point(0, 0);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 24;
@@ -206,9 +208,9 @@
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.label8);
-            this.panel5.Location = new System.Drawing.Point(317, 74);
+            this.panel5.Location = new System.Drawing.Point(294, 74);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(493, 207);
+            this.panel5.Size = new System.Drawing.Size(516, 207);
             this.panel5.TabIndex = 29;
             // 
             // label9

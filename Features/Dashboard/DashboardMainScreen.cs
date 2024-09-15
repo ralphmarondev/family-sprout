@@ -83,14 +83,14 @@ namespace FamilySprout.Features.Dashboard
             {
                 Text = SessionManager.CurrentUser.username,
                 AutoSize = true,
-                Location = new Point(10, lblInfo.Bottom + 10)
+                Location = new Point(10, lblInfo.Bottom + 5)
             };
             string role = (SessionManager.CurrentUser.role == Roles.SUPERUSER) ? "SUPERUSER" : "USER";
             Label lblInfo3 = new Label
             {
                 Text = role,
                 AutoSize = true,
-                Location = new Point(10, lblInfo2.Bottom + 10)
+                Location = new Point(10, lblInfo2.Bottom + 5)
             };
 
             popupPanel.Controls.Add(lblInfo);

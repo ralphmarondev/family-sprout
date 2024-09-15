@@ -123,6 +123,7 @@
             this.tbConfirmPassword.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbConfirmPassword.Location = new System.Drawing.Point(295, 183);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
+            this.tbConfirmPassword.PasswordChar = '•';
             this.tbConfirmPassword.Size = new System.Drawing.Size(234, 34);
             this.tbConfirmPassword.TabIndex = 4;
             // 
@@ -209,6 +210,7 @@
             this.tbPassword.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbPassword.Location = new System.Drawing.Point(46, 183);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '•';
             this.tbPassword.Size = new System.Drawing.Size(234, 34);
             this.tbPassword.TabIndex = 3;
             // 

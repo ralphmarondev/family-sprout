@@ -8,9 +8,12 @@ namespace FamilySprout.Features.Auth
 {
     public partial class AuthenticationForm : Form
     {
+        private int count;
         public AuthenticationForm()
         {
             InitializeComponent();
+
+            count = 0;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -59,6 +62,15 @@ namespace FamilySprout.Features.Auth
                 return true;
             }
             return false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            count++;
+            if (count > 2)
+            {
+                lblCopyright.Text = $"© {DateTime.Now.Year} RALPH MARON A. EDA. All Rights Reserved.";
+            }
         }
     }
 }

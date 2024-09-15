@@ -148,6 +148,7 @@
             // 
             // btnNewChild
             // 
+            this.btnNewChild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNewChild.BackColor = System.Drawing.Color.Gainsboro;
             this.btnNewChild.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNewChild.FlatAppearance.BorderSize = 0;
@@ -178,6 +179,9 @@
             // 
             // panelChildrenList
             // 
+            this.panelChildrenList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelChildrenList.Location = new System.Drawing.Point(22, 22);
             this.panelChildrenList.Name = "panelChildrenList";
             this.panelChildrenList.Size = new System.Drawing.Size(829, 429);

@@ -154,6 +154,7 @@
             // 
             // btnUsers
             // 
+            this.btnUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUsers.BackColor = System.Drawing.Color.Gainsboro;
             this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUsers.FlatAppearance.BorderSize = 0;
@@ -172,6 +173,7 @@
             // 
             // btnChildrens
             // 
+            this.btnChildrens.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnChildrens.BackColor = System.Drawing.Color.Gainsboro;
             this.btnChildrens.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChildrens.FlatAppearance.BorderSize = 0;
@@ -190,6 +192,7 @@
             // 
             // btnFamilies
             // 
+            this.btnFamilies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnFamilies.BackColor = System.Drawing.Color.Gainsboro;
             this.btnFamilies.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFamilies.FlatAppearance.BorderSize = 0;
@@ -208,6 +211,9 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.listOfItemsPanel);
             this.panel1.Location = new System.Drawing.Point(22, 22);
@@ -217,6 +223,9 @@
             // 
             // listOfItemsPanel
             // 
+            this.listOfItemsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listOfItemsPanel.Controls.Add(this.lblEmpty);
             this.listOfItemsPanel.Location = new System.Drawing.Point(22, 22);
             this.listOfItemsPanel.Name = "listOfItemsPanel";

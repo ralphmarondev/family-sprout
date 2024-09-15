@@ -31,7 +31,7 @@ namespace FamilySprout.Features.Trash.Dialogs.Family
             try
             {
                 DialogResult result = MessageBox.Show(
-                        "Are your sure you want to permanently delete this family?",
+                        "Are your sure you want to permanently delete this family?\nAnd all of its children?",
                         "Confirm Deletion",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning

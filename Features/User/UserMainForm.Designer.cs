@@ -148,6 +148,7 @@
             // 
             // btnNew
             // 
+            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNew.BackColor = System.Drawing.Color.Gainsboro;
             this.btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNew.FlatAppearance.BorderSize = 0;
@@ -178,6 +179,9 @@
             // 
             // userListPanel
             // 
+            this.userListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.userListPanel.Location = new System.Drawing.Point(22, 22);
             this.userListPanel.Name = "userListPanel";
             this.userListPanel.Size = new System.Drawing.Size(821, 437);
