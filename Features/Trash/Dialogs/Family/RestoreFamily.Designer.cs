@@ -45,6 +45,7 @@
             this.tbHusbandFullName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelHusbandWife.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -53,6 +54,7 @@
             // panelHusbandWife
             // 
             this.panelHusbandWife.BackColor = System.Drawing.Color.White;
+            this.panelHusbandWife.Controls.Add(this.label3);
             this.panelHusbandWife.Controls.Add(this.btnCancel);
             this.panelHusbandWife.Controls.Add(this.btnRestore);
             this.panelHusbandWife.Controls.Add(this.panel3);
@@ -253,6 +255,16 @@
             this.tbRemarks.TabIndex = 7;
             this.tbRemarks.Text = "No Remarks";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 11F);
+            this.label3.Location = new System.Drawing.Point(-2, 387);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(516, 21);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "*ALL OF IT\'S CHILDREN/S WILL ALSO BE RESTORED*";
+            // 
             // RestoreFamily
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
@@ -297,5 +309,6 @@
         private System.Windows.Forms.TextBox tbHusbandFullName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbRemarks;
+        private System.Windows.Forms.Label label3;
     }
 }

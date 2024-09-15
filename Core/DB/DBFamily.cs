@@ -102,6 +102,8 @@ namespace FamilySprout.Core.DB
                         command.ExecuteNonQuery();
                     }
                 }
+
+                DBChildren.DeleteChildByFamId(_famId);
             }
             catch (Exception ex)
             {
@@ -163,6 +165,7 @@ namespace FamilySprout.Core.DB
                         command.ExecuteNonQuery();
                     }
                 }
+                DBChildren.RestoreChildByFamId(_famId);
             }
             catch (Exception ex)
             {
