@@ -51,7 +51,7 @@
             this.lblDestination = new System.Windows.Forms.Label();
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleNavPanel = new System.Windows.Forms.Button();
-            this.btnEmployeeInfo = new System.Windows.Forms.PictureBox();
+            this.btnCurrentUserInfo = new System.Windows.Forms.PictureBox();
             this.lblAdminName = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,7 +59,7 @@
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -284,7 +284,7 @@
             this.panelTitle.Controls.Add(this.lblDestination);
             this.panelTitle.Controls.Add(this.btnFullScreen);
             this.panelTitle.Controls.Add(this.btnToggleNavPanel);
-            this.panelTitle.Controls.Add(this.btnEmployeeInfo);
+            this.panelTitle.Controls.Add(this.btnCurrentUserInfo);
             this.panelTitle.Controls.Add(this.lblAdminName);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -295,6 +295,9 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(930, 68);
             this.panelTitle.TabIndex = 17;
+            this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
+            this.panelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
+            this.panelTitle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseUp);
             // 
             // lblDestination
             // 
@@ -323,6 +326,7 @@
             this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
             this.btnFullScreen.TabIndex = 6;
             this.btnFullScreen.UseVisualStyleBackColor = false;
+            this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
             // 
             // btnToggleNavPanel
             // 
@@ -343,19 +347,20 @@
             this.btnToggleNavPanel.TabIndex = 5;
             this.btnToggleNavPanel.UseVisualStyleBackColor = false;
             // 
-            // btnEmployeeInfo
+            // btnCurrentUserInfo
             // 
-            this.btnEmployeeInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEmployeeInfo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEmployeeInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEmployeeInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmployeeInfo.Image = global::FamilySprout.Properties.Resources.icons8_angry_face_with_horns_100;
-            this.btnEmployeeInfo.Location = new System.Drawing.Point(533, 16);
-            this.btnEmployeeInfo.Name = "btnEmployeeInfo";
-            this.btnEmployeeInfo.Size = new System.Drawing.Size(30, 30);
-            this.btnEmployeeInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnEmployeeInfo.TabIndex = 4;
-            this.btnEmployeeInfo.TabStop = false;
+            this.btnCurrentUserInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCurrentUserInfo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCurrentUserInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCurrentUserInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCurrentUserInfo.Image = global::FamilySprout.Properties.Resources.icons8_test_account_80;
+            this.btnCurrentUserInfo.Location = new System.Drawing.Point(533, 16);
+            this.btnCurrentUserInfo.Name = "btnCurrentUserInfo";
+            this.btnCurrentUserInfo.Size = new System.Drawing.Size(30, 30);
+            this.btnCurrentUserInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCurrentUserInfo.TabIndex = 4;
+            this.btnCurrentUserInfo.TabStop = false;
+            this.btnCurrentUserInfo.Click += new System.EventHandler(this.btnCurrentUserInfo_Click);
             // 
             // lblAdminName
             // 
@@ -397,7 +402,7 @@
             this.panel2.PerformLayout();
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -410,7 +415,7 @@
         private System.Windows.Forms.Label lblDestination;
         private System.Windows.Forms.Button btnFullScreen;
         private System.Windows.Forms.Button btnToggleNavPanel;
-        private System.Windows.Forms.PictureBox btnEmployeeInfo;
+        private System.Windows.Forms.PictureBox btnCurrentUserInfo;
         private System.Windows.Forms.Label lblAdminName;
         private System.Windows.Forms.Panel panelHusbandWife;
         private System.Windows.Forms.Button btnCancel;

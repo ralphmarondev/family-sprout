@@ -35,11 +35,11 @@
             this.btnNewFamily = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.lblLogo = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panelNavigation.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelLogo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelNavigation
@@ -51,7 +51,7 @@
             this.panelNavigation.Controls.Add(this.btnNewFamily);
             this.panelNavigation.Controls.Add(this.btnDashboard);
             this.panelNavigation.Controls.Add(this.btnLogout);
-            this.panelNavigation.Controls.Add(this.panel2);
+            this.panelNavigation.Controls.Add(this.panelLogo);
             this.panelNavigation.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavigation.Location = new System.Drawing.Point(0, 0);
             this.panelNavigation.Name = "panelNavigation";
@@ -178,31 +178,38 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // panel2
+            // panelLogo
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(54)))), ((int)(((byte)(220)))));
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(217, 68);
-            this.panel2.TabIndex = 0;
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(54)))), ((int)(((byte)(220)))));
+            this.panelLogo.Controls.Add(this.lblLogo);
+            this.panelLogo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(217, 68);
+            this.panelLogo.TabIndex = 0;
+            this.panelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelLogo_MouseDown);
+            this.panelLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelLogo_MouseMove);
+            this.panelLogo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelLogo_MouseUp);
             // 
-            // label1
+            // lblLogo
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label1.Location = new System.Drawing.Point(32, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 27);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "FAMILY-SPROUT";
+            this.lblLogo.AutoSize = true;
+            this.lblLogo.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogo.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lblLogo.Location = new System.Drawing.Point(32, 21);
+            this.lblLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(194, 27);
+            this.lblLogo.TabIndex = 0;
+            this.lblLogo.Text = "FAMILY-SPROUT";
+            this.lblLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblLogo_MouseDown);
+            this.lblLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblLogo_MouseMove);
+            this.lblLogo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblLogo_MouseUp);
             // 
             // mainPanel
             // 
@@ -228,8 +235,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelNavigation.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelLogo.ResumeLayout(false);
+            this.panelLogo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -242,8 +249,8 @@
         private System.Windows.Forms.Button btnNewFamily;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelLogo;
+        private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Button btnUsers;
     }

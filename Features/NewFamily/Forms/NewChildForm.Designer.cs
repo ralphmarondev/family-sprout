@@ -115,7 +115,7 @@
             this.btnEmployeeInfo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnEmployeeInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEmployeeInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmployeeInfo.Image = global::FamilySprout.Properties.Resources.icons8_angry_face_with_horns_100;
+            this.btnEmployeeInfo.Image = global::FamilySprout.Properties.Resources.icons8_test_account_80;
             this.btnEmployeeInfo.Location = new System.Drawing.Point(533, 16);
             this.btnEmployeeInfo.Name = "btnEmployeeInfo";
             this.btnEmployeeInfo.Size = new System.Drawing.Size(30, 30);

@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.Utils;
 using FamilySprout.Features.Auth;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace FamilySprout.Features.Home
@@ -122,5 +123,53 @@ namespace FamilySprout.Features.Home
             }
         }
         #endregion TOP_BAR
+
+
+        #region DRAG_AND_DROP
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+        private void panelLogo_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        private void panelLogo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+
+        private void panelLogo_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+        #endregion DRAG_AND_DROP
+
+        private void lblLogo_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        private void lblLogo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+
+        private void lblLogo_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
     }
 }

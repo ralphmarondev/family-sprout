@@ -13,16 +13,11 @@ namespace FamilySprout.Features.NewFamily.Forms
     public partial class NewChildForm : Form
     {
         private long famId;
-        public NewChildForm()
+        public NewChildForm(long _famId)
         {
             InitializeComponent();
 
             lblAdminName.Text = SessionManager.CurrentUser.fullName;
-        }
-
-        public NewChildForm(long _famId)
-        {
-            InitializeComponent();
 
             famId = _famId;
             FetchData();
