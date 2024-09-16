@@ -85,6 +85,8 @@ namespace FamilySprout.Features.FamilyList.Forms
                     FamilyChildUserControl childUserControl = new FamilyChildUserControl(child);
 
                     childUserControl.Location = new Point(10, currentY);
+                    childUserControl.Width = childListPanel.ClientSize.Width - 20;
+                    childUserControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
                     childListPanel.Controls.Add(childUserControl);
                     currentY += childUserControl.Height + 10;
                 }

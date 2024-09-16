@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelTitle = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblDestination = new System.Windows.Forms.Label();
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleNavPanel = new System.Windows.Forms.Button();
@@ -36,10 +38,8 @@
             this.lblAdminName = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridViewFamilies = new System.Windows.Forms.DataGridView();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblEmpty = new System.Windows.Forms.Label();
+            this.dataGridViewFamilies = new System.Windows.Forms.DataGridView();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmployeeInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -66,6 +66,24 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(930, 68);
             this.panelTitle.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Courier New", 10F);
+            this.label1.Location = new System.Drawing.Point(205, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "SEARCH HUSBAND:";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(208, 26);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(209, 30);
+            this.tbSearch.TabIndex = 1;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // lblDestination
             // 
@@ -160,8 +178,18 @@
             this.panel1.Controls.Add(this.dataGridViewFamilies);
             this.panel1.Location = new System.Drawing.Point(22, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(874, 472);
+            this.panel1.Size = new System.Drawing.Size(874, 529);
             this.panel1.TabIndex = 23;
+            // 
+            // lblEmpty
+            // 
+            this.lblEmpty.AutoSize = true;
+            this.lblEmpty.Font = new System.Drawing.Font("Courier New", 18F);
+            this.lblEmpty.Location = new System.Drawing.Point(137, 234);
+            this.lblEmpty.Name = "lblEmpty";
+            this.lblEmpty.Size = new System.Drawing.Size(555, 33);
+            this.lblEmpty.TabIndex = 1;
+            this.lblEmpty.Text = "TABLE IS EMPTY. NO DATA FOUND!";
             // 
             // dataGridViewFamilies
             // 
@@ -173,36 +201,8 @@
             this.dataGridViewFamilies.Location = new System.Drawing.Point(26, 24);
             this.dataGridViewFamilies.Name = "dataGridViewFamilies";
             this.dataGridViewFamilies.RowHeadersWidth = 51;
-            this.dataGridViewFamilies.Size = new System.Drawing.Size(833, 429);
+            this.dataGridViewFamilies.Size = new System.Drawing.Size(833, 486);
             this.dataGridViewFamilies.TabIndex = 0;
-            // 
-            // tbSearch
-            // 
-            this.tbSearch.Location = new System.Drawing.Point(208, 26);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(209, 30);
-            this.tbSearch.TabIndex = 1;
-            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label1.Location = new System.Drawing.Point(205, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "SEARCH HUSBAND:";
-            // 
-            // lblEmpty
-            // 
-            this.lblEmpty.AutoSize = true;
-            this.lblEmpty.Font = new System.Drawing.Font("Courier New", 18F);
-            this.lblEmpty.Location = new System.Drawing.Point(137, 234);
-            this.lblEmpty.Name = "lblEmpty";
-            this.lblEmpty.Size = new System.Drawing.Size(555, 33);
-            this.lblEmpty.TabIndex = 1;
-            this.lblEmpty.Text = "TABLE IS EMPTY. NO DATA FOUND!";
             // 
             // FamilyListMainForm
             // 

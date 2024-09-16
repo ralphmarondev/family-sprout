@@ -61,6 +61,11 @@ namespace FamilySprout.Features.User
                     AdminUserControl adminUserControl = new AdminUserControl(user);
 
                     adminUserControl.Location = new Point(10, currentY);
+
+                    // Set the size of the UserControl based on the parent panel
+                    adminUserControl.Width = userListPanel.ClientSize.Width - 20;
+                    adminUserControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
                     userListPanel.Controls.Add(adminUserControl);
                     currentY += adminUserControl.Height + 10;
                 }

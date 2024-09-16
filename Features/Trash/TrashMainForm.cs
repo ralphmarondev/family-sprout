@@ -70,6 +70,9 @@ namespace FamilySprout.Features.Trash
                     FamilyRestoreUserControl familyControl = new FamilyRestoreUserControl(family);
 
                     familyControl.Location = new System.Drawing.Point(10, currentY);
+                    familyControl.Width = listOfItemsPanel.ClientSize.Width - 20;
+                    familyControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
                     listOfItemsPanel.Controls.Add(familyControl);
                     currentY += familyControl.Height + 10;
                 }
@@ -104,6 +107,9 @@ namespace FamilySprout.Features.Trash
                     ChildRestoreUserControl childRestoreUserControl = new ChildRestoreUserControl(family);
 
                     childRestoreUserControl.Location = new Point(10, currentY);
+                    childRestoreUserControl.Width = listOfItemsPanel.ClientSize.Width - 20;
+                    childRestoreUserControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
                     listOfItemsPanel.Controls.Add(childRestoreUserControl);
                     currentY += childRestoreUserControl.Height + 10;
                 }
@@ -138,6 +144,9 @@ namespace FamilySprout.Features.Trash
                     UserRestoreUserControl userRestoreUserControl = new UserRestoreUserControl(user);
 
                     userRestoreUserControl.Location = new Point(10, currentY);
+                    userRestoreUserControl.Width = listOfItemsPanel.ClientSize.Width - 20;
+                    userRestoreUserControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
                     listOfItemsPanel.Controls.Add(userRestoreUserControl);
                     currentY += userRestoreUserControl.Height + 10;
                 }

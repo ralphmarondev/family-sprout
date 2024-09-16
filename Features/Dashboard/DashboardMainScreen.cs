@@ -17,6 +17,11 @@ namespace FamilySprout.Features.Dashboard
             var role = (SessionManager.CurrentUser.role == Roles.SUPERUSER) ? "SUPERUSER" : "USER";
             lblGreetings.Text = $"Hello, {SessionManager.CurrentUser.fullName} [{role}]";
 
+            if (SessionManager.CurrentUser.role == Roles.USER)
+            {
+                btnBackup.Visible = false;
+            }
+
             lblFamiliesCount.Text = $"{DBFamily.GetTotalFamilyCount()}";
             lblChildrenCount.Text = $"{DBChildren.GetTotalChildCount()}";
             lblUserCount.Text = $"{DBUsers.GetTotalUserCount()}";
@@ -126,6 +131,16 @@ namespace FamilySprout.Features.Dashboard
                 {
                     popupPanel.Visible = false;
                 }
+            }
+        }
+
+        private void btnBackup_Click(object sender, System.EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to create a backup database?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Backup.CopyDatabase();
             }
         }
     }

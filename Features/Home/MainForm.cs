@@ -20,7 +20,6 @@ namespace FamilySprout.Features.Home
                 btnNewFamily.Enabled = false;
                 btnTrash.Enabled = false;
                 btnUsers.Enabled = false;
-                btnBackup.Enabled = false;
             }
         }
 
@@ -123,15 +122,5 @@ namespace FamilySprout.Features.Home
             }
         }
         #endregion TOP_BAR
-
-        private void btnBackup_Click(object sender, System.EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to create a backup database?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                Backup.CopyDatabase();
-            }
-        }
     }
 }

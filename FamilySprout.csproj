@@ -431,9 +431,14 @@
   <ItemGroup>
     <None Include="Resources\icons8-view-48.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8-backup-24.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-restore-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-test-account-80.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

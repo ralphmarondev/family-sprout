@@ -218,7 +218,7 @@
             this.panel1.Controls.Add(this.listOfItemsPanel);
             this.panel1.Location = new System.Drawing.Point(22, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(840, 463);
+            this.panel1.Size = new System.Drawing.Size(859, 472);
             this.panel1.TabIndex = 0;
             // 
             // listOfItemsPanel
@@ -229,7 +229,7 @@
             this.listOfItemsPanel.Controls.Add(this.lblEmpty);
             this.listOfItemsPanel.Location = new System.Drawing.Point(22, 22);
             this.listOfItemsPanel.Name = "listOfItemsPanel";
-            this.listOfItemsPanel.Size = new System.Drawing.Size(798, 424);
+            this.listOfItemsPanel.Size = new System.Drawing.Size(817, 433);
             this.listOfItemsPanel.TabIndex = 0;
             // 
             // lblEmpty
