@@ -57,7 +57,7 @@
             this.panel1.Controls.Add(this.dataGridViewFamilies);
             this.panel1.Location = new System.Drawing.Point(22, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(874, 461);
+            this.panel1.Size = new System.Drawing.Size(874, 518);
             this.panel1.TabIndex = 23;
             // 
             // dataGridViewFamilies
@@ -70,7 +70,7 @@
             this.dataGridViewFamilies.Location = new System.Drawing.Point(26, 24);
             this.dataGridViewFamilies.Name = "dataGridViewFamilies";
             this.dataGridViewFamilies.RowHeadersWidth = 51;
-            this.dataGridViewFamilies.Size = new System.Drawing.Size(833, 350);
+            this.dataGridViewFamilies.Size = new System.Drawing.Size(833, 460);
             this.dataGridViewFamilies.TabIndex = 0;
             // 
             // lblEmpty

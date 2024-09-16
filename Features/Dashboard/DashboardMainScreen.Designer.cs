@@ -114,6 +114,9 @@
             this.lblDestination.Size = new System.Drawing.Size(118, 22);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "DASHBOARD";
+            this.lblDestination.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseDown);
+            this.lblDestination.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseMove);
+            this.lblDestination.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseUp);
             // 
             // btnFullScreen
             // 
@@ -168,12 +171,15 @@
             this.btnCurrentUserInfo.TabIndex = 4;
             this.btnCurrentUserInfo.TabStop = false;
             this.btnCurrentUserInfo.Click += new System.EventHandler(this.btnCurrentUserInfo_Click);
+            this.btnCurrentUserInfo.MouseLeave += new System.EventHandler(this.btnCurrentUserInfo_MouseLeave);
+            this.btnCurrentUserInfo.MouseHover += new System.EventHandler(this.btnCurrentUserInfo_MouseHover);
             // 
             // lblAdminName
             // 
             this.lblAdminName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAdminName.AutoSize = true;
             this.lblAdminName.BackColor = System.Drawing.Color.White;
+            this.lblAdminName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAdminName.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdminName.ForeColor = System.Drawing.Color.Purple;
             this.lblAdminName.Location = new System.Drawing.Point(569, 24);
@@ -181,6 +187,12 @@
             this.lblAdminName.Size = new System.Drawing.Size(70, 22);
             this.lblAdminName.TabIndex = 0;
             this.lblAdminName.Text = "ADMIN";
+            this.lblAdminName.Click += new System.EventHandler(this.lblAdminName_Click);
+            this.lblAdminName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblAdminName_MouseDown);
+            this.lblAdminName.MouseLeave += new System.EventHandler(this.lblAdminName_MouseLeave);
+            this.lblAdminName.MouseHover += new System.EventHandler(this.lblAdminName_MouseHover);
+            this.lblAdminName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblAdminName_MouseMove);
+            this.lblAdminName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblAdminName_MouseUp);
             // 
             // mainPanel
             // 

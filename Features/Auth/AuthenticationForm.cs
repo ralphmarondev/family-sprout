@@ -68,7 +68,7 @@ namespace FamilySprout.Features.Auth
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             count++;
-            if (count > 2)
+            if (count > 1)
             {
                 lblCopyright.Text = $"© {DateTime.Now.Year} RALPH MARON A. EDA. All Rights Reserved.";
             }
@@ -80,12 +80,13 @@ namespace FamilySprout.Features.Auth
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
-        private void panelTitle_MouseUp(object sender, MouseEventArgs e)
+
+        private void OnMouseUp()
         {
             dragging = false;
         }
 
-        private void panelTitle_MouseMove(object sender, MouseEventArgs e)
+        private void OnMouseMove()
         {
             if (dragging)
             {
@@ -95,7 +96,7 @@ namespace FamilySprout.Features.Auth
             }
         }
 
-        private void panelTitle_MouseDown(object sender, MouseEventArgs e)
+        private void OnMouseDown()
         {
             dragging = true;
             dragCursorPoint = Cursor.Position;
@@ -103,5 +104,42 @@ namespace FamilySprout.Features.Auth
         }
         #endregion DRAG_AND_DROP
 
+
+
+        #region PANEL_TITLE
+        private void panelTitle_MouseUp(object sender, MouseEventArgs e)
+        {
+            OnMouseUp();
+        }
+
+        private void panelTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseMove();
+        }
+
+        private void panelTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown();
+        }
+        #endregion PANEL_TITLE
+
+
+
+        #region DESTINATION
+        private void lblDestination_MouseUp(object sender, MouseEventArgs e)
+        {
+            OnMouseUp();
+        }
+
+        private void lblDestination_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseMove();
+        }
+
+        private void lblDestination_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown();
+        }
+        #endregion DESTINATION
     }
 }

@@ -72,6 +72,9 @@
             this.lblDestination.Size = new System.Drawing.Size(404, 27);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "FAMILY SPROUT/AUTHENTICATION";
+            this.lblDestination.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseDown);
+            this.lblDestination.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseMove);
+            this.lblDestination.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseUp);
             // 
             // btnClose
             // 
@@ -194,7 +197,7 @@
             this.lblCopyright.Name = "lblCopyright";
             this.lblCopyright.Size = new System.Drawing.Size(58, 22);
             this.lblCopyright.TabIndex = 23;
-            this.lblCopyright.Text = "v0.3";
+            this.lblCopyright.Text = "v1.0";
             // 
             // AuthenticationForm
             // 
