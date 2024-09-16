@@ -73,6 +73,16 @@ namespace FamilySprout.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap family_sprout {
+            get {
+                object obj = ResourceManager.GetObject("family-sprout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_angry_face_with_horns_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-angry-face-with-horns-100", resourceCulture);

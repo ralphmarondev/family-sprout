@@ -41,6 +41,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'v0.4|AnyCPU'">
     <OutputPath>bin\v0.4\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'v1.0|AnyCPU'">
+    <OutputPath>bin\v1.0\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>family-sprout.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -439,6 +445,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-test-account-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="family-sprout.ico" />
+    <None Include="Resources\family-sprout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -10,7 +10,7 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 		v0.3|Any CPU = v0.3|Any CPU
-		v0.4|Any CPU = v0.4|Any CPU
+		v1.0|Any CPU = v1.0|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{ECAA6451-CF79-4A86-ABF6-3BB2B68B25AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -19,8 +19,8 @@ Global
 		{ECAA6451-CF79-4A86-ABF6-3BB2B68B25AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ECAA6451-CF79-4A86-ABF6-3BB2B68B25AA}.v0.3|Any CPU.ActiveCfg = v0.3|Any CPU
 		{ECAA6451-CF79-4A86-ABF6-3BB2B68B25AA}.v0.3|Any CPU.Build.0 = v0.3|Any CPU
-		{ECAA6451-CF79-4A86-ABF6-3BB2B68B25AA}.v0.4|Any CPU.ActiveCfg = v0.4|Any CPU
-		{ECAA6451-CF79-4A86-ABF6-3BB2B68B25AA}.v0.4|Any CPU.Build.0 = v0.4|Any CPU
+		{ECAA6451-CF79-4A86-ABF6-3BB2B68B25AA}.v1.0|Any CPU.ActiveCfg = v1.0|Any CPU
+		{ECAA6451-CF79-4A86-ABF6-3BB2B68B25AA}.v1.0|Any CPU.Build.0 = v1.0|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
