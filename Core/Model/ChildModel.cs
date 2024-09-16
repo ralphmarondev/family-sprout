@@ -1,4 +1,4 @@
-﻿namespace FamilySprout.Shared.Model
+﻿namespace FamilySprout.Core.Model
 {
     public class ChildModel
     {

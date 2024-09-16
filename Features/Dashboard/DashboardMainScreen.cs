@@ -107,6 +107,11 @@ namespace FamilySprout.Features.Dashboard
             popupPanel.BringToFront();
         }
 
+        private void HidePopUp()
+        {
+            popupPanel.Visible = false;
+        }
+
         private void DashboardMainScreen_MouseDown(object sender, MouseEventArgs e)
         {
             if (popupPanel.Visible)
@@ -193,7 +198,7 @@ namespace FamilySprout.Features.Dashboard
         #region BUTTON_CURRENT_USER
         private void btnCurrentUserInfo_Click(object sender, System.EventArgs e)
         {
-            btnCurrentUserInfo_MouseHover(sender, e);
+            HidePopUp();
         }
         private void btnCurrentUserInfo_MouseHover(object sender, System.EventArgs e)
         {

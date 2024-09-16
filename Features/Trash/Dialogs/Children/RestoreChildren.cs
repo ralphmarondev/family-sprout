@@ -1,5 +1,5 @@
 ﻿using FamilySprout.Core.DB;
-using FamilySprout.Shared.Model;
+using FamilySprout.Core.Model;
 using System;
 using System.Windows.Forms;
 

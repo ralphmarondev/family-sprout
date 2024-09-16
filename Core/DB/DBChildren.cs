@@ -1,5 +1,5 @@
-﻿using FamilySprout.Core.Utils;
-using FamilySprout.Shared.Model;
+﻿using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -61,7 +61,7 @@ namespace FamilySprout.Core.DB
                         command.Parameters.AddWithValue("@hc", _hc);
                         command.Parameters.AddWithValue("@obitus", _obitus);
                         command.Parameters.AddWithValue("@matrimony", _matrimony);
-                        command.Parameters.AddWithValue("@created_by", Defaults.ADMIN);
+                        command.Parameters.AddWithValue("@created_by", SessionManager.CurrentUser.username);
                         command.Parameters.AddWithValue("@create_date", DateUtils.GetCreateDate());
 
                         command.ExecuteNonQuery();

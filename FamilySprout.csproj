@@ -35,15 +35,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'v0.3|AnyCPU'">
-    <OutputPath>bin\v0.3\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'v0.4|AnyCPU'">
-    <OutputPath>bin\v0.4\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'v1.0|AnyCPU'">
-    <OutputPath>bin\v1.0\</OutputPath>
-  </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>family-sprout.ico</ApplicationIcon>
   </PropertyGroup>
@@ -288,8 +279,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shared\Model\ChildModel.cs" />
-    <Compile Include="Shared\Model\FamilyModel.cs" />
+    <Compile Include="Core\Model\ChildModel.cs" />
+    <Compile Include="Core\Model\FamilyModel.cs" />
     <EmbeddedResource Include="Features\Auth\AuthenticationForm.resx">
       <DependentUpon>AuthenticationForm.cs</DependentUpon>
     </EmbeddedResource>

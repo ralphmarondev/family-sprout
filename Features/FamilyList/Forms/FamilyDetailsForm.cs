@@ -2,7 +2,7 @@
 using FamilySprout.Core.Utils;
 using FamilySprout.Features.FamilyList.Dialog;
 using FamilySprout.Features.Home;
-using FamilySprout.Shared.Model;
+using FamilySprout.Core.Model;
 using System.Windows.Forms;
 
 namespace FamilySprout.Features.FamilyList.Forms

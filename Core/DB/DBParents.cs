@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FamilySprout.Core.Utils;
+using System;
 using System.Data.SQLite;
 
 namespace FamilySprout.Core.DB
@@ -37,12 +38,14 @@ namespace FamilySprout.Core.DB
                 {
                     connection.Open();
 
-                    var query = "INSERT INTO parents (name, hometown) VALUES(@name, @hometown)";
+                    var query = "INSERT INTO parents (name, hometown, created_by, create_date) VALUES(@name, @hometown, @created_by, @create_date)";
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@name", _name);
                         command.Parameters.AddWithValue("@hometown", _from);
+                        command.Parameters.AddWithValue("@created_by", SessionManager.CurrentUser.username);
+                        command.Parameters.AddWithValue("@create_date", DateUtils.GetCreateDate());
 
                         command.ExecuteNonQuery();
 

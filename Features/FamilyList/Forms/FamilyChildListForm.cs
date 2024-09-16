@@ -3,7 +3,7 @@ using FamilySprout.Core.Utils;
 using FamilySprout.Features.FamilyList.Controls;
 using FamilySprout.Features.Home;
 using FamilySprout.Features.NewFamily.Dialog;
-using FamilySprout.Shared.Model;
+using FamilySprout.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

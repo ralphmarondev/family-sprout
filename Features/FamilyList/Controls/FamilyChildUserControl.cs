@@ -1,7 +1,7 @@
 ﻿using FamilySprout.Core.Utils;
 using FamilySprout.Features.FamilyList.Forms;
 using FamilySprout.Features.NewFamily.Dialog;
-using FamilySprout.Shared.Model;
+using FamilySprout.Core.Model;
 using System;
 using System.Windows.Forms;
 

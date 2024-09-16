@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FamilySprout.Shared.Model
+namespace FamilySprout.Core.Model
 {
     public class FamilyModel
     {
