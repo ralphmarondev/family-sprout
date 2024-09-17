@@ -16,7 +16,7 @@ namespace FamilySprout.Features.Home
         {
             OpenDashboard();
 
-            if (SessionManager.CurrentUser.role == 1)
+            if (SessionManager.CurrentUser.role == Roles.USER)
             {
                 btnNewFamily.Enabled = false;
                 btnTrash.Enabled = false;
@@ -24,6 +24,8 @@ namespace FamilySprout.Features.Home
             }
         }
 
+
+        #region NAVIGATION
         private void OpenFormInPanel(Form form)
         {
             mainPanel.Controls.Clear();
@@ -39,43 +41,43 @@ namespace FamilySprout.Features.Home
 
         public void OpenNewFamilyMainForm()
         {
-            OpenFormInPanel(new Features.NewFamily.NewFamilyMainForm());
+            OpenFormInPanel(new NewFamily.NewFamilyMainForm());
         }
 
         public void OpenNewChildrenForm(long _famId)
         {
-            OpenFormInPanel(new Features.NewFamily.Forms.NewChildForm(_famId: _famId));
+            OpenFormInPanel(new NewFamily.Forms.NewChildForm(_famId: _famId));
         }
 
         public void OpenFamilyListForm()
         {
-            OpenFormInPanel(new Features.FamilyList.FamilyListMainForm());
+            OpenFormInPanel(new FamilyList.FamilyListMainForm());
         }
 
         public void OpenFamilyDetailsForm(long _famId)
         {
-            OpenFormInPanel(new Features.FamilyList.Forms.FamilyDetailsForm(_famId: _famId));
+            OpenFormInPanel(new FamilyList.Forms.FamilyDetailsForm(_famId: _famId));
         }
 
         public void OpenFamilyChildListForm(long _famId)
         {
-            OpenFormInPanel(new Features.FamilyList.Forms.FamilyChildListForm(_famId));
+            OpenFormInPanel(new FamilyList.Forms.FamilyChildListForm(_famId));
         }
 
         public void OpenTrashMainForm()
         {
-            OpenFormInPanel(new Features.Trash.TrashMainForm());
+            OpenFormInPanel(new Trash.TrashMainForm());
         }
 
         public void OpenUserMainForm()
         {
-            OpenFormInPanel(new Features.User.UserMainForm());
+            OpenFormInPanel(new User.UserMainForm());
         }
         public void OpenDashboard()
         {
-            OpenFormInPanel(new Features.Dashboard.DashboardMainScreen());
+            OpenFormInPanel(new Dashboard.DashboardMainScreen());
         }
-
+        #endregion NAVIGATION
 
 
         #region NAVIGATION_BUTTON_CLICKS
@@ -129,47 +131,63 @@ namespace FamilySprout.Features.Home
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
-        private void panelLogo_MouseUp(object sender, MouseEventArgs e)
+
+        private void OnMouseUp()
         {
             dragging = false;
+        }
+
+        private void OnMouseDown()
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+
+        private void OnMouseMove()
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+        #endregion DRAG_AND_DROP
+
+
+        #region PANEL_LOGO
+        private void panelLogo_MouseUp(object sender, MouseEventArgs e)
+        {
+            OnMouseUp();
         }
 
         private void panelLogo_MouseMove(object sender, MouseEventArgs e)
         {
-            if (dragging)
-            {
-                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(diff));
-            }
+            OnMouseMove();
         }
 
         private void panelLogo_MouseDown(object sender, MouseEventArgs e)
         {
-            dragging = true;
-            dragCursorPoint = Cursor.Position;
-            dragFormPoint = this.Location;
+            OnMouseDown();
         }
-        #endregion DRAG_AND_DROP
+        #endregion PANEL_LOGO
 
+
+        #region LABEL_LOGO
         private void lblLogo_MouseUp(object sender, MouseEventArgs e)
         {
-            dragging = false;
+            OnMouseUp();
         }
 
         private void lblLogo_MouseMove(object sender, MouseEventArgs e)
         {
-            if (dragging)
-            {
-                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(diff));
-            }
+            OnMouseMove();
         }
 
         private void lblLogo_MouseDown(object sender, MouseEventArgs e)
         {
-            dragging = true;
-            dragCursorPoint = Cursor.Position;
-            dragFormPoint = this.Location;
+            OnMouseDown();
         }
+        #endregion LABEL_LOGO
     }
 }

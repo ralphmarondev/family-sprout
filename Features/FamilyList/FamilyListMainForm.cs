@@ -26,7 +26,6 @@ namespace FamilySprout.Features.FamilyList
 
         private void SetupDataGridView()
         {
-            // Create columns for the DataGridView
             dataGridViewFamilies.Columns.Add("FamilyId", "Family ID");
             dataGridViewFamilies.Columns["FamilyId"].Visible = false;
             dataGridViewFamilies.Columns.Add("HusbandName", "Husband");
@@ -40,7 +39,6 @@ namespace FamilySprout.Features.FamilyList
             actionColumn.UseColumnTextForButtonValue = true;
             dataGridViewFamilies.Columns.Add(actionColumn);
 
-            // Set properties
             dataGridViewFamilies.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewFamilies.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewFamilies.AllowUserToAddRows = false;
@@ -49,13 +47,8 @@ namespace FamilySprout.Features.FamilyList
             dataGridViewFamilies.Margin = new Padding(0);
             dataGridViewFamilies.Padding = new Padding(0);
 
-            // Set font size for cells
             dataGridViewFamilies.DefaultCellStyle.Font = new Font("Courier New", 14);
-
-            // Set font size for headers (optional)
             dataGridViewFamilies.ColumnHeadersDefaultCellStyle.Font = new Font("Courier New", 14, FontStyle.Bold);
-
-            // Set padding for cells (adjusting row height indirectly)
             dataGridViewFamilies.DefaultCellStyle.Padding = new Padding(10, 5, 10, 5); // Top, Left, Bottom, Right
 
             // Set padding around action buttons
@@ -63,11 +56,11 @@ namespace FamilySprout.Features.FamilyList
             {
                 if (column is DataGridViewButtonColumn)
                 {
-                    column.DefaultCellStyle.Padding = new Padding(5); // Adjust the padding around the button
+                    column.DefaultCellStyle.Padding = new Padding(5);
                 }
             }
 
-            dataGridViewFamilies.RowTemplate.Height = 60; // Increase height as needed
+            dataGridViewFamilies.RowTemplate.Height = 60;
             dataGridViewFamilies.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridViewFamilies.CellClick += dataGridViewFamilies_CellContentClick;
         }
@@ -80,7 +73,6 @@ namespace FamilySprout.Features.FamilyList
                 {
                     connection.Open();
 
-                    // Query to get family data and child count
                     string query = @"
                         SELECT 
                             f.id AS FamilyId, 
@@ -105,7 +97,6 @@ namespace FamilySprout.Features.FamilyList
                                 string wifeName = reader.GetString(2);
                                 int childCount = reader.GetInt32(3);
 
-                                // Add a row to the DataGridView
                                 dataGridViewFamilies.Rows.Add(familyId, husbandName, wifeName, childCount);
                             }
                             lblEmpty.Visible = !hasResults;
@@ -121,7 +112,6 @@ namespace FamilySprout.Features.FamilyList
 
         private void dataGridViewFamilies_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Ensure that the click is in a valid row and the action column
             if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewFamilies.Columns["Action"].Index)
             {
                 string famId = dataGridViewFamilies.Rows[e.RowIndex].Cells["FamilyId"].Value.ToString();
@@ -161,7 +151,6 @@ namespace FamilySprout.Features.FamilyList
                 {
                     connection.Open();
 
-                    // Update query to filter by husband's name based on search text
                     string query = @"
                 SELECT 
                     f.id AS FamilyId, 
@@ -176,12 +165,10 @@ namespace FamilySprout.Features.FamilyList
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        // Add parameter for search text
                         command.Parameters.AddWithValue("@searchText", $"{_searchText}%");
 
                         using (var reader = command.ExecuteReader())
                         {
-                            // Clear existing rows
                             dataGridViewFamilies.Rows.Clear();
                             bool hasResults = false;
                             while (reader.Read())
@@ -192,7 +179,6 @@ namespace FamilySprout.Features.FamilyList
                                 string wifeName = reader.GetString(2);
                                 int childCount = reader.GetInt32(3);
 
-                                // Add a row to the DataGridView
                                 dataGridViewFamilies.Rows.Add(familyId, husbandName, wifeName, childCount);
                             }
                             lblEmpty.Visible = !hasResults;
@@ -211,12 +197,13 @@ namespace FamilySprout.Features.FamilyList
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
-        private void panelTitle_MouseUp(object sender, MouseEventArgs e)
+
+        private void OnMouseUp()
         {
             dragging = false;
         }
 
-        private void panelTitle_MouseMove(object sender, MouseEventArgs e)
+        private void OnMouseMove()
         {
             if (dragging)
             {
@@ -230,7 +217,7 @@ namespace FamilySprout.Features.FamilyList
             }
         }
 
-        private void panelTitle_MouseDown(object sender, MouseEventArgs e)
+        private void OnMouseDown()
         {
             dragging = true;
             dragCursorPoint = Cursor.Position;
@@ -238,27 +225,15 @@ namespace FamilySprout.Features.FamilyList
         }
         #endregion DRAG_AND_DROP
 
-        private void btnFullScreen_Click(object sender, EventArgs e)
-        {
-            MainForm mainForm = this.ParentForm as MainForm;
 
-            if (mainForm != null)
-            {
-                mainForm.ToggleFullScreen();
-                popupPanel.Visible = false;
-            }
-        }
-
-
+        #region POP_UP
         private Panel popupPanel;
         private void SetupPopupPanel()
         {
-            // Initialize the panel
             popupPanel = new Panel();
             popupPanel.Size = new Size(340, 100);
             popupPanel.BackColor = Color.Lavender;
 
-            // You can add controls inside the popup panel if needed
             Label lblInfo = new Label
             {
                 Text = SessionManager.CurrentUser.fullName,
@@ -273,7 +248,7 @@ namespace FamilySprout.Features.FamilyList
                 AutoSize = true,
                 Location = new Point(10, lblInfo.Bottom + 5)
             };
-            string role = (SessionManager.CurrentUser.role == Roles.SUPERUSER) ? "SUPERUSER" : "USER";
+            string role = (SessionManager.CurrentUser.role == Roles.SUPERUSER) ? Roles.SUPERUSER_LABEL : Roles.USER_LABEL;
             Label lblInfo3 = new Label
             {
                 Text = role,
@@ -288,20 +263,152 @@ namespace FamilySprout.Features.FamilyList
 
             // Initially hide the panel
             popupPanel.Visible = false;
-
-            // Add the panel to the form's controls
             this.Controls.Add(popupPanel);
         }
-        private void btnCurrentUserInfo_Click(object sender, System.EventArgs e)
+
+        private void TogglePopUp()
         {
-            // Toggle popup visibility
             popupPanel.Visible = !popupPanel.Visible;
 
-            // Set the location of the popup panel below the button
             var buttonLocation = btnCurrentUserInfo.PointToScreen(Point.Empty);
             popupPanel.Location = this.PointToClient(new Point(buttonLocation.X, buttonLocation.Y + btnCurrentUserInfo.Height));
             popupPanel.BringToFront();
         }
 
+        private void HidePopUp()
+        {
+            popupPanel.Visible = false;
+        }
+
+        private void DashboardMainScreen_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (popupPanel.Visible)
+            {
+                Point clickLocation = this.PointToClient(Cursor.Position);
+
+                if (!popupPanel.Bounds.Contains(clickLocation))
+                {
+                    popupPanel.Visible = false;
+                }
+            }
+        }
+        #endregion POP_UP
+
+
+        #region PANEL_TITLE
+        private void panelTitle_MouseUp(object sender, MouseEventArgs e)
+        {
+            OnMouseUp();
+        }
+
+        private void panelTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseMove();
+        }
+
+        private void panelTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown();
+        }
+        #endregion PANEL_TITLE
+
+
+        #region LABEL_DESTINATION
+        private void lblDestination_MouseUp(object sender, MouseEventArgs e)
+        {
+            OnMouseUp();
+        }
+
+        private void lblDestination_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseMove();
+        }
+
+        private void lblDestination_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown();
+        }
+        #endregion LABEL_DESTINATION
+
+
+        #region LABEL_ADMIN_NAME
+        private void lblAdminName_MouseUp(object sender, MouseEventArgs e)
+        {
+            OnMouseUp();
+        }
+
+        private void lblAdminName_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseMove();
+        }
+
+        private void lblAdminName_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown();
+        }
+
+        private void lblAdminName_Click(object sender, System.EventArgs e)
+        {
+            lblAdminName_MouseHover(sender, e);
+        }
+        private void lblAdminName_MouseHover(object sender, System.EventArgs e)
+        {
+            TogglePopUp();
+        }
+
+        private void lblAdminName_MouseLeave(object sender, System.EventArgs e)
+        {
+            TogglePopUp();
+        }
+        #endregion LABEL_ADMIN_NAME
+
+
+        #region BUTTON_CURRENT_USER
+        private void btnCurrentUserInfo_Click(object sender, System.EventArgs e)
+        {
+            HidePopUp();
+        }
+        private void btnCurrentUserInfo_MouseHover(object sender, System.EventArgs e)
+        {
+            TogglePopUp();
+        }
+
+        private void btnCurrentUserInfo_MouseLeave(object sender, System.EventArgs e)
+        {
+            TogglePopUp();
+        }
+        #endregion BUTTON_CURRENT_USER
+
+
+        #region BUTTON_FULL_SCREEN
+        private void btnFullScreen_Click(object sender, System.EventArgs e)
+        {
+            MainForm mainForm = this.ParentForm as MainForm;
+
+            if (mainForm != null)
+            {
+                mainForm.ToggleFullScreen();
+                popupPanel.Visible = false;
+            }
+        }
+        #endregion BUTTON_FULL_SCREEN
+
+
+        #region LABEL_SEARCH_TEXT
+        private void lblSearchText_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseMove();
+        }
+
+        private void lblSearchText_MouseUp(object sender, MouseEventArgs e)
+        {
+            OnMouseUp();
+        }
+
+        private void lblSearchText_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown();
+        }
+        #endregion LABEL_SEARCH_TEXT
     }
 }

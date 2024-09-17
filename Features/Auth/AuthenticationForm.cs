@@ -75,7 +75,6 @@ namespace FamilySprout.Features.Auth
         }
 
 
-
         #region DRAG_AND_DROP
         private bool dragging = false;
         private Point dragCursorPoint;
@@ -105,7 +104,6 @@ namespace FamilySprout.Features.Auth
         #endregion DRAG_AND_DROP
 
 
-
         #region PANEL_TITLE
         private void panelTitle_MouseUp(object sender, MouseEventArgs e)
         {
@@ -122,7 +120,6 @@ namespace FamilySprout.Features.Auth
             OnMouseDown();
         }
         #endregion PANEL_TITLE
-
 
 
         #region DESTINATION

@@ -73,6 +73,9 @@
             this.lblDestination.Size = new System.Drawing.Size(70, 22);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "USERS";
+            this.lblDestination.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseDown);
+            this.lblDestination.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseMove);
+            this.lblDestination.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseUp);
             // 
             // btnFullScreen
             // 
@@ -127,6 +130,8 @@
             this.btnCurrentUserInfo.TabIndex = 4;
             this.btnCurrentUserInfo.TabStop = false;
             this.btnCurrentUserInfo.Click += new System.EventHandler(this.btnCurrentUserInfo_Click);
+            this.btnCurrentUserInfo.MouseLeave += new System.EventHandler(this.btnCurrentUserInfo_MouseLeave);
+            this.btnCurrentUserInfo.MouseHover += new System.EventHandler(this.btnCurrentUserInfo_MouseHover);
             // 
             // lblAdminName
             // 
@@ -140,6 +145,12 @@
             this.lblAdminName.Size = new System.Drawing.Size(70, 22);
             this.lblAdminName.TabIndex = 0;
             this.lblAdminName.Text = "ADMIN";
+            this.lblAdminName.Click += new System.EventHandler(this.lblAdminName_Click);
+            this.lblAdminName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblAdminName_MouseDown);
+            this.lblAdminName.MouseLeave += new System.EventHandler(this.lblAdminName_MouseLeave);
+            this.lblAdminName.MouseHover += new System.EventHandler(this.lblAdminName_MouseHover);
+            this.lblAdminName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblAdminName_MouseMove);
+            this.lblAdminName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblAdminName_MouseUp);
             // 
             // mainPanel
             // 

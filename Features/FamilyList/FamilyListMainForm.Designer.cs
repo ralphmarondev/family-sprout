@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridViewFamilies = new System.Windows.Forms.DataGridView();
             this.lblEmpty = new System.Windows.Forms.Label();
+            this.dataGridViewFamilies = new System.Windows.Forms.DataGridView();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.lblAdminName = new System.Windows.Forms.Label();
             this.btnCurrentUserInfo = new System.Windows.Forms.PictureBox();
@@ -38,7 +38,7 @@
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.lblDestination = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSearchText = new System.Windows.Forms.Label();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFamilies)).BeginInit();
@@ -60,6 +60,16 @@
             this.panel1.Size = new System.Drawing.Size(874, 518);
             this.panel1.TabIndex = 23;
             // 
+            // lblEmpty
+            // 
+            this.lblEmpty.AutoSize = true;
+            this.lblEmpty.Font = new System.Drawing.Font("Courier New", 18F);
+            this.lblEmpty.Location = new System.Drawing.Point(137, 234);
+            this.lblEmpty.Name = "lblEmpty";
+            this.lblEmpty.Size = new System.Drawing.Size(555, 33);
+            this.lblEmpty.TabIndex = 1;
+            this.lblEmpty.Text = "TABLE IS EMPTY. NO DATA FOUND!";
+            // 
             // dataGridViewFamilies
             // 
             this.dataGridViewFamilies.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -72,16 +82,6 @@
             this.dataGridViewFamilies.RowHeadersWidth = 51;
             this.dataGridViewFamilies.Size = new System.Drawing.Size(833, 460);
             this.dataGridViewFamilies.TabIndex = 0;
-            // 
-            // lblEmpty
-            // 
-            this.lblEmpty.AutoSize = true;
-            this.lblEmpty.Font = new System.Drawing.Font("Courier New", 18F);
-            this.lblEmpty.Location = new System.Drawing.Point(137, 234);
-            this.lblEmpty.Name = "lblEmpty";
-            this.lblEmpty.Size = new System.Drawing.Size(555, 33);
-            this.lblEmpty.TabIndex = 1;
-            this.lblEmpty.Text = "TABLE IS EMPTY. NO DATA FOUND!";
             // 
             // mainPanel
             // 
@@ -104,6 +104,11 @@
             this.lblAdminName.Size = new System.Drawing.Size(70, 22);
             this.lblAdminName.TabIndex = 0;
             this.lblAdminName.Text = "ADMIN";
+            this.lblAdminName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblAdminName_MouseDown);
+            this.lblAdminName.MouseLeave += new System.EventHandler(this.lblAdminName_MouseLeave);
+            this.lblAdminName.MouseHover += new System.EventHandler(this.lblAdminName_MouseHover);
+            this.lblAdminName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblAdminName_MouseMove);
+            this.lblAdminName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblAdminName_MouseUp);
             // 
             // btnCurrentUserInfo
             // 
@@ -119,6 +124,8 @@
             this.btnCurrentUserInfo.TabIndex = 4;
             this.btnCurrentUserInfo.TabStop = false;
             this.btnCurrentUserInfo.Click += new System.EventHandler(this.btnCurrentUserInfo_Click);
+            this.btnCurrentUserInfo.MouseLeave += new System.EventHandler(this.btnCurrentUserInfo_MouseLeave);
+            this.btnCurrentUserInfo.MouseHover += new System.EventHandler(this.btnCurrentUserInfo_MouseHover);
             // 
             // btnToggleNavPanel
             // 
@@ -167,6 +174,9 @@
             this.lblDestination.Size = new System.Drawing.Size(142, 22);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "FAMILY LIST";
+            this.lblDestination.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseDown);
+            this.lblDestination.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseMove);
+            this.lblDestination.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseUp);
             // 
             // tbSearch
             // 
@@ -176,20 +186,23 @@
             this.tbSearch.TabIndex = 1;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
-            // label1
+            // lblSearchText
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label1.Location = new System.Drawing.Point(205, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "SEARCH HUSBAND:";
+            this.lblSearchText.AutoSize = true;
+            this.lblSearchText.Font = new System.Drawing.Font("Courier New", 10F);
+            this.lblSearchText.Location = new System.Drawing.Point(205, 6);
+            this.lblSearchText.Name = "lblSearchText";
+            this.lblSearchText.Size = new System.Drawing.Size(159, 20);
+            this.lblSearchText.TabIndex = 1;
+            this.lblSearchText.Text = "SEARCH HUSBAND:";
+            this.lblSearchText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblSearchText_MouseDown);
+            this.lblSearchText.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblSearchText_MouseMove);
+            this.lblSearchText.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblSearchText_MouseUp);
             // 
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.White;
-            this.panelTitle.Controls.Add(this.label1);
+            this.panelTitle.Controls.Add(this.lblSearchText);
             this.panelTitle.Controls.Add(this.tbSearch);
             this.panelTitle.Controls.Add(this.lblDestination);
             this.panelTitle.Controls.Add(this.btnFullScreen);
@@ -248,7 +261,7 @@
         private System.Windows.Forms.Button btnFullScreen;
         private System.Windows.Forms.Label lblDestination;
         private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSearchText;
         private System.Windows.Forms.Panel panelTitle;
     }
 }
