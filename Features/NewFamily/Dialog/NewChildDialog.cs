@@ -24,11 +24,12 @@ namespace FamilySprout.Features.NewFamily.Dialog
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //tbBirthday.Text = dtBday.Value.ToString("yyyy-MM-dd");
             if (IsRequiredFieldsEmpty())
                 return;
 
             name = tbName.Text.Trim();
-            bday = dtBday.Value.ToString("yyyy-MM-dd");
+            bday = tbBirthday.Text.Trim();
             baptism = tbBaptism.Text.Trim();
             hc = tbHc.Text.Trim();
             obitus = tbObitus.Text.Trim();
