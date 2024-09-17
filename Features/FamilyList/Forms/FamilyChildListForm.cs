@@ -149,12 +149,14 @@ namespace FamilySprout.Features.FamilyList.Forms
             Label lblInfo = new Label
             {
                 Text = SessionManager.CurrentUser.fullName,
+                Font = new Font("Courier New", 12),
                 AutoSize = true,
                 Location = new Point(10, 10)
             };
             Label lblInfo2 = new Label
             {
                 Text = SessionManager.CurrentUser.username,
+                Font = new Font("Courier New", 12),
                 AutoSize = true,
                 Location = new Point(10, lblInfo.Bottom + 5)
             };
@@ -162,6 +164,7 @@ namespace FamilySprout.Features.FamilyList.Forms
             Label lblInfo3 = new Label
             {
                 Text = role,
+                Font = new Font("Courier New", 12),
                 AutoSize = true,
                 Location = new Point(10, lblInfo2.Bottom + 5)
             };

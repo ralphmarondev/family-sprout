@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthenticationForm));
             this.panelTitle = new System.Windows.Forms.Panel();
+            this.btnInfo = new System.Windows.Forms.Button();
             this.lblDestination = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.loginPanel = new System.Windows.Forms.Panel();
@@ -49,6 +50,7 @@
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.White;
+            this.panelTitle.Controls.Add(this.btnInfo);
             this.panelTitle.Controls.Add(this.lblDestination);
             this.panelTitle.Controls.Add(this.btnClose);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -63,6 +65,28 @@
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
             this.panelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
             this.panelTitle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseUp);
+            // 
+            // btnInfo
+            // 
+            this.btnInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInfo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnInfo.BackgroundImage = global::FamilySprout.Properties.Resources.icons8_info_50;
+            this.btnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfo.ForeColor = System.Drawing.Color.Purple;
+            this.btnInfo.Location = new System.Drawing.Point(919, 17);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(0);
+            this.btnInfo.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(30, 30);
+            this.btnInfo.TabIndex = 8;
+            this.btnInfo.UseVisualStyleBackColor = false;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            this.btnInfo.MouseLeave += new System.EventHandler(this.btnInfo_MouseLeave);
+            this.btnInfo.MouseHover += new System.EventHandler(this.btnInfo_MouseHover);
             // 
             // lblDestination
             // 
@@ -184,9 +208,9 @@
             this.lblCopyright.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblCopyright.Location = new System.Drawing.Point(0, 592);
             this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(58, 22);
+            this.lblCopyright.Size = new System.Drawing.Size(154, 22);
             this.lblCopyright.TabIndex = 23;
-            this.lblCopyright.Text = "v1.0";
+            this.lblCopyright.Text = "Version: 1.0";
             // 
             // pictureBox1
             // 
@@ -241,5 +265,6 @@
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblCopyright;
+        private System.Windows.Forms.Button btnInfo;
     }
 }

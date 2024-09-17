@@ -439,6 +439,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="family-sprout.ico" />
+    <None Include="Resources\icons8-info-50.png" />
     <None Include="Resources\family-sprout.png" />
   </ItemGroup>
   <ItemGroup>
