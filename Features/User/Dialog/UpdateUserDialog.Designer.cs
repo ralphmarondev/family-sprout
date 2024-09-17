@@ -34,33 +34,37 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tbConfirmPassword = new System.Windows.Forms.TextBox();
+            this.tbOldPassword = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbNewPassword = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbConfirmNewPass = new System.Windows.Forms.TextBox();
             this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginPanel
             // 
             this.loginPanel.BackColor = System.Drawing.SystemColors.Window;
+            this.loginPanel.Controls.Add(this.label4);
+            this.loginPanel.Controls.Add(this.tbConfirmNewPass);
             this.loginPanel.Controls.Add(this.label2);
             this.loginPanel.Controls.Add(this.tbRoles);
             this.loginPanel.Controls.Add(this.label6);
             this.loginPanel.Controls.Add(this.tbUsername);
             this.loginPanel.Controls.Add(this.label7);
-            this.loginPanel.Controls.Add(this.tbConfirmPassword);
+            this.loginPanel.Controls.Add(this.tbOldPassword);
             this.loginPanel.Controls.Add(this.btnCancel);
             this.loginPanel.Controls.Add(this.label5);
             this.loginPanel.Controls.Add(this.tbName);
             this.loginPanel.Controls.Add(this.btnUpdate);
             this.loginPanel.Controls.Add(this.label3);
             this.loginPanel.Controls.Add(this.label1);
-            this.loginPanel.Controls.Add(this.tbPassword);
+            this.loginPanel.Controls.Add(this.tbNewPassword);
             this.loginPanel.Location = new System.Drawing.Point(22, 22);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(580, 398);
@@ -70,7 +74,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 12F);
-            this.label2.Location = new System.Drawing.Point(46, 227);
+            this.label2.Location = new System.Drawing.Point(46, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 22);
             this.label2.TabIndex = 32;
@@ -84,10 +88,10 @@
             this.tbRoles.Items.AddRange(new object[] {
             "USER",
             "SUPERUSER"});
-            this.tbRoles.Location = new System.Drawing.Point(46, 252);
+            this.tbRoles.Location = new System.Drawing.Point(46, 183);
             this.tbRoles.Name = "tbRoles";
             this.tbRoles.Size = new System.Drawing.Size(234, 33);
-            this.tbRoles.TabIndex = 5;
+            this.tbRoles.TabIndex = 3;
             this.tbRoles.Text = "USER";
             // 
             // label6
@@ -114,18 +118,20 @@
             this.label7.Font = new System.Drawing.Font("Courier New", 12F);
             this.label7.Location = new System.Drawing.Point(295, 161);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(214, 22);
+            this.label7.Size = new System.Drawing.Size(166, 22);
             this.label7.TabIndex = 28;
-            this.label7.Text = "CONFIRM PASSWORD:";
+            this.label7.Text = "OLD PASSWORD:";
             // 
-            // tbConfirmPassword
+            // tbOldPassword
             // 
-            this.tbConfirmPassword.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbConfirmPassword.Location = new System.Drawing.Point(295, 183);
-            this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.PasswordChar = '•';
-            this.tbConfirmPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbConfirmPassword.TabIndex = 4;
+            this.tbOldPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.tbOldPassword.Font = new System.Drawing.Font("Courier New", 14F);
+            this.tbOldPassword.Location = new System.Drawing.Point(295, 183);
+            this.tbOldPassword.Name = "tbOldPassword";
+            this.tbOldPassword.PasswordChar = '•';
+            this.tbOldPassword.ReadOnly = true;
+            this.tbOldPassword.Size = new System.Drawing.Size(234, 34);
+            this.tbOldPassword.TabIndex = 4;
             // 
             // btnCancel
             // 
@@ -142,7 +148,7 @@
             this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(200, 43);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -180,7 +186,7 @@
             this.btnUpdate.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(200, 43);
-            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -199,20 +205,39 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 12F);
-            this.label1.Location = new System.Drawing.Point(46, 161);
+            this.label1.Location = new System.Drawing.Point(46, 230);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 22);
+            this.label1.Size = new System.Drawing.Size(166, 22);
             this.label1.TabIndex = 7;
-            this.label1.Text = "PASSWORD:";
+            this.label1.Text = "NEW PASSWORD:";
             // 
-            // tbPassword
+            // tbNewPassword
             // 
-            this.tbPassword.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbPassword.Location = new System.Drawing.Point(46, 183);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.PasswordChar = '•';
-            this.tbPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbPassword.TabIndex = 3;
+            this.tbNewPassword.Font = new System.Drawing.Font("Courier New", 14F);
+            this.tbNewPassword.Location = new System.Drawing.Point(46, 252);
+            this.tbNewPassword.Name = "tbNewPassword";
+            this.tbNewPassword.PasswordChar = '•';
+            this.tbNewPassword.Size = new System.Drawing.Size(234, 34);
+            this.tbNewPassword.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Courier New", 12F);
+            this.label4.Location = new System.Drawing.Point(295, 230);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(214, 22);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "CONFIRM NEW PASS:";
+            // 
+            // tbConfirmNewPass
+            // 
+            this.tbConfirmNewPass.Font = new System.Drawing.Font("Courier New", 14F);
+            this.tbConfirmNewPass.Location = new System.Drawing.Point(295, 252);
+            this.tbConfirmNewPass.Name = "tbConfirmNewPass";
+            this.tbConfirmNewPass.PasswordChar = '•';
+            this.tbConfirmNewPass.Size = new System.Drawing.Size(234, 34);
+            this.tbConfirmNewPass.TabIndex = 6;
             // 
             // UpdateUserDialog
             // 
@@ -243,13 +268,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbConfirmPassword;
+        private System.Windows.Forms.TextBox tbOldPassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox tbNewPassword;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbConfirmNewPass;
     }
 }

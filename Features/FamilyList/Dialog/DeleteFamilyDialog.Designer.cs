@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelHusbandWife = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -45,7 +46,6 @@
             this.tbHusbandFullName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panelHusbandWife.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -66,6 +66,16 @@
             this.panelHusbandWife.Name = "panelHusbandWife";
             this.panelHusbandWife.Size = new System.Drawing.Size(595, 408);
             this.panelHusbandWife.TabIndex = 22;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 11F);
+            this.label3.Location = new System.Drawing.Point(3, 387);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(428, 21);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "*IT\'S CHILDREN/S WILL ALSO BE DELETED*";
             // 
             // btnCancel
             // 
@@ -134,7 +144,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label8.Location = new System.Drawing.Point(15, 115);
+            this.label8.Location = new System.Drawing.Point(24, 115);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 20);
             this.label8.TabIndex = 7;
@@ -144,17 +154,17 @@
             // 
             this.tbWifeFrom.BackColor = System.Drawing.SystemColors.Window;
             this.tbWifeFrom.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbWifeFrom.Location = new System.Drawing.Point(15, 137);
+            this.tbWifeFrom.Location = new System.Drawing.Point(24, 137);
             this.tbWifeFrom.Name = "tbWifeFrom";
             this.tbWifeFrom.ReadOnly = true;
-            this.tbWifeFrom.Size = new System.Drawing.Size(252, 34);
+            this.tbWifeFrom.Size = new System.Drawing.Size(237, 34);
             this.tbWifeFrom.TabIndex = 6;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label9.Location = new System.Drawing.Point(15, 53);
+            this.label9.Location = new System.Drawing.Point(24, 53);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(109, 20);
             this.label9.TabIndex = 5;
@@ -164,10 +174,10 @@
             // 
             this.tbWifeFullName.BackColor = System.Drawing.SystemColors.Window;
             this.tbWifeFullName.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbWifeFullName.Location = new System.Drawing.Point(15, 75);
+            this.tbWifeFullName.Location = new System.Drawing.Point(24, 75);
             this.tbWifeFullName.Name = "tbWifeFullName";
             this.tbWifeFullName.ReadOnly = true;
-            this.tbWifeFullName.Size = new System.Drawing.Size(252, 34);
+            this.tbWifeFullName.Size = new System.Drawing.Size(237, 34);
             this.tbWifeFullName.TabIndex = 5;
             // 
             // panel2
@@ -197,7 +207,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label2.Location = new System.Drawing.Point(15, 115);
+            this.label2.Location = new System.Drawing.Point(24, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 7;
@@ -207,17 +217,17 @@
             // 
             this.tbHusbandFrom.BackColor = System.Drawing.SystemColors.Window;
             this.tbHusbandFrom.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbHusbandFrom.Location = new System.Drawing.Point(15, 137);
+            this.tbHusbandFrom.Location = new System.Drawing.Point(24, 137);
             this.tbHusbandFrom.Name = "tbHusbandFrom";
             this.tbHusbandFrom.ReadOnly = true;
-            this.tbHusbandFrom.Size = new System.Drawing.Size(252, 34);
+            this.tbHusbandFrom.Size = new System.Drawing.Size(237, 34);
             this.tbHusbandFrom.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label1.Location = new System.Drawing.Point(15, 53);
+            this.label1.Location = new System.Drawing.Point(24, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 20);
             this.label1.TabIndex = 5;
@@ -227,10 +237,10 @@
             // 
             this.tbHusbandFullName.BackColor = System.Drawing.SystemColors.Window;
             this.tbHusbandFullName.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbHusbandFullName.Location = new System.Drawing.Point(15, 75);
+            this.tbHusbandFullName.Location = new System.Drawing.Point(24, 75);
             this.tbHusbandFullName.Name = "tbHusbandFullName";
             this.tbHusbandFullName.ReadOnly = true;
-            this.tbHusbandFullName.Size = new System.Drawing.Size(252, 34);
+            this.tbHusbandFullName.Size = new System.Drawing.Size(237, 34);
             this.tbHusbandFullName.TabIndex = 3;
             // 
             // label5
@@ -254,16 +264,6 @@
             this.tbRemarks.Size = new System.Drawing.Size(538, 54);
             this.tbRemarks.TabIndex = 7;
             this.tbRemarks.Text = "No Remarks";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 11F);
-            this.label3.Location = new System.Drawing.Point(3, 387);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(428, 21);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "*IT\'S CHILDREN/S WILL ALSO BE DELETED*";
             // 
             // DeleteFamilyDialog
             // 

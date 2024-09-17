@@ -34,13 +34,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tbConfirmPassword = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbPassword = new System.Windows.Forms.TextBox();
             this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,13 +50,11 @@
             this.loginPanel.Controls.Add(this.label6);
             this.loginPanel.Controls.Add(this.tbUsername);
             this.loginPanel.Controls.Add(this.label7);
-            this.loginPanel.Controls.Add(this.tbConfirmPassword);
+            this.loginPanel.Controls.Add(this.tbPassword);
             this.loginPanel.Controls.Add(this.btnClose);
             this.loginPanel.Controls.Add(this.label5);
             this.loginPanel.Controls.Add(this.tbName);
             this.loginPanel.Controls.Add(this.label3);
-            this.loginPanel.Controls.Add(this.label1);
-            this.loginPanel.Controls.Add(this.tbPassword);
             this.loginPanel.Location = new System.Drawing.Point(22, 22);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(580, 398);
@@ -68,17 +64,17 @@
             // 
             this.tbRoles.BackColor = System.Drawing.SystemColors.Window;
             this.tbRoles.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbRoles.Location = new System.Drawing.Point(46, 252);
+            this.tbRoles.Location = new System.Drawing.Point(46, 183);
             this.tbRoles.Name = "tbRoles";
             this.tbRoles.ReadOnly = true;
             this.tbRoles.Size = new System.Drawing.Size(234, 34);
-            this.tbRoles.TabIndex = 6;
+            this.tbRoles.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 12F);
-            this.label2.Location = new System.Drawing.Point(46, 227);
+            this.label2.Location = new System.Drawing.Point(46, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 22);
             this.label2.TabIndex = 32;
@@ -110,20 +106,20 @@
             this.label7.Font = new System.Drawing.Font("Courier New", 12F);
             this.label7.Location = new System.Drawing.Point(295, 161);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(214, 22);
+            this.label7.Size = new System.Drawing.Size(118, 22);
             this.label7.TabIndex = 28;
-            this.label7.Text = "CONFIRM PASSWORD:";
+            this.label7.Text = "PASSWORD:";
             // 
-            // tbConfirmPassword
+            // tbPassword
             // 
-            this.tbConfirmPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.tbConfirmPassword.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbConfirmPassword.Location = new System.Drawing.Point(295, 183);
-            this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.PasswordChar = '•';
-            this.tbConfirmPassword.ReadOnly = true;
-            this.tbConfirmPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbConfirmPassword.TabIndex = 5;
+            this.tbPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.tbPassword.Font = new System.Drawing.Font("Courier New", 14F);
+            this.tbPassword.Location = new System.Drawing.Point(295, 183);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '•';
+            this.tbPassword.ReadOnly = true;
+            this.tbPassword.Size = new System.Drawing.Size(234, 34);
+            this.tbPassword.TabIndex = 5;
             // 
             // btnClose
             // 
@@ -175,27 +171,6 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "VIEW";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 12F);
-            this.label1.Location = new System.Drawing.Point(46, 161);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 22);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "PASSWORD:";
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.tbPassword.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbPassword.Location = new System.Drawing.Point(46, 183);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.PasswordChar = '•';
-            this.tbPassword.ReadOnly = true;
-            this.tbPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbPassword.TabIndex = 4;
-            // 
             // ViewUserDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
@@ -225,12 +200,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbConfirmPassword;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbPassword;
     }
 }

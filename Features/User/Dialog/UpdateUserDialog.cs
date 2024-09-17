@@ -16,8 +16,7 @@ namespace FamilySprout.Features.User.Dialog
 
             tbName.Text = user.fullName;
             tbUsername.Text = user.username;
-            tbPassword.Text = user.password;
-            tbConfirmPassword.Text = user.password;
+            tbOldPassword.Text = user.password;
 
             tbRoles.Text = (user.role == 0) ? "SUPERUSER" : "USER";
         }
@@ -26,9 +25,15 @@ namespace FamilySprout.Features.User.Dialog
         {
             if (IsRequiredFieldsEmpty()) return;
 
-            if (tbPassword.Text != tbConfirmPassword.Text)
+            if (tbNewPassword.Text != tbConfirmNewPass.Text)
             {
                 MessageBox.Show("Password didn't match!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (tbOldPassword.Text == tbNewPassword.Text)
+            {
+                MessageBox.Show("New password must not be\nthe same as the old password", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -36,7 +41,7 @@ namespace FamilySprout.Features.User.Dialog
             {
                 user.fullName = tbName.Text.Trim();
                 user.username = tbUsername.Text.Trim();
-                user.password = tbPassword.Text.Trim();
+                user.password = tbNewPassword.Text.Trim();
 
                 if (tbRoles.Text == "SUPERUSER") { user.role = 0; }
                 else if (tbRoles.Text == "USER") { user.role = 1; }
@@ -58,7 +63,7 @@ namespace FamilySprout.Features.User.Dialog
 
         private bool IsRequiredFieldsEmpty()
         {
-            if (tbName.Text == "" || tbUsername.Text == "" || tbPassword.Text == "" || tbConfirmPassword.Text == "")
+            if (tbName.Text == "" || tbUsername.Text == "" || tbOldPassword.Text == "" || tbNewPassword.Text == "" || tbConfirmNewPass.Text == "")
             {
                 MessageBox.Show("Please fill in all fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;
