@@ -45,6 +45,7 @@
             this.tbBirthday = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.dtBday = new System.Windows.Forms.DateTimePicker();
             this.panelChildrenInformation.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -104,6 +105,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.Controls.Add(this.dtBday);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.tbObitus);
             this.panel5.Controls.Add(this.label10);
@@ -217,10 +219,11 @@
             // tbBirthday
             // 
             this.tbBirthday.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbBirthday.Location = new System.Drawing.Point(285, 85);
+            this.tbBirthday.Location = new System.Drawing.Point(306, 26);
             this.tbBirthday.Name = "tbBirthday";
             this.tbBirthday.Size = new System.Drawing.Size(252, 34);
             this.tbBirthday.TabIndex = 2;
+            this.tbBirthday.Visible = false;
             // 
             // label15
             // 
@@ -239,6 +242,18 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(252, 34);
             this.tbName.TabIndex = 1;
+            // 
+            // dtBday
+            // 
+            this.dtBday.CalendarForeColor = System.Drawing.Color.Purple;
+            this.dtBday.CalendarTitleForeColor = System.Drawing.Color.Purple;
+            this.dtBday.CustomFormat = "yyyy-MM-dd";
+            this.dtBday.Font = new System.Drawing.Font("Courier New", 12.8F);
+            this.dtBday.Location = new System.Drawing.Point(285, 85);
+            this.dtBday.Name = "dtBday";
+            this.dtBday.Size = new System.Drawing.Size(252, 32);
+            this.dtBday.TabIndex = 17;
+            this.dtBday.Value = new System.DateTime(2024, 9, 17, 0, 0, 0, 0);
             // 
             // NewChildDialog
             // 
@@ -280,5 +295,6 @@
         private System.Windows.Forms.TextBox tbBirthday;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.DateTimePicker dtBday;
     }
 }

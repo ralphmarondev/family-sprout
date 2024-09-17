@@ -22,12 +22,19 @@ namespace FamilySprout.Features.User.Dialog
                 return;
             }
 
+
             try
             {
                 UserModel user = new UserModel();
                 user.fullName = tbName.Text.Trim();
                 user.username = tbUsername.Text.Trim();
                 user.password = tbPassword.Text.Trim();
+
+                if (DBUsers.IsUsernameTaken(_username: user.username))
+                {
+                    MessageBox.Show("Username is already taken.\nPlease try a new one!", "Username Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 if (tbRoles.Text == "SUPERUSER") { user.role = 0; }
                 else if (tbRoles.Text == "USER") { user.role = 1; }

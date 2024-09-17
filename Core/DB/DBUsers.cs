@@ -363,5 +363,30 @@ namespace FamilySprout.Core.DB
             }
             return 0;
         }
+
+        public static bool IsUsernameTaken(string _username)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT COUNT(*) FROM users WHERE username = @username";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@username", _username);
+
+                        long count = (long)command.ExecuteScalar();
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return false;
+        }
     }
 }

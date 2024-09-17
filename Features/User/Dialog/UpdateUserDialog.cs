@@ -8,6 +8,7 @@ namespace FamilySprout.Features.User.Dialog
     public partial class UpdateUserDialog : Form
     {
         private UserModel user;
+        private string oldUsername;
         public UpdateUserDialog(UserModel _user)
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace FamilySprout.Features.User.Dialog
             tbOldPassword.Text = user.password;
 
             tbRoles.Text = (user.role == 0) ? "SUPERUSER" : "USER";
+            oldUsername = user.username;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -42,6 +44,15 @@ namespace FamilySprout.Features.User.Dialog
                 user.fullName = tbName.Text.Trim();
                 user.username = tbUsername.Text.Trim();
                 user.password = tbNewPassword.Text.Trim();
+
+                if (user.username != oldUsername)
+                {
+                    if (DBUsers.IsUsernameTaken(_username: user.username))
+                    {
+                        MessageBox.Show("Username is already taken.\nPlease try a new one!", "Username Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
 
                 if (tbRoles.Text == "SUPERUSER") { user.role = 0; }
                 else if (tbRoles.Text == "USER") { user.role = 1; }

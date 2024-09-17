@@ -17,6 +17,9 @@ namespace FamilySprout.Features.NewFamily.Dialog
         {
             InitializeComponent();
             famId = _famId;
+
+            dtBday.Format = DateTimePickerFormat.Custom;
+            dtBday.CustomFormat = "MMM dd, yyyy";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -25,7 +28,7 @@ namespace FamilySprout.Features.NewFamily.Dialog
                 return;
 
             name = tbName.Text.Trim();
-            bday = tbBirthday.Text.Trim();
+            bday = dtBday.Value.ToString("yyyy-MM-dd");
             baptism = tbBaptism.Text.Trim();
             hc = tbHc.Text.Trim();
             obitus = tbObitus.Text.Trim();
