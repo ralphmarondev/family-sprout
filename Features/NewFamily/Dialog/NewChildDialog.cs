@@ -77,39 +77,39 @@ namespace FamilySprout.Features.NewFamily.Dialog
         #region BUTTON_SAVE
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (IsRequiredFieldsEmpty())
-                return;
-
-            name = tbName.Text.Trim();
-            bday = tbBirthday.Text.Trim();
-            baptism = tbBaptism.Text.Trim();
-            hc = tbHc.Text.Trim();
-            obitus = tbObitus.Text.Trim();
-            matrimony = tbMatrimony.Text.Trim();
-
-            if (!IsInputDateValid())
-                return;
-
-            bday = dtBday.Value.ToString(DateUtils.DB_FORMAT);
-            if (baptism != string.Empty)
-            {
-                baptism = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
-            }
-            if (hc != string.Empty)
-            {
-                hc = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
-            }
-            if (matrimony != string.Empty)
-            {
-                matrimony = dtMatrimony.Value.ToString(DateUtils.DB_FORMAT);
-            }
-            if (obitus != string.Empty)
-            {
-                obitus = dtObitus.Value.ToString(DateUtils.DB_FORMAT);
-            }
-
             try
             {
+                if (IsRequiredFieldsEmpty())
+                    return;
+
+                name = tbName.Text.Trim();
+                bday = tbBirthday.Text.Trim();
+                baptism = tbBaptism.Text.Trim();
+                hc = tbHc.Text.Trim();
+                obitus = tbObitus.Text.Trim();
+                matrimony = tbMatrimony.Text.Trim();
+
+                if (!IsInputDateValid())
+                    return;
+
+                bday = dtBday.Value.ToString(DateUtils.DB_FORMAT);
+                if (baptism != string.Empty)
+                {
+                    baptism = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
+                }
+                if (hc != string.Empty)
+                {
+                    hc = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
+                }
+                if (matrimony != string.Empty)
+                {
+                    matrimony = dtMatrimony.Value.ToString(DateUtils.DB_FORMAT);
+                }
+                if (obitus != string.Empty)
+                {
+                    obitus = dtObitus.Value.ToString(DateUtils.DB_FORMAT);
+                }
+
                 DBChildren.CreateNewChild(
                     _famId: famId,
                     _name: name,
@@ -309,6 +309,8 @@ namespace FamilySprout.Features.NewFamily.Dialog
         }
         #endregion MATRIMONY
 
+
+        #region OBITUS
         private void dtObitus_CloseUp(object sender, EventArgs e)
         {
             tbObitus.Text = dtObitus.Value.ToString(DateUtils.USER_FORMAT);
@@ -337,5 +339,6 @@ namespace FamilySprout.Features.NewFamily.Dialog
         {
             tbObitus.Text = string.Empty;
         }
+        #endregion OBITUS
     }
 }

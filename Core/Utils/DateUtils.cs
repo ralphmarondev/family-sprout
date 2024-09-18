@@ -39,6 +39,18 @@ namespace FamilySprout.Core.Utils
             return isValid;
         }
 
+        public static DateTime ToReadableFormatInDateTime(string _date)
+        {
+            DateTime parsedDate;
+
+            bool isValid = DateTime.TryParseExact(_date, USER_FORMAT,
+                                                  CultureInfo.InvariantCulture,
+                                                  DateTimeStyles.None,
+                                                  out parsedDate);
+            if (isValid) return parsedDate;
+            return DateTime.Today;
+        }
+
         public static string GetCreateDate()
         {
             DateTime now = DateTime.Now;
