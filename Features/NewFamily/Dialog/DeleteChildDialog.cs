@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -27,11 +28,12 @@ namespace FamilySprout.Features.NewFamily.Dialog
 
             id = _id;
             tbName.Text = _name;
-            tbBday.Text = _bday;
-            tbBaptism.Text = _baptism;
-            tbHc.Text = _hc;
-            tbObitus.Text = _obitus;
-            tbMatrimony.Text = _matrimony;
+            tbBday.Text = DateUtils.ConvertToUserReaderFormat(_bday);
+            tbBaptism.Text = DateUtils.ConvertToUserReaderFormat(_baptism);
+            tbHc.Text = DateUtils.ConvertToUserReaderFormat(_hc);
+            tbObitus.Text = DateUtils.ConvertToUserReaderFormat(_obitus);
+            tbMatrimony.Text = DateUtils.ConvertToUserReaderFormat(_matrimony);
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

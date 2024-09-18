@@ -1,5 +1,6 @@
-﻿using FamilySprout.Features.Trash.Dialogs.Children;
-using FamilySprout.Core.Model;
+﻿using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
+using FamilySprout.Features.Trash.Dialogs.Children;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace FamilySprout.Features.Trash.Controls
 
             child = _child;
             lblName.Text = child.name;
-            lblBday.Text = child.bday;
+            lblBday.Text = DateUtils.ConvertToUserReaderFormat(child.bday);
         }
 
         private void btnRestore_Click(object sender, EventArgs e)

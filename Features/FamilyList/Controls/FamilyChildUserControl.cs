@@ -33,11 +33,11 @@ namespace FamilySprout.Features.FamilyList.Controls
         {
             ViewChildDialog viewChild = new ViewChildDialog(
                 _name: child.name,
-                _bday: DateUtils.ConvertToUserReaderFormat(child.bday),
-                _baptism: DateUtils.ConvertToUserReaderFormat(child.baptism),
-                _hc: DateUtils.ConvertToUserReaderFormat(child.hc),
-                _obitus: DateUtils.ConvertToUserReaderFormat(child.obitus),
-                _matrimony: DateUtils.ConvertToUserReaderFormat(child.matrimony)
+                _bday: child.bday,
+                _baptism: child.baptism,
+                _hc: child.hc,
+                _obitus: child.obitus,
+                _matrimony: child.matrimony
                 );
 
             viewChild.ShowDialog(this);
@@ -71,11 +71,11 @@ namespace FamilySprout.Features.FamilyList.Controls
             DeleteChildDialog deleteChild = new DeleteChildDialog(
                 _id: child.id,
                 _name: child.name,
-                _bday: DateUtils.ConvertToUserReaderFormat(child.bday),
-                _baptism: DateUtils.ConvertToUserReaderFormat(child.baptism),
-                _hc: DateUtils.ConvertToUserReaderFormat(child.hc),
-                _obitus: DateUtils.ConvertToUserReaderFormat(child.obitus),
-                _matrimony: DateUtils.ConvertToUserReaderFormat(child.matrimony)
+                _bday: child.bday,
+                _baptism: child.baptism,
+                _hc: child.hc,
+                _obitus: child.obitus,
+                _matrimony: child.matrimony
                 );
 
             if (deleteChild.ShowDialog(this) == DialogResult.OK)

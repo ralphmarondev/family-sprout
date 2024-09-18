@@ -32,6 +32,11 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lblClearMatrimony = new System.Windows.Forms.LinkLabel();
+            this.lblClearObitus = new System.Windows.Forms.LinkLabel();
+            this.lblClearHc = new System.Windows.Forms.LinkLabel();
+            this.lblClearBday = new System.Windows.Forms.LinkLabel();
+            this.lblClearBaptism = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.tbObitus = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -44,17 +49,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.dtBday = new System.Windows.Forms.DateTimePicker();
             this.tbBirthday = new System.Windows.Forms.TextBox();
-            this.lblClearBaptism = new System.Windows.Forms.LinkLabel();
-            this.lblClearBday = new System.Windows.Forms.LinkLabel();
             this.dtBaptism = new System.Windows.Forms.DateTimePicker();
             this.dtHc = new System.Windows.Forms.DateTimePicker();
+            this.dtBday = new System.Windows.Forms.DateTimePicker();
             this.dtMatrimony = new System.Windows.Forms.DateTimePicker();
             this.dtObitus = new System.Windows.Forms.DateTimePicker();
-            this.lblClearHc = new System.Windows.Forms.LinkLabel();
-            this.lblClearObitus = new System.Windows.Forms.LinkLabel();
-            this.lblClearMatrimony = new System.Windows.Forms.LinkLabel();
             this.panelChildrenInformation.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -126,7 +126,6 @@
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.tbHc);
             this.panel5.Controls.Add(this.label12);
-            this.panel5.Controls.Add(this.tbBaptism);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label15);
@@ -137,10 +136,71 @@
             this.panel5.Controls.Add(this.dtBday);
             this.panel5.Controls.Add(this.dtMatrimony);
             this.panel5.Controls.Add(this.dtObitus);
+            this.panel5.Controls.Add(this.tbBaptism);
             this.panel5.Location = new System.Drawing.Point(17, 14);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(561, 294);
             this.panel5.TabIndex = 10;
+            // 
+            // lblClearMatrimony
+            // 
+            this.lblClearMatrimony.AutoSize = true;
+            this.lblClearMatrimony.Location = new System.Drawing.Point(217, 206);
+            this.lblClearMatrimony.Name = "lblClearMatrimony";
+            this.lblClearMatrimony.Size = new System.Drawing.Size(47, 16);
+            this.lblClearMatrimony.TabIndex = 26;
+            this.lblClearMatrimony.TabStop = true;
+            this.lblClearMatrimony.Text = "CLEAR";
+            this.lblClearMatrimony.Visible = false;
+            this.lblClearMatrimony.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearMatrimony_LinkClicked);
+            // 
+            // lblClearObitus
+            // 
+            this.lblClearObitus.AutoSize = true;
+            this.lblClearObitus.Location = new System.Drawing.Point(490, 207);
+            this.lblClearObitus.Name = "lblClearObitus";
+            this.lblClearObitus.Size = new System.Drawing.Size(47, 16);
+            this.lblClearObitus.TabIndex = 25;
+            this.lblClearObitus.TabStop = true;
+            this.lblClearObitus.Text = "CLEAR";
+            this.lblClearObitus.Visible = false;
+            this.lblClearObitus.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearObitus_LinkClicked);
+            // 
+            // lblClearHc
+            // 
+            this.lblClearHc.AutoSize = true;
+            this.lblClearHc.Location = new System.Drawing.Point(490, 138);
+            this.lblClearHc.Name = "lblClearHc";
+            this.lblClearHc.Size = new System.Drawing.Size(47, 16);
+            this.lblClearHc.TabIndex = 24;
+            this.lblClearHc.TabStop = true;
+            this.lblClearHc.Text = "CLEAR";
+            this.lblClearHc.Visible = false;
+            this.lblClearHc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearHc_LinkClicked);
+            // 
+            // lblClearBday
+            // 
+            this.lblClearBday.AutoSize = true;
+            this.lblClearBday.Location = new System.Drawing.Point(490, 67);
+            this.lblClearBday.Name = "lblClearBday";
+            this.lblClearBday.Size = new System.Drawing.Size(47, 16);
+            this.lblClearBday.TabIndex = 19;
+            this.lblClearBday.TabStop = true;
+            this.lblClearBday.Text = "CLEAR";
+            this.lblClearBday.Visible = false;
+            this.lblClearBday.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearBday_LinkClicked);
+            // 
+            // lblClearBaptism
+            // 
+            this.lblClearBaptism.AutoSize = true;
+            this.lblClearBaptism.Location = new System.Drawing.Point(219, 137);
+            this.lblClearBaptism.Name = "lblClearBaptism";
+            this.lblClearBaptism.Size = new System.Drawing.Size(47, 16);
+            this.lblClearBaptism.TabIndex = 18;
+            this.lblClearBaptism.TabStop = true;
+            this.lblClearBaptism.Text = "CLEAR";
+            this.lblClearBaptism.Visible = false;
+            this.lblClearBaptism.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearBaptism_LinkClicked);
             // 
             // label4
             // 
@@ -264,19 +324,6 @@
             this.tbName.Size = new System.Drawing.Size(252, 34);
             this.tbName.TabIndex = 1;
             // 
-            // dtBday
-            // 
-            this.dtBday.CalendarForeColor = System.Drawing.Color.Purple;
-            this.dtBday.CalendarTitleForeColor = System.Drawing.Color.Purple;
-            this.dtBday.CustomFormat = "yyyy-MM-dd";
-            this.dtBday.Font = new System.Drawing.Font("Courier New", 12.8F);
-            this.dtBday.Location = new System.Drawing.Point(285, 87);
-            this.dtBday.Name = "dtBday";
-            this.dtBday.Size = new System.Drawing.Size(252, 32);
-            this.dtBday.TabIndex = 17;
-            this.dtBday.Value = new System.DateTime(2024, 9, 17, 0, 0, 0, 0);
-            this.dtBday.CloseUp += new System.EventHandler(this.dtBday_CloseUp);
-            // 
             // tbBirthday
             // 
             this.tbBirthday.BackColor = System.Drawing.SystemColors.Window;
@@ -289,30 +336,6 @@
             this.tbBirthday.TextChanged += new System.EventHandler(this.tbBirthday_TextChanged);
             this.tbBirthday.Enter += new System.EventHandler(this.tbBirthday_Enter);
             this.tbBirthday.Leave += new System.EventHandler(this.tbBirthday_Leave);
-            // 
-            // lblClearBaptism
-            // 
-            this.lblClearBaptism.AutoSize = true;
-            this.lblClearBaptism.Location = new System.Drawing.Point(219, 137);
-            this.lblClearBaptism.Name = "lblClearBaptism";
-            this.lblClearBaptism.Size = new System.Drawing.Size(47, 16);
-            this.lblClearBaptism.TabIndex = 18;
-            this.lblClearBaptism.TabStop = true;
-            this.lblClearBaptism.Text = "CLEAR";
-            this.lblClearBaptism.Visible = false;
-            this.lblClearBaptism.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearBaptism_LinkClicked);
-            // 
-            // lblClearBday
-            // 
-            this.lblClearBday.AutoSize = true;
-            this.lblClearBday.Location = new System.Drawing.Point(490, 67);
-            this.lblClearBday.Name = "lblClearBday";
-            this.lblClearBday.Size = new System.Drawing.Size(47, 16);
-            this.lblClearBday.TabIndex = 19;
-            this.lblClearBday.TabStop = true;
-            this.lblClearBday.Text = "CLEAR";
-            this.lblClearBday.Visible = false;
-            this.lblClearBday.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearBday_LinkClicked);
             // 
             // dtBaptism
             // 
@@ -340,6 +363,19 @@
             this.dtHc.Value = new System.DateTime(2024, 9, 17, 0, 0, 0, 0);
             this.dtHc.CloseUp += new System.EventHandler(this.dtHc_CloseUp);
             // 
+            // dtBday
+            // 
+            this.dtBday.CalendarForeColor = System.Drawing.Color.Purple;
+            this.dtBday.CalendarTitleForeColor = System.Drawing.Color.Purple;
+            this.dtBday.CustomFormat = "yyyy-MM-dd";
+            this.dtBday.Font = new System.Drawing.Font("Courier New", 12.8F);
+            this.dtBday.Location = new System.Drawing.Point(285, 87);
+            this.dtBday.Name = "dtBday";
+            this.dtBday.Size = new System.Drawing.Size(252, 32);
+            this.dtBday.TabIndex = 17;
+            this.dtBday.Value = new System.DateTime(2024, 9, 17, 0, 0, 0, 0);
+            this.dtBday.CloseUp += new System.EventHandler(this.dtBday_CloseUp);
+            // 
             // dtMatrimony
             // 
             this.dtMatrimony.CalendarForeColor = System.Drawing.Color.Purple;
@@ -365,42 +401,6 @@
             this.dtObitus.TabIndex = 23;
             this.dtObitus.Value = new System.DateTime(2024, 9, 17, 0, 0, 0, 0);
             this.dtObitus.CloseUp += new System.EventHandler(this.dtObitus_CloseUp);
-            // 
-            // lblClearHc
-            // 
-            this.lblClearHc.AutoSize = true;
-            this.lblClearHc.Location = new System.Drawing.Point(490, 138);
-            this.lblClearHc.Name = "lblClearHc";
-            this.lblClearHc.Size = new System.Drawing.Size(47, 16);
-            this.lblClearHc.TabIndex = 24;
-            this.lblClearHc.TabStop = true;
-            this.lblClearHc.Text = "CLEAR";
-            this.lblClearHc.Visible = false;
-            this.lblClearHc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearHc_LinkClicked);
-            // 
-            // lblClearObitus
-            // 
-            this.lblClearObitus.AutoSize = true;
-            this.lblClearObitus.Location = new System.Drawing.Point(490, 207);
-            this.lblClearObitus.Name = "lblClearObitus";
-            this.lblClearObitus.Size = new System.Drawing.Size(47, 16);
-            this.lblClearObitus.TabIndex = 25;
-            this.lblClearObitus.TabStop = true;
-            this.lblClearObitus.Text = "CLEAR";
-            this.lblClearObitus.Visible = false;
-            this.lblClearObitus.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearObitus_LinkClicked);
-            // 
-            // lblClearMatrimony
-            // 
-            this.lblClearMatrimony.AutoSize = true;
-            this.lblClearMatrimony.Location = new System.Drawing.Point(217, 206);
-            this.lblClearMatrimony.Name = "lblClearMatrimony";
-            this.lblClearMatrimony.Size = new System.Drawing.Size(47, 16);
-            this.lblClearMatrimony.TabIndex = 26;
-            this.lblClearMatrimony.TabStop = true;
-            this.lblClearMatrimony.Text = "CLEAR";
-            this.lblClearMatrimony.Visible = false;
-            this.lblClearMatrimony.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearMatrimony_LinkClicked);
             // 
             // NewChildDialog
             // 

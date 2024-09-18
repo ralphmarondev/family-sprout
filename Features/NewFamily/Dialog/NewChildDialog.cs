@@ -81,10 +81,14 @@ namespace FamilySprout.Features.NewFamily.Dialog
                 return;
 
             name = tbName.Text.Trim();
+            bday = tbBirthday.Text.Trim();
             baptism = tbBaptism.Text.Trim();
             hc = tbHc.Text.Trim();
             obitus = tbObitus.Text.Trim();
             matrimony = tbMatrimony.Text.Trim();
+
+            if (!IsInputDateValid())
+                return;
 
             bday = dtBday.Value.ToString(DateUtils.DB_FORMAT);
             if (baptism != string.Empty)
@@ -118,7 +122,6 @@ namespace FamilySprout.Features.NewFamily.Dialog
             {
                 MessageBox.Show($"Failed adding new child!\nError: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private bool IsRequiredFieldsEmpty()
@@ -140,6 +143,37 @@ namespace FamilySprout.Features.NewFamily.Dialog
             }
 
             return false;
+        }
+
+        private bool IsInputDateValid()
+        {
+            if (!DateUtils.IsDateFormatValid(bday) && bday != string.Empty)
+            {
+                MessageBox.Show($"'{bday}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!DateUtils.IsDateFormatValid(baptism) && baptism != string.Empty)
+            {
+                MessageBox.Show($"'{baptism}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!DateUtils.IsDateFormatValid(hc) && hc != string.Empty)
+            {
+                MessageBox.Show($"'{hc}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!DateUtils.IsDateFormatValid(matrimony) && matrimony != string.Empty)
+            {
+                MessageBox.Show($"'{matrimony}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!DateUtils.IsDateFormatValid(obitus) && obitus != string.Empty)
+            {
+                MessageBox.Show($"'{obitus}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
         }
         #endregion BUTTON_SAVE
 

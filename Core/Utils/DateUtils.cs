@@ -10,17 +10,33 @@ namespace FamilySprout.Core.Utils
 
         public static string ConvertToUserReaderFormat(string _dateFromDatabase)
         {
-            if (string.IsNullOrEmpty(_dateFromDatabase))
+            if (string.IsNullOrEmpty(_dateFromDatabase) || _dateFromDatabase == "")
             {
                 return string.Empty;
             }
+            else
+            {
+                DateTime parsedDate = DateTime.ParseExact(
+                    _dateFromDatabase, DB_FORMAT,
+                    System.Globalization.CultureInfo.InvariantCulture);
+                string formattedDate = parsedDate.ToString(USER_FORMAT);
 
-            DateTime parsedDate = DateTime.ParseExact(
-                _dateFromDatabase, "yyyy-MM-dd",
-                System.Globalization.CultureInfo.InvariantCulture);
-            string formattedDate = parsedDate.ToString("MMM dd, yyyy");
+                return formattedDate;
+            }
+        }
 
-            return formattedDate;
+        public static bool IsDateFormatValid(string _date)
+        {
+            DateTime parsedDate;
+
+            bool isValid = DateTime.TryParseExact(
+                _date,
+                USER_FORMAT,
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out parsedDate
+                );
+            return isValid;
         }
 
         public static string GetCreateDate()

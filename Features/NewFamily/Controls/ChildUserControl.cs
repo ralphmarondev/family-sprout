@@ -39,7 +39,7 @@ namespace FamilySprout.Features.NewFamily.Controls
             matrimony = _matrimony;
 
             lblName.Text = name;
-            lblBday.Text = bday;
+            lblBday.Text = DateUtils.ConvertToUserReaderFormat(bday);
 
             if (SessionManager.CurrentUser.role == 1)
             {
