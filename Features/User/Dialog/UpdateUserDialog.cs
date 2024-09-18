@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.DB;
 using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -25,25 +26,28 @@ namespace FamilySprout.Features.User.Dialog
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (IsRequiredFieldsEmpty()) return;
-
-            if (tbNewPassword.Text != tbConfirmNewPass.Text)
-            {
-                MessageBox.Show("Password didn't match!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (tbOldPassword.Text == tbNewPassword.Text)
-            {
-                MessageBox.Show("New password must not be\nthe same as the old password", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             try
             {
                 user.fullName = tbName.Text.Trim();
                 user.username = tbUsername.Text.Trim();
-                user.password = tbNewPassword.Text.Trim();
+                user.password = tbOldPassword.Text.Trim();
+
+                if (IsRequiredFieldsEmpty()) return;
+
+                if (tbNewPassword.Text != string.Empty)
+                {
+                    if (tbNewPassword.Text != tbConfirmNewPass.Text)
+                    {
+                        MessageBox.Show("New password didn't match!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (tbOldPassword.Text == tbNewPassword.Text)
+                    {
+                        MessageBox.Show("New password must not be\nthe same as the old password", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    user.password = tbNewPassword.Text.Trim();
+                }
 
                 if (user.username != oldUsername)
                 {
@@ -54,8 +58,8 @@ namespace FamilySprout.Features.User.Dialog
                     }
                 }
 
-                if (tbRoles.Text == "SUPERUSER") { user.role = 0; }
-                else if (tbRoles.Text == "USER") { user.role = 1; }
+                if (tbRoles.Text == Roles.SUPERUSER_LABEL) { user.role = Roles.SUPERUSER; }
+                else if (tbRoles.Text == Roles.USER_LABEL) { user.role = Roles.USER; }
                 else
                 {
                     MessageBox.Show("Invalid User Role!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -63,6 +67,14 @@ namespace FamilySprout.Features.User.Dialog
                 }
 
                 DBUsers.UpdateUser(user);
+                // update parents, family, children
+                if (user.username != oldUsername)
+                {
+                    DBFamily.UpdateFamilyCreatedBy(_newUsername: user.username, _oldUsername: oldUsername);
+                    DBParents.UpdateParentCreatedBy(_newUsername: user.username, _oldUsername: oldUsername);
+                    DBChildren.UpdateChildrenCreatedBy(_newUsername: user.username, _oldUsername: oldUsername);
+                }
+
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
@@ -74,7 +86,7 @@ namespace FamilySprout.Features.User.Dialog
 
         private bool IsRequiredFieldsEmpty()
         {
-            if (tbName.Text == "" || tbUsername.Text == "" || tbOldPassword.Text == "" || tbNewPassword.Text == "" || tbConfirmNewPass.Text == "")
+            if (tbName.Text == "" || tbUsername.Text == "" || tbOldPassword.Text == "")
             {
                 MessageBox.Show("Please fill in all fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;

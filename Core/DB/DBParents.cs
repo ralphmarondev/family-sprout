@@ -163,5 +163,29 @@ namespace FamilySprout.Core.DB
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
+
+        public static void UpdateParentCreatedBy(string _newUsername, string _oldUsername)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE parents SET created_by = @new_username WHERE created_by = @old_username;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@new_username", _newUsername);
+                        command.Parameters.AddWithValue("@old_username", _oldUsername);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
     }
 }

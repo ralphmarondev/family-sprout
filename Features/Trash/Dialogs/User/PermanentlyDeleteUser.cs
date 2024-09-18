@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.DB;
 using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -16,8 +17,7 @@ namespace FamilySprout.Features.Trash.Dialogs.User
             tbName.Text = user.fullName;
             tbUsername.Text = user.username;
             tbPassword.Text = user.password;
-            tbConfirmPassword.Text = user.password;
-            tbRoles.Text = (user.role == 0) ? "SUPERUSER" : "USER";
+            tbRoles.Text = (user.role == Roles.SUPERUSER) ? Roles.SUPERUSER_LABEL : Roles.USER_LABEL;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

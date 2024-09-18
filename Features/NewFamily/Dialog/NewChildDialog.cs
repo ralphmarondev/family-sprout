@@ -99,6 +99,10 @@ namespace FamilySprout.Features.NewFamily.Dialog
             {
                 hc = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
             }
+            if (matrimony != string.Empty)
+            {
+                matrimony = dtMatrimony.Value.ToString(DateUtils.DB_FORMAT);
+            }
             if (obitus != string.Empty)
             {
                 obitus = dtObitus.Value.ToString(DateUtils.DB_FORMAT);

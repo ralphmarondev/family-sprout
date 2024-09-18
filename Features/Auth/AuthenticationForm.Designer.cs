@@ -42,7 +42,6 @@
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.lblCopyright = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnTest = new System.Windows.Forms.Button();
             this.panelTitle.SuspendLayout();
             this.loginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -225,22 +224,11 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btnTest
-            // 
-            this.btnTest.Location = new System.Drawing.Point(402, 535);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(102, 35);
-            this.btnTest.TabIndex = 24;
-            this.btnTest.Text = "button1";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
             // AuthenticationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 614);
-            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.lblCopyright);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.loginPanel);
@@ -278,6 +266,5 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblCopyright;
         private System.Windows.Forms.Button btnInfo;
-        private System.Windows.Forms.Button btnTest;
     }
 }

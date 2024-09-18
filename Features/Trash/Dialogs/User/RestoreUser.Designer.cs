@@ -35,8 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbConfirmPassword = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,8 +51,6 @@
             this.loginPanel.Controls.Add(this.label2);
             this.loginPanel.Controls.Add(this.label6);
             this.loginPanel.Controls.Add(this.tbUsername);
-            this.loginPanel.Controls.Add(this.label7);
-            this.loginPanel.Controls.Add(this.tbConfirmPassword);
             this.loginPanel.Controls.Add(this.label5);
             this.loginPanel.Controls.Add(this.tbName);
             this.loginPanel.Controls.Add(this.label1);
@@ -108,7 +104,7 @@
             // 
             this.tbRoles.BackColor = System.Drawing.SystemColors.Window;
             this.tbRoles.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbRoles.Location = new System.Drawing.Point(47, 197);
+            this.tbRoles.Location = new System.Drawing.Point(47, 135);
             this.tbRoles.Name = "tbRoles";
             this.tbRoles.ReadOnly = true;
             this.tbRoles.Size = new System.Drawing.Size(234, 34);
@@ -118,7 +114,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 12F);
-            this.label2.Location = new System.Drawing.Point(47, 172);
+            this.label2.Location = new System.Drawing.Point(47, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 22);
             this.label2.TabIndex = 32;
@@ -144,26 +140,6 @@
             this.tbUsername.Size = new System.Drawing.Size(234, 34);
             this.tbUsername.TabIndex = 4;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Courier New", 12F);
-            this.label7.Location = new System.Drawing.Point(296, 106);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(214, 22);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "CONFIRM PASSWORD:";
-            // 
-            // tbConfirmPassword
-            // 
-            this.tbConfirmPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.tbConfirmPassword.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbConfirmPassword.Location = new System.Drawing.Point(296, 128);
-            this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.ReadOnly = true;
-            this.tbConfirmPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbConfirmPassword.TabIndex = 6;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -188,7 +164,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 12F);
-            this.label1.Location = new System.Drawing.Point(47, 106);
+            this.label1.Location = new System.Drawing.Point(296, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 22);
             this.label1.TabIndex = 7;
@@ -198,8 +174,9 @@
             // 
             this.tbPassword.BackColor = System.Drawing.SystemColors.Window;
             this.tbPassword.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbPassword.Location = new System.Drawing.Point(47, 128);
+            this.tbPassword.Location = new System.Drawing.Point(296, 135);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '•';
             this.tbPassword.ReadOnly = true;
             this.tbPassword.Size = new System.Drawing.Size(234, 34);
             this.tbPassword.TabIndex = 5;
@@ -232,8 +209,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbUsername;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbConfirmPassword;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label1;

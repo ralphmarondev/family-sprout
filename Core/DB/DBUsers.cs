@@ -199,6 +199,7 @@ namespace FamilySprout.Core.DB
             return users;
         }
 
+        // TODO: fix this!
         public static void UpdateUser(UserModel user)
         {
             try

@@ -1,7 +1,6 @@
 ﻿using FamilySprout.Core.DB;
 using FamilySprout.Core.Utils;
 using FamilySprout.Features.Home;
-using FamilySprout.Features.NewFamily.Dialog;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -225,13 +224,5 @@ namespace FamilySprout.Features.Auth
             HidePopUp();
         }
         #endregion BUTTON_INFO
-
-
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            NewChildDialog newChild = new NewChildDialog(1);
-
-            newChild.ShowDialog(this);
-        }
     }
 }
