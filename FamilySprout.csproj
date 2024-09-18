@@ -68,6 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Components\Controls\CustomDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Core\DB\DBChildren.cs" />
     <Compile Include="Core\DB\DBConfig.cs" />
     <Compile Include="Core\DB\DBFamily.cs" />
@@ -443,7 +446,6 @@
     <None Include="Resources\family-sprout.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\Components\Controls\" />
     <Folder Include="Core\Components\Dialogs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

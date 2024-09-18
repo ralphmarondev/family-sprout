@@ -43,6 +43,10 @@ namespace FamilySprout.Core.DB
            string _obitus,
            string _matrimony)
         {
+            Console.WriteLine("CREATE-NEW-CHILD");
+            Console.WriteLine("INSERT INTO CHILDREN (fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, create_date)");
+            Console.WriteLine($"VALUES({_famId}, {_name}, {_bday}, {_baptism}, {_hc}, {_obitus}, {_matrimony});");
+
             try
             {
                 using (var connection = new SQLiteConnection(DBConfig.connectionString))
@@ -67,6 +71,7 @@ namespace FamilySprout.Core.DB
                         command.ExecuteNonQuery();
                     }
                 }
+                Console.WriteLine("Done.");
             }
             catch (Exception ex)
             {

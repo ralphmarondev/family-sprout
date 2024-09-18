@@ -1,7 +1,7 @@
-﻿using FamilySprout.Core.Utils;
+﻿using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using FamilySprout.Features.FamilyList.Forms;
 using FamilySprout.Features.NewFamily.Dialog;
-using FamilySprout.Core.Model;
 using System;
 using System.Windows.Forms;
 
@@ -20,7 +20,7 @@ namespace FamilySprout.Features.FamilyList.Controls
             child = _child;
 
             lblName.Text = child.name;
-            lblBday.Text = child.bday;
+            lblBday.Text = DateUtils.ConvertToUserReaderFormat(child.bday);
 
             if (SessionManager.CurrentUser.role == Roles.USER)
             {
@@ -33,11 +33,11 @@ namespace FamilySprout.Features.FamilyList.Controls
         {
             ViewChildDialog viewChild = new ViewChildDialog(
                 _name: child.name,
-                _bday: child.bday,
-                _baptism: child.baptism,
-                _hc: child.hc,
-                _obitus: child.obitus,
-                _matrimony: child.matrimony
+                _bday: DateUtils.ConvertToUserReaderFormat(child.bday),
+                _baptism: DateUtils.ConvertToUserReaderFormat(child.baptism),
+                _hc: DateUtils.ConvertToUserReaderFormat(child.hc),
+                _obitus: DateUtils.ConvertToUserReaderFormat(child.obitus),
+                _matrimony: DateUtils.ConvertToUserReaderFormat(child.matrimony)
                 );
 
             viewChild.ShowDialog(this);
@@ -71,11 +71,11 @@ namespace FamilySprout.Features.FamilyList.Controls
             DeleteChildDialog deleteChild = new DeleteChildDialog(
                 _id: child.id,
                 _name: child.name,
-                _bday: child.bday,
-                _baptism: child.baptism,
-                _hc: child.hc,
-                _obitus: child.obitus,
-                _matrimony: child.matrimony
+                _bday: DateUtils.ConvertToUserReaderFormat(child.bday),
+                _baptism: DateUtils.ConvertToUserReaderFormat(child.baptism),
+                _hc: DateUtils.ConvertToUserReaderFormat(child.hc),
+                _obitus: DateUtils.ConvertToUserReaderFormat(child.obitus),
+                _matrimony: DateUtils.ConvertToUserReaderFormat(child.matrimony)
                 );
 
             if (deleteChild.ShowDialog(this) == DialogResult.OK)
