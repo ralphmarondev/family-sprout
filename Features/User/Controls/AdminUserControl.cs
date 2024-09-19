@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using FamilySprout.Features.User.Dialog;
 using System.Windows.Forms;
 
@@ -7,14 +8,13 @@ namespace FamilySprout.Features.User.Controls
     public partial class AdminUserControl : UserControl
     {
         private UserModel user;
-        public AdminUserControl(
-            UserModel _user)
+        public AdminUserControl(UserModel _user)
         {
             InitializeComponent();
             user = _user;
 
             lblName.Text = user.fullName;
-            lblRole.Text = (user.role == 0) ? "SUPERUSER" : "USER";
+            lblRole.Text = (user.role == Roles.SUPERUSER) ? Roles.SUPERUSER_LABEL : Roles.USER_LABEL;
         }
 
         private void btnView_Click(object sender, System.EventArgs e)

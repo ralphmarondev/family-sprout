@@ -153,7 +153,7 @@ namespace FamilySprout.Core.DB
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@famId", famId);
+                        command.Parameters.AddWithValue("@fam_id", famId);
                         command.Parameters.AddWithValue("@role", role);
 
                         using (var reader = command.ExecuteReader())
@@ -178,6 +178,31 @@ namespace FamilySprout.Core.DB
             }
 
             return parent;
+        }
+
+        public static void DeleteParentByFamilyId(long famId)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE parents SET " +
+                        "is_deleted = 1 " +
+                        "WHERE fam_id = @fam_id;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@fam_id", famId);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }

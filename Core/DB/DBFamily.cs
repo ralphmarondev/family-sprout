@@ -384,7 +384,8 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        // family - details
+
+        #region FAMILY_LIST
         public static FamilyModel GetFamilyDetailsById(long id)
         {
             FamilyModel family = new FamilyModel();
@@ -395,8 +396,8 @@ namespace FamilySprout.Core.DB
                 {
                     connection.Open();
 
-                    string query = "SELECT id, remarks" +
-                        "WHEREid = @id AND is_deleted = 0;";
+                    string query = "SELECT id, remarks FROM families " +
+                        "WHERE id = @id AND is_deleted = 0;";
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
@@ -422,5 +423,30 @@ namespace FamilySprout.Core.DB
             }
             return family;
         }
+        // update parent dialog
+        public static void UpdateRemarks(long id, string newRemark)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE families SET remarks = @remarks WHERE id = @id;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                        command.Parameters.AddWithValue("@remarks", newRemark);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+        #endregion FAMILY_LIST
     }
 }

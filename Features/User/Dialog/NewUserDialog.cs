@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.DB;
 using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -36,8 +37,8 @@ namespace FamilySprout.Features.User.Dialog
                     return;
                 }
 
-                if (tbRoles.Text == "SUPERUSER") { user.role = 0; }
-                else if (tbRoles.Text == "USER") { user.role = 1; }
+                if (tbRoles.Text == Roles.SUPERUSER_LABEL) { user.role = Roles.SUPERUSER; }
+                else if (tbRoles.Text == Roles.USER_LABEL) { user.role = Roles.USER; }
                 else
                 {
                     MessageBox.Show("Invalid User Role!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);

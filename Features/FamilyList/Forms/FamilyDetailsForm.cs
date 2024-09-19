@@ -10,8 +10,9 @@ namespace FamilySprout.Features.FamilyList.Forms
 {
     public partial class FamilyDetailsForm : Form
     {
-        FamilyModel family;
-        ParentModel husband, wife;
+        FamilyModel family = new FamilyModel();
+        ParentModel husband = new ParentModel();
+        ParentModel wife = new ParentModel();
         public FamilyDetailsForm(long famId)
         {
             InitializeComponent();

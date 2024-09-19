@@ -67,7 +67,6 @@ namespace FamilySprout.Features.FamilyList
 
         private void LoadFamilyData()
         {
-
             try
             {
                 using (var connection = new SQLiteConnection(DBConfig.connectionString))
@@ -193,26 +192,32 @@ namespace FamilySprout.Features.FamilyList
                     w.name AS WifeName,
                     (SELECT COUNT(*) FROM children WHERE fam_id = f.id AND is_deleted = 0) AS ChildCount
                 FROM families f
-                LEFT JOIN parents h ON f.husband = h.id
-                LEFT JOIN parents w ON f.wife = w.id
+                LEFT JOIN parents h ON f.id = h.fam_id AND h.role = 0  -- Husband role
+                LEFT JOIN parents w ON f.id = w.fam_id AND w.role = 1  -- Wife role
                 WHERE f.is_deleted = 0
                 AND h.name LIKE @searchText;";
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
+                        // Use wildcard for partial matching
                         command.Parameters.AddWithValue("@searchText", $"{_searchText}%");
 
                         using (var reader = command.ExecuteReader())
                         {
                             dataGridViewFamilies.Rows.Clear();
                             bool hasResults = false;
+
                             while (reader.Read())
                             {
                                 hasResults = true;
-                                long familyId = reader.GetInt64(0);
-                                string husbandName = reader.GetString(1);
-                                string wifeName = reader.GetString(2);
-                                int childCount = reader.GetInt32(3);
+                                long familyId = reader.GetInt64(reader.GetOrdinal("FamilyId"));
+                                string husbandName = reader.IsDBNull(reader.GetOrdinal("HusbandName"))
+                                                     ? "Unknown"
+                                                     : reader.GetString(reader.GetOrdinal("HusbandName"));
+                                string wifeName = reader.IsDBNull(reader.GetOrdinal("WifeName"))
+                                                  ? "Unknown"
+                                                  : reader.GetString(reader.GetOrdinal("WifeName"));
+                                int childCount = reader.GetInt32(reader.GetOrdinal("ChildCount"));
 
                                 dataGridViewFamilies.Rows.Add(familyId, husbandName, wifeName, childCount);
                             }

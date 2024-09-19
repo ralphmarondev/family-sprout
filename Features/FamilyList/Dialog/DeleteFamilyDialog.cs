@@ -35,6 +35,9 @@ namespace FamilySprout.Features.FamilyList.Dialog
             try
             {
                 DBFamily.DeleteFamilyDetails(family.id);
+                DBParents.DeleteParentByFamilyId(family.id);
+                DBChildren.DeleteChildByFamId(family.id);
+
                 MessageBox.Show("Deleted Successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();

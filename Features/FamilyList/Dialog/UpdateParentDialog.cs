@@ -1,4 +1,5 @@
-﻿using FamilySprout.Core.Model;
+﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Model;
 using System;
 using System.Windows.Forms;
 
@@ -29,18 +30,15 @@ namespace FamilySprout.Features.FamilyList.Dialog
 
         private void btnUpdate_Click(object sender, System.EventArgs e)
         {
+            InitializeVariables();
             if (IsRequiredFieldEmpty()) return;
 
             try
             {
-                //DBParents.UpdateParentInformation(
-                //    _famId: famId,
-                //    _husband: tbHusbandFullName.Text.Trim(),
-                //    _husbandFrom: tbHusbandFrom.Text.Trim(),
-                //    _wife: tbWifeFullName.Text.Trim(),
-                //    _wifeFrom: tbWifeFrom.Text.Trim(),
-                //    _remarks: tbRemarks.Text.Trim()
-                //    );
+                DBFamily.UpdateRemarks(id: family.id, newRemark: family.remarks);
+                DBParents.UpdateParentDetails(husband);
+                DBParents.UpdateParentDetails(wife);
+
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -59,6 +57,17 @@ namespace FamilySprout.Features.FamilyList.Dialog
             }
 
             return false;
+        }
+
+        private void InitializeVariables()
+        {
+            family.remarks = tbRemarks.Text.Trim();
+
+            husband.name = tbHusbandFullName.Text.Trim();
+            husband.hometown = tbHusbandFrom.Text.Trim();
+
+            wife.name = tbWifeFullName.Text.Trim();
+            wife.hometown = tbWifeFrom.Text.Trim();
         }
     }
 }
