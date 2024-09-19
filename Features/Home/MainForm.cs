@@ -44,9 +44,9 @@ namespace FamilySprout.Features.Home
             OpenFormInPanel(new NewFamily.NewFamilyMainForm());
         }
 
-        public void OpenNewChildrenForm(long _famId)
+        public void OpenNewChildrenForm(long famId)
         {
-            OpenFormInPanel(new NewFamily.Forms.NewChildForm(_famId: _famId));
+            OpenFormInPanel(new NewFamily.Forms.NewChildForm(famId));
         }
 
         public void OpenFamilyListForm()
@@ -54,14 +54,14 @@ namespace FamilySprout.Features.Home
             OpenFormInPanel(new FamilyList.FamilyListMainForm());
         }
 
-        public void OpenFamilyDetailsForm(long _famId)
+        public void OpenFamilyDetailsForm(long famId)
         {
-            OpenFormInPanel(new FamilyList.Forms.FamilyDetailsForm(_famId: _famId));
+            OpenFormInPanel(new FamilyList.Forms.FamilyDetailsForm(famId));
         }
 
-        public void OpenFamilyChildListForm(long _famId)
+        public void OpenFamilyChildListForm(long famId)
         {
-            OpenFormInPanel(new FamilyList.Forms.FamilyChildListForm(_famId));
+            OpenFormInPanel(new FamilyList.Forms.FamilyChildListForm(famId));
         }
 
         public void OpenTrashMainForm()

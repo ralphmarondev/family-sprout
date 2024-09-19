@@ -1,22 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using FamilySprout.Core.Utils;
 
 namespace FamilySprout.Core.Model
 {
     public class FamilyModel
     {
         public long id { get; set; }
-        public string husband { get; set; }
-        public string husbandFrom { get; set; }
-        public string wife { get; set; }
-        public string wifeFrom { get; set; }
         public string remarks { get; set; }
+        public int childCount { get; set; }
         public string createdBy { get; set; }
-        public string createDate { get; set; }
-        public List<ChildModel> childrens { get; set; }
+        public string dateCreated { get; set; }
+        public bool isDeleted { get; set; }
 
         public FamilyModel()
         {
-            childrens = new List<ChildModel>();
+            id = -1;
+            createdBy = SessionManager.CurrentUser.username;
+            dateCreated = DateUtils.GetCreateDate();
+            isDeleted = false;
         }
     }
 }

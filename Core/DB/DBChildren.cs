@@ -1,5 +1,4 @@
 ﻿using FamilySprout.Core.Model;
-using FamilySprout.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -24,7 +23,7 @@ namespace FamilySprout.Core.DB
                     "obitus TEXT," +
                     "matrimony TEXT," +
                     "created_by TEXT," +
-                    "create_date TEXT," +
+                    "date_created TEXT," +
                     "is_deleted BOOLEAN DEFAULT 0);";
 
                 using (var command = new SQLiteCommand(query, connection))
@@ -34,19 +33,8 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        public static void CreateNewChild(
-           long _famId,
-           string _name,
-           string _bday,
-           string _baptism,
-           string _hc,
-           string _obitus,
-           string _matrimony)
+        public static void CreateNewChild(ChildModel child)
         {
-            Console.WriteLine("CREATE-NEW-CHILD");
-            Console.WriteLine("INSERT INTO CHILDREN (fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, create_date)");
-            Console.WriteLine($"VALUES({_famId}, {_name}, {_bday}, {_baptism}, {_hc}, {_obitus}, {_matrimony});");
-
             try
             {
                 using (var connection = new SQLiteConnection(DBConfig.connectionString))
@@ -54,19 +42,19 @@ namespace FamilySprout.Core.DB
                     connection.Open();
 
                     var query = "INSERT INTO children (" +
-                        "fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, create_date) " +
-                        "VALUES(@fam_id, @name, @bday, @baptism, @hc, @obitus, @matrimony, @created_by, @create_date);";
+                        "fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, date_created) " +
+                        "VALUES(@fam_id, @name, @bday, @baptism, @hc, @obitus, @matrimony, @created_by, @date_created);";
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@fam_id", _famId);
-                        command.Parameters.AddWithValue("@name", _name);
-                        command.Parameters.AddWithValue("@bday", _bday);
-                        command.Parameters.AddWithValue("@baptism", _baptism);
-                        command.Parameters.AddWithValue("@hc", _hc);
-                        command.Parameters.AddWithValue("@obitus", _obitus);
-                        command.Parameters.AddWithValue("@matrimony", _matrimony);
-                        command.Parameters.AddWithValue("@created_by", SessionManager.CurrentUser.username);
-                        command.Parameters.AddWithValue("@create_date", DateUtils.GetCreateDate());
+                        command.Parameters.AddWithValue("@fam_id", child.famId);
+                        command.Parameters.AddWithValue("@name", child.name);
+                        command.Parameters.AddWithValue("@bday", child.bday);
+                        command.Parameters.AddWithValue("@baptism", child.baptism);
+                        command.Parameters.AddWithValue("@hc", child.hc);
+                        command.Parameters.AddWithValue("@obitus", child.obitus);
+                        command.Parameters.AddWithValue("@matrimony", child.matrimony);
+                        command.Parameters.AddWithValue("@created_by", child.createdBy);
+                        command.Parameters.AddWithValue("@date_created", child.dateCreated);
 
                         command.ExecuteNonQuery();
                     }
@@ -90,7 +78,7 @@ namespace FamilySprout.Core.DB
                 {
                     connection.Open();
 
-                    string query = "SELECT id, fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, create_date " +
+                    string query = "SELECT id, fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, date_created " +
                         "FROM children " +
                         "WHERE fam_id = @fam_id AND is_deleted = 0";
 
@@ -129,14 +117,7 @@ namespace FamilySprout.Core.DB
             return children;
         }
 
-        public static void UpdateChild(
-            long _id,
-            string _name,
-            string _bday,
-            string _baptism,
-            string _hc,
-            string _obitus,
-            string _matrimony)
+        public static void UpdateChild(ChildModel child)
         {
             try
             {
@@ -155,13 +136,13 @@ namespace FamilySprout.Core.DB
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@name", _name);
-                        command.Parameters.AddWithValue("@bday", _bday);
-                        command.Parameters.AddWithValue("@baptism", _baptism);
-                        command.Parameters.AddWithValue("@hc", _hc);
-                        command.Parameters.AddWithValue("@obitus", _obitus);
-                        command.Parameters.AddWithValue("@matrimony", _matrimony);
-                        command.Parameters.AddWithValue("@id", _id);
+                        command.Parameters.AddWithValue("@name", child.name);
+                        command.Parameters.AddWithValue("@bday", child.bday);
+                        command.Parameters.AddWithValue("@baptism", child.baptism);
+                        command.Parameters.AddWithValue("@hc", child.hc);
+                        command.Parameters.AddWithValue("@obitus", child.obitus);
+                        command.Parameters.AddWithValue("@matrimony", child.matrimony);
+                        command.Parameters.AddWithValue("@id", child.id);
 
                         command.ExecuteNonQuery();
                     }
@@ -188,7 +169,6 @@ namespace FamilySprout.Core.DB
                         command.ExecuteNonQuery();
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -206,7 +186,7 @@ namespace FamilySprout.Core.DB
                 {
                     connection.Open();
 
-                    string query = "SELECT id, fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, create_date " +
+                    string query = "SELECT id, fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, date_created " +
                         "FROM children WHERE is_deleted = 1;";
 
                     using (var command = new SQLiteCommand(query, connection))
@@ -225,7 +205,7 @@ namespace FamilySprout.Core.DB
                                         reader["obitus"] != DBNull.Value ? reader["obitus"].ToString() : string.Empty,
                                         reader["matrimony"] != DBNull.Value ? reader["matrimony"].ToString() : string.Empty,
                                         reader["created_by"] != DBNull.Value ? reader["created_by"].ToString() : string.Empty,
-                                        reader["create_date"] != DBNull.Value ? reader["create_date"].ToString() : string.Empty
+                                        reader["date_created"] != DBNull.Value ? reader["date_created"].ToString() : string.Empty
                                         );
                                 deletedChildren.Add(child);
                             }
@@ -241,7 +221,7 @@ namespace FamilySprout.Core.DB
             return deletedChildren;
         }
 
-        public static void RestoreChild(long _id)
+        public static void RestoreChild(long id)
         {
             try
             {
@@ -252,7 +232,7 @@ namespace FamilySprout.Core.DB
                     string query = "UPDATE children SET is_deleted = 0 WHERE id = @id;";
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@id", _id);
+                        command.Parameters.AddWithValue("@id", id);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -264,7 +244,7 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        public static void PermanentlyDeleteChild(long _id)
+        public static void PermanentlyDeleteChild(long id)
         {
             try
             {
@@ -275,7 +255,7 @@ namespace FamilySprout.Core.DB
                     string query = "DELETE FROM children WHERE id = @id AND is_deleted = 1;";
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@id", _id);
+                        command.Parameters.AddWithValue("@id", id);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -310,7 +290,7 @@ namespace FamilySprout.Core.DB
             return 0;
         }
 
-        public static void DeleteChildByFamId(long _famId)
+        public static void DeleteChildByFamId(long famId)
         {
             try
             {
@@ -321,7 +301,7 @@ namespace FamilySprout.Core.DB
                     string query = "UPDATE children SET is_deleted = 1 WHERE fam_id = @fam_id;";
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@fam_id", _famId);
+                        command.Parameters.AddWithValue("@fam_id", famId);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -333,7 +313,7 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        public static void RestoreChildByFamId(long _famId)
+        public static void RestoreChildByFamId(long famId)
         {
             try
             {
@@ -344,7 +324,7 @@ namespace FamilySprout.Core.DB
                     string query = "UPDATE children SET is_deleted = 0 WHERE fam_id = @fam_id;";
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@fam_id", _famId);
+                        command.Parameters.AddWithValue("@fam_id", famId);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -356,7 +336,7 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        public static void PermanentlyDeleteByFamId(long _famId)
+        public static void PermanentlyDeleteByFamId(long famId)
         {
             try
             {
@@ -367,7 +347,7 @@ namespace FamilySprout.Core.DB
                     string query = "DELETE FROM children WHERE fam_id = @fam_id AND is_deleted = 1;";
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@fam_id", _famId);
+                        command.Parameters.AddWithValue("@fam_id", famId);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -379,7 +359,7 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        public static void UpdateChildrenCreatedBy(string _newUsername, string _oldUsername)
+        public static void UpdateChildrenCreatedBy(string newUsername, string oldUsername)
         {
             try
             {
@@ -390,8 +370,8 @@ namespace FamilySprout.Core.DB
                     string query = "UPDATE children SET created_by = @new_username WHERE created_by = @old_username;";
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@new_username", _newUsername);
-                        command.Parameters.AddWithValue("@old_username", _oldUsername);
+                        command.Parameters.AddWithValue("@new_username", newUsername);
+                        command.Parameters.AddWithValue("@old_username", oldUsername);
 
                         command.ExecuteNonQuery();
                     }

@@ -1,4 +1,6 @@
-﻿namespace FamilySprout.Core.Model
+﻿using FamilySprout.Core.Utils;
+
+namespace FamilySprout.Core.Model
 {
     public class ChildModel
     {
@@ -11,7 +13,8 @@
         public string obitus { get; set; }
         public string matrimony { get; set; }
         public string createdBy { get; set; }
-        public string createDate { get; set; }
+        public string dateCreated { get; set; }
+        public bool isDeleted { get; set; }
 
         public ChildModel(
             long _id,
@@ -34,7 +37,16 @@
             obitus = _obitus;
             matrimony = _matrimony;
             createdBy = _createdBy;
-            createDate = _createDate;
+            dateCreated = _createDate;
+        }
+
+        public ChildModel()
+        {
+            id = -1;
+            famId = -1;
+            createdBy = SessionManager.CurrentUser.username;
+            dateCreated = DateUtils.GetCreateDate();
+            isDeleted = false;
         }
     }
 }

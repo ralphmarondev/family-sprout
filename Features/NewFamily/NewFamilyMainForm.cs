@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Model;
 using FamilySprout.Core.Utils;
 using FamilySprout.Features.Home;
 using FamilySprout.Features.NewFamily.Dialog;
@@ -10,6 +11,10 @@ namespace FamilySprout.Features.NewFamily
 {
     public partial class NewFamilyMainForm : Form
     {
+        private FamilyModel family = new FamilyModel();
+        private ParentModel husband = new ParentModel();
+        private ParentModel wife = new ParentModel();
+
         public NewFamilyMainForm()
         {
             InitializeComponent();
@@ -18,19 +23,54 @@ namespace FamilySprout.Features.NewFamily
             lblAdminName.Text = SessionManager.CurrentUser.fullName;
         }
 
+
+        #region BUTTON_SAVE
+        private void InitializeVariables()
+        {
+            family.remarks = tbRemarks.Text.Trim();
+
+            husband.name = tbHusbandFullName.Text.Trim();
+            husband.hometown = tbHusbandFrom.Text.Trim();
+            husband.role = Roles.HUSBAND;
+
+            wife.name = tbWifeFullName.Text.Trim();
+            wife.hometown = tbWifeFrom.Text.Trim();
+            wife.role = Roles.WIFE;
+        }
+
+        private bool IsRequiredFieldEmpty()
+        {
+            if (
+                family.remarks == string.Empty ||
+                husband.name == string.Empty || husband.hometown == string.Empty ||
+                wife.name == string.Empty || wife.hometown == string.Empty)
+            {
+                MessageBox.Show("Please fill in all fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+
+            return false;
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
+            InitializeVariables();
             if (IsRequiredFieldEmpty()) return;
 
             try
             {
-                long familyId = DBFamily.CreateNewFamily(
-                    _husband: tbHusbandFullName.Text.Trim(),
-                    _husbandFrom: tbHusbandFrom.Text.Trim(),
-                    _wife: tbWifeFullName.Text.Trim(),
-                    _wifeFrom: tbWifeFrom.Text.Trim(),
-                    _remarks: tbRemarks.Text.Trim()
-                    );
+                family.id = DBFamily.CreateNewFamily(family);
+
+                if (family.id == -1)
+                {
+                    Console.WriteLine("Operation failed! Invalid family id");
+                    MessageBox.Show("Operation failed! Invalid Family ID", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                husband.famId = family.id;
+                wife.famId = family.id;
+
+                DBParents.CreateNewParent(husband);
+                DBParents.CreateNewParent(wife);
 
                 MainForm mainForm = this.ParentForm as MainForm;
                 ConfirmAddingNewFamily confirmAddingNewFamily = new ConfirmAddingNewFamily();
@@ -39,7 +79,7 @@ namespace FamilySprout.Features.NewFamily
                 {
                     if (mainForm != null)
                     {
-                        mainForm.OpenNewChildrenForm(_famId: familyId);
+                        mainForm.OpenNewChildrenForm(family.id);
                     }
                 }
                 else
@@ -55,17 +95,7 @@ namespace FamilySprout.Features.NewFamily
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
-
-        private bool IsRequiredFieldEmpty()
-        {
-            if (tbHusbandFullName.Text == "" || tbWifeFullName.Text == "" || tbHusbandFrom.Text == "" || tbWifeFrom.Text == "" || tbRemarks.Text == "")
-            {
-                MessageBox.Show("Please fill in all fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return true;
-            }
-
-            return false;
-        }
+        #endregion BUTTON_SAVE
 
 
         #region DRAG_AND_DROP
@@ -267,5 +297,18 @@ namespace FamilySprout.Features.NewFamily
             }
         }
         #endregion BUTTON_FULL_SCREEN
+
+
+        #region BUTTON_CANCEL
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = this.ParentForm as MainForm;
+
+            if (mainForm != null)
+            {
+                mainForm.OpenFamilyListForm();
+            }
+        }
+        #endregion BUTTON_CANCEL
     }
 }

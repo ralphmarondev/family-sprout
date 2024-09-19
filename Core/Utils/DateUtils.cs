@@ -8,6 +8,8 @@ namespace FamilySprout.Core.Utils
         public const string USER_FORMAT = "MMM dd, yyyy";
         public const string DB_FORMAT = "yyyy-MM-dd";
 
+
+        #region USER_INPUT
         public static string ConvertToUserReaderFormat(string _dateFromDatabase)
         {
             if (string.IsNullOrEmpty(_dateFromDatabase) || _dateFromDatabase == "")
@@ -50,7 +52,10 @@ namespace FamilySprout.Core.Utils
             if (isValid) return parsedDate;
             return DateTime.Today;
         }
+        #endregion USER_INPUT
 
+
+        #region DATABASE
         public static string GetCreateDate()
         {
             DateTime now = DateTime.Now;
@@ -67,5 +72,6 @@ namespace FamilySprout.Core.Utils
             Console.WriteLine(formattedDate); // Example: Sep. 3, 2024 12:17:00 PM
             return formattedDate;
         }
+        #endregion DATABASE
     }
 }

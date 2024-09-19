@@ -1,5 +1,4 @@
 ﻿using FamilySprout.Core.Model;
-using FamilySprout.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -16,12 +15,10 @@ namespace FamilySprout.Core.DB
 
                 string query = "CREATE TABLE IF NOT EXISTS families(" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "husband INTEGER," +
-                    "wife INTEGER," +
                     "child_count INTEGER DEFAULT 0," +
                     "remarks TEXT," +
                     "created_by TEXT," +
-                    "create_date TEXT," +
+                    "date_created TEXT," +
                     "is_deleted BOOLEAN DEFAULT 0);";
 
                 using (var command = new SQLiteCommand(query, connection))
@@ -31,51 +28,33 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        public static long CreateNewFamily(
-            string _husband,
-            string _husbandFrom,
-            string _wife,
-            string _wifeFrom,
-            string _remarks)
+        public static long CreateNewFamily(FamilyModel family)
         {
             try
             {
                 using (var connection = new SQLiteConnection(DBConfig.connectionString))
                 {
                     connection.Open();
-                    long husbandId, wifeId;
 
-                    husbandId = DBParents.CreateNewParent(
-                        _name: _husband,
-                        _from: _husbandFrom);
-
-                    wifeId = DBParents.CreateNewParent(
-                        _name: _wife,
-                        _from: _wifeFrom);
-
-
-                    var query = "INSERT INTO families (" +
-                        "husband, wife, remarks, created_by, create_date) " +
-                        "VALUES (@husband, @wife, @remarks, @created_by, @create_date);";
+                    string query = "INSERT INTO families (remarks, created_by, date_created) " +
+                        "VALUES (@remarks, @created_by, @date_created);";
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@husband", husbandId);
-                        command.Parameters.AddWithValue("@wife", wifeId);
-                        command.Parameters.AddWithValue("@remarks", _remarks);
-                        command.Parameters.AddWithValue("@created_by", SessionManager.CurrentUser.username);
-                        command.Parameters.AddWithValue("@create_date", DateUtils.GetCreateDate());
+                        command.Parameters.AddWithValue("@remarks", family.remarks);
+                        command.Parameters.AddWithValue("@created_by", family.createdBy);
+                        command.Parameters.AddWithValue("@date_created", family.dateCreated);
 
                         command.ExecuteNonQuery();
                     }
 
-                    long familyId;
+                    long famId;
                     using (var cmd = new SQLiteCommand("SELECT last_insert_rowid()", connection))
                     {
-                        familyId = (long)cmd.ExecuteScalar();
+                        famId = (long)cmd.ExecuteScalar();
                     }
-                    Console.WriteLine($"Retrieved family id: {familyId}");
-                    return familyId;
+                    Console.WriteLine($"Retrieved family id: {famId}");
+                    return famId;
                 }
             }
             catch (Exception ex)
@@ -85,7 +64,19 @@ namespace FamilySprout.Core.DB
             return -1;
         }
 
-        public static void DeleteFamilyDetails(long _famId)
+        public static List<FamilyModel> GetAllFamilies()
+        {
+            List<FamilyModel> families = new List<FamilyModel>();
+
+            return families;
+        }
+
+        public static void UpdateFamilyDetails(FamilyModel family)
+        {
+
+        }
+
+        public static void DeleteFamilyDetails(long famId)
         {
             try
             {
@@ -97,13 +88,13 @@ namespace FamilySprout.Core.DB
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@id", _famId);
+                        command.Parameters.AddWithValue("@id", famId);
 
                         command.ExecuteNonQuery();
                     }
                 }
-
-                DBChildren.DeleteChildByFamId(_famId);
+                // TODO: Also delete parent details
+                DBChildren.DeleteChildByFamId(famId);
             }
             catch (Exception ex)
             {
@@ -111,7 +102,9 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        public static void PermanentlyDeleteFamilyDetails(long _famId)
+
+        #region TRASH
+        public static void PermanentlyDeleteFamilyDetails(long famId)
         {
             try
             {
@@ -125,19 +118,20 @@ namespace FamilySprout.Core.DB
 
                         using (var command = new SQLiteCommand(query, connection))
                         {
-                            command.Parameters.AddWithValue("@id", _famId);
+                            command.Parameters.AddWithValue("@id", famId);
 
                             int rowsAffected = command.ExecuteNonQuery();
 
                             if (rowsAffected > 0)
                             {
-                                Console.WriteLine($"Family with Id: {_famId} permanently deleted.");
+                                Console.WriteLine($"Family with Id: {famId} permanently deleted.");
                             }
                             else
                             {
-                                Console.WriteLine($"No family found with id: {_famId} to delete.");
+                                Console.WriteLine($"No family found with id: {famId} to delete.");
                             }
                         }
+                        // TODO: ALSO PERMANENTLY DELETE PARENTS AND CHILDREN ASSOCIATED
                         transaction.Commit();
                     }
                 }
@@ -148,7 +142,7 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        public static void RestoreFamilyDetails(long _famId)
+        public static void RestoreFamilyDetails(long famId)
         {
             try
             {
@@ -160,21 +154,104 @@ namespace FamilySprout.Core.DB
 
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@id", _famId);
+                        command.Parameters.AddWithValue("@id", famId);
 
                         command.ExecuteNonQuery();
                     }
                 }
-                DBChildren.RestoreChildByFamId(_famId);
+                // TODO: ALSO RESTORE PARENTS DETAILS
+                DBChildren.RestoreChildByFamId(famId);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
+        /*
+        public static List<FamilyModel> GetDeletedFamilies()
+        {
+            List<FamilyModel> families = new List<FamilyModel>();
 
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
 
+                    string familyQuery = "SELECT f.id AS fam_id," +
+                        "h.name AS husband," +
+                        "h.hometown AS husband_from," +
+                        "w.name AS wife," +
+                        "w.hometown AS wife_from," +
+                        "f.remarks," +
+                        "f.created_by," +
+                        "f.create_date " +
+                        "FROM families f " +
+                        "LEFT JOIN parents h ON f.husband = h.id " +
+                        "LEFT JOIN parents w ON f.wife = w.id " +
+                        "WHERE f.is_deleted = 1;";
 
+                    using (var command = new SQLiteCommand(familyQuery, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                FamilyModel family = new FamilyModel();
+                                family.id = reader.GetInt64(reader.GetOrdinal("fam_id"));
+                                family.husband = reader["husband"] != DBNull.Value ? reader["husband"].ToString() : string.Empty;
+                                family.husbandFrom = reader["husband_from"] != DBNull.Value ? reader["husband_from"].ToString() : string.Empty;
+                                family.wife = reader["wife"] != DBNull.Value ? reader["wife"].ToString() : string.Empty;
+                                family.wifeFrom = reader["wife_from"] != DBNull.Value ? reader["wife_from"].ToString() : string.Empty;
+                                family.remarks = reader["remarks"] != DBNull.Value ? reader["remarks"].ToString() : string.Empty;
+                                family.createdBy = reader["created_by"] != DBNull.Value ? reader["created_by"].ToString() : string.Empty;
+                                family.createDate = reader["create_date"] != DBNull.Value ? reader["create_date"].ToString() : string.Empty;
+
+                                string childrenQuery = "SELECT " +
+                                    "id, fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, create_date " +
+                                    "FROM children WHERE fam_id = @fam_id AND is_deleted = 0;";
+
+                                using (var childCommand = new SQLiteCommand(childrenQuery, connection))
+                                {
+                                    childCommand.Parameters.AddWithValue("@fam_id", family.id);
+
+                                    using (var childReader = childCommand.ExecuteReader())
+                                    {
+                                        while (childReader.Read())
+                                        {
+                                            var child = new ChildModel(
+                                                 childReader.GetInt64(childReader.GetOrdinal("id")),
+                                        childReader.GetInt64(childReader.GetOrdinal("fam_id")),
+                                        childReader["name"] != DBNull.Value ? childReader["name"].ToString() : string.Empty,
+                                        childReader["bday"] != DBNull.Value ? childReader["bday"].ToString() : string.Empty,
+                                        childReader["baptism"] != DBNull.Value ? childReader["baptism"].ToString() : string.Empty,
+                                        childReader["hc"] != DBNull.Value ? childReader["hc"].ToString() : string.Empty,
+                                        childReader["obitus"] != DBNull.Value ? childReader["obitus"].ToString() : string.Empty,
+                                        childReader["matrimony"] != DBNull.Value ? childReader["matrimony"].ToString() : string.Empty,
+                                        childReader["created_by"] != DBNull.Value ? childReader["created_by"].ToString() : string.Empty,
+                                        childReader["create_date"] != DBNull.Value ? childReader["create_date"].ToString() : string.Empty
+                                                );
+                                            family.children.Add(child);
+                                        }
+                                    }
+                                }
+                                families.Add(family);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return families;
+        }
+        */
+        #endregion TRASH
+
+        /*
         public static FamilyModel GetFamilyDetails(long _famId)
         {
             FamilyModel familyModel = new FamilyModel();
@@ -245,7 +322,7 @@ namespace FamilySprout.Core.DB
                                     reader["create_date"] != DBNull.Value ? reader["create_date"].ToString() : string.Empty
                                     );
 
-                                familyModel.childrens.Add(child);
+                                familyModel.children.Add(child);
                             }
                         }
                     }
@@ -258,87 +335,7 @@ namespace FamilySprout.Core.DB
 
             return familyModel;
         }
-
-        public static List<FamilyModel> GetDeletedFamilies()
-        {
-            List<FamilyModel> families = new List<FamilyModel>();
-
-            try
-            {
-                using (var connection = new SQLiteConnection(DBConfig.connectionString))
-                {
-                    connection.Open();
-
-                    string familyQuery = "SELECT f.id AS fam_id," +
-                        "h.name AS husband," +
-                        "h.hometown AS husband_from," +
-                        "w.name AS wife," +
-                        "w.hometown AS wife_from," +
-                        "f.remarks," +
-                        "f.created_by," +
-                        "f.create_date " +
-                        "FROM families f " +
-                        "LEFT JOIN parents h ON f.husband = h.id " +
-                        "LEFT JOIN parents w ON f.wife = w.id " +
-                        "WHERE f.is_deleted = 1;";
-
-                    using (var command = new SQLiteCommand(familyQuery, connection))
-                    {
-                        using (var reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                FamilyModel family = new FamilyModel();
-                                family.id = reader.GetInt64(reader.GetOrdinal("fam_id"));
-                                family.husband = reader["husband"] != DBNull.Value ? reader["husband"].ToString() : string.Empty;
-                                family.husbandFrom = reader["husband_from"] != DBNull.Value ? reader["husband_from"].ToString() : string.Empty;
-                                family.wife = reader["wife"] != DBNull.Value ? reader["wife"].ToString() : string.Empty;
-                                family.wifeFrom = reader["wife_from"] != DBNull.Value ? reader["wife_from"].ToString() : string.Empty;
-                                family.remarks = reader["remarks"] != DBNull.Value ? reader["remarks"].ToString() : string.Empty;
-                                family.createdBy = reader["created_by"] != DBNull.Value ? reader["created_by"].ToString() : string.Empty;
-                                family.createDate = reader["create_date"] != DBNull.Value ? reader["create_date"].ToString() : string.Empty;
-
-                                string childrenQuery = "SELECT " +
-                                    "id, fam_id, name, bday, baptism, hc, obitus, matrimony, created_by, create_date " +
-                                    "FROM children WHERE fam_id = @fam_id AND is_deleted = 0;";
-
-                                using (var childCommand = new SQLiteCommand(childrenQuery, connection))
-                                {
-                                    childCommand.Parameters.AddWithValue("@fam_id", family.id);
-
-                                    using (var childReader = childCommand.ExecuteReader())
-                                    {
-                                        while (childReader.Read())
-                                        {
-                                            var child = new ChildModel(
-                                                 childReader.GetInt64(childReader.GetOrdinal("id")),
-                                        childReader.GetInt64(childReader.GetOrdinal("fam_id")),
-                                        childReader["name"] != DBNull.Value ? childReader["name"].ToString() : string.Empty,
-                                        childReader["bday"] != DBNull.Value ? childReader["bday"].ToString() : string.Empty,
-                                        childReader["baptism"] != DBNull.Value ? childReader["baptism"].ToString() : string.Empty,
-                                        childReader["hc"] != DBNull.Value ? childReader["hc"].ToString() : string.Empty,
-                                        childReader["obitus"] != DBNull.Value ? childReader["obitus"].ToString() : string.Empty,
-                                        childReader["matrimony"] != DBNull.Value ? childReader["matrimony"].ToString() : string.Empty,
-                                        childReader["created_by"] != DBNull.Value ? childReader["created_by"].ToString() : string.Empty,
-                                        childReader["create_date"] != DBNull.Value ? childReader["create_date"].ToString() : string.Empty
-                                                );
-                                            family.childrens.Add(child);
-                                        }
-                                    }
-                                }
-                                families.Add(family);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-
-            return families;
-        }
+        */
 
         public static int GetTotalFamilyCount()
         {
@@ -385,6 +382,45 @@ namespace FamilySprout.Core.DB
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+        }
+
+        // family - details
+        public static FamilyModel GetFamilyDetailsById(long id)
+        {
+            FamilyModel family = new FamilyModel();
+
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT id, remarks" +
+                        "WHEREid = @id AND is_deleted = 0;";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int idOrdinal = reader.GetOrdinal("id");
+                                int remarksOrdinal = reader.GetOrdinal("remarks");
+
+                                family.id = reader.GetInt64(idOrdinal);
+                                family.remarks = reader.GetString(remarksOrdinal);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return family;
         }
     }
 }

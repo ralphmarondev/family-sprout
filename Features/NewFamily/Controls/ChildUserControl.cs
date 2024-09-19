@@ -1,4 +1,5 @@
-﻿using FamilySprout.Core.Utils;
+﻿using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using FamilySprout.Features.NewFamily.Dialog;
 using FamilySprout.Features.NewFamily.Forms;
 using System.Windows.Forms;
@@ -7,41 +8,20 @@ namespace FamilySprout.Features.NewFamily.Controls
 {
     public partial class ChildUserControl : UserControl
     {
-        private long id;
-        public string name { get; private set; }
-        public string bday { get; private set; }
-        public string baptism { get; private set; }
-        public string hc { get; private set; }
-        public string obitus { get; private set; }
-        public string matrimony { get; private set; }
-
+        private ChildModel child = new ChildModel();
         public ChildUserControl()
         {
             InitializeComponent();
         }
-        public ChildUserControl(
-            long _id,
-            string _name,
-            string _bday,
-            string _baptism,
-            string _hc,
-            string _obitus,
-            string _matrimony)
+        public ChildUserControl(ChildModel child)
         {
             InitializeComponent();
+            this.child = child;
 
-            id = _id;
-            name = _name;
-            bday = _bday;
-            baptism = _baptism;
-            hc = _hc;
-            obitus = _obitus;
-            matrimony = _matrimony;
+            lblName.Text = child.name;
+            lblBday.Text = DateUtils.ConvertToUserReaderFormat(child.bday);
 
-            lblName.Text = name;
-            lblBday.Text = DateUtils.ConvertToUserReaderFormat(bday);
-
-            if (SessionManager.CurrentUser.role == 1)
+            if (SessionManager.CurrentUser.role == Roles.USER)
             {
                 btnUpdate.Enabled = false;
                 btnDelete.Enabled = false;
@@ -50,29 +30,14 @@ namespace FamilySprout.Features.NewFamily.Controls
 
         private void btnView_Click(object sender, System.EventArgs e)
         {
-            ViewChildDialog viewChild = new ViewChildDialog(
-                _name: name,
-                _bday: bday,
-                _baptism: baptism,
-                _hc: hc,
-                _obitus: obitus,
-                _matrimony: matrimony
-                );
+            ViewChildDialog viewChild = new ViewChildDialog(child);
 
             viewChild.ShowDialog(this);
         }
 
         private void btnUpdate_Click(object sender, System.EventArgs e)
         {
-            UpdateChildDialog updateChild = new UpdateChildDialog(
-                _id: id,
-                _name: name,
-                _bday: bday,
-                _baptism: baptism,
-                _hc: hc,
-                _obitus: obitus,
-                _matrimony: matrimony
-                );
+            UpdateChildDialog updateChild = new UpdateChildDialog(child);
 
             if (updateChild.ShowDialog(this) == DialogResult.OK)
             {
@@ -87,15 +52,7 @@ namespace FamilySprout.Features.NewFamily.Controls
 
         private void btnDelete_Click(object sender, System.EventArgs e)
         {
-            DeleteChildDialog deleteChild = new DeleteChildDialog(
-                _id: id,
-                 _name: name,
-                _bday: bday,
-                _baptism: baptism,
-                _hc: hc,
-                _obitus: obitus,
-                _matrimony: matrimony
-                );
+            DeleteChildDialog deleteChild = new DeleteChildDialog(child);
 
             if (deleteChild.ShowDialog(this) == DialogResult.OK)
             {

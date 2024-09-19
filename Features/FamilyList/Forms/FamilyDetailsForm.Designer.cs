@@ -457,7 +457,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FamilyDetailsForm";
-            this.Load += new System.EventHandler(this.FamilyDetailsForm_Load);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).EndInit();

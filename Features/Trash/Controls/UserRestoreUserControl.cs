@@ -28,7 +28,7 @@ namespace FamilySprout.Features.Trash.Controls
 
                 if (trashMainForm != null)
                 {
-                    trashMainForm.PopulatePanelWithDeletedUsers();
+                    //trashMainForm.PopulatePanelWithDeletedUsers();
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace FamilySprout.Features.Trash.Controls
 
                 if (trashMainForm != null)
                 {
-                    trashMainForm.PopulatePanelWithDeletedUsers();
+                    //trashMainForm.PopulatePanelWithDeletedUsers();
                 }
             }
         }

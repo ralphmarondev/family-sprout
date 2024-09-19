@@ -222,7 +222,7 @@ namespace FamilySprout.Features.Dashboard
 
             if (result == DialogResult.Yes)
             {
-                Backup.CopyDatabase();
+                DBConfig.ExportDatabase();
             }
         }
         #endregion BUTTON_BACKUP

@@ -1,5 +1,5 @@
-﻿using FamilySprout.Features.Trash.Dialogs.Family;
-using FamilySprout.Core.Model;
+﻿using FamilySprout.Core.Model;
+using FamilySprout.Features.Trash.Dialogs.Family;
 using System;
 using System.Windows.Forms;
 
@@ -16,8 +16,8 @@ namespace FamilySprout.Features.Trash.Controls
 
             family = _family;
 
-            lblHusband.Text = family.husband;
-            lblWife.Text = family.wife;
+            //lblHusband.Text = family.husband;
+            //lblWife.Text = family.wife;
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace FamilySprout.Features.Trash.Controls
 
                 if (trashMainForm != null)
                 {
-                    trashMainForm.PopulatePanelWithDeletedFamilies();
+                    //trashMainForm.PopulatePanelWithDeletedFamilies();
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace FamilySprout.Features.Trash.Controls
 
                 if (trashMainForm != null)
                 {
-                    trashMainForm.PopulatePanelWithDeletedFamilies();
+                    //trashMainForm.PopulatePanelWithDeletedFamilies();
                 }
             }
         }

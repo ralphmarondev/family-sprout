@@ -14,11 +14,11 @@ namespace FamilySprout.Features.Trash.Dialogs.Family
 
             family = _family;
 
-            tbHusbandFullName.Text = family.husband;
-            tbHusbandFrom.Text = family.husbandFrom;
-            tbWifeFullName.Text = family.wife;
-            tbWifeFrom.Text = family.wifeFrom;
-            tbRemarks.Text = family.remarks;
+            //tbHusbandFullName.Text = family.husband;
+            //tbHusbandFrom.Text = family.husbandFrom;
+            //tbWifeFullName.Text = family.wife;
+            //tbWifeFrom.Text = family.wifeFrom;
+            //tbRemarks.Text = family.remarks;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace FamilySprout.Features.Trash.Dialogs.Family
         {
             try
             {
-                DBFamily.RestoreFamilyDetails(_famId: family.id);
+                DBFamily.RestoreFamilyDetails(family.id);
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)

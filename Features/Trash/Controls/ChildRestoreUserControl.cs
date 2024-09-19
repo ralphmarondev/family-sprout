@@ -29,7 +29,7 @@ namespace FamilySprout.Features.Trash.Controls
 
                 if (trashMainForm != null)
                 {
-                    trashMainForm.PopulatePanelWithDeletedChildrens();
+                    //trashMainForm.PopulatePanelWithDeletedChildrens();
                 }
             }
         }
@@ -45,7 +45,7 @@ namespace FamilySprout.Features.Trash.Controls
 
                 if (trashMainForm != null)
                 {
-                    trashMainForm.PopulatePanelWithDeletedChildrens();
+                    //trashMainForm.PopulatePanelWithDeletedChildrens();
                 }
             }
         }

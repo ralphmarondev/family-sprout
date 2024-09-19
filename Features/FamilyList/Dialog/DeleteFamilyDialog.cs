@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Model;
 using System;
 using System.Windows.Forms;
 
@@ -6,22 +7,20 @@ namespace FamilySprout.Features.FamilyList.Dialog
 {
     public partial class DeleteFamilyDialog : Form
     {
-        private long famId;
-        public DeleteFamilyDialog(long _famId,
-            string _husband,
-            string _husbandFrom,
-            string _wife,
-            string _wifeFrom,
-            string _remarks)
+        FamilyModel family;
+        ParentModel husband, wife;
+        public DeleteFamilyDialog(FamilyModel family, ParentModel husband, ParentModel wife)
         {
             InitializeComponent();
+            this.family = family;
+            this.husband = husband;
+            this.wife = wife;
 
-            famId = _famId;
-            tbHusbandFullName.Text = _husband;
-            tbHusbandFrom.Text = _husbandFrom;
-            tbWifeFullName.Text = _wife;
-            tbWifeFrom.Text = _wifeFrom;
-            tbRemarks.Text = _remarks;
+            tbHusbandFullName.Text = husband.name;
+            tbHusbandFrom.Text = husband.hometown;
+            tbWifeFullName.Text = wife.name;
+            tbWifeFrom.Text = wife.hometown;
+            tbRemarks.Text = family.remarks;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -35,7 +34,7 @@ namespace FamilySprout.Features.FamilyList.Dialog
 
             try
             {
-                DBFamily.DeleteFamilyDetails(_famId: famId);
+                DBFamily.DeleteFamilyDetails(family.id);
                 MessageBox.Show("Deleted Successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();

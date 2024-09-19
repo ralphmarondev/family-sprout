@@ -14,14 +14,13 @@ namespace FamilySprout.Features.NewFamily.Forms
     public partial class NewChildForm : Form
     {
         private long famId;
-        public NewChildForm(long _famId)
+        public NewChildForm(long famId)
         {
             InitializeComponent();
-            SetupPopupPanel();
-
+            this.famId = famId;
             lblAdminName.Text = SessionManager.CurrentUser.fullName;
 
-            famId = _famId;
+            SetupPopupPanel();
             FetchData();
         }
 
@@ -35,16 +34,16 @@ namespace FamilySprout.Features.NewFamily.Forms
             }
         }
 
-        List<ChildModel> childrens = new List<ChildModel>();
+        List<ChildModel> children = new List<ChildModel>();
         public void FetchData()
         {
-            childrens.Clear();
-            childrens = DBChildren.GetChildrenByFamilyId(famId);
+            children.Clear();
+            children = DBChildren.GetChildrenByFamilyId(famId);
             panelChildrenList.Controls.Clear();
             panelChildrenList.AutoScroll = true;
             int currentY = 10;
 
-            if (childrens.Count == 0)
+            if (children.Count == 0)
             {
                 Label label = new Label();
                 label.Text = "No children found!";
@@ -71,17 +70,9 @@ namespace FamilySprout.Features.NewFamily.Forms
             }
             else
             {
-                foreach (var child in childrens)
+                foreach (var child in children)
                 {
-                    ChildUserControl childUserControl = new ChildUserControl(
-                        _id: child.id,
-                        _name: child.name,
-                        _bday: child.bday,
-                        _baptism: child.baptism,
-                        _hc: child.hc,
-                        _obitus: child.obitus,
-                        _matrimony: child.matrimony
-                        );
+                    ChildUserControl childUserControl = new ChildUserControl(child);
 
                     childUserControl.Location = new Point(10, currentY);
                     childUserControl.Width = panelChildrenList.ClientSize.Width - 20;

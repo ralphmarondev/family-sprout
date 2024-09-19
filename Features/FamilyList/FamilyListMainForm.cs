@@ -67,35 +67,68 @@ namespace FamilySprout.Features.FamilyList
 
         private void LoadFamilyData()
         {
+
             try
             {
                 using (var connection = new SQLiteConnection(DBConfig.connectionString))
                 {
                     connection.Open();
 
-                    string query = @"
-                        SELECT 
-                            f.id AS FamilyId, 
-                            h.name AS HusbandName,
-                            w.name AS WifeName,
-                            (SELECT COUNT(*) FROM children WHERE fam_id = f.id AND is_deleted = 0) AS ChildCount
-                        FROM families f
-                        LEFT JOIN parents h ON f.husband = h.id
-                        LEFT JOIN parents w ON f.wife = w.id
-                        WHERE f.is_deleted = 0;";
-
+                    string query = "SELECT f.id AS FamilyId, " +
+                        "(SELECT COUNT(*) FROM children WHERE fam_id = f.id AND is_deleted = 0) AS ChildCount " +
+                        "FROM families f " +
+                        "WHERE f.is_deleted = 0;";
                     using (var command = new SQLiteCommand(query, connection))
                     {
                         using (var reader = command.ExecuteReader())
                         {
                             bool hasResults = false;
+                            int familyIdOrdinal = reader.GetOrdinal("FamilyId");
+                            int childCountOrdinal = reader.GetOrdinal("ChildCount");
+
                             while (reader.Read())
                             {
                                 hasResults = true;
-                                long familyId = reader.GetInt64(0);
-                                string husbandName = reader.GetString(1);
-                                string wifeName = reader.GetString(2);
-                                int childCount = reader.GetInt32(3);
+                                long familyId = reader.GetInt64(familyIdOrdinal);
+                                int childCount = reader.GetInt32(childCountOrdinal);
+
+                                string husbandQuery = @"
+                            SELECT p.name 
+                            FROM parents p
+                            WHERE p.fam_id = @FamilyId AND p.role = 0;";
+
+                                string husbandName = null;
+                                using (var husbandCommand = new SQLiteCommand(husbandQuery, connection))
+                                {
+                                    husbandCommand.Parameters.AddWithValue("@FamilyId", familyId);
+                                    using (var husbandReader = husbandCommand.ExecuteReader())
+                                    {
+                                        if (husbandReader.Read())
+                                        {
+                                            int nameOrdinal = husbandReader.GetOrdinal("name");
+                                            husbandName = husbandReader.GetString(nameOrdinal);
+                                        }
+                                    }
+                                }
+
+                                string wifeQuery = @"
+                            SELECT p.name 
+                            FROM parents p
+                            WHERE p.fam_id = @FamilyId AND p.role = 1;";
+
+                                string wifeName = null;
+                                using (var wifeCommand = new SQLiteCommand(wifeQuery, connection))
+                                {
+                                    wifeCommand.Parameters.AddWithValue("@FamilyId", familyId);
+                                    using (var wifeReader = wifeCommand.ExecuteReader())
+                                    {
+                                        if (wifeReader.Read())
+                                        {
+                                            int nameOrdinal = wifeReader.GetOrdinal("name");
+                                            wifeName = wifeReader.GetString(nameOrdinal);
+                                        }
+                                    }
+                                }
 
                                 dataGridViewFamilies.Rows.Add(familyId, husbandName, wifeName, childCount);
                             }
@@ -106,7 +139,7 @@ namespace FamilySprout.Features.FamilyList
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                Console.WriteLine($"Error: {ex.Message}");
             }
         }
 
@@ -124,11 +157,13 @@ namespace FamilySprout.Features.FamilyList
 
                 if (mainForm != null)
                 {
-                    mainForm.OpenFamilyDetailsForm(_famId: Convert.ToInt64(famId));
+                    mainForm.OpenFamilyDetailsForm(Convert.ToInt64(famId));
                 }
             }
         }
 
+
+        #region SEARCH
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
             if (tbSearch.Text.Trim().Length > 0)
@@ -191,6 +226,7 @@ namespace FamilySprout.Features.FamilyList
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+        #endregion SEARCH
 
 
         #region DRAG_AND_DROP

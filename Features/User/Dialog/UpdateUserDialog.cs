@@ -70,9 +70,9 @@ namespace FamilySprout.Features.User.Dialog
                 // update parents, family, children
                 if (user.username != oldUsername)
                 {
-                    DBFamily.UpdateFamilyCreatedBy(_newUsername: user.username, _oldUsername: oldUsername);
-                    DBParents.UpdateParentCreatedBy(_newUsername: user.username, _oldUsername: oldUsername);
-                    DBChildren.UpdateChildrenCreatedBy(_newUsername: user.username, _oldUsername: oldUsername);
+                    DBFamily.UpdateFamilyCreatedBy(user.username, oldUsername);
+                    DBParents.UpdateParentCreatedBy(user.username, oldUsername);
+                    DBChildren.UpdateChildrenCreatedBy(user.username, oldUsername);
                 }
 
                 DialogResult = DialogResult.OK;

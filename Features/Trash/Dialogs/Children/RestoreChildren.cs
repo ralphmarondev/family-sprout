@@ -27,7 +27,7 @@ namespace FamilySprout.Features.Trash.Dialogs.Children
         {
             try
             {
-                DBChildren.RestoreChild(_id: child.id);
+                DBChildren.RestoreChild(child.id);
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)

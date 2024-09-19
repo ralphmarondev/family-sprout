@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.DB;
+using FamilySprout.Core.Model;
 using FamilySprout.Core.Utils;
 using System;
 using System.Windows.Forms;
@@ -7,34 +8,21 @@ namespace FamilySprout.Features.NewFamily.Dialog
 {
     public partial class UpdateChildDialog : Form
     {
-        long id;
-        public string name { get; private set; }
-        public string bday { get; private set; }
-        public string baptism { get; private set; }
-        public string hc { get; private set; }
-        public string obitus { get; private set; }
-        public string matrimony { get; private set; }
-
-        public UpdateChildDialog(
-            long _id,
-            string _name,
-            string _bday,
-            string _baptism,
-            string _hc,
-            string _obitus,
-            string _matrimony)
+        private ChildModel child = new ChildModel();
+        public UpdateChildDialog(ChildModel child)
         {
             InitializeComponent();
+            this.child = child;
+
             SetupFields();
 
-            id = _id;
-            tbName.Text = _name;
+            tbName.Text = child.name;
             // convert it already
-            tbBday.Text = DateUtils.ConvertToUserReaderFormat(_bday);
-            tbBaptism.Text = DateUtils.ConvertToUserReaderFormat(_baptism);
-            tbHc.Text = DateUtils.ConvertToUserReaderFormat(_hc);
-            tbMatrimony.Text = DateUtils.ConvertToUserReaderFormat(_matrimony);
-            tbObitus.Text = DateUtils.ConvertToUserReaderFormat(_obitus);
+            tbBday.Text = DateUtils.ConvertToUserReaderFormat(child.bday);
+            tbBaptism.Text = DateUtils.ConvertToUserReaderFormat(child.baptism);
+            tbHc.Text = DateUtils.ConvertToUserReaderFormat(child.hc);
+            tbMatrimony.Text = DateUtils.ConvertToUserReaderFormat(child.matrimony);
+            tbObitus.Text = DateUtils.ConvertToUserReaderFormat(child.obitus);
 
             // set datepicker to their current values
             dtBday.Value = DateUtils.ToReadableFormatInDateTime(tbBday.Text.Trim());
@@ -100,44 +88,36 @@ namespace FamilySprout.Features.NewFamily.Dialog
             {
                 if (IsRequiredFieldsEmpty()) return;
 
-                name = tbName.Text.Trim();
-                bday = tbBday.Text.Trim();
-                baptism = tbBaptism.Text.Trim();
-                hc = tbHc.Text.Trim();
-                obitus = tbObitus.Text.Trim();
-                matrimony = tbMatrimony.Text.Trim();
+                child.name = tbName.Text.Trim();
+                child.bday = tbBday.Text.Trim();
+                child.baptism = tbBaptism.Text.Trim();
+                child.hc = tbHc.Text.Trim();
+                child.obitus = tbObitus.Text.Trim();
+                child.matrimony = tbMatrimony.Text.Trim();
 
                 if (!IsInputDateValid())
                     return;
 
-                bday = dtBday.Value.ToString(DateUtils.DB_FORMAT);
-                if (baptism != string.Empty)
+                child.bday = dtBday.Value.ToString(DateUtils.DB_FORMAT);
+                if (child.baptism != string.Empty)
                 {
-                    baptism = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
+                    child.baptism = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
                 }
-                if (hc != string.Empty)
+                if (child.hc != string.Empty)
                 {
-                    hc = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
+                    child.hc = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
                 }
-                if (matrimony != string.Empty)
+                if (child.matrimony != string.Empty)
                 {
-                    matrimony = dtMatrimony.Value.ToString(DateUtils.DB_FORMAT);
+                    child.matrimony = dtMatrimony.Value.ToString(DateUtils.DB_FORMAT);
                 }
-                if (obitus != string.Empty)
+                if (child.obitus != string.Empty)
                 {
-                    obitus = dtObitus.Value.ToString(DateUtils.DB_FORMAT);
+                    child.obitus = dtObitus.Value.ToString(DateUtils.DB_FORMAT);
                 }
 
 
-                DBChildren.UpdateChild(
-                    _id: id,
-                    _name: name,
-                    _bday: bday,
-                    _baptism: baptism,
-                    _hc: hc,
-                    _obitus: obitus,
-                    _matrimony: matrimony
-                    );
+                DBChildren.UpdateChild(child);
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
@@ -169,29 +149,29 @@ namespace FamilySprout.Features.NewFamily.Dialog
 
         private bool IsInputDateValid()
         {
-            if (!DateUtils.IsDateFormatValid(bday) && bday != string.Empty)
+            if (!DateUtils.IsDateFormatValid(child.bday) && child.bday != string.Empty)
             {
-                MessageBox.Show($"'{bday}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"'{child.bday}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (!DateUtils.IsDateFormatValid(baptism) && baptism != string.Empty)
+            if (!DateUtils.IsDateFormatValid(child.baptism) && child.baptism != string.Empty)
             {
-                MessageBox.Show($"'{baptism}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"'{child.baptism}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (!DateUtils.IsDateFormatValid(hc) && hc != string.Empty)
+            if (!DateUtils.IsDateFormatValid(child.hc) && child.hc != string.Empty)
             {
-                MessageBox.Show($"'{hc}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"'{child.hc}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (!DateUtils.IsDateFormatValid(matrimony) && matrimony != string.Empty)
+            if (!DateUtils.IsDateFormatValid(child.matrimony) && child.matrimony != string.Empty)
             {
-                MessageBox.Show($"'{matrimony}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"'{child.matrimony}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (!DateUtils.IsDateFormatValid(obitus) && obitus != string.Empty)
+            if (!DateUtils.IsDateFormatValid(child.obitus) && child.obitus != string.Empty)
             {
-                MessageBox.Show($"'{obitus}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"'{child.obitus}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

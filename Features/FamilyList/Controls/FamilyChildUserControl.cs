@@ -31,29 +31,14 @@ namespace FamilySprout.Features.FamilyList.Controls
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            ViewChildDialog viewChild = new ViewChildDialog(
-                _name: child.name,
-                _bday: child.bday,
-                _baptism: child.baptism,
-                _hc: child.hc,
-                _obitus: child.obitus,
-                _matrimony: child.matrimony
-                );
+            ViewChildDialog viewChild = new ViewChildDialog(child);
 
             viewChild.ShowDialog(this);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            UpdateChildDialog updateChild = new UpdateChildDialog(
-                _id: child.id,
-                _name: child.name,
-                _bday: child.bday,
-                _baptism: child.baptism,
-                _hc: child.hc,
-                _obitus: child.obitus,
-                _matrimony: child.matrimony
-                );
+            UpdateChildDialog updateChild = new UpdateChildDialog(child);
 
             if (updateChild.ShowDialog(this) == DialogResult.OK)
             {
@@ -68,15 +53,7 @@ namespace FamilySprout.Features.FamilyList.Controls
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DeleteChildDialog deleteChild = new DeleteChildDialog(
-                _id: child.id,
-                _name: child.name,
-                _bday: child.bday,
-                _baptism: child.baptism,
-                _hc: child.hc,
-                _obitus: child.obitus,
-                _matrimony: child.matrimony
-                );
+            DeleteChildDialog deleteChild = new DeleteChildDialog(child);
 
             if (deleteChild.ShowDialog(this) == DialogResult.OK)
             {

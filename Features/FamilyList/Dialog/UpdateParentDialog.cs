@@ -1,4 +1,4 @@
-﻿using FamilySprout.Core.DB;
+﻿using FamilySprout.Core.Model;
 using System;
 using System.Windows.Forms;
 
@@ -6,24 +6,20 @@ namespace FamilySprout.Features.FamilyList.Dialog
 {
     public partial class UpdateParentDialog : Form
     {
-        private long famId;
-        public UpdateParentDialog(
-            long _famId,
-            string _husband,
-            string _husbandFrom,
-            string _wife,
-            string _wifeFrom,
-            string _remarks
-            )
+        FamilyModel family;
+        ParentModel husband, wife;
+        public UpdateParentDialog(FamilyModel family, ParentModel husband, ParentModel wife)
         {
             InitializeComponent();
+            this.family = family;
+            this.husband = husband;
+            this.wife = wife;
 
-            famId = _famId;
-            tbHusbandFullName.Text = _husband;
-            tbHusbandFrom.Text = _husbandFrom;
-            tbWifeFullName.Text = _wife;
-            tbWifeFrom.Text = _wifeFrom;
-            tbRemarks.Text = _remarks;
+            tbHusbandFullName.Text = husband.name;
+            tbHusbandFrom.Text = husband.hometown;
+            tbWifeFullName.Text = wife.name;
+            tbWifeFrom.Text = wife.hometown;
+            tbRemarks.Text = family.remarks;
         }
 
         private void btnCancel_Click(object sender, System.EventArgs e)
@@ -37,14 +33,14 @@ namespace FamilySprout.Features.FamilyList.Dialog
 
             try
             {
-                DBParents.UpdateParentInformation(
-                    _famId: famId,
-                    _husband: tbHusbandFullName.Text.Trim(),
-                    _husbandFrom: tbHusbandFrom.Text.Trim(),
-                    _wife: tbWifeFullName.Text.Trim(),
-                    _wifeFrom: tbWifeFrom.Text.Trim(),
-                    _remarks: tbRemarks.Text.Trim()
-                    );
+                //DBParents.UpdateParentInformation(
+                //    _famId: famId,
+                //    _husband: tbHusbandFullName.Text.Trim(),
+                //    _husbandFrom: tbHusbandFrom.Text.Trim(),
+                //    _wife: tbWifeFullName.Text.Trim(),
+                //    _wifeFrom: tbWifeFrom.Text.Trim(),
+                //    _remarks: tbRemarks.Text.Trim()
+                //    );
                 DialogResult = DialogResult.OK;
                 Close();
             }

@@ -10,26 +10,26 @@ namespace FamilySprout.Features.FamilyList.Forms
 {
     public partial class FamilyDetailsForm : Form
     {
-        long famId;
-        FamilyModel familyModel;
-        public FamilyDetailsForm(long _famId)
+        FamilyModel family;
+        ParentModel husband, wife;
+        public FamilyDetailsForm(long famId)
         {
             InitializeComponent();
-            SetupPopupPanel();
-            famId = _famId;
+            family.id = famId;
 
             lblAdminName.Text = SessionManager.CurrentUser.fullName;
             lblNonSuperUserIndicator.Visible = false;
 
-            if (SessionManager.CurrentUser.role == 1)
+            if (SessionManager.CurrentUser.role == Roles.USER)
             {
                 btnUpdate.Enabled = false;
                 btnDelete.Enabled = false;
                 lblNonSuperUserIndicator.Visible = true;
             }
+            FetchData();
+            SetupFields();
 
-            familyModel = DBFamily.GetFamilyDetails(_famId);
-
+            SetupPopupPanel();
         }
 
         private void lblBack_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -48,50 +48,40 @@ namespace FamilySprout.Features.FamilyList.Forms
 
             if (mainForm != null)
             {
-                mainForm.OpenFamilyChildListForm(famId);
+                mainForm.OpenFamilyChildListForm(family.id);
             }
-        }
-
-        private void FamilyDetailsForm_Load(object sender, System.EventArgs e)
-        {
-            tbHusbandFullName.Text = familyModel.husband;
-            tbHusbandFrom.Text = familyModel.husbandFrom;
-            tbWifeFullName.Text = familyModel.wife;
-            tbWifeFrom.Text = familyModel.wifeFrom;
-            tbRemarks.Text = familyModel.remarks;
         }
 
         private void btnUpdate_Click(object sender, System.EventArgs e)
         {
-            UpdateParentDialog updateParent = new UpdateParentDialog(
-                _famId: familyModel.id,
-                _husband: familyModel.husband,
-                _husbandFrom: familyModel.husbandFrom,
-                _wife: familyModel.wife,
-                _wifeFrom: familyModel.wifeFrom,
-                _remarks: familyModel.remarks);
+            UpdateParentDialog updateParent = new UpdateParentDialog(family, husband, wife);
 
             if (updateParent.ShowDialog(this) == DialogResult.OK)
             {
-                familyModel = DBFamily.GetFamilyDetails(famId);
-
-                tbHusbandFullName.Text = familyModel.husband;
-                tbHusbandFrom.Text = familyModel.husbandFrom;
-                tbWifeFullName.Text = familyModel.wife;
-                tbWifeFrom.Text = familyModel.wifeFrom;
-                tbRemarks.Text = familyModel.remarks;
+                FetchData();
+                SetupFields();
             }
+        }
+
+        private void FetchData()
+        {
+            family = DBFamily.GetFamilyDetailsById(family.id);
+            husband = DBParents.GetParentDetailsByFamilyId(famId: family.id, role: Roles.HUSBAND);
+            wife = DBParents.GetParentDetailsByFamilyId(famId: family.id, role: Roles.WIFE);
+        }
+
+        private void SetupFields()
+        {
+            tbHusbandFullName.Text = husband.name;
+            tbHusbandFrom.Text = husband.hometown;
+            tbWifeFullName.Text = wife.name;
+            tbWifeFrom.Text = wife.hometown;
+            tbRemarks.Text = family.remarks;
         }
 
         private void btnDelete_Click(object sender, System.EventArgs e)
         {
-            DeleteFamilyDialog deleteFamily = new DeleteFamilyDialog(
-                _famId: familyModel.id,
-                _husband: familyModel.husband,
-                _husbandFrom: familyModel.husbandFrom,
-                _wife: familyModel.wife,
-                _wifeFrom: familyModel.wifeFrom,
-                _remarks: familyModel.remarks);
+            DeleteFamilyDialog deleteFamily = new DeleteFamilyDialog(family, husband, wife);
 
             if (deleteFamily.ShowDialog(this) == DialogResult.OK)
             {

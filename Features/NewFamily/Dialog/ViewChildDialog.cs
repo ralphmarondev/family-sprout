@@ -1,4 +1,5 @@
-﻿using FamilySprout.Core.Utils;
+﻿using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -6,23 +7,18 @@ namespace FamilySprout.Features.NewFamily.Dialog
 {
     public partial class ViewChildDialog : Form
     {
-        public ViewChildDialog(
-            string _name,
-            string _bday,
-            string _baptism,
-            string _hc,
-            string _obitus,
-            string _matrimony
-            )
+        private ChildModel child = new ChildModel();
+        public ViewChildDialog(ChildModel child)
         {
             InitializeComponent();
+            this.child = child;
 
-            tbName.Text = _name;
-            tbBday.Text = DateUtils.ConvertToUserReaderFormat(_bday);
-            tbBaptism.Text = DateUtils.ConvertToUserReaderFormat(_baptism);
-            tbHc.Text = DateUtils.ConvertToUserReaderFormat(_hc);
-            tbObitus.Text = DateUtils.ConvertToUserReaderFormat(_obitus);
-            tbMatrimony.Text = DateUtils.ConvertToUserReaderFormat(_matrimony);
+            tbName.Text = child.name;
+            tbBday.Text = DateUtils.ConvertToUserReaderFormat(child.bday);
+            tbBaptism.Text = DateUtils.ConvertToUserReaderFormat(child.baptism);
+            tbHc.Text = DateUtils.ConvertToUserReaderFormat(child.hc);
+            tbObitus.Text = DateUtils.ConvertToUserReaderFormat(child.obitus);
+            tbMatrimony.Text = DateUtils.ConvertToUserReaderFormat(child.matrimony);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
