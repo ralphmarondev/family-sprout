@@ -15,11 +15,8 @@ namespace FamilySprout.Core.Model
 
         public UserModel()
         {
-            id = -1;
-            role = Constants.User.USER;
             createdBy = "System";
             dateCreated = DateUtils.GetCreateDate();
-            isDeleted = false;
         }
     }
 }

@@ -79,8 +79,13 @@ namespace FamilySprout.Core.DB
 
                 string query = "CREATE TABLE IF NOT EXISTS families(" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    $"child_count INTEGER DEFAULT {Constants.ZERO}," +
+                    "husband INTEGER," +
+                    "husband_name TEXT," +
+                    "wife INTEGER," +
+                    "wife_name TEXT," +
+                    "hometown TEXT," +
                     "remarks TEXT," +
+                    $"child_count INTEGER DEFAULT {Constants.ZERO}," +
                     "created_by TEXT," +
                     "date_created TEXT," +
                     $"is_deleted BOOLEAN DEFAULT {Constants.FALSE});";
@@ -101,9 +106,15 @@ namespace FamilySprout.Core.DB
                 string query = "CREATE TABLE IF NOT EXISTS parents(" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "fam_id INTEGER," +
-                    $"role INTEGER DEFAULT {Constants.Parent.HUSBAND}," +
                     "name TEXT," +
-                    "hometown TEXT," +
+                    "contact_number TEXT," +
+                    "bday TEXT," +
+                    "birth_place TEXT," +
+                    "baptism TEXT," +
+                    "hc TEXT," +
+                    "matrimony TEXT," +
+                    "obitus TEXT," +
+                    $"role INTEGER DEFAULT {Constants.Parent.HUSBAND}," +
                     "created_by TEXT," +
                     "date_created TEXT," +
                     $"is_deleted BOOLEAN DEFAULT {Constants.FALSE});";
@@ -132,7 +143,7 @@ namespace FamilySprout.Core.DB
                     "matrimony TEXT," +
                     "created_by TEXT," +
                     "date_created TEXT," +
-                    "is_deleted BOOLEAN DEFAULT 0);";
+                    $"is_deleted BOOLEAN DEFAULT {Constants.FALSE});";
 
                 using (var command = new SQLiteCommand(query, connection))
                 {

@@ -108,6 +108,12 @@
     <Compile Include="Features\Home\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\NewChildren\NewChildrenMainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\NewChildren\NewChildrenMainScreen.Designer.cs">
+      <DependentUpon>NewChildrenMainScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\NewFamily\DB\DBNewFamily.cs" />
     <Compile Include="Features\NewFamily\NewFamilyMainScreen.cs">
       <SubType>Form</SubType>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Home\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\NewChildren\NewChildrenMainScreen.resx">
+      <DependentUpon>NewChildrenMainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\NewFamily\NewFamilyMainScreen.resx">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
@@ -155,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Families\" />
-    <Folder Include="Features\NewFamily\Forms\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\content-management-system-icon-design-free-vector.jpg" />

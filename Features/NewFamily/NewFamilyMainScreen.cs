@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.Model;
 using FamilySprout.Core.Utils;
+using FamilySprout.Features.NewFamily.DB;
 using System;
 using System.Windows.Forms;
 
@@ -7,6 +8,10 @@ namespace FamilySprout.Features.NewFamily
 {
     public partial class NewFamilyMainScreen : Form
     {
+        const int HUSBAND = 0;
+        const int WIFE = 1;
+        private int currentPanel = HUSBAND;
+
         private ParentModel husband = new ParentModel();
         private ParentModel wife = new ParentModel();
         private FamilyModel family = new FamilyModel();
@@ -20,38 +25,67 @@ namespace FamilySprout.Features.NewFamily
             lblCurrentUser.Text = "Ralph Maron Eda";
         }
 
+
+        #region BUTTONS
         private void btnNext_Click(object sender, System.EventArgs e)
         {
-            if (tbName.Text.Trim() == string.Empty || tbBday.Text.Trim() == string.Empty)
+            switch (currentPanel)
             {
-                MessageBox.Show("Name and birthday cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                case HUSBAND:
+                    if (tbName.Text.Trim() == string.Empty || tbContactNumber.Text.Trim() == string.Empty || tbBday.Text.Trim() == string.Empty || tbBirthPlace.Text.Trim() == string.Empty)
+                    {
+                        MessageBox.Show("Name, contact number, birthday and birthplace are required fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    panelHusband.SendToBack();
+                    panelWife.BringToFront();
+                    currentPanel = WIFE;
+                    btnPrev.Visible = true;
+                    break;
+                case WIFE:
+                    if (tbWifeName.Text.Trim() == string.Empty || tbWifeContactNumber.Text.Trim() == string.Empty || tbWifeBday.Text.Trim() == string.Empty || tbWifeBirthPlace.Text.Trim() == string.Empty)
+                    {
+                        MessageBox.Show("Name, contact number, birthday and birthplace are required fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    panelParentInfo.SendToBack();
+                    panelOtherInfo.BringToFront();
+                    break;
             }
-            panelWifeInfo.BringToFront();
         }
 
-        private void btnNextToOtherInfo_Click(object sender, EventArgs e)
+        private void btnPrev_Click(object sender, EventArgs e)
         {
-            if (tbWife.Text.Trim() == string.Empty || tbWifeBday.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Name and birthday cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            panelFamInfoFinal.BringToFront();
+            currentPanel = HUSBAND;
+            btnPrev.Visible = false;
+            panelWife.SendToBack();
+            panelHusband.BringToFront();
         }
 
         private void btnSave_Click(object sender, System.EventArgs e)
         {
-            // set values
+            if (tbRemarks.Text.Trim() == string.Empty || tbTown.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Remarks and town are required fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // assign variables
             husband.name = tbName.Text.Trim();
+            husband.contactNumber = tbContactNumber.Text.Trim();
             husband.bday = tbBday.Text.Trim();
+            husband.birthPlace = tbBirthPlace.Text.Trim();
             husband.baptism = tbBaptism.Text.Trim();
             husband.hc = tbHc.Text.Trim();
             husband.matrimony = tbMatrimony.Text.Trim();
             husband.obitus = tbObitus.Text.Trim();
 
-            wife.name = tbWife.Text.Trim();
+            wife.name = tbWifeName.Text.Trim();
+            wife.contactNumber = tbWifeContactNumber.Text.Trim();
             wife.bday = tbWifeBday.Text.Trim();
+            wife.birthPlace = tbWifeBirthPlace.Text.Trim();
             wife.baptism = tbWifeBaptism.Text.Trim();
             wife.hc = tbWifeHc.Text.Trim();
             wife.matrimony = tbWifeMatrimony.Text.Trim();
@@ -60,12 +94,123 @@ namespace FamilySprout.Features.NewFamily
             family.husbandName = husband.name;
             family.wifeName = wife.name;
             family.remarks = tbRemarks.Text.Trim();
+            family.hometown = tbTown.Text.Trim();
 
             // check if input is valid
             // save
-            Console.WriteLine($"Husband: name: {husband.name}, bday: {husband.bday}");
-            Console.WriteLine($"Wife: name: {wife.name}, bday: {wife.bday}");
+            if (!IsInputDateValid())
+                return;
+
+            ChangeDateFormatForDatabase();
+            DBNewFamily.SaveNewFamily(family: family, husband: husband, wife: wife);
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            panelOtherInfo.SendToBack();
+            panelParentInfo.BringToFront();
+        }
+        #endregion BUTTONS
+
+
+
+        #region INPUT_CHECK_AND_INITIALIZE_FOR_DB
+        private void ChangeDateFormatForDatabase()
+        {
+            if (husband.bday != string.Empty)
+            {
+                husband.bday = dtBday.Value.ToString(DateUtils.DB_FORMAT);
+            }
+            if (husband.baptism != string.Empty)
+            {
+                husband.baptism = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
+            }
+            if (husband.hc != string.Empty)
+            {
+                husband.hc = dtHc.Value.ToString(DateUtils.DB_FORMAT);
+            }
+            if (husband.matrimony != string.Empty)
+            {
+                husband.matrimony = dtMatrimony.Value.ToString(DateUtils.DB_FORMAT);
+            }
+            if (husband.obitus != string.Empty)
+            {
+                husband.obitus = dtObitus.Value.ToString(DateUtils.DB_FORMAT);
+            }
+            // wife
+            if (wife.bday != string.Empty)
+            {
+                wife.bday = dtWifeBday.Value.ToString(DateUtils.DB_FORMAT);
+            }
+            if (wife.baptism != string.Empty)
+            {
+                wife.baptism = dtWifeBaptism.Value.ToString(DateUtils.DB_FORMAT);
+            }
+            if (wife.hc != string.Empty)
+            {
+                wife.hc = dtWifeHc.Value.ToString(DateUtils.DB_FORMAT);
+            }
+            if (wife.matrimony != string.Empty)
+            {
+                wife.matrimony = dtWifeMatrimony.Value.ToString(DateUtils.DB_FORMAT);
+            }
+            if (wife.obitus != string.Empty)
+            {
+                wife.obitus = dtWifeObitus.Value.ToString(DateUtils.DB_FORMAT);
+            }
+        }
+        private bool IsInputDateValid()
+        {
+            if (!DateUtils.IsDateFormatValid(husband.bday) && husband.bday != string.Empty)
+            {
+                return Message(husband.bday);
+            }
+            if (!DateUtils.IsDateFormatValid(husband.baptism) && husband.baptism != string.Empty)
+            {
+                return Message(husband.baptism);
+            }
+            if (!DateUtils.IsDateFormatValid(husband.hc) && husband.hc != string.Empty)
+            {
+                return Message(husband.hc);
+            }
+            if (!DateUtils.IsDateFormatValid(husband.matrimony) && husband.matrimony != string.Empty)
+            {
+                return Message(husband.matrimony);
+            }
+            if (!DateUtils.IsDateFormatValid(husband.obitus) && husband.obitus != string.Empty)
+            {
+                return Message(husband.obitus);
+            }
+            // wife
+            if (!DateUtils.IsDateFormatValid(wife.bday) && wife.bday != string.Empty)
+            {
+                return Message(wife.bday);
+            }
+            if (!DateUtils.IsDateFormatValid(wife.baptism) && wife.baptism != string.Empty)
+            {
+                return Message(wife.baptism);
+            }
+            if (!DateUtils.IsDateFormatValid(wife.hc) && wife.hc != string.Empty)
+            {
+                return Message(wife.hc);
+            }
+            if (!DateUtils.IsDateFormatValid(wife.matrimony) && wife.matrimony != string.Empty)
+            {
+                return Message(wife.matrimony);
+            }
+            if (!DateUtils.IsDateFormatValid(wife.obitus) && wife.obitus != string.Empty)
+            {
+                return Message(wife.obitus);
+            }
+            return true;
+        }
+        private bool Message(string message)
+        {
+            MessageBox.Show($"'{message}' is not a valid date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+        #endregion INPUT_CHECK_AND_INITIALIZE_FOR_DB
+
 
 
         #region HUSBAND
@@ -271,7 +416,6 @@ namespace FamilySprout.Features.NewFamily
         #endregion OBITUS
 
         #endregion HUSBAND
-
 
 
         #region WIFE

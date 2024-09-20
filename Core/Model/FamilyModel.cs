@@ -17,8 +17,8 @@ namespace FamilySprout.Core.Model
         /// </summary>
         public long id { get; set; }
         public long husband { get; set; }
-        public long wife { get; set; }
         public string husbandName { get; set; }
+        public long wife { get; set; }
         public string wifeName { get; set; }
         public int childCount { get; set; }
         public string hometown { get; set; }
@@ -29,10 +29,8 @@ namespace FamilySprout.Core.Model
 
         public FamilyModel()
         {
-            id = -1;
             createdBy = SessionManager.CurrentUser.username;
             dateCreated = DateUtils.GetCreateDate();
-            isDeleted = false;
         }
     }
 }
