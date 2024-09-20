@@ -20,7 +20,7 @@ namespace FamilySprout.Features.Home
 
         private void btnFamilies_Click(object sender, EventArgs e)
         {
-
+            OpenFamiliesMainForm();
         }
 
         private void btnNewFamily_Click(object sender, EventArgs e)
@@ -65,6 +65,16 @@ namespace FamilySprout.Features.Home
         public void OpenDashboard()
         {
             OpenFormInPanel(new Dashboard.DashboardMainForm());
+        }
+
+        public void OpenFamiliesMainForm()
+        {
+            OpenFormInPanel(new Families.FamiliesMainForm());
+        }
+
+        public void OpenFamilyDetailsMainForm(long famId)
+        {
+            OpenFormInPanel(new FamilyDetails.FamilyDetailsMainForm(famId));
         }
 
         public void OpenNewFamilyMainForm()

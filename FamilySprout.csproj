@@ -104,6 +104,24 @@
     <Compile Include="Features\Dashboard\DashboardMainForm.Designer.cs">
       <DependentUpon>DashboardMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Families\FamiliesMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Families\FamiliesMainForm.Designer.cs">
+      <DependentUpon>FamiliesMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FamilyDetails\Controls\FamilyDetailsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyDetails\Controls\FamilyDetailsUserControl.Designer.cs">
+      <DependentUpon>FamilyDetailsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FamilyDetails\FamilyDetailsMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyDetails\FamilyDetailsMainForm.Designer.cs">
+      <DependentUpon>FamilyDetailsMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Home\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +148,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Dashboard\DashboardMainForm.resx">
       <DependentUpon>DashboardMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Families\FamiliesMainForm.resx">
+      <DependentUpon>FamiliesMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FamilyDetails\Controls\FamilyDetailsUserControl.resx">
+      <DependentUpon>FamilyDetailsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FamilyDetails\FamilyDetailsMainForm.resx">
+      <DependentUpon>FamilyDetailsMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Home\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -164,9 +191,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\Families\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\content-management-system-icon-design-free-vector.jpg" />
   </ItemGroup>
@@ -178,6 +203,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="family-sprout.ico" />
+    <None Include="Resources\icons8-delete-48.png" />
+    <None Include="Resources\icons8-hide-sidepanel-501.png" />
+    <None Include="Resources\icons8-edit-80.png" />
+    <None Include="Resources\icons8-view-48.png" />
     <None Include="Resources\icons8-hide-sidepanel-50.png" />
     <None Include="Resources\icons8-backup-24.png" />
     <None Include="Resources\icons8-full-screen-48.png" />

@@ -1,6 +1,6 @@
-﻿namespace FamilySprout.Features.Children
+﻿namespace FamilySprout.Features.FamilyDetails
 {
-    partial class ChildrenMainForm
+    partial class FamilyDetailsMainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,14 @@
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleNavPanel = new System.Windows.Forms.Button();
             this.btnCurrentUserInfo = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.listPanel = new System.Windows.Forms.Panel();
+            this.lblBack = new System.Windows.Forms.LinkLabel();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitle
@@ -54,16 +60,16 @@
             this.panelTitle.MinimumSize = new System.Drawing.Size(717, 68);
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(930, 68);
-            this.panelTitle.TabIndex = 23;
+            this.panelTitle.TabIndex = 25;
             // 
             // lblDestination
             // 
             this.lblDestination.AutoSize = true;
             this.lblDestination.Location = new System.Drawing.Point(12, 25);
             this.lblDestination.Name = "lblDestination";
-            this.lblDestination.Size = new System.Drawing.Size(106, 22);
+            this.lblDestination.Size = new System.Drawing.Size(178, 22);
             this.lblDestination.TabIndex = 7;
-            this.lblDestination.Text = "CHILDREN";
+            this.lblDestination.Text = "FAMILY DETAILS";
             // 
             // lblCurrentUser
             // 
@@ -131,24 +137,70 @@
             this.btnCurrentUserInfo.TabIndex = 4;
             this.btnCurrentUserInfo.TabStop = false;
             // 
-            // ChildrenMainForm
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 68);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(930, 591);
+            this.panel1.TabIndex = 26;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.listPanel);
+            this.panel2.Controls.Add(this.lblBack);
+            this.panel2.Location = new System.Drawing.Point(22, 22);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(874, 551);
+            this.panel2.TabIndex = 24;
+            // 
+            // listPanel
+            // 
+            this.listPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listPanel.Location = new System.Drawing.Point(22, 35);
+            this.listPanel.Name = "listPanel";
+            this.listPanel.Size = new System.Drawing.Size(837, 502);
+            this.listPanel.TabIndex = 2;
+            // 
+            // lblBack
+            // 
+            this.lblBack.AutoSize = true;
+            this.lblBack.Location = new System.Drawing.Point(10, 10);
+            this.lblBack.Name = "lblBack";
+            this.lblBack.Size = new System.Drawing.Size(58, 22);
+            this.lblBack.TabIndex = 1;
+            this.lblBack.TabStop = true;
+            this.lblBack.Text = "BACK";
+            // 
+            // FamilyDetailsMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 659);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTitle);
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ChildrenMainForm";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "FamilyDetailsMainForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "CHILDRENMAINFORM";
+            this.Text = "FamilyDetailsMainForm";
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -161,5 +213,9 @@
         private System.Windows.Forms.Button btnToggleNavPanel;
         private System.Windows.Forms.PictureBox btnCurrentUserInfo;
         private System.Windows.Forms.Label lblCurrentUser;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel listPanel;
+        private System.Windows.Forms.LinkLabel lblBack;
     }
 }
