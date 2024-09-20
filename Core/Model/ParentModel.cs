@@ -7,8 +7,11 @@ namespace FamilySprout.Core.Model
         public long id { get; set; }
         public long famId { get; set; }
         public string name { get; set; }
-        public string hometown { get; set; }
-        public int role { get; set; }
+        public string bday { get; set; }
+        public string baptism { get; set; }
+        public string hc { get; set; }
+        public string matrimony { get; set; }
+        public string obitus { get; set; }
         public string createdBy { get; set; }
         public string dateCreated { get; set; }
         public bool isDeleted { get; set; }

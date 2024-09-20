@@ -10,16 +10,16 @@ namespace FamilySprout.Core.Utils
 
 
         #region USER_INPUT
-        public static string ConvertToUserReaderFormat(string _dateFromDatabase)
+        public static string ConvertToUserReaderFormat(string dateFromDatabase)
         {
-            if (string.IsNullOrEmpty(_dateFromDatabase) || _dateFromDatabase == "")
+            if (string.IsNullOrEmpty(dateFromDatabase) || dateFromDatabase == "")
             {
                 return string.Empty;
             }
             else
             {
                 DateTime parsedDate = DateTime.ParseExact(
-                    _dateFromDatabase, DB_FORMAT,
+                    dateFromDatabase, DB_FORMAT,
                     System.Globalization.CultureInfo.InvariantCulture);
                 string formattedDate = parsedDate.ToString(USER_FORMAT);
 
@@ -27,28 +27,30 @@ namespace FamilySprout.Core.Utils
             }
         }
 
-        public static bool IsDateFormatValid(string _date)
+        public static bool IsDateFormatValid(string date)
         {
             DateTime parsedDate;
 
             bool isValid = DateTime.TryParseExact(
-                _date,
+                date,
                 USER_FORMAT,
                 CultureInfo.InvariantCulture,
                 DateTimeStyles.None,
-                out parsedDate
-                );
+                out parsedDate);
+
             return isValid;
         }
 
-        public static DateTime ToReadableFormatInDateTime(string _date)
+        public static DateTime ToReadableFormatInDateTime(string date)
         {
             DateTime parsedDate;
 
-            bool isValid = DateTime.TryParseExact(_date, USER_FORMAT,
-                                                  CultureInfo.InvariantCulture,
-                                                  DateTimeStyles.None,
-                                                  out parsedDate);
+            bool isValid = DateTime.TryParseExact(
+                date, USER_FORMAT,
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out parsedDate);
+
             if (isValid) return parsedDate;
             return DateTime.Today;
         }

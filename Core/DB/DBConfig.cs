@@ -1,7 +1,8 @@
-﻿using System;
+﻿using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
+using System;
 using System.Data.SQLite;
 using System.IO;
-using System.Windows.Forms;
 
 namespace FamilySprout.Core.DB
 {
@@ -17,10 +18,10 @@ namespace FamilySprout.Core.DB
                 {
                     SQLiteConnection.CreateFile("familysprout.db");
                 }
-                DBUsers.InitializeUsersTable();
-                DBFamily.InitializeFamiliesTable();
-                DBParents.InitializeParentsTable();
-                DBChildren.InitializeChildrenTable();
+                InitializeUsersTable();
+                InitializeFamiliesTable();
+                InitializeParentsTable();
+                InitializeChildrenTable();
             }
             catch (Exception ex)
             {
@@ -28,27 +29,117 @@ namespace FamilySprout.Core.DB
             }
         }
 
-        public static void ExportDatabase()
+
+        #region INITIALIZING_TABLES
+        private static void InitializeUsersTable()
         {
-            try
+            using (var connection = new SQLiteConnection(connectionString))
             {
-                string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                connection.Open();
 
-                string sourcePath = Path.Combine(exeDirectory, "familysprout.db");
+                string query = "CREATE TABLE IF NOT EXISTS users(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "full_name TEXT," +
+                    "username TEXT," +
+                    "password TEXT," +
+                    $"role INTEGER DEFAULT {Constants.User.USER}," +
+                    "created_by TEXT," +
+                    "date_created TEXT," +
+                    $"is_deleted BOOLEAN DEFAULT {Constants.FALSE});";
 
-                string timestamp = DateTime.Now.ToString("yyyy-MM-dd-HHmmss");
-                string backupFileName = $"familysprout-{timestamp}.db";
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
 
-                string desktopDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                string destinationPath = Path.Combine(desktopDirectory, backupFileName);
+                string checkIfEmptyQuery = "SELECT COUNT(*) FROM users;";
+                using (var checkCommand = new SQLiteCommand(checkIfEmptyQuery, connection))
+                {
+                    long userCount = (long)checkCommand.ExecuteScalar();
 
-                File.Copy(sourcePath, destinationPath, true);
-                MessageBox.Show($"Database backup created successfully at {destinationPath}", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while creating the database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (userCount == 0)
+                    {
+                        UserModel user = new UserModel();
+                        user.fullName = "I am root";
+                        user.username = "root";
+                        user.password = "toor";
+                        user.role = Constants.User.SUPERUSER;
+
+                        //CreateNewUser(user);
+                    }
+                }
             }
         }
+
+        private static void InitializeFamiliesTable()
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "CREATE TABLE IF NOT EXISTS families(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    $"child_count INTEGER DEFAULT {Constants.ZERO}," +
+                    "remarks TEXT," +
+                    "created_by TEXT," +
+                    "date_created TEXT," +
+                    $"is_deleted BOOLEAN DEFAULT {Constants.FALSE});";
+
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private static void InitializeParentsTable()
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "CREATE TABLE IF NOT EXISTS parents(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "fam_id INTEGER," +
+                    $"role INTEGER DEFAULT {Constants.Parent.HUSBAND}," +
+                    "name TEXT," +
+                    "hometown TEXT," +
+                    "created_by TEXT," +
+                    "date_created TEXT," +
+                    $"is_deleted BOOLEAN DEFAULT {Constants.FALSE});";
+
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private static void InitializeChildrenTable()
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "CREATE TABLE IF NOT EXISTS children(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "fam_id INTEGER," +
+                    "name TEXT," +
+                    "bday TEXT," +
+                    "baptism TEXT," +
+                    "hc TEXT," +
+                    "obitus TEXT," +
+                    "matrimony TEXT," +
+                    "created_by TEXT," +
+                    "date_created TEXT," +
+                    "is_deleted BOOLEAN DEFAULT 0);";
+
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        #endregion INITIALIZING_TABLES
     }
 }

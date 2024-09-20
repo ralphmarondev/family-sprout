@@ -17,7 +17,7 @@ namespace FamilySprout
 
             DBConfig.InitializeDatabase();
 
-            Application.Run(new Features.Auth.AuthenticationForm());
+            Application.Run(new Features.Auth.AuthMainForm());
         }
     }
 }

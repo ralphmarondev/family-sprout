@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ECAA6451-CF79-4A86-ABF6-3BB2B68B25AA}</ProjectGuid>
+    <ProjectGuid>{7279986D-5C14-40B1-BAD5-CEE0A36F0E99}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>FamilySprout</RootNamespace>
     <AssemblyName>FamilySprout</AssemblyName>
@@ -13,6 +13,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -37,9 +52,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>family-sprout.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-1.3|AnyCPU'">
-    <OutputPath>bin\Release-1.3\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -71,207 +83,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\DB\DBChildren.cs" />
     <Compile Include="Core\DB\DBConfig.cs" />
-    <Compile Include="Core\DB\DBFamily.cs" />
-    <Compile Include="Core\DB\DBParents.cs" />
-    <Compile Include="Core\DB\DBUsers.cs" />
+    <Compile Include="Core\Model\FamilyModel.cs" />
     <Compile Include="Core\Model\ParentModel.cs" />
     <Compile Include="Core\Model\UserModel.cs" />
+    <Compile Include="Core\Utils\Constants.cs" />
     <Compile Include="Core\Utils\DateUtils.cs" />
-    <Compile Include="Core\Utils\Roles.cs" />
     <Compile Include="Core\Utils\SessionManager.cs" />
-    <Compile Include="Features\Auth\AuthenticationForm.cs">
+    <Compile Include="Features\Auth\AuthMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Auth\AuthenticationForm.Designer.cs">
-      <DependentUpon>AuthenticationForm.cs</DependentUpon>
+    <Compile Include="Features\Auth\AuthMainForm.Designer.cs">
+      <DependentUpon>AuthMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Dashboard\DashboardMainScreen.cs">
+    <Compile Include="Features\Dashboard\DashboardMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Dashboard\DashboardMainScreen.Designer.cs">
-      <DependentUpon>DashboardMainScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\FamilyList\Controls\FamilyChildUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\FamilyList\Controls\FamilyChildUserControl.Designer.cs">
-      <DependentUpon>FamilyChildUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\FamilyList\Dialog\DeleteFamilyDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\FamilyList\Dialog\DeleteFamilyDialog.Designer.cs">
-      <DependentUpon>DeleteFamilyDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\FamilyList\Dialog\UpdateParentDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\FamilyList\Dialog\UpdateParentDialog.Designer.cs">
-      <DependentUpon>UpdateParentDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\FamilyList\FamilyListMainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\FamilyList\FamilyListMainForm.Designer.cs">
-      <DependentUpon>FamilyListMainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\FamilyList\Forms\FamilyChildListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\FamilyList\Forms\FamilyChildListForm.Designer.cs">
-      <DependentUpon>FamilyChildListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\FamilyList\Forms\FamilyDetailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\FamilyList\Forms\FamilyDetailsForm.Designer.cs">
-      <DependentUpon>FamilyDetailsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\NewFamily\Controls\ChildUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\NewFamily\Controls\ChildUserControl.Designer.cs">
-      <DependentUpon>ChildUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\NewFamily\Dialog\ConfirmAddingNewFamily.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\NewFamily\Dialog\ConfirmAddingNewFamily.Designer.cs">
-      <DependentUpon>ConfirmAddingNewFamily.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\NewFamily\Dialog\DeleteChildDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\NewFamily\Dialog\DeleteChildDialog.Designer.cs">
-      <DependentUpon>DeleteChildDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\NewFamily\Dialog\NewChildDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\NewFamily\Dialog\NewChildDialog.Designer.cs">
-      <DependentUpon>NewChildDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\NewFamily\Dialog\UpdateChildDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\NewFamily\Dialog\UpdateChildDialog.Designer.cs">
-      <DependentUpon>UpdateChildDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\NewFamily\Dialog\ViewChildDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\NewFamily\Dialog\ViewChildDialog.Designer.cs">
-      <DependentUpon>ViewChildDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\NewFamily\Forms\NewChildForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\NewFamily\Forms\NewChildForm.Designer.cs">
-      <DependentUpon>NewChildForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\NewFamily\NewFamilyMainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\NewFamily\NewFamilyMainForm.Designer.cs">
-      <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Trash\Controls\ChildRestoreUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\Trash\Controls\ChildRestoreUserControl.Designer.cs">
-      <DependentUpon>ChildRestoreUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Trash\Controls\FamilyRestoreUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\Trash\Controls\FamilyRestoreUserControl.Designer.cs">
-      <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Trash\Controls\UserRestoreUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\Trash\Controls\UserRestoreUserControl.Designer.cs">
-      <DependentUpon>UserRestoreUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\Children\PermanentlyDeleteChildren.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\Children\PermanentlyDeleteChildren.Designer.cs">
-      <DependentUpon>PermanentlyDeleteChildren.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\Children\RestoreChildren.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\Children\RestoreChildren.Designer.cs">
-      <DependentUpon>RestoreChildren.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\Family\PermanentlyDeleteFamily.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\Family\PermanentlyDeleteFamily.Designer.cs">
-      <DependentUpon>PermanentlyDeleteFamily.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\Family\RestoreFamily.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\Family\RestoreFamily.Designer.cs">
-      <DependentUpon>RestoreFamily.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\User\PermanentlyDeleteUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\User\PermanentlyDeleteUser.Designer.cs">
-      <DependentUpon>PermanentlyDeleteUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\User\RestoreUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\Trash\Dialogs\User\RestoreUser.Designer.cs">
-      <DependentUpon>RestoreUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Trash\TrashMainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\Trash\TrashMainForm.Designer.cs">
-      <DependentUpon>TrashMainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\User\Controls\AdminUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\User\Controls\AdminUserControl.Designer.cs">
-      <DependentUpon>AdminUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\User\Dialog\DeleteUserDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\User\Dialog\DeleteUserDialog.Designer.cs">
-      <DependentUpon>DeleteUserDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\User\Dialog\NewUserDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\User\Dialog\NewUserDialog.Designer.cs">
-      <DependentUpon>NewUserDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\User\Dialog\UpdateUserDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\User\Dialog\UpdateUserDialog.Designer.cs">
-      <DependentUpon>UpdateUserDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\User\Dialog\ViewUserDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\User\Dialog\ViewUserDialog.Designer.cs">
-      <DependentUpon>ViewUserDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\User\UserMainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\User\UserMainForm.Designer.cs">
-      <DependentUpon>UserMainForm.cs</DependentUpon>
+    <Compile Include="Features\Dashboard\DashboardMainForm.Designer.cs">
+      <DependentUpon>DashboardMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Home\MainForm.cs">
       <SubType>Form</SubType>
@@ -279,108 +108,26 @@
     <Compile Include="Features\Home\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\NewFamily\DB\DBNewFamily.cs" />
+    <Compile Include="Features\NewFamily\NewFamilyMainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\NewFamily\NewFamilyMainScreen.Designer.cs">
+      <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\Model\ChildModel.cs" />
-    <Compile Include="Core\Model\FamilyModel.cs" />
-    <EmbeddedResource Include="Features\Auth\AuthenticationForm.resx">
-      <DependentUpon>AuthenticationForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Auth\AuthMainForm.resx">
+      <DependentUpon>AuthMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Dashboard\DashboardMainScreen.resx">
-      <DependentUpon>DashboardMainScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\FamilyList\Controls\FamilyChildUserControl.resx">
-      <DependentUpon>FamilyChildUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\FamilyList\Dialog\DeleteFamilyDialog.resx">
-      <DependentUpon>DeleteFamilyDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\FamilyList\Dialog\UpdateParentDialog.resx">
-      <DependentUpon>UpdateParentDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\FamilyList\FamilyListMainForm.resx">
-      <DependentUpon>FamilyListMainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\FamilyList\Forms\FamilyChildListForm.resx">
-      <DependentUpon>FamilyChildListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\FamilyList\Forms\FamilyDetailsForm.resx">
-      <DependentUpon>FamilyDetailsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\NewFamily\Controls\ChildUserControl.resx">
-      <DependentUpon>ChildUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\NewFamily\Dialog\ConfirmAddingNewFamily.resx">
-      <DependentUpon>ConfirmAddingNewFamily.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\NewFamily\Dialog\DeleteChildDialog.resx">
-      <DependentUpon>DeleteChildDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\NewFamily\Dialog\NewChildDialog.resx">
-      <DependentUpon>NewChildDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\NewFamily\Dialog\UpdateChildDialog.resx">
-      <DependentUpon>UpdateChildDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\NewFamily\Dialog\ViewChildDialog.resx">
-      <DependentUpon>ViewChildDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\NewFamily\Forms\NewChildForm.resx">
-      <DependentUpon>NewChildForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\NewFamily\NewFamilyMainForm.resx">
-      <DependentUpon>NewFamilyMainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\Controls\ChildRestoreUserControl.resx">
-      <DependentUpon>ChildRestoreUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\Controls\FamilyRestoreUserControl.resx">
-      <DependentUpon>FamilyRestoreUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\Controls\UserRestoreUserControl.resx">
-      <DependentUpon>UserRestoreUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\Dialogs\Children\PermanentlyDeleteChildren.resx">
-      <DependentUpon>PermanentlyDeleteChildren.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\Dialogs\Children\RestoreChildren.resx">
-      <DependentUpon>RestoreChildren.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\Dialogs\Family\PermanentlyDeleteFamily.resx">
-      <DependentUpon>PermanentlyDeleteFamily.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\Dialogs\Family\RestoreFamily.resx">
-      <DependentUpon>RestoreFamily.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\Dialogs\User\PermanentlyDeleteUser.resx">
-      <DependentUpon>PermanentlyDeleteUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\Dialogs\User\RestoreUser.resx">
-      <DependentUpon>RestoreUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\TrashMainForm.resx">
-      <DependentUpon>TrashMainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\User\Controls\AdminUserControl.resx">
-      <DependentUpon>AdminUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\User\Dialog\DeleteUserDialog.resx">
-      <DependentUpon>DeleteUserDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\User\Dialog\NewUserDialog.resx">
-      <DependentUpon>NewUserDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\User\Dialog\UpdateUserDialog.resx">
-      <DependentUpon>UpdateUserDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\User\Dialog\ViewUserDialog.resx">
-      <DependentUpon>ViewUserDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\User\UserMainForm.resx">
-      <DependentUpon>UserMainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Dashboard\DashboardMainForm.resx">
+      <DependentUpon>DashboardMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Home\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\NewFamily\NewFamilyMainScreen.resx">
+      <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -407,44 +154,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Features\Families\" />
+    <Folder Include="Features\NewFamily\Forms\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\content-management-system-icon-design-free-vector.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-angry-face-with-horns-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-full-screen-48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-hide-sidepanel-50.png" />
+    <None Include="Resources\icons8-info-50.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-close-50.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-delete-48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-edit-80.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-view-48.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="family-sprout.ico" />
+    <None Include="Resources\icons8-hide-sidepanel-50.png" />
     <None Include="Resources\icons8-backup-24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-restore-48.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\icons8-full-screen-48.png" />
     <None Include="Resources\icons8-test-account-80.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="family-sprout.ico" />
-    <None Include="Resources\icons8-info-50.png" />
-    <None Include="Resources\family-sprout.png" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

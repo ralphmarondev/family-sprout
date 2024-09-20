@@ -4,7 +4,7 @@ namespace FamilySprout.Core.Model
 {
     public class UserModel
     {
-        public long id { get; set; }
+        public int id { get; set; }
         public string fullName { get; set; }
         public string username { get; set; }
         public string password { get; set; }
@@ -16,7 +16,8 @@ namespace FamilySprout.Core.Model
         public UserModel()
         {
             id = -1;
-            //createdBy = SessionManager.CurrentUser.username;
+            role = Constants.User.USER;
+            createdBy = "System";
             dateCreated = DateUtils.GetCreateDate();
             isDeleted = false;
         }
