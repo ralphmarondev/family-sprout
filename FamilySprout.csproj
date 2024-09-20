@@ -96,6 +96,8 @@
     <Compile Include="Features\Auth\AuthMainForm.Designer.cs">
       <DependentUpon>AuthMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Auth\DB\DBAuth.cs" />
+    <Compile Include="Features\Children\DB\DBChildren.cs" />
     <Compile Include="Features\Dashboard\DashboardMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,11 +110,11 @@
     <Compile Include="Features\Home\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\NewChildren\NewChildrenMainScreen.cs">
+    <Compile Include="Features\Children\ChildrenMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\NewChildren\NewChildrenMainScreen.Designer.cs">
-      <DependentUpon>NewChildrenMainScreen.cs</DependentUpon>
+    <Compile Include="Features\Children\ChildrenMainForm.Designer.cs">
+      <DependentUpon>ChildrenMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\NewFamily\DB\DBNewFamily.cs" />
     <Compile Include="Features\NewFamily\NewFamilyMainScreen.cs">
@@ -132,8 +134,8 @@
     <EmbeddedResource Include="Features\Home\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\NewChildren\NewChildrenMainScreen.resx">
-      <DependentUpon>NewChildrenMainScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Children\ChildrenMainForm.resx">
+      <DependentUpon>ChildrenMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\NewFamily\NewFamilyMainScreen.resx">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>

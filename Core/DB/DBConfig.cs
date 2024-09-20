@@ -65,7 +65,20 @@ namespace FamilySprout.Core.DB
                         user.password = "toor";
                         user.role = Constants.User.SUPERUSER;
 
-                        //CreateNewUser(user);
+                        string insertQuery = "INSERT INTO users (full_name, username, password, role, created_by, date_created) " +
+                        "VALUES (@full_name, @username, @password, @role, @created_by, @date_created);";
+
+                        using (var command = new SQLiteCommand(insertQuery, connection))
+                        {
+                            command.Parameters.AddWithValue("@full_name", user.fullName);
+                            command.Parameters.AddWithValue("@username", user.username);
+                            command.Parameters.AddWithValue("@password", user.password);
+                            command.Parameters.AddWithValue("@role", user.role);
+                            command.Parameters.AddWithValue("@created_by", user.createdBy);
+                            command.Parameters.AddWithValue("@date_created", user.dateCreated);
+
+                            command.ExecuteNonQuery();
+                        }
                     }
                 }
             }

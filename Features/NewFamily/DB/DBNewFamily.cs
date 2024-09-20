@@ -9,7 +9,7 @@ namespace FamilySprout.Features.NewFamily.DB
     public static class DBNewFamily
     {
         #region SAVE_NEW_FAMILY
-        public static void SaveNewFamily(FamilyModel family, ParentModel husband, ParentModel wife)
+        public static long SaveNewFamily(FamilyModel family, ParentModel husband, ParentModel wife)
         {
             // save new family [blank husband id and wife id]
             // get id
@@ -38,12 +38,14 @@ namespace FamilySprout.Features.NewFamily.DB
 
                         transaction.Commit();
                         MessageBox.Show("Saved successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return family.id;
                     }
                     catch (Exception ex)
                     {
                         transaction.Rollback();
                         Console.WriteLine($"Error: {ex.Message}");
-                        MessageBox.Show($"Failed Creating New Family.\nError: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+                        MessageBox.Show($"Failed Creating New Family.\nError: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return -1;
                     }
                 }
             }

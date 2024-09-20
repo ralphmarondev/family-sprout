@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FamilySprout.Core.Utils;
+using System;
 using System.Windows.Forms;
 
 namespace FamilySprout.Features.Dashboard
@@ -9,7 +10,7 @@ namespace FamilySprout.Features.Dashboard
         {
             InitializeComponent();
 
-            lblCurrentUser.Text = "Ralph Maron Eda";
+            lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
         }
 
         private void btnFullScreen_Click(object sender, EventArgs e)

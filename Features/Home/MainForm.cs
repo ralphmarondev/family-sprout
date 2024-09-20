@@ -71,6 +71,11 @@ namespace FamilySprout.Features.Home
         {
             OpenFormInPanel(new NewFamily.NewFamilyMainScreen());
         }
+
+        public void OpenChildrenMainForm(long famId)
+        {
+            OpenFormInPanel(new Children.ChildrenMainForm(famId));
+        }
         #endregion NAVIGATION
 
     }

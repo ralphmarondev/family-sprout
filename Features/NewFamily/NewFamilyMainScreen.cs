@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.Model;
 using FamilySprout.Core.Utils;
+using FamilySprout.Features.Home;
 using FamilySprout.Features.NewFamily.DB;
 using System;
 using System.Windows.Forms;
@@ -22,7 +23,7 @@ namespace FamilySprout.Features.NewFamily
             SetupHusbandFields();
             SetupWifeFields();
 
-            lblCurrentUser.Text = "Ralph Maron Eda";
+            lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
         }
 
 
@@ -102,7 +103,20 @@ namespace FamilySprout.Features.NewFamily
                 return;
 
             ChangeDateFormatForDatabase();
-            DBNewFamily.SaveNewFamily(family: family, husband: husband, wife: wife);
+            family.id = DBNewFamily.SaveNewFamily(family: family, husband: husband, wife: wife);
+
+            MainForm mainForm = ParentForm as MainForm;
+
+            if (mainForm != null)
+            {
+                Console.WriteLine($"Family ID: {family.id}");
+                if (family.id == -1)
+                {
+                    MessageBox.Show("Invalid Family Id.");
+                    return;
+                }
+                mainForm.OpenChildrenMainForm(family.id);
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)

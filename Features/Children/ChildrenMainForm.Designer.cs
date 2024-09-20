@@ -1,6 +1,6 @@
-﻿namespace FamilySprout.Features.NewChildren
+﻿namespace FamilySprout.Features.Children
 {
-    partial class NewChildrenMainScreen
+    partial class ChildrenMainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -131,7 +131,7 @@
             this.lblCurrentUser.TabIndex = 0;
             this.lblCurrentUser.Text = "ADMIN";
             // 
-            // NewChildrenMainScreen
+            // ChildrenMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -140,12 +140,12 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "NewChildrenMainScreen";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "ChildrenMainForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "NewChildrenMainScreen";
+            this.Text = "CHILDRENMAINFORM";
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).EndInit();

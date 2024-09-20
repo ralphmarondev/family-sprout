@@ -1,4 +1,6 @@
-﻿using FamilySprout.Features.Home;
+﻿using FamilySprout.Core.Utils;
+using FamilySprout.Features.Auth.DB;
+using FamilySprout.Features.Home;
 using System.Windows.Forms;
 
 namespace FamilySprout.Features.Auth
@@ -14,10 +16,38 @@ namespace FamilySprout.Features.Auth
         #region BUTTON_LOGIN
         private void btnLogin_Click(object sender, System.EventArgs e)
         {
-            MainForm mainForm = new MainForm();
+            string username = tbUsername.Text.Trim();
+            string password = tbPassword.Text.Trim();
 
-            Hide();
-            mainForm.Show();
+            if (username == string.Empty && password == string.Empty)
+            {
+                MessageBox.Show("Username and Password cannot be empty!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (username == string.Empty && password != string.Empty)
+            {
+                MessageBox.Show("Username cannot be empty!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (username != string.Empty && password == string.Empty)
+            {
+                MessageBox.Show("Password cannot be empty!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (DBAuth.IsUserExists(username, password))
+            {
+                SessionManager.CurrentUser = DBAuth.GetUserDetailByUsername(username);
+
+                MainForm mainForm = new MainForm();
+
+                Hide();
+                mainForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect Password!", "Login Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion BUTTON_LOGIN
 
