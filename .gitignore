@@ -1,3 +1,56 @@
-.vs
-bin
-obj
+# Ignore build directories
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore IDE-specific settings (Visual Studio)
+.vscode/
+.vs/
+
+# Ignore NuGet packages
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore auto-generated files
+Generated_Code/
+
+# Ignore logs, crash reports, and temporary files
+*.log
+*.tlog
+*.pdb
+*.tmp
+*.ide
+
+# Ignore publish output
+publish/
+
+# Ignore coverage results
+TestResults/
+*.coverage
+*.coveragexml
+
+# Ignore database-related files
+*.mdf
+*.ldf
+
+# Ignore config transforms
+*.transformed
+
+# Ignore Resharper files
+_ReSharper*/
+*.DotSettings.user
+
+# Ignore Rider files
+.idea/
+
+# Ignore Backup files
+*.bak
