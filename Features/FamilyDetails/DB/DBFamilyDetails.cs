@@ -155,9 +155,21 @@ namespace FamilySprout.Features.FamilyDetails.DB
         /// </returns>
         public static bool UpdateParentDetails(ParentModel parent)
         {
+            using (var connection = new SQLiteConnection(DBConfig.connectionString))
+            {
+                connection.Open();
+
+                try
+                {
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
             return false;
         }
-
         /// <summary>
         /// Used in deleting parents information.
         /// We are not totally deleting it, we are only assigning the flag [is_deleted] to true.
@@ -169,6 +181,27 @@ namespace FamilySprout.Features.FamilyDetails.DB
         /// </returns>
         public static bool DeleteFamilyDetails(long famId)
         {
+            using (var connection = new SQLiteConnection(DBConfig.connectionString))
+            {
+                connection.Open();
+
+                try
+                {
+                    string query = "UPDATE families SET is_deleted = 1 WHERE id = @id AND is_deleted = 0;";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", famId);
+
+                        command.ExecuteNonQuery();
+                    }
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
             return false;
         }
     }

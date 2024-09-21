@@ -30,10 +30,10 @@ namespace FamilySprout.Features.FamilyDetails
             wife = DBFamilyDetails.GetParentDetails(family.id, family.wife);
 
             lblHusbandName.Text = husband.name;
-            lblHusbandBday.Text = husband.bday;
+            lblHusbandBday.Text = DateUtils.ConvertToUserReaderFormat(husband.bday);
 
             lblWifeName.Text = wife.name;
-            lblWifeBday.Text = wife.bday;
+            lblWifeBday.Text = DateUtils.ConvertToUserReaderFormat(wife.bday);
 
             tbRemarks.Text = family.remarks;
             tbHometown.Text = family.hometown;

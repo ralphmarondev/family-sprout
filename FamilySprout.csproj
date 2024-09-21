@@ -181,6 +181,9 @@
     <EmbeddedResource Include="Features\FamilyDetails\Dialogs\UpdateFamilyDialog.resx">
       <DependentUpon>UpdateFamilyDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\FamilyDetails\Dialogs\UpdateParentDialog.resx">
+      <DependentUpon>UpdateParentDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\FamilyDetails\FamilyDetailsMainForm.resx">
       <DependentUpon>FamilyDetailsMainForm.cs</DependentUpon>
     </EmbeddedResource>
