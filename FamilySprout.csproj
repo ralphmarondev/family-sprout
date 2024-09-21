@@ -116,6 +116,7 @@
     <Compile Include="Features\FamilyDetails\Controls\FamilyDetailsUserControl.Designer.cs">
       <DependentUpon>FamilyDetailsUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\FamilyDetails\DB\DBFamilyDetails.cs" />
     <Compile Include="Features\FamilyDetails\FamilyDetailsMainForm.cs">
       <SubType>Form</SubType>
     </Compile>

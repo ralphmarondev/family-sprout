@@ -30,12 +30,13 @@
         {
             this.panelTitle = new System.Windows.Forms.Panel();
             this.lblDestination = new System.Windows.Forms.Label();
-            this.lblCurrentUser = new System.Windows.Forms.Label();
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleNavPanel = new System.Windows.Forms.Button();
             this.btnCurrentUserInfo = new System.Windows.Forms.PictureBox();
+            this.lblCurrentUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnNext = new System.Windows.Forms.Button();
             this.listPanel = new System.Windows.Forms.Panel();
             this.lblBack = new System.Windows.Forms.LinkLabel();
             this.panelTitle.SuspendLayout();
@@ -70,20 +71,6 @@
             this.lblDestination.Size = new System.Drawing.Size(178, 22);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "FAMILY DETAILS";
-            // 
-            // lblCurrentUser
-            // 
-            this.lblCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCurrentUser.AutoSize = true;
-            this.lblCurrentUser.BackColor = System.Drawing.Color.White;
-            this.lblCurrentUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCurrentUser.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentUser.ForeColor = System.Drawing.Color.Purple;
-            this.lblCurrentUser.Location = new System.Drawing.Point(566, 23);
-            this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Size = new System.Drawing.Size(70, 22);
-            this.lblCurrentUser.TabIndex = 0;
-            this.lblCurrentUser.Text = "ADMIN";
             // 
             // btnFullScreen
             // 
@@ -137,10 +124,26 @@
             this.btnCurrentUserInfo.TabIndex = 4;
             this.btnCurrentUserInfo.TabStop = false;
             // 
+            // lblCurrentUser
+            // 
+            this.lblCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentUser.AutoSize = true;
+            this.lblCurrentUser.BackColor = System.Drawing.Color.White;
+            this.lblCurrentUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCurrentUser.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentUser.ForeColor = System.Drawing.Color.Purple;
+            this.lblCurrentUser.Location = new System.Drawing.Point(566, 23);
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Size = new System.Drawing.Size(70, 22);
+            this.lblCurrentUser.TabIndex = 0;
+            this.lblCurrentUser.Text = "ADMIN";
+            // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 68);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(930, 591);
@@ -152,12 +155,32 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.btnNext);
             this.panel2.Controls.Add(this.listPanel);
             this.panel2.Controls.Add(this.lblBack);
             this.panel2.Location = new System.Drawing.Point(22, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(874, 551);
+            this.panel2.Size = new System.Drawing.Size(885, 551);
             this.panel2.TabIndex = 24;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnNext.ForeColor = System.Drawing.Color.Purple;
+            this.btnNext.Location = new System.Drawing.Point(663, 490);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNext.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(191, 43);
+            this.btnNext.TabIndex = 22;
+            this.btnNext.Text = "NEXT";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // listPanel
             // 
@@ -166,7 +189,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listPanel.Location = new System.Drawing.Point(22, 35);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(837, 502);
+            this.listPanel.Size = new System.Drawing.Size(844, 449);
             this.listPanel.TabIndex = 2;
             // 
             // lblBack
@@ -178,6 +201,7 @@
             this.lblBack.TabIndex = 1;
             this.lblBack.TabStop = true;
             this.lblBack.Text = "BACK";
+            this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
             // 
             // FamilyDetailsMainForm
             // 
@@ -189,7 +213,7 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FamilyDetailsMainForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -217,5 +241,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel listPanel;
         private System.Windows.Forms.LinkLabel lblBack;
+        private System.Windows.Forms.Button btnNext;
     }
 }

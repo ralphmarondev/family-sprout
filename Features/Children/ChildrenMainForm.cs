@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.Utils;
+using FamilySprout.Features.Home;
 using System.Windows.Forms;
 
 namespace FamilySprout.Features.Children
@@ -12,6 +13,16 @@ namespace FamilySprout.Features.Children
 
             this.famId = famId;
             lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
+        }
+
+        private void lblBack_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MainForm mainForm = ParentForm as MainForm;
+
+            if (mainForm != null)
+            {
+                mainForm.OpenFamilyDetailsMainForm(famId);
+            }
         }
     }
 }

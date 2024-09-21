@@ -58,7 +58,6 @@
             this.lblParent = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.dtHc = new System.Windows.Forms.DateTimePicker();
             this.tbHc = new System.Windows.Forms.TextBox();
             this.tbBaptism = new System.Windows.Forms.TextBox();
             this.tbObitus = new System.Windows.Forms.TextBox();
@@ -69,6 +68,7 @@
             this.dtBaptism = new System.Windows.Forms.DateTimePicker();
             this.tbBday = new System.Windows.Forms.TextBox();
             this.dtBday = new System.Windows.Forms.DateTimePicker();
+            this.dtHc = new System.Windows.Forms.DateTimePicker();
             this.panelWife = new System.Windows.Forms.Panel();
             this.lblClearWifeName = new System.Windows.Forms.LinkLabel();
             this.lblClearWifeContactNo = new System.Windows.Forms.LinkLabel();
@@ -215,9 +215,10 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.Controls.Add(this.panelParentInfo);
             this.mainPanel.Controls.Add(this.panelOtherInfo);
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 68);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(930, 591);
@@ -225,21 +226,23 @@
             // 
             // panelParentInfo
             // 
+            this.panelParentInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelParentInfo.BackColor = System.Drawing.Color.White;
             this.panelParentInfo.Controls.Add(this.btnPrev);
             this.panelParentInfo.Controls.Add(this.btnNext);
             this.panelParentInfo.Controls.Add(this.panelHusband);
             this.panelParentInfo.Controls.Add(this.panelWife);
             this.panelParentInfo.ForeColor = System.Drawing.Color.Purple;
-            this.panelParentInfo.Location = new System.Drawing.Point(59, 34);
+            this.panelParentInfo.Location = new System.Drawing.Point(111, 50);
             this.panelParentInfo.Name = "panelParentInfo";
             this.panelParentInfo.Size = new System.Drawing.Size(708, 462);
             this.panelParentInfo.TabIndex = 23;
             // 
             // btnPrev
             // 
-            this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrev.BackColor = System.Drawing.Color.LightYellow;
             this.btnPrev.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrev.FlatAppearance.BorderSize = 0;
@@ -259,8 +262,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.BackColor = System.Drawing.Color.PaleGreen;
             this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNext.FlatAppearance.BorderSize = 0;
@@ -279,6 +281,9 @@
             // 
             // panelHusband
             // 
+            this.panelHusband.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelHusband.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelHusband.Controls.Add(this.lblClearFullName);
             this.panelHusband.Controls.Add(this.lblClearContactNo);
@@ -523,19 +528,6 @@
             this.tbName.Size = new System.Drawing.Size(284, 34);
             this.tbName.TabIndex = 1;
             // 
-            // dtHc
-            // 
-            this.dtHc.CalendarForeColor = System.Drawing.Color.Purple;
-            this.dtHc.CalendarTitleForeColor = System.Drawing.Color.Purple;
-            this.dtHc.CustomFormat = "yyyy-MM-dd";
-            this.dtHc.Font = new System.Drawing.Font("Courier New", 14F);
-            this.dtHc.Location = new System.Drawing.Point(338, 228);
-            this.dtHc.Name = "dtHc";
-            this.dtHc.Size = new System.Drawing.Size(284, 34);
-            this.dtHc.TabIndex = 21;
-            this.dtHc.Value = new System.DateTime(2024, 9, 17, 0, 0, 0, 0);
-            this.dtHc.CloseUp += new System.EventHandler(this.dtHc_CloseUp);
-            // 
             // tbHc
             // 
             this.tbHc.Font = new System.Drawing.Font("Courier New", 14F);
@@ -653,8 +645,24 @@
             this.dtBday.Value = new System.DateTime(2024, 9, 17, 0, 0, 0, 0);
             this.dtBday.CloseUp += new System.EventHandler(this.dtBday_CloseUp);
             // 
+            // dtHc
+            // 
+            this.dtHc.CalendarForeColor = System.Drawing.Color.Purple;
+            this.dtHc.CalendarTitleForeColor = System.Drawing.Color.Purple;
+            this.dtHc.CustomFormat = "yyyy-MM-dd";
+            this.dtHc.Font = new System.Drawing.Font("Courier New", 14F);
+            this.dtHc.Location = new System.Drawing.Point(338, 228);
+            this.dtHc.Name = "dtHc";
+            this.dtHc.Size = new System.Drawing.Size(284, 34);
+            this.dtHc.TabIndex = 21;
+            this.dtHc.Value = new System.DateTime(2024, 9, 17, 0, 0, 0, 0);
+            this.dtHc.CloseUp += new System.EventHandler(this.dtHc_CloseUp);
+            // 
             // panelWife
             // 
+            this.panelWife.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelWife.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelWife.Controls.Add(this.lblClearWifeName);
             this.panelWife.Controls.Add(this.lblClearWifeContactNo);
@@ -1031,27 +1039,29 @@
             // 
             // panelOtherInfo
             // 
+            this.panelOtherInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelOtherInfo.BackColor = System.Drawing.Color.White;
             this.panelOtherInfo.Controls.Add(this.btnBack);
             this.panelOtherInfo.Controls.Add(this.panel2);
             this.panelOtherInfo.Controls.Add(this.btnSave);
             this.panelOtherInfo.ForeColor = System.Drawing.Color.Purple;
-            this.panelOtherInfo.Location = new System.Drawing.Point(59, 34);
+            this.panelOtherInfo.Location = new System.Drawing.Point(111, 50);
             this.panelOtherInfo.Name = "panelOtherInfo";
             this.panelOtherInfo.Size = new System.Drawing.Size(708, 462);
             this.panelOtherInfo.TabIndex = 24;
             // 
             // btnBack
             // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBack.BackColor = System.Drawing.Color.LightYellow;
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnBack.ForeColor = System.Drawing.Color.Purple;
-            this.btnBack.Location = new System.Drawing.Point(245, 344);
+            this.btnBack.Location = new System.Drawing.Point(269, 341);
             this.btnBack.Margin = new System.Windows.Forms.Padding(0);
             this.btnBack.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnBack.Name = "btnBack";
@@ -1146,15 +1156,14 @@
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.BackColor = System.Drawing.Color.PaleGreen;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.Purple;
-            this.btnSave.Location = new System.Drawing.Point(450, 344);
+            this.btnSave.Location = new System.Drawing.Point(480, 341);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnSave.Name = "btnSave";
