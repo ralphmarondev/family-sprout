@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.Model;
 using FamilySprout.Core.Utils;
+using FamilySprout.Features.Families.DB;
 using FamilySprout.Features.Home;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,12 @@ namespace FamilySprout.Features.Families
 {
     public partial class FamiliesMainForm : Form
     {
-        private List<FamilyModel> families;
-
+        private List<FamilyModel> families = new List<FamilyModel>();
         public FamiliesMainForm()
         {
             InitializeComponent();
 
             lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
-            families = GetSampleFamilies();
             SetupDataGridView();
             FetchFamilies();
         }
@@ -77,6 +76,9 @@ namespace FamilySprout.Features.Families
 
         private void FetchFamilies()
         {
+            families.Clear();
+            families = DBFamilyList.GetAllFamilies();
+
             if (families.Count > 0)
             {
                 lblEmpty.Visible = false;

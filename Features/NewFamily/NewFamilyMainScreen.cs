@@ -24,6 +24,7 @@ namespace FamilySprout.Features.NewFamily
             SetupWifeFields();
 
             lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
+            tbRemarks.Text = Constants.REMARKS;
         }
 
 
@@ -82,6 +83,7 @@ namespace FamilySprout.Features.NewFamily
             husband.hc = tbHc.Text.Trim();
             husband.matrimony = tbMatrimony.Text.Trim();
             husband.obitus = tbObitus.Text.Trim();
+            husband.role = Constants.Parent.HUSBAND;
 
             wife.name = tbWifeName.Text.Trim();
             wife.contactNumber = tbWifeContactNumber.Text.Trim();
@@ -91,6 +93,7 @@ namespace FamilySprout.Features.NewFamily
             wife.hc = tbWifeHc.Text.Trim();
             wife.matrimony = tbWifeMatrimony.Text.Trim();
             wife.obitus = tbWifeObitus.Text.Trim();
+            wife.role = Constants.Parent.WIFE;
 
             family.husbandName = husband.name;
             family.wifeName = wife.name;

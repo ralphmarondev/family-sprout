@@ -1,9 +1,9 @@
 ﻿using FamilySprout.Core.Model;
 using FamilySprout.Core.Utils;
-using FamilySprout.Features.FamilyDetails.Controls;
+using FamilySprout.Features.FamilyDetails.DB;
+using FamilySprout.Features.FamilyDetails.Dialogs;
 using FamilySprout.Features.Home;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace FamilySprout.Features.FamilyDetails
@@ -20,54 +20,28 @@ namespace FamilySprout.Features.FamilyDetails
             Console.WriteLine($"FamId: {famId}");
 
             lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
-            FetchFamilyDetails();
+            FetchData();
         }
 
-        private void FetchFamilyDetails()
+        private void FetchData()
         {
-            listPanel.Controls.Clear();
-            listPanel.AutoScroll = true;
-            int currentY = 10;
+            family = DBFamilyDetails.GetFamilyDetails(family.id);
+            husband = DBFamilyDetails.GetParentDetails(family.id, family.husband);
+            wife = DBFamilyDetails.GetParentDetails(family.id, family.wife);
 
-            Label lblHusband = new Label();
-            lblHusband.AutoSize = true;
-            lblHusband.Font = new System.Drawing.Font("Courier New", 14F);
-            lblHusband.Location = new System.Drawing.Point(15, currentY);  // Set the label's position inside the panel
-            lblHusband.Margin = new Padding(4, 0, 4, 0);
-            lblHusband.Name = "lblHusband";
-            lblHusband.Size = new System.Drawing.Size(222, 27);  // Optional, as AutoSize will resize it based on the text
-            lblHusband.Text = "HUSBAND INFORMATION";
-            currentY += lblHusband.Height + 5;
+            lblHusbandName.Text = husband.name;
+            lblHusbandBday.Text = husband.bday;
 
-            listPanel.Controls.Add(lblHusband);
-            FamilyDetailsUserControl husbandControl = new FamilyDetailsUserControl();
+            lblWifeName.Text = wife.name;
+            lblWifeBday.Text = wife.bday;
 
-            husbandControl.Location = new Point(10, currentY);
-            husbandControl.Width = listPanel.ClientSize.Width - 20;
-            husbandControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            listPanel.Controls.Add(husbandControl);
-            currentY += husbandControl.Height + 10;
+            tbRemarks.Text = family.remarks;
+            tbHometown.Text = family.hometown;
 
-            Label lblWife = new Label();
-            lblWife.AutoSize = true;
-            lblWife.Font = new System.Drawing.Font("Courier New", 14F);
-            lblWife.Location = new System.Drawing.Point(15, currentY);  // Set the label's position inside the panel
-            lblWife.Margin = new Padding(4, 0, 4, 0);
-            lblWife.Name = "lblWife";
-            lblWife.Size = new System.Drawing.Size(222, 27);  // Optional, as AutoSize will resize it based on the text
-            lblWife.Text = "WIFE INFORMATION";
-            currentY += lblWife.Height + 5;
-
-            listPanel.Controls.Add(lblWife);
-            FamilyDetailsUserControl familyControl = new FamilyDetailsUserControl();
-
-            familyControl.Location = new Point(10, currentY);
-            familyControl.Width = listPanel.ClientSize.Width - 20;
-            familyControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            listPanel.Controls.Add(familyControl);
-            currentY += familyControl.Height + 10;
+            Console.WriteLine($"HusbandName: {husband.name}, bday: {husband.bday}");
+            Console.WriteLine($"WifeName: {wife.name}, bday: {wife.bday}");
+            Console.WriteLine($"Remarks: {family.remarks}, hometown: {family.hometown}");
         }
-
 
         #region LABEL_BACK
         private void lblBack_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -90,5 +64,56 @@ namespace FamilySprout.Features.FamilyDetails
                 mainForm.OpenChildrenMainForm(family.id);
             }
         }
+
+        private void btnUpdateFamily_Click(object sender, EventArgs e)
+        {
+            UpdateFamilyDialog update = new UpdateFamilyDialog(family);
+
+            if (update.ShowDialog(this) == DialogResult.OK)
+            {
+                FetchData();
+            }
+        }
+
+        private void btnDeleteFamily_Click(object sender, EventArgs e)
+        {
+            DeleteFamilyDialog delete = new DeleteFamilyDialog(family);
+
+            if (delete.ShowDialog(this) == DialogResult.OK)
+            {
+                MainForm mainForm = ParentForm as MainForm;
+
+                if (mainForm != null)
+                {
+                    mainForm.OpenFamiliesMainForm();
+                }
+            }
+        }
+
+
+        #region HUSBAND
+        private void btnViewHusband_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateHusband_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion HUSBAND
+
+
+        #region WIFE
+        private void btnViewWife_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateWife_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion WIFE
     }
 }

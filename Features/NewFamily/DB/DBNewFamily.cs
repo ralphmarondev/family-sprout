@@ -23,30 +23,25 @@ namespace FamilySprout.Features.NewFamily.DB
             {
                 connection.Open();
 
-                using (SQLiteTransaction transaction = connection.BeginTransaction())
+                try
                 {
-                    try
-                    {
-                        family.id = SaveFamily(family, connection);
-                        husband.famId = family.id;
-                        wife.famId = family.id;
+                    family.id = SaveFamily(family, connection);
+                    husband.famId = family.id;
+                    wife.famId = family.id;
 
-                        husband.id = SaveParents(husband, connection);
-                        wife.id = SaveParents(wife, connection);
+                    husband.id = SaveParents(husband, connection);
+                    wife.id = SaveParents(wife, connection);
 
-                        UpdateFamilyHusbandWifeId(famId: family.id, husbandId: husband.id, wifeId: wife.id, connection: connection);
+                    UpdateFamilyHusbandWifeId(famId: family.id, husbandId: husband.id, wifeId: wife.id, connection: connection);
 
-                        transaction.Commit();
-                        MessageBox.Show("Saved successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return family.id;
-                    }
-                    catch (Exception ex)
-                    {
-                        transaction.Rollback();
-                        Console.WriteLine($"Error: {ex.Message}");
-                        MessageBox.Show($"Failed Creating New Family.\nError: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return -1;
-                    }
+                    MessageBox.Show("Saved successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return family.id;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error [SaveNewFamily]: {ex.Message}");
+                    MessageBox.Show($"Failed Creating New Family.\nError: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return -1;
                 }
             }
         }

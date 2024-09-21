@@ -104,6 +104,7 @@
     <Compile Include="Features\Dashboard\DashboardMainForm.Designer.cs">
       <DependentUpon>DashboardMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Families\DB\DBFamilyList.cs" />
     <Compile Include="Features\Families\FamiliesMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +118,24 @@
       <DependentUpon>FamilyDetailsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\FamilyDetails\DB\DBFamilyDetails.cs" />
+    <Compile Include="Features\FamilyDetails\Dialogs\DeleteFamilyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyDetails\Dialogs\DeleteFamilyDialog.Designer.cs">
+      <DependentUpon>DeleteFamilyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FamilyDetails\Dialogs\UpdateFamilyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyDetails\Dialogs\UpdateFamilyDialog.Designer.cs">
+      <DependentUpon>UpdateFamilyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FamilyDetails\Dialogs\UpdateParentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyDetails\Dialogs\UpdateParentDialog.Designer.cs">
+      <DependentUpon>UpdateParentDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\FamilyDetails\FamilyDetailsMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +174,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\FamilyDetails\Controls\FamilyDetailsUserControl.resx">
       <DependentUpon>FamilyDetailsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FamilyDetails\Dialogs\DeleteFamilyDialog.resx">
+      <DependentUpon>DeleteFamilyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FamilyDetails\Dialogs\UpdateFamilyDialog.resx">
+      <DependentUpon>UpdateFamilyDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\FamilyDetails\FamilyDetailsMainForm.resx">
       <DependentUpon>FamilyDetailsMainForm.cs</DependentUpon>

@@ -5,6 +5,7 @@
         public const int ZERO = 0;
         public const int FALSE = 0;
         public const int TRUE = 1;
+        public const string REMARKS = "NO REMARKS.";
         public static class User
         {
             public const int SUPERUSER = 1;

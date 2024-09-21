@@ -102,6 +102,7 @@
             this.dtWifeObitus = new System.Windows.Forms.DateTimePicker();
             this.panelOtherInfo = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbTown = new System.Windows.Forms.ComboBox();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
@@ -109,7 +110,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -530,9 +530,11 @@
             // 
             // tbHc
             // 
+            this.tbHc.BackColor = System.Drawing.SystemColors.Window;
             this.tbHc.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbHc.Location = new System.Drawing.Point(338, 228);
             this.tbHc.Name = "tbHc";
+            this.tbHc.ReadOnly = true;
             this.tbHc.Size = new System.Drawing.Size(284, 34);
             this.tbHc.TabIndex = 4;
             this.tbHc.TextChanged += new System.EventHandler(this.tbHc_TextChanged);
@@ -541,9 +543,11 @@
             // 
             // tbBaptism
             // 
+            this.tbBaptism.BackColor = System.Drawing.SystemColors.Window;
             this.tbBaptism.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbBaptism.Location = new System.Drawing.Point(28, 228);
             this.tbBaptism.Name = "tbBaptism";
+            this.tbBaptism.ReadOnly = true;
             this.tbBaptism.Size = new System.Drawing.Size(284, 34);
             this.tbBaptism.TabIndex = 3;
             this.tbBaptism.TextChanged += new System.EventHandler(this.tbBaptism_TextChanged);
@@ -552,9 +556,11 @@
             // 
             // tbObitus
             // 
+            this.tbObitus.BackColor = System.Drawing.SystemColors.Window;
             this.tbObitus.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbObitus.Location = new System.Drawing.Point(338, 296);
             this.tbObitus.Name = "tbObitus";
+            this.tbObitus.ReadOnly = true;
             this.tbObitus.Size = new System.Drawing.Size(284, 34);
             this.tbObitus.TabIndex = 6;
             this.tbObitus.TextChanged += new System.EventHandler(this.tbObitus_TextChanged);
@@ -563,9 +569,11 @@
             // 
             // tbMatrimony
             // 
+            this.tbMatrimony.BackColor = System.Drawing.SystemColors.Window;
             this.tbMatrimony.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbMatrimony.Location = new System.Drawing.Point(28, 296);
             this.tbMatrimony.Name = "tbMatrimony";
+            this.tbMatrimony.ReadOnly = true;
             this.tbMatrimony.Size = new System.Drawing.Size(284, 34);
             this.tbMatrimony.TabIndex = 5;
             this.tbMatrimony.TextChanged += new System.EventHandler(this.tbMatrimony_TextChanged);
@@ -917,9 +925,11 @@
             // 
             // tbWifeHc
             // 
+            this.tbWifeHc.BackColor = System.Drawing.SystemColors.Window;
             this.tbWifeHc.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbWifeHc.Location = new System.Drawing.Point(338, 228);
             this.tbWifeHc.Name = "tbWifeHc";
+            this.tbWifeHc.ReadOnly = true;
             this.tbWifeHc.Size = new System.Drawing.Size(284, 34);
             this.tbWifeHc.TabIndex = 4;
             this.tbWifeHc.TextChanged += new System.EventHandler(this.tbWifeHc_TextChanged);
@@ -928,9 +938,11 @@
             // 
             // tbWifeBaptism
             // 
+            this.tbWifeBaptism.BackColor = System.Drawing.SystemColors.Window;
             this.tbWifeBaptism.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbWifeBaptism.Location = new System.Drawing.Point(28, 228);
             this.tbWifeBaptism.Name = "tbWifeBaptism";
+            this.tbWifeBaptism.ReadOnly = true;
             this.tbWifeBaptism.Size = new System.Drawing.Size(284, 34);
             this.tbWifeBaptism.TabIndex = 3;
             this.tbWifeBaptism.TextChanged += new System.EventHandler(this.tbWifeBaptism_TextChanged);
@@ -939,9 +951,11 @@
             // 
             // tbWifeObitus
             // 
+            this.tbWifeObitus.BackColor = System.Drawing.SystemColors.Window;
             this.tbWifeObitus.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbWifeObitus.Location = new System.Drawing.Point(338, 296);
             this.tbWifeObitus.Name = "tbWifeObitus";
+            this.tbWifeObitus.ReadOnly = true;
             this.tbWifeObitus.Size = new System.Drawing.Size(284, 34);
             this.tbWifeObitus.TabIndex = 6;
             this.tbWifeObitus.TextChanged += new System.EventHandler(this.tbWifeObitus_TextChanged);
@@ -1002,9 +1016,11 @@
             // 
             // tbWifeMatrimony
             // 
+            this.tbWifeMatrimony.BackColor = System.Drawing.SystemColors.Window;
             this.tbWifeMatrimony.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbWifeMatrimony.Location = new System.Drawing.Point(28, 296);
             this.tbWifeMatrimony.Name = "tbWifeMatrimony";
+            this.tbWifeMatrimony.ReadOnly = true;
             this.tbWifeMatrimony.Size = new System.Drawing.Size(284, 34);
             this.tbWifeMatrimony.TabIndex = 5;
             this.tbWifeMatrimony.TextChanged += new System.EventHandler(this.tbWifeMatrimony_TextChanged);
@@ -1044,8 +1060,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelOtherInfo.BackColor = System.Drawing.Color.White;
             this.panelOtherInfo.Controls.Add(this.btnBack);
-            this.panelOtherInfo.Controls.Add(this.panel2);
             this.panelOtherInfo.Controls.Add(this.btnSave);
+            this.panelOtherInfo.Controls.Add(this.panel2);
             this.panelOtherInfo.ForeColor = System.Drawing.Color.Purple;
             this.panelOtherInfo.Location = new System.Drawing.Point(111, 50);
             this.panelOtherInfo.Name = "panelOtherInfo";
@@ -1070,6 +1086,25 @@
             this.btnBack.Text = "BACK";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.Purple;
+            this.btnSave.Location = new System.Drawing.Point(480, 341);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSave.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(200, 43);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panel2
             // 
@@ -1153,25 +1188,6 @@
             this.tbRemarks.Name = "tbRemarks";
             this.tbRemarks.Size = new System.Drawing.Size(580, 65);
             this.tbRemarks.TabIndex = 1;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSave.ForeColor = System.Drawing.Color.Purple;
-            this.btnSave.Location = new System.Drawing.Point(480, 341);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSave.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(200, 43);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // NewFamilyMainScreen
             // 
