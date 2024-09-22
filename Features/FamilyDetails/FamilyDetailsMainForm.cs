@@ -94,7 +94,9 @@ namespace FamilySprout.Features.FamilyDetails
         #region HUSBAND
         private void btnViewHusband_Click(object sender, EventArgs e)
         {
+            ViewParentDetailsDialog view = new ViewParentDetailsDialog(husband);
 
+            view.ShowDialog(this);
         }
 
         private void btnUpdateHusband_Click(object sender, EventArgs e)
@@ -107,7 +109,9 @@ namespace FamilySprout.Features.FamilyDetails
         #region WIFE
         private void btnViewWife_Click(object sender, EventArgs e)
         {
+            ViewParentDetailsDialog view = new ViewParentDetailsDialog(husband);
 
+            view.ShowDialog(this);
         }
 
         private void btnUpdateWife_Click(object sender, EventArgs e)

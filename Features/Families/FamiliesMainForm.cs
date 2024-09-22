@@ -33,7 +33,7 @@ namespace FamilySprout.Features.Families
             // Create an action column with buttons
             DataGridViewButtonColumn actionColumn = new DataGridViewButtonColumn();
             actionColumn.Name = "Action";
-            actionColumn.Text = "Action";
+            actionColumn.Text = "More";
             actionColumn.UseColumnTextForButtonValue = true;
             dataGridViewFamilies.Columns.Add(actionColumn);
 

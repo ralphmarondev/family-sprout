@@ -136,6 +136,12 @@
     <Compile Include="Features\FamilyDetails\Dialogs\UpdateParentDialog.Designer.cs">
       <DependentUpon>UpdateParentDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\FamilyDetails\Dialogs\ViewParentDetailsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FamilyDetails\Dialogs\ViewParentDetailsDialog.Designer.cs">
+      <DependentUpon>ViewParentDetailsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\FamilyDetails\FamilyDetailsMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\FamilyDetails\Dialogs\UpdateParentDialog.resx">
       <DependentUpon>UpdateParentDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FamilyDetails\Dialogs\ViewParentDetailsDialog.resx">
+      <DependentUpon>ViewParentDetailsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\FamilyDetails\FamilyDetailsMainForm.resx">
       <DependentUpon>FamilyDetailsMainForm.cs</DependentUpon>
