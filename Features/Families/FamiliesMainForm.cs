@@ -21,6 +21,8 @@ namespace FamilySprout.Features.Families
             FetchFamilies();
         }
 
+
+        #region POPULATING_DATAGRIDVIEW
         private void SetupDataGridView()
         {
             dataGridViewFamilies.Columns.Add("FamilyId", "Family ID");
@@ -114,138 +116,82 @@ namespace FamilySprout.Features.Families
                 }
             }
         }
+        #endregion POPULATING_DATAGRIDVIEW
 
-        private List<FamilyModel> GetSampleFamilies()
+
+        #region SEARCH
+        private void tbSearchHusband_TextChanged(object sender, EventArgs e)
         {
-            return new List<FamilyModel>
+            tbSearchWife.Text = string.Empty;
+            if (tbSearchHusband.Text.Trim() == string.Empty)
             {
-                new FamilyModel
+                FetchFamilies();
+                return;
+            }
+
+            families = DBFamilyList.UpdateDisplayedFamiliesByHusbandName(tbSearchHusband.Text.Trim());
+
+            if (families.Count > 0)
+            {
+                lblEmpty.Visible = false;
+                dataGridViewFamilies.Rows.Clear();
+
+                foreach (var family in families)
                 {
-                    id = 1,
-                    husband = 101,
-                    husbandName = "John Doe",
-                    wife = 102,
-                    wifeName = "Jane Doe",
-                    childCount = 3,
-                    hometown = "Springfield",
-                    remarks = "No Remarks.",
-                    createdBy = "System",
-                    dateCreated = "2023-08-01",
-                    isDeleted = false
-                },
-                new FamilyModel
-                {
-                    id = 2,
-                    husband = 103,
-                    husbandName = "Michael Smith",
-                    wife = 104,
-                    wifeName = "Anna Smith",
-                    childCount = 2,
-                    hometown = "Shelbyville",
-                    remarks = "No Remarks.",
-                    createdBy = "admin",
-                    dateCreated = "2023-08-05",
-                    isDeleted = false
-                },
-                new FamilyModel
-                {
-                    id = 3,
-                    husband = 105,
-                    husbandName = "Robert Johnson",
-                    wife = 106,
-                    wifeName = "Emily Johnson",
-                    childCount = 4,
-                    hometown = "Ogdenville",
-                    remarks = "Family loves hiking.",
-                    createdBy = "admin",
-                    dateCreated = "2023-08-10",
-                    isDeleted = false
-                },
-                new FamilyModel
-                {
-                    id = 4,
-                    husband = 107,
-                    husbandName = "William Brown",
-                    wife = 108,
-                    wifeName = "Olivia Brown",
-                    childCount = 1,
-                    hometown = "Capital City",
-                    remarks = "Recently moved to town.",
-                    createdBy = "System",
-                    dateCreated = "2023-09-01",
-                    isDeleted = false
-                },
-                new FamilyModel
-                {
-                    id = 5,
-                    husband = 109,
-                    husbandName = "James Wilson",
-                    wife = 110,
-                    wifeName = "Sophia Wilson",
-                    childCount = 2,
-                    hometown = "North Haverbrook",
-                    remarks = "Children attending local school.",
-                    createdBy = "System",
-                    dateCreated = "2023-09-05",
-                    isDeleted = true // This family is marked as deleted
-                },
-                new FamilyModel
-                {
-                    id = 6,
-                    husband = 107,
-                    husbandName = "William Brown",
-                    wife = 108,
-                    wifeName = "Olivia Brown",
-                    childCount = 1,
-                    hometown = "Capital City",
-                    remarks = "Recently moved to town.",
-                    createdBy = "System",
-                    dateCreated = "2023-09-01",
-                    isDeleted = false
-                },
-                new FamilyModel
-                {
-                    id = 7,
-                    husband = 109,
-                    husbandName = "James Wilson",
-                    wife = 110,
-                    wifeName = "Sophia Wilson",
-                    childCount = 2,
-                    hometown = "North Haverbrook",
-                    remarks = "Children attending local school.",
-                    createdBy = "System",
-                    dateCreated = "2023-09-05",
-                    isDeleted = true // This family is marked as deleted
-                },
-                new FamilyModel
-                {
-                    id = 8,
-                    husband = 107,
-                    husbandName = "William Brown",
-                    wife = 108,
-                    wifeName = "Olivia Brown",
-                    childCount = 1,
-                    hometown = "Capital City",
-                    remarks = "Recently moved to town.",
-                    createdBy = "System",
-                    dateCreated = "2023-09-01",
-                    isDeleted = false
-                },
-                new FamilyModel
-                {
-                    id = 9,
-                    husband = 109,
-                    husbandName = "James Wilson",
-                    wife = 110,
-                    wifeName = "Sophia Wilson",
-                    childCount = 2,
-                    hometown = "North Haverbrook",
-                    remarks = "Children attending local school.",
-                    createdBy = "System",
-                    dateCreated = "2023-09-05",
-                    isDeleted = true // This family is marked as deleted
+                    dataGridViewFamilies.Rows.Add(
+                        family.id,
+                        family.husbandName,
+                        family.wifeName,
+                        family.childCount
+                        );
                 }
-            };
+            }
+            else
+            {
+                lblEmpty.Visible = true;
+                lblEmpty.BringToFront();
+                dataGridViewFamilies.Rows.Clear();
+            }
         }
+
+        private void tbSearchWife_TextChanged(object sender, EventArgs e)
+        {
+            tbSearchHusband.Text = string.Empty;
+            if (tbSearchWife.Text.Trim() == string.Empty)
+            {
+                FetchFamilies();
+                return;
+            }
+
+            families = DBFamilyList.UpdateDisplayedFamiliesByWifeName(tbSearchWife.Text.Trim());
+
+            if (families.Count > 0)
+            {
+                lblEmpty.Visible = false;
+                dataGridViewFamilies.Rows.Clear();
+
+                foreach (var family in families)
+                {
+                    dataGridViewFamilies.Rows.Add(
+                        family.id,
+                        family.husbandName,
+                        family.wifeName,
+                        family.childCount
+                        );
+                }
+            }
+            else
+            {
+                lblEmpty.Visible = true;
+                lblEmpty.BringToFront();
+                dataGridViewFamilies.Rows.Clear();
+            }
+        }
+
+        private void tbSelectedHometown_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion SEARCH
     }
 }

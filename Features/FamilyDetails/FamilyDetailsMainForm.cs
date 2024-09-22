@@ -101,7 +101,12 @@ namespace FamilySprout.Features.FamilyDetails
 
         private void btnUpdateHusband_Click(object sender, EventArgs e)
         {
+            UpdateParentDialog update = new UpdateParentDialog(husband);
 
+            if (update.ShowDialog(this) == DialogResult.OK)
+            {
+                // refresh
+            }
         }
         #endregion HUSBAND
 
@@ -116,7 +121,12 @@ namespace FamilySprout.Features.FamilyDetails
 
         private void btnUpdateWife_Click(object sender, EventArgs e)
         {
+            UpdateParentDialog update = new UpdateParentDialog(wife);
 
+            if (update.ShowDialog(this) == DialogResult.OK)
+            {
+                // refresh
+            }
         }
         #endregion WIFE
     }

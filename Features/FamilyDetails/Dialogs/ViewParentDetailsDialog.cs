@@ -12,6 +12,7 @@ namespace FamilySprout.Features.FamilyDetails.Dialogs
 
             tbName.Text = parent.name;
             tbContactNumber.Text = parent.contactNumber;
+            tbBirthPlace.Text = parent.birthPlace;
             tbBday.Text = DateUtils.ConvertToUserReaderFormat(parent.bday);
             tbBaptism.Text = DateUtils.ConvertToUserReaderFormat(parent.baptism);
             tbHc.Text = DateUtils.ConvertToUserReaderFormat(parent.hc);
