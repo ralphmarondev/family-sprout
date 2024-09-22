@@ -90,6 +90,7 @@
             this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
             this.btnFullScreen.TabIndex = 6;
             this.btnFullScreen.UseVisualStyleBackColor = false;
+            this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
             // 
             // btnToggleNavPanel
             // 

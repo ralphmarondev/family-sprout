@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace FamilySprout.Features.Home
@@ -88,5 +89,47 @@ namespace FamilySprout.Features.Home
         }
         #endregion NAVIGATION
 
+
+        #region TOP_BAR
+        public void ToggleFullScreen()
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+        #endregion TOP_BAR
+
+
+        #region DRAG_AND_DROP
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+
+        private void OnMouseUp()
+        {
+            dragging = false;
+        }
+
+        private void OnMouseDown()
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+
+        private void OnMouseMove()
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+        #endregion DRAG_AND_DROP
     }
 }

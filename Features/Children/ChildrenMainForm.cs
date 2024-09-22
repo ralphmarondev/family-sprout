@@ -24,5 +24,15 @@ namespace FamilySprout.Features.Children
                 mainForm.OpenFamilyDetailsMainForm(famId);
             }
         }
+
+        private void btnFullScreen_Click(object sender, System.EventArgs e)
+        {
+            MainForm mainForm = ParentForm as MainForm;
+
+            if (mainForm != null)
+            {
+                mainForm.ToggleFullScreen();
+            }
+        }
     }
 }

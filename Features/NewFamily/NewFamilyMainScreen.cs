@@ -638,5 +638,15 @@ namespace FamilySprout.Features.NewFamily
         #endregion OBITUS
 
         #endregion WIFE
+
+        private void btnFullScreen_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = ParentForm as MainForm;
+
+            if (mainForm != null)
+            {
+                mainForm.ToggleFullScreen();
+            }
+        }
     }
 }

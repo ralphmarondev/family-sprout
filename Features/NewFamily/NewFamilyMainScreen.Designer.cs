@@ -165,6 +165,7 @@
             this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
             this.btnFullScreen.TabIndex = 6;
             this.btnFullScreen.UseVisualStyleBackColor = false;
+            this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
             // 
             // btnToggleNavPanel
             // 
@@ -215,7 +216,8 @@
             // 
             // mainPanel
             // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.Controls.Add(this.panelParentInfo);
             this.mainPanel.Controls.Add(this.panelOtherInfo);
@@ -226,9 +228,7 @@
             // 
             // panelParentInfo
             // 
-            this.panelParentInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelParentInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelParentInfo.BackColor = System.Drawing.Color.White;
             this.panelParentInfo.Controls.Add(this.btnPrev);
             this.panelParentInfo.Controls.Add(this.btnNext);
@@ -335,6 +335,7 @@
             // 
             // lblClearContactNo
             // 
+            this.lblClearContactNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblClearContactNo.AutoSize = true;
             this.lblClearContactNo.Font = new System.Drawing.Font("Courier New", 7F);
             this.lblClearContactNo.Location = new System.Drawing.Point(591, 68);
@@ -359,6 +360,7 @@
             // 
             // label18
             // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Courier New", 10F);
             this.label18.Location = new System.Drawing.Point(338, 63);
@@ -369,6 +371,7 @@
             // 
             // tbContactNumber
             // 
+            this.tbContactNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbContactNumber.Font = new System.Drawing.Font("Courier New", 14F);
             this.tbContactNumber.Location = new System.Drawing.Point(338, 84);
             this.tbContactNumber.Name = "tbContactNumber";
@@ -1055,9 +1058,7 @@
             // 
             // panelOtherInfo
             // 
-            this.panelOtherInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelOtherInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelOtherInfo.BackColor = System.Drawing.Color.White;
             this.panelOtherInfo.Controls.Add(this.btnBack);
             this.panelOtherInfo.Controls.Add(this.btnSave);
