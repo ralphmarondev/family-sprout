@@ -37,7 +37,17 @@ namespace FamilySprout.Features.Children.Controls
 
         private void btnDelete_Click(object sender, System.EventArgs e)
         {
+            DeleteChildDialog deleteChild = new DeleteChildDialog(child);
 
+            if (deleteChild.ShowDialog(this) == DialogResult.OK)
+            {
+                ChildrenMainForm newChild = ParentForm as ChildrenMainForm;
+
+                if (newChild != null)
+                {
+                    newChild.FetchChildren();
+                }
+            }
         }
     }
 }

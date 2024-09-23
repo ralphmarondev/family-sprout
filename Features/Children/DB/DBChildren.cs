@@ -91,5 +91,29 @@ namespace FamilySprout.Features.Children.DB
 
             return children;
         }
+
+        public static bool DeleteChild(long id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE children SET is_deleted = 1 WHERE id = @id;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return false;
+        }
     }
 }
