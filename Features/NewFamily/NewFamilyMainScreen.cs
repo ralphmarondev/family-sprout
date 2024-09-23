@@ -2,6 +2,7 @@
 using FamilySprout.Core.Utils;
 using FamilySprout.Features.Home;
 using FamilySprout.Features.NewFamily.DB;
+using FamilySprout.Features.NewFamily.Dialog;
 using System;
 using System.Windows.Forms;
 
@@ -108,17 +109,28 @@ namespace FamilySprout.Features.NewFamily
             ChangeDateFormatForDatabase();
             family.id = DBNewFamily.SaveNewFamily(family: family, husband: husband, wife: wife);
 
+            AddChildrenNowDialog newChild = new AddChildrenNowDialog();
             MainForm mainForm = ParentForm as MainForm;
 
-            if (mainForm != null)
+            if (newChild.ShowDialog(this) == DialogResult.OK)
             {
-                Console.WriteLine($"Family ID: {family.id}");
-                if (family.id == -1)
+                if (mainForm != null)
                 {
-                    MessageBox.Show("Invalid Family Id.");
-                    return;
+                    Console.WriteLine($"Family ID: {family.id}");
+                    if (family.id == -1)
+                    {
+                        MessageBox.Show("Invalid Family Id.");
+                        return;
+                    }
+                    mainForm.OpenChildrenMainForm(family.id);
                 }
-                mainForm.OpenChildrenMainForm(family.id);
+            }
+            else
+            {
+                if (mainForm != null)
+                {
+                    mainForm.OpenFamiliesMainForm();
+                }
             }
         }
 

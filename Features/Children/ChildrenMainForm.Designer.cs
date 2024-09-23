@@ -36,7 +36,7 @@
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnNext = new System.Windows.Forms.Button();
+            this.btnNewChild = new System.Windows.Forms.Button();
             this.listPanel = new System.Windows.Forms.Panel();
             this.lblBack = new System.Windows.Forms.LinkLabel();
             this.panelTitle.SuspendLayout();
@@ -156,7 +156,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Controls.Add(this.btnNext);
+            this.panel2.Controls.Add(this.btnNewChild);
             this.panel2.Controls.Add(this.listPanel);
             this.panel2.Controls.Add(this.lblBack);
             this.panel2.Location = new System.Drawing.Point(22, 22);
@@ -164,23 +164,24 @@
             this.panel2.Size = new System.Drawing.Size(885, 551);
             this.panel2.TabIndex = 24;
             // 
-            // btnNext
+            // btnNewChild
             // 
-            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
-            this.btnNext.ForeColor = System.Drawing.Color.Purple;
-            this.btnNext.Location = new System.Drawing.Point(663, 490);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNext.MaximumSize = new System.Drawing.Size(200, 68);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(191, 43);
-            this.btnNext.TabIndex = 22;
-            this.btnNext.Text = "NEW CHILD";
-            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNewChild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewChild.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnNewChild.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewChild.FlatAppearance.BorderSize = 0;
+            this.btnNewChild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewChild.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnNewChild.ForeColor = System.Drawing.Color.Purple;
+            this.btnNewChild.Location = new System.Drawing.Point(663, 490);
+            this.btnNewChild.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNewChild.MaximumSize = new System.Drawing.Size(200, 68);
+            this.btnNewChild.Name = "btnNewChild";
+            this.btnNewChild.Size = new System.Drawing.Size(191, 43);
+            this.btnNewChild.TabIndex = 22;
+            this.btnNewChild.Text = "NEW CHILD";
+            this.btnNewChild.UseVisualStyleBackColor = false;
+            this.btnNewChild.Click += new System.EventHandler(this.btnNewChild_Click);
             // 
             // listPanel
             // 
@@ -239,7 +240,7 @@
         private System.Windows.Forms.Label lblCurrentUser;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnNewChild;
         private System.Windows.Forms.Panel listPanel;
         private System.Windows.Forms.LinkLabel lblBack;
     }

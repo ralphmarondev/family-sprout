@@ -34,7 +34,6 @@ namespace FamilySprout.Features.NewFamily.DB
 
                     UpdateFamilyHusbandWifeId(famId: family.id, husbandId: husband.id, wifeId: wife.id, connection: connection);
 
-                    MessageBox.Show("Saved successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return family.id;
                 }
                 catch (Exception ex)

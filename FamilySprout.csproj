@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\DB\DBConfig.cs" />
+    <Compile Include="Core\Model\ChildModel.cs" />
     <Compile Include="Core\Model\FamilyModel.cs" />
     <Compile Include="Core\Model\ParentModel.cs" />
     <Compile Include="Core\Model\UserModel.cs" />
@@ -97,7 +98,37 @@
       <DependentUpon>AuthMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Auth\DB\DBAuth.cs" />
+    <Compile Include="Features\Children\Controls\ChildUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Children\Controls\ChildUserControl.Designer.cs">
+      <DependentUpon>ChildUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Children\DB\DBChildren.cs" />
+    <Compile Include="Features\Children\Dialog\DeleteChildDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Children\Dialog\DeleteChildDialog.Designer.cs">
+      <DependentUpon>DeleteChildDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Children\Dialog\NewChildDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Children\Dialog\NewChildDialog.Designer.cs">
+      <DependentUpon>NewChildDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Children\Dialog\UpdateChildDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Children\Dialog\UpdateChildDialog.Designer.cs">
+      <DependentUpon>UpdateChildDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Children\Dialog\ViewChildDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Children\Dialog\ViewChildDialog.Designer.cs">
+      <DependentUpon>ViewChildDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Dashboard\DashboardMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +192,12 @@
       <DependentUpon>ChildrenMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\NewFamily\DB\DBNewFamily.cs" />
+    <Compile Include="Features\NewFamily\Dialog\AddChildrenNowDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\NewFamily\Dialog\AddChildrenNowDialog.Designer.cs">
+      <DependentUpon>AddChildrenNowDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\NewFamily\NewFamilyMainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +208,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Features\Auth\AuthMainForm.resx">
       <DependentUpon>AuthMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Children\Controls\ChildUserControl.resx">
+      <DependentUpon>ChildUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Children\Dialog\DeleteChildDialog.resx">
+      <DependentUpon>DeleteChildDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Children\Dialog\NewChildDialog.resx">
+      <DependentUpon>NewChildDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Children\Dialog\UpdateChildDialog.resx">
+      <DependentUpon>UpdateChildDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Children\Dialog\ViewChildDialog.resx">
+      <DependentUpon>ViewChildDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Dashboard\DashboardMainForm.resx">
       <DependentUpon>DashboardMainForm.cs</DependentUpon>
@@ -201,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Children\ChildrenMainForm.resx">
       <DependentUpon>ChildrenMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\NewFamily\Dialog\AddChildrenNowDialog.resx">
+      <DependentUpon>AddChildrenNowDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\NewFamily\NewFamilyMainScreen.resx">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
