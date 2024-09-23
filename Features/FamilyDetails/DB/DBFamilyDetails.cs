@@ -161,6 +161,32 @@ namespace FamilySprout.Features.FamilyDetails.DB
 
                 try
                 {
+                    string query = "UPDATE parents SET " +
+                        "name = @name," +
+                        "contact_number = @contact_number," +
+                        "bday = @bday," +
+                        "birth_place = @birth_place," +
+                        "baptism = @baptism," +
+                        "hc = @hc," +
+                        "matrimony = @matrimony, " +
+                        "obitus = @obitus " +
+                        "WHERE id = @id AND is_deleted = 0;";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@name", parent.name);
+                        command.Parameters.AddWithValue("@contact_number", parent.contactNumber);
+                        command.Parameters.AddWithValue("@bday", parent.bday);
+                        command.Parameters.AddWithValue("@birth_place", parent.birthPlace);
+                        command.Parameters.AddWithValue("@baptism", parent.baptism);
+                        command.Parameters.AddWithValue("@hc", parent.hc);
+                        command.Parameters.AddWithValue("@matrimony", parent.matrimony);
+                        command.Parameters.AddWithValue("@obitus", parent.obitus);
+                        command.Parameters.AddWithValue("@id", parent.id);
+
+                        command.ExecuteNonQuery();
+                    }
+
                     return true;
                 }
                 catch (Exception ex)
@@ -170,6 +196,9 @@ namespace FamilySprout.Features.FamilyDetails.DB
             }
             return false;
         }
+
+
+        #region DELETE_FAMILY
         /// <summary>
         /// Used in deleting parents information.
         /// We are not totally deleting it, we are only assigning the flag [is_deleted] to true.
@@ -181,12 +210,13 @@ namespace FamilySprout.Features.FamilyDetails.DB
         /// </returns>
         public static bool DeleteFamilyDetails(long famId)
         {
-            using (var connection = new SQLiteConnection(DBConfig.connectionString))
+            try
             {
-                connection.Open();
-
-                try
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
                 {
+                    connection.Open();
+
+
                     string query = "UPDATE families SET is_deleted = 1 WHERE id = @id AND is_deleted = 0;";
 
                     using (var command = new SQLiteCommand(query, connection))
@@ -195,14 +225,39 @@ namespace FamilySprout.Features.FamilyDetails.DB
 
                         command.ExecuteNonQuery();
                     }
+                    DeleteParentDetailsByFamId(famId, connection);
+                    DeleteChildDetailsByFamId(famId, connection);
                     return true;
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error: {ex.Message}");
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
             }
             return false;
         }
+        private static void DeleteParentDetailsByFamId(long famId, SQLiteConnection connection)
+        {
+            string query = "UPDATE parents SET is_deleted = 1 WHERE id = @id AND is_deleted = 0;";
+
+            using (var command = new SQLiteCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@id", famId);
+
+                command.ExecuteNonQuery();
+            }
+        }
+        private static void DeleteChildDetailsByFamId(long famId, SQLiteConnection connection)
+        {
+            string query = "UPDATE children SET is_deleted = 1 WHERE id = @id AND is_deleted = 0;";
+
+            using (var command = new SQLiteCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@id", famId);
+
+                command.ExecuteNonQuery();
+            }
+        }
+        #endregion DELETE_FAMILY
     }
 }
