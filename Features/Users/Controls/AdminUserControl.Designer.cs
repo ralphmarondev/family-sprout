@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblRole = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.btnView = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.lblRole = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,28 +54,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(680, 65);
             this.panel1.TabIndex = 4;
-            // 
-            // lblRole
-            // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.Font = new System.Drawing.Font("Courier New", 14F);
-            this.lblRole.Location = new System.Drawing.Point(4, 29);
-            this.lblRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(82, 27);
-            this.lblRole.TabIndex = 9;
-            this.lblRole.Text = "Admin";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Courier New", 14F);
-            this.lblName.Location = new System.Drawing.Point(4, 7);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(222, 27);
-            this.lblName.TabIndex = 8;
-            this.lblName.Text = "Ralph Maron Eda";
             // 
             // btnView
             // 
@@ -117,6 +95,28 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Font = new System.Drawing.Font("Courier New", 14F);
+            this.lblRole.Location = new System.Drawing.Point(4, 29);
+            this.lblRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(82, 27);
+            this.lblRole.TabIndex = 9;
+            this.lblRole.Text = "Admin";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Courier New", 14F);
+            this.lblName.Location = new System.Drawing.Point(4, 7);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(222, 27);
+            this.lblName.TabIndex = 8;
+            this.lblName.Text = "Ralph Maron Eda";
+            // 
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -144,7 +144,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminUserControl";
             this.Size = new System.Drawing.Size(696, 83);
             this.panel1.ResumeLayout(false);

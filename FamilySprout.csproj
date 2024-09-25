@@ -373,8 +373,17 @@
     <EmbeddedResource Include="Features\Users\Controls\AdminUserControl.resx">
       <DependentUpon>AdminUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Users\Dialog\DeleteUserDialog.resx">
+      <DependentUpon>DeleteUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Users\Dialog\NewUserDialog.resx">
       <DependentUpon>NewUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Users\Dialog\UpdateUserDialog.resx">
+      <DependentUpon>UpdateUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Users\Dialog\ViewUserDialog.resx">
+      <DependentUpon>ViewUserDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Users\UsersMainForm.resx">
       <DependentUpon>UsersMainForm.cs</DependentUpon>

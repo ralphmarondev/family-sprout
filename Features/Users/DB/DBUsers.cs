@@ -96,5 +96,75 @@ namespace FamilySprout.Features.Users.DB
             }
             return false;
         }
+
+        public static bool UpdateUser(UserModel user)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM users WHERE username = @username;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@username", user.username);
+
+                        long count = (long)command.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Username is already taken.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return false;
+                        }
+                    }
+
+                    query = "UPDATE users SET " +
+                        "full_name = @full_name, username = @username, password = @password, role = @role " +
+                        "WHERE id = @id AND is_deleted = 0;";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@full_name", user.fullName);
+                        command.Parameters.AddWithValue("@username", user.username);
+                        command.Parameters.AddWithValue("@password", user.password);
+                        command.Parameters.AddWithValue("@role", user.role);
+                        command.Parameters.AddWithValue("@id", user.id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return false;
+        }
+
+        public static bool DeleteUser(long id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE users SET is_deleted = 1 WHERE id = @id";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return false;
+        }
     }
 }
