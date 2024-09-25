@@ -1,5 +1,6 @@
 ﻿using FamilySprout.Core.DB;
 using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using System;
 using System.Data.SQLite;
 
@@ -187,6 +188,36 @@ namespace FamilySprout.Features.FamilyDetails.DB
                         command.ExecuteNonQuery();
                     }
 
+                    // update family husband/wife name column
+                    if (parent.role == Constants.Parent.HUSBAND)
+                    {
+                        query = "UPDATE families SET " +
+                            "husband_name = @husband_name " +
+                            "WHERE id = @id";
+
+                        using (var command = new SQLiteCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@husband_name", parent.name);
+                            command.Parameters.AddWithValue("@id", parent.famId);
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    else if (parent.role == Constants.Parent.WIFE)
+                    {
+                        query = "UPDATE families SET " +
+                            "wife_name = @wife_name " +
+                            "WHERE id = @id";
+
+                        using (var command = new SQLiteCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@wife_name", parent.name);
+                            command.Parameters.AddWithValue("@id", parent.famId);
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+
                     return true;
                 }
                 catch (Exception ex)
@@ -238,22 +269,22 @@ namespace FamilySprout.Features.FamilyDetails.DB
         }
         private static void DeleteParentDetailsByFamId(long famId, SQLiteConnection connection)
         {
-            string query = "UPDATE parents SET is_deleted = 1 WHERE id = @id AND is_deleted = 0;";
+            string query = "UPDATE parents SET is_deleted = 1 WHERE fam_id = @fam_id AND is_deleted = 0;";
 
             using (var command = new SQLiteCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@id", famId);
+                command.Parameters.AddWithValue("@fam_id", famId);
 
                 command.ExecuteNonQuery();
             }
         }
         private static void DeleteChildDetailsByFamId(long famId, SQLiteConnection connection)
         {
-            string query = "UPDATE children SET is_deleted = 1 WHERE id = @id AND is_deleted = 0;";
+            string query = "UPDATE children SET is_deleted = 1 WHERE fam_id = @fam_id AND is_deleted = 0;";
 
             using (var command = new SQLiteCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@id", famId);
+                command.Parameters.AddWithValue("@fam_id", famId);
 
                 command.ExecuteNonQuery();
             }

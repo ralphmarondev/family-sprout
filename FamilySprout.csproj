@@ -204,6 +204,31 @@
     <Compile Include="Features\NewFamily\NewFamilyMainScreen.Designer.cs">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Trash\Children\Controls\TrashChildUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Children\Controls\TrashChildUserControl.Designer.cs">
+      <DependentUpon>TrashChildUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\DB\DBTrash.cs" />
+    <Compile Include="Features\Trash\Families\Controls\TrashFamilyUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Families\Controls\TrashFamilyUserControl.Designer.cs">
+      <DependentUpon>TrashFamilyUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\TrashMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\TrashMainForm.Designer.cs">
+      <DependentUpon>TrashMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\Users\TrashUsersUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Users\TrashUsersUserControl.Designer.cs">
+      <DependentUpon>TrashUsersUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Features\Auth\AuthMainForm.resx">
@@ -260,6 +285,18 @@
     <EmbeddedResource Include="Features\NewFamily\NewFamilyMainScreen.resx">
       <DependentUpon>NewFamilyMainScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Children\Controls\TrashChildUserControl.resx">
+      <DependentUpon>TrashChildUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Families\Controls\TrashFamilyUserControl.resx">
+      <DependentUpon>TrashFamilyUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\TrashMainForm.resx">
+      <DependentUpon>TrashMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Users\TrashUsersUserControl.resx">
+      <DependentUpon>TrashUsersUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -284,7 +321,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Features\Trash\Children\Dialog\" />
+    <Folder Include="Features\Trash\Families\Dialog\" />
+    <Folder Include="Features\Users\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\content-management-system-icon-design-free-vector.jpg" />
   </ItemGroup>
@@ -296,6 +337,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="family-sprout.ico" />
+    <None Include="Resources\icons8-restore-48.png" />
     <None Include="Resources\icons8-delete-48.png" />
     <None Include="Resources\icons8-hide-sidepanel-501.png" />
     <None Include="Resources\icons8-edit-80.png" />

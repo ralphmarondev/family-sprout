@@ -36,7 +36,7 @@ namespace FamilySprout.Features.Home
 
         private void btnTrash_Click(object sender, EventArgs e)
         {
-
+            OpenFormInPanel(new Trash.TrashMainForm());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

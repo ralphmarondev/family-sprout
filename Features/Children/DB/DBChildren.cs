@@ -9,6 +9,7 @@ namespace FamilySprout.Features.Children.DB
 {
     public static class DBChildren
     {
+        #region CREATE
         public static void CreateNewChild(ChildModel child)
         {
             try
@@ -34,6 +35,8 @@ namespace FamilySprout.Features.Children.DB
 
                         command.ExecuteNonQuery();
                     }
+
+                    IncrementFamilyChildCount(child.famId, connection);
                 }
                 Console.WriteLine("Done.");
             }
@@ -43,6 +46,20 @@ namespace FamilySprout.Features.Children.DB
                 MessageBox.Show($"Creating new child, {child.name} failed!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private static void IncrementFamilyChildCount(long famId, SQLiteConnection connection)
+        {
+            string query = "UPDATE families SET child_count = child_count + 1 WHERE id = @id";
+
+            using (var command = new SQLiteCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@id", famId);
+
+                command.ExecuteNonQuery();
+            }
+        }
+        #endregion CREATE
+
 
         public static List<ChildModel> GetAllChildren(long famId)
         {
@@ -131,7 +148,9 @@ namespace FamilySprout.Features.Children.DB
             return false;
         }
 
-        public static bool DeleteChild(long id)
+
+        #region DELETE
+        public static bool DeleteChild(ChildModel child)
         {
             try
             {
@@ -142,9 +161,10 @@ namespace FamilySprout.Features.Children.DB
                     string query = "UPDATE children SET is_deleted = 1 WHERE id = @id;";
                     using (var command = new SQLiteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@id", id);
+                        command.Parameters.AddWithValue("@id", child.id);
                         command.ExecuteNonQuery();
                     }
+                    DecrementFamilyChildCount(child.famId, connection);
                 }
                 return true;
             }
@@ -154,5 +174,18 @@ namespace FamilySprout.Features.Children.DB
             }
             return false;
         }
+
+        private static void DecrementFamilyChildCount(long famId, SQLiteConnection connection)
+        {
+            string query = "UPDATE families SET child_count = child_count - 1 WHERE id = @id";
+
+            using (var command = new SQLiteCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@id", famId);
+
+                command.ExecuteNonQuery();
+            }
+        }
+        #endregion DELETE
     }
 }

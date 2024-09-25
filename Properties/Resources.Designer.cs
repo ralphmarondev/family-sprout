@@ -153,6 +153,16 @@ namespace FamilySprout.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-restore-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_test_account_80 {
             get {
                 object obj = ResourceManager.GetObject("icons8-test-account-80", resourceCulture);

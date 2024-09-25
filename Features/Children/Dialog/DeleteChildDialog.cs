@@ -36,7 +36,7 @@ namespace FamilySprout.Features.Children.Dialog
             child.obitus = tbObitus.Text.Trim();
             child.matrimony = tbMatrimony.Text.Trim();
 
-            if (DBChildren.DeleteChild(child.id))
+            if (DBChildren.DeleteChild(child))
             {
                 DialogResult = DialogResult.OK;
             }
