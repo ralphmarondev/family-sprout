@@ -1,4 +1,4 @@
-﻿namespace FamilySprout.Features.Trash.Users
+﻿namespace FamilySprout.Features.Trash.Users.Controls
 {
     partial class TrashUsersUserControl
     {
@@ -71,6 +71,7 @@
             this.btnRestore.Size = new System.Drawing.Size(45, 41);
             this.btnRestore.TabIndex = 10;
             this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // lblRole
             // 
@@ -112,6 +113,7 @@
             this.btnPermanentDelete.Size = new System.Drawing.Size(45, 41);
             this.btnPermanentDelete.TabIndex = 7;
             this.btnPermanentDelete.UseVisualStyleBackColor = false;
+            this.btnPermanentDelete.Click += new System.EventHandler(this.btnPermanentDelete_Click);
             // 
             // TrashUsersUserControl
             // 
@@ -120,7 +122,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TrashUsersUserControl";
             this.Size = new System.Drawing.Size(696, 83);
             this.panel1.ResumeLayout(false);

@@ -247,11 +247,23 @@
     <Compile Include="Features\Trash\TrashMainForm.Designer.cs">
       <DependentUpon>TrashMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Trash\Users\TrashUsersUserControl.cs">
+    <Compile Include="Features\Trash\Users\Controls\TrashUsersUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Trash\Users\TrashUsersUserControl.Designer.cs">
+    <Compile Include="Features\Trash\Users\Controls\TrashUsersUserControl.Designer.cs">
       <DependentUpon>TrashUsersUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\Users\Dialog\PermanentlyDeleteUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Users\Dialog\PermanentlyDeleteUserDialog.Designer.cs">
+      <DependentUpon>PermanentlyDeleteUserDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\Users\Dialog\RestoreUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Users\Dialog\RestoreUserDialog.Designer.cs">
+      <DependentUpon>RestoreUserDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Users\Controls\AdminUserControl.cs">
       <SubType>UserControl</SubType>
@@ -367,8 +379,14 @@
     <EmbeddedResource Include="Features\Trash\TrashMainForm.resx">
       <DependentUpon>TrashMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Trash\Users\TrashUsersUserControl.resx">
+    <EmbeddedResource Include="Features\Trash\Users\Controls\TrashUsersUserControl.resx">
       <DependentUpon>TrashUsersUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Users\Dialog\PermanentlyDeleteUserDialog.resx">
+      <DependentUpon>PermanentlyDeleteUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Users\Dialog\RestoreUserDialog.resx">
+      <DependentUpon>RestoreUserDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Users\Controls\AdminUserControl.resx">
       <DependentUpon>AdminUserControl.cs</DependentUpon>
