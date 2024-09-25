@@ -131,5 +131,41 @@ namespace FamilySprout.Features.Home
             }
         }
         #endregion DRAG_AND_DROP
+
+
+        #region PANEL_LOGO
+        private void panelLogo_MouseUp(object sender, MouseEventArgs e)
+        {
+            OnMouseUp();
+        }
+
+        private void panelLogo_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseMove();
+        }
+
+        private void panelLogo_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown();
+        }
+        #endregion PANEL_LOGO
+
+
+        #region LABEL_LOGO
+        private void lblLogo_MouseUp(object sender, MouseEventArgs e)
+        {
+            OnMouseUp();
+        }
+
+        private void lblLogo_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseMove();
+        }
+
+        private void lblLogo_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown();
+        }
+        #endregion LABEL_LOGO
     }
 }

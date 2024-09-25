@@ -62,6 +62,9 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(1001, 68);
             this.panelTitle.TabIndex = 22;
+            this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
+            this.panelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
+            this.panelTitle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseUp);
             // 
             // btnInfo
             // 
@@ -81,6 +84,8 @@
             this.btnInfo.Size = new System.Drawing.Size(30, 30);
             this.btnInfo.TabIndex = 8;
             this.btnInfo.UseVisualStyleBackColor = false;
+            this.btnInfo.MouseLeave += new System.EventHandler(this.btnInfo_MouseLeave);
+            this.btnInfo.MouseHover += new System.EventHandler(this.btnInfo_MouseHover);
             // 
             // lblDestination
             // 
@@ -91,6 +96,9 @@
             this.lblDestination.Size = new System.Drawing.Size(404, 27);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "FAMILY SPROUT/AUTHENTICATION";
+            this.lblDestination.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseDown);
+            this.lblDestination.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseMove);
+            this.lblDestination.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseUp);
             // 
             // btnClose
             // 

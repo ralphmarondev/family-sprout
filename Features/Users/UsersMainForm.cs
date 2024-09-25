@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using FamilySprout.Features.Users.Controls;
 using FamilySprout.Features.Users.DB;
 using FamilySprout.Features.Users.Dialog;
@@ -14,6 +15,8 @@ namespace FamilySprout.Features.Users
         public UsersMainForm()
         {
             InitializeComponent();
+
+            lblAdminName.Text = SessionManager.CurrentUser.fullName;
             PopulatePanel();
         }
 

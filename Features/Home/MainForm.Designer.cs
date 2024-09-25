@@ -190,6 +190,9 @@
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(217, 68);
             this.panelLogo.TabIndex = 0;
+            this.panelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelLogo_MouseDown);
+            this.panelLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelLogo_MouseMove);
+            this.panelLogo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelLogo_MouseUp);
             // 
             // lblLogo
             // 
@@ -205,6 +208,9 @@
             this.lblLogo.Size = new System.Drawing.Size(194, 27);
             this.lblLogo.TabIndex = 0;
             this.lblLogo.Text = "FAMILY-SPROUT";
+            this.lblLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblLogo_MouseDown);
+            this.lblLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblLogo_MouseMove);
+            this.lblLogo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblLogo_MouseUp);
             // 
             // mainPanel
             // 
@@ -225,7 +231,7 @@
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Sprout";

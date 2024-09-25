@@ -57,6 +57,9 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(930, 68);
             this.panelTitle.TabIndex = 21;
+            this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
+            this.panelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
+            this.panelTitle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseUp);
             // 
             // btnBackup
             // 
@@ -86,6 +89,9 @@
             this.lblDestination.Size = new System.Drawing.Size(118, 22);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "DASHBOARD";
+            this.lblDestination.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseDown);
+            this.lblDestination.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseMove);
+            this.lblDestination.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseUp);
             // 
             // btnFullScreen
             // 
@@ -139,6 +145,8 @@
             this.btnCurrentUserInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCurrentUserInfo.TabIndex = 4;
             this.btnCurrentUserInfo.TabStop = false;
+            this.btnCurrentUserInfo.MouseLeave += new System.EventHandler(this.btnCurrentUserInfo_MouseLeave);
+            this.btnCurrentUserInfo.MouseHover += new System.EventHandler(this.btnCurrentUserInfo_MouseHover);
             // 
             // lblCurrentUser
             // 
@@ -153,6 +161,9 @@
             this.lblCurrentUser.Size = new System.Drawing.Size(70, 22);
             this.lblCurrentUser.TabIndex = 0;
             this.lblCurrentUser.Text = "ADMIN";
+            this.lblCurrentUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseDown);
+            this.lblCurrentUser.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseMove);
+            this.lblCurrentUser.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseUp);
             // 
             // DashboardMainForm
             // 
