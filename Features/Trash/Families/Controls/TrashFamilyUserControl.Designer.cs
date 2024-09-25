@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRestore = new System.Windows.Forms.Button();
             this.lblWife = new System.Windows.Forms.Label();
             this.lblHusband = new System.Windows.Forms.Label();
-            this.btnRestore = new System.Windows.Forms.Button();
             this.btnPermanentDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +52,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(680, 65);
             this.panel1.TabIndex = 4;
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestore.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRestore.BackgroundImage = global::FamilySprout.Properties.Resources.icons8_restore_48;
+            this.btnRestore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestore.FlatAppearance.BorderSize = 0;
+            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestore.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestore.ForeColor = System.Drawing.Color.Purple;
+            this.btnRestore.Location = new System.Drawing.Point(571, 12);
+            this.btnRestore.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRestore.MaximumSize = new System.Drawing.Size(300, 94);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(45, 41);
+            this.btnRestore.TabIndex = 10;
+            this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // lblWife
             // 
@@ -75,25 +95,6 @@
             this.lblHusband.TabIndex = 8;
             this.lblHusband.Text = "Husband Name";
             // 
-            // btnRestore
-            // 
-            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestore.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRestore.BackgroundImage = global::FamilySprout.Properties.Resources.icons8_restore_48;
-            this.btnRestore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestore.FlatAppearance.BorderSize = 0;
-            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestore.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestore.ForeColor = System.Drawing.Color.Purple;
-            this.btnRestore.Location = new System.Drawing.Point(571, 12);
-            this.btnRestore.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRestore.MaximumSize = new System.Drawing.Size(300, 94);
-            this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(45, 41);
-            this.btnRestore.TabIndex = 10;
-            this.btnRestore.UseVisualStyleBackColor = false;
-            // 
             // btnPermanentDelete
             // 
             this.btnPermanentDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -112,6 +113,7 @@
             this.btnPermanentDelete.Size = new System.Drawing.Size(45, 41);
             this.btnPermanentDelete.TabIndex = 7;
             this.btnPermanentDelete.UseVisualStyleBackColor = false;
+            this.btnPermanentDelete.Click += new System.EventHandler(this.btnPermanentDelete_Click);
             // 
             // TrashFamilyUserControl
             // 
@@ -120,7 +122,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TrashFamilyUserControl";
             this.Size = new System.Drawing.Size(696, 83);
             this.panel1.ResumeLayout(false);

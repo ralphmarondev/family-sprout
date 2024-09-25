@@ -210,12 +210,36 @@
     <Compile Include="Features\Trash\Children\Controls\TrashChildUserControl.Designer.cs">
       <DependentUpon>TrashChildUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Trash\Children\Dialog\PermanentlyDeleteChildDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Children\Dialog\PermanentlyDeleteChildDialog.Designer.cs">
+      <DependentUpon>PermanentlyDeleteChildDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\Children\Dialog\RestoreChildDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Children\Dialog\RestoreChildDialog.Designer.cs">
+      <DependentUpon>RestoreChildDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Trash\DB\DBTrash.cs" />
     <Compile Include="Features\Trash\Families\Controls\TrashFamilyUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Features\Trash\Families\Controls\TrashFamilyUserControl.Designer.cs">
       <DependentUpon>TrashFamilyUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\Families\Dialog\PermanentlyDeleteFamilyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Families\Dialog\PermanentlyDeleteFamilyDialog.Designer.cs">
+      <DependentUpon>PermanentlyDeleteFamilyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Trash\Families\Dialog\RestoreFamilyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Trash\Families\Dialog\RestoreFamilyDialog.Designer.cs">
+      <DependentUpon>RestoreFamilyDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Trash\TrashMainForm.cs">
       <SubType>Form</SubType>
@@ -288,8 +312,20 @@
     <EmbeddedResource Include="Features\Trash\Children\Controls\TrashChildUserControl.resx">
       <DependentUpon>TrashChildUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Children\Dialog\PermanentlyDeleteChildDialog.resx">
+      <DependentUpon>PermanentlyDeleteChildDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Children\Dialog\RestoreChildDialog.resx">
+      <DependentUpon>RestoreChildDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\Families\Controls\TrashFamilyUserControl.resx">
       <DependentUpon>TrashFamilyUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Families\Dialog\PermanentlyDeleteFamilyDialog.resx">
+      <DependentUpon>PermanentlyDeleteFamilyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Trash\Families\Dialog\RestoreFamilyDialog.resx">
+      <DependentUpon>RestoreFamilyDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Trash\TrashMainForm.resx">
       <DependentUpon>TrashMainForm.cs</DependentUpon>
@@ -322,8 +358,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Trash\Children\Dialog\" />
-    <Folder Include="Features\Trash\Families\Dialog\" />
     <Folder Include="Features\Users\" />
   </ItemGroup>
   <ItemGroup>

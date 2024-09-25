@@ -3,6 +3,7 @@ using FamilySprout.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace FamilySprout.Features.Trash.DB
 {
@@ -52,6 +53,93 @@ namespace FamilySprout.Features.Trash.DB
             }
             return families;
         }
+
+        public static bool RestoreFamily(long famId)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE families SET is_deleted = 0 WHERE id = @id AND is_deleted = 1;";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", famId);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // restore parents too
+                    query = "UPDATE parents SET is_deleted = 0 WHERE fam_id = @fam_id AND is_deleted = 1;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@fam_id", famId);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // restore children too
+                    query = "UPDATE children SET is_deleted = 0 WHERE fam_id = @fam_id AND is_deleted = 1;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@fam_id", famId);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return false;
+        }
+
+        public static bool PermanentlyDeleteFamily(long famId)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "DELETE FROM families WHERE id = @id AND is_deleted = 1;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", famId);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // delete parents related to the family too
+                    query = "DELETE FROM parents WHERE fam_id = @fam_id AND is_deleted = 1;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@fam_id", famId);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // delete its children too
+                    query = "DELETE FROM children WHERE fam_id = @fam_id AND is_deleted = 1;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@fam_id", famId);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return false;
+        }
         #endregion
 
 
@@ -100,6 +188,84 @@ namespace FamilySprout.Features.Trash.DB
             }
             return children;
         }
+
+        public static bool RestoreChild(long id, long famId)
+        {
+            // if fam_id is deleted : don't allow restoring
+            // else restore and increment child_count of the family
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT is_deleted FROM families WHERE id = @id;";
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", famId);
+
+                        int isDeleted = Convert.ToInt32(command.ExecuteScalar());
+
+                        if (isDeleted == 1)
+                        {
+                            MessageBox.Show("You need to restore the child's family first!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return false;
+                        }
+                    }
+
+                    // restore child
+                    query = "UPDATE children SET is_deleted = 0 WHERE id = @id AND is_deleted = 1;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // increment family [child_count]
+                    query = "UPDATE families SET child_count = child_count + 1 WHERE id = @id AND is_deleted = 0;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", famId);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return false;
+        }
+
+        public static bool PermanentlyDeleteChild(long id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "DELETE FROM children WHERE id = @id AND is_deleted = 1;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return false;
+        }
         #endregion CHILDREN
 
 
@@ -144,6 +310,55 @@ namespace FamilySprout.Features.Trash.DB
                 Console.WriteLine($"Error: {ex.Message}");
             }
             return users;
+        }
+
+        public static bool RestoreUser(long id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE users SET is_deleted = 0 WHERE id = @id;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return false;
+        }
+
+        public static bool PermanentlyDeleteUser(long id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "DELETE FROM users WHERE id = @id AND is_deleted = 1;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return false;
         }
         #endregion USER
     }
