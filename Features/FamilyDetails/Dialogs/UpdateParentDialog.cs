@@ -69,7 +69,7 @@ namespace FamilySprout.Features.FamilyDetails.Dialogs
             }
             if (parent.hc != string.Empty)
             {
-                parent.hc = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
+                parent.hc = dtHc.Value.ToString(DateUtils.DB_FORMAT);
             }
             if (parent.matrimony != string.Empty)
             {

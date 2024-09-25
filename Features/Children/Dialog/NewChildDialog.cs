@@ -49,7 +49,7 @@ namespace FamilySprout.Features.Children.Dialog
             }
             if (child.hc != string.Empty)
             {
-                child.hc = dtBaptism.Value.ToString(DateUtils.DB_FORMAT);
+                child.hc = dtHc.Value.ToString(DateUtils.DB_FORMAT);
             }
             if (child.matrimony != string.Empty)
             {

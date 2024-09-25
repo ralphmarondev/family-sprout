@@ -105,7 +105,7 @@ namespace FamilySprout.Features.FamilyDetails
 
             if (update.ShowDialog(this) == DialogResult.OK)
             {
-                // refresh
+                FetchData();
             }
         }
         #endregion HUSBAND
@@ -114,7 +114,7 @@ namespace FamilySprout.Features.FamilyDetails
         #region WIFE
         private void btnViewWife_Click(object sender, EventArgs e)
         {
-            ViewParentDetailsDialog view = new ViewParentDetailsDialog(husband);
+            ViewParentDetailsDialog view = new ViewParentDetailsDialog(wife);
 
             view.ShowDialog(this);
         }
@@ -125,7 +125,7 @@ namespace FamilySprout.Features.FamilyDetails
 
             if (update.ShowDialog(this) == DialogResult.OK)
             {
-                // refresh
+                FetchData();
             }
         }
         #endregion WIFE
