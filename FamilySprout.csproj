@@ -253,6 +253,43 @@
     <Compile Include="Features\Trash\Users\TrashUsersUserControl.Designer.cs">
       <DependentUpon>TrashUsersUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Users\Controls\AdminUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Users\Controls\AdminUserControl.Designer.cs">
+      <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Users\DB\DBUsers.cs" />
+    <Compile Include="Features\Users\Dialog\DeleteUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Users\Dialog\DeleteUserDialog.Designer.cs">
+      <DependentUpon>DeleteUserDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Users\Dialog\NewUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Users\Dialog\NewUserDialog.Designer.cs">
+      <DependentUpon>NewUserDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Users\Dialog\UpdateUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Users\Dialog\UpdateUserDialog.Designer.cs">
+      <DependentUpon>UpdateUserDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Users\Dialog\ViewUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Users\Dialog\ViewUserDialog.Designer.cs">
+      <DependentUpon>ViewUserDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Users\UsersMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Users\UsersMainForm.Designer.cs">
+      <DependentUpon>UsersMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Features\Auth\AuthMainForm.resx">
@@ -333,6 +370,15 @@
     <EmbeddedResource Include="Features\Trash\Users\TrashUsersUserControl.resx">
       <DependentUpon>TrashUsersUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Users\Controls\AdminUserControl.resx">
+      <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Users\Dialog\NewUserDialog.resx">
+      <DependentUpon>NewUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Users\UsersMainForm.resx">
+      <DependentUpon>UsersMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -357,9 +403,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\Users\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\content-management-system-icon-design-free-vector.jpg" />
   </ItemGroup>

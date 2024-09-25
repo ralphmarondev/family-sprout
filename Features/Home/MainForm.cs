@@ -31,7 +31,7 @@ namespace FamilySprout.Features.Home
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-
+            OpenFormInPanel(new Users.UsersMainForm());
         }
 
         private void btnTrash_Click(object sender, EventArgs e)
