@@ -29,13 +29,20 @@
         private void InitializeComponent()
         {
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.btnBackup = new System.Windows.Forms.Button();
             this.lblDestination = new System.Windows.Forms.Label();
+            this.lblCurrentUser = new System.Windows.Forms.Label();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblGreetings = new System.Windows.Forms.Label();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBackup = new System.Windows.Forms.Button();
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleNavPanel = new System.Windows.Forms.Button();
             this.btnCurrentUserInfo = new System.Windows.Forms.PictureBox();
-            this.lblCurrentUser = new System.Windows.Forms.Label();
+            this.lblNotice = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
+            this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +68,83 @@
             this.panelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
             this.panelTitle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseUp);
             // 
+            // lblDestination
+            // 
+            this.lblDestination.AutoSize = true;
+            this.lblDestination.Location = new System.Drawing.Point(12, 25);
+            this.lblDestination.Name = "lblDestination";
+            this.lblDestination.Size = new System.Drawing.Size(118, 22);
+            this.lblDestination.TabIndex = 7;
+            this.lblDestination.Text = "DASHBOARD";
+            this.lblDestination.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseDown);
+            this.lblDestination.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseMove);
+            this.lblDestination.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseUp);
+            // 
+            // lblCurrentUser
+            // 
+            this.lblCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentUser.AutoSize = true;
+            this.lblCurrentUser.BackColor = System.Drawing.Color.White;
+            this.lblCurrentUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCurrentUser.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentUser.ForeColor = System.Drawing.Color.Purple;
+            this.lblCurrentUser.Location = new System.Drawing.Point(566, 23);
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Size = new System.Drawing.Size(70, 22);
+            this.lblCurrentUser.TabIndex = 0;
+            this.lblCurrentUser.Text = "ADMIN";
+            this.lblCurrentUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseDown);
+            this.lblCurrentUser.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseMove);
+            this.lblCurrentUser.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseUp);
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainPanel.BackColor = System.Drawing.SystemColors.Window;
+            this.mainPanel.Controls.Add(this.label1);
+            this.mainPanel.Controls.Add(this.monthCalendar1);
+            this.mainPanel.Controls.Add(this.lblGreetings);
+            this.mainPanel.Controls.Add(this.flowLayoutPanel1);
+            this.mainPanel.Location = new System.Drawing.Point(24, 92);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(877, 532);
+            this.mainPanel.TabIndex = 22;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Window;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(19, 291);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(781, 184);
+            this.flowLayoutPanel1.TabIndex = 23;
+            // 
+            // lblGreetings
+            // 
+            this.lblGreetings.AutoSize = true;
+            this.lblGreetings.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGreetings.Location = new System.Drawing.Point(13, 16);
+            this.lblGreetings.Name = "lblGreetings";
+            this.lblGreetings.Size = new System.Drawing.Size(411, 34);
+            this.lblGreetings.TabIndex = 28;
+            this.lblGreetings.Text = "HELLO, RALPH MARON EDA";
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(19, 59);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 266);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(214, 22);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "OTHER INFORMATION";
+            // 
             // btnBackup
             // 
             this.btnBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -80,18 +164,6 @@
             this.btnBackup.TabIndex = 8;
             this.btnBackup.UseVisualStyleBackColor = false;
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
-            // 
-            // lblDestination
-            // 
-            this.lblDestination.AutoSize = true;
-            this.lblDestination.Location = new System.Drawing.Point(12, 25);
-            this.lblDestination.Name = "lblDestination";
-            this.lblDestination.Size = new System.Drawing.Size(118, 22);
-            this.lblDestination.TabIndex = 7;
-            this.lblDestination.Text = "DASHBOARD";
-            this.lblDestination.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseDown);
-            this.lblDestination.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseMove);
-            this.lblDestination.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseUp);
             // 
             // btnFullScreen
             // 
@@ -148,28 +220,27 @@
             this.btnCurrentUserInfo.MouseLeave += new System.EventHandler(this.btnCurrentUserInfo_MouseLeave);
             this.btnCurrentUserInfo.MouseHover += new System.EventHandler(this.btnCurrentUserInfo_MouseHover);
             // 
-            // lblCurrentUser
+            // lblNotice
             // 
-            this.lblCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCurrentUser.AutoSize = true;
-            this.lblCurrentUser.BackColor = System.Drawing.Color.White;
-            this.lblCurrentUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCurrentUser.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentUser.ForeColor = System.Drawing.Color.Purple;
-            this.lblCurrentUser.Location = new System.Drawing.Point(566, 23);
-            this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Size = new System.Drawing.Size(70, 22);
-            this.lblCurrentUser.TabIndex = 0;
-            this.lblCurrentUser.Text = "ADMIN";
-            this.lblCurrentUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseDown);
-            this.lblCurrentUser.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseMove);
-            this.lblCurrentUser.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseUp);
+            this.lblNotice.AutoSize = true;
+            this.lblNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblNotice.ForeColor = System.Drawing.Color.Tomato;
+            this.lblNotice.Location = new System.Drawing.Point(0, 627);
+            this.lblNotice.Margin = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Name = "lblNotice";
+            this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Size = new System.Drawing.Size(680, 32);
+            this.lblNotice.TabIndex = 31;
+            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
+            this.lblNotice.Visible = false;
             // 
             // DashboardMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 659);
+            this.Controls.Add(this.lblNotice);
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.panelTitle);
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
@@ -182,8 +253,11 @@
             this.Text = "DashboardMainForm";
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -196,5 +270,11 @@
         private System.Windows.Forms.Button btnToggleNavPanel;
         private System.Windows.Forms.PictureBox btnCurrentUserInfo;
         private System.Windows.Forms.Label lblCurrentUser;
+        private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label lblGreetings;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNotice;
     }
 }

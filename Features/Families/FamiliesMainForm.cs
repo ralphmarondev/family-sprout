@@ -18,6 +18,11 @@ namespace FamilySprout.Features.Families
             SetupPopupPanel();
 
             lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
+            if (SessionManager.CurrentUser.role == Constants.User.USER)
+            {
+                lblNotice.Visible = true;
+            }
+
             SetupDataGridView();
             FetchFamilies();
         }

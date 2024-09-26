@@ -39,6 +39,7 @@
             this.btnNewChild = new System.Windows.Forms.Button();
             this.listPanel = new System.Windows.Forms.Panel();
             this.lblBack = new System.Windows.Forms.LinkLabel();
+            this.lblNotice = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -156,6 +157,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.lblNotice);
             this.panel2.Controls.Add(this.btnNewChild);
             this.panel2.Controls.Add(this.listPanel);
             this.panel2.Controls.Add(this.lblBack);
@@ -204,6 +206,20 @@
             this.lblBack.Text = "BACK";
             this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
             // 
+            // lblNotice
+            // 
+            this.lblNotice.AutoSize = true;
+            this.lblNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblNotice.ForeColor = System.Drawing.Color.Tomato;
+            this.lblNotice.Location = new System.Drawing.Point(0, 519);
+            this.lblNotice.Margin = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Name = "lblNotice";
+            this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Size = new System.Drawing.Size(680, 32);
+            this.lblNotice.TabIndex = 33;
+            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
+            this.lblNotice.Visible = false;
+            // 
             // ChildrenMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
@@ -243,5 +259,6 @@
         private System.Windows.Forms.Button btnNewChild;
         private System.Windows.Forms.Panel listPanel;
         private System.Windows.Forms.LinkLabel lblBack;
+        private System.Windows.Forms.Label lblNotice;
     }
 }

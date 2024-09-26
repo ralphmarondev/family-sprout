@@ -35,6 +35,8 @@ namespace FamilySprout.Features.FamilyDetails
                 // change button location
                 btnViewHusband.Location = new Point(763, 15);
                 btnViewWife.Location = new Point(763, 15);
+
+                lblNotice.Visible = true;
             }
 
             FetchData();

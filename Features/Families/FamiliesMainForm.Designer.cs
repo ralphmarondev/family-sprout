@@ -44,6 +44,7 @@
             this.tbSearchHusband = new System.Windows.Forms.TextBox();
             this.lblEmpty = new System.Windows.Forms.Label();
             this.dataGridViewFamilies = new System.Windows.Forms.DataGridView();
+            this.lblNotice = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -158,6 +159,7 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.lblNotice);
             this.mainPanel.Controls.Add(this.panel1);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 68);
@@ -181,7 +183,7 @@
             this.panel1.Controls.Add(this.dataGridViewFamilies);
             this.panel1.Location = new System.Drawing.Point(22, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(874, 546);
+            this.panel1.Size = new System.Drawing.Size(874, 533);
             this.panel1.TabIndex = 23;
             // 
             // label2
@@ -278,8 +280,22 @@
             this.dataGridViewFamilies.Name = "dataGridViewFamilies";
             this.dataGridViewFamilies.RowHeadersWidth = 51;
             this.dataGridViewFamilies.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridViewFamilies.Size = new System.Drawing.Size(821, 452);
+            this.dataGridViewFamilies.Size = new System.Drawing.Size(821, 439);
             this.dataGridViewFamilies.TabIndex = 0;
+            // 
+            // lblNotice
+            // 
+            this.lblNotice.AutoSize = true;
+            this.lblNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblNotice.ForeColor = System.Drawing.Color.Tomato;
+            this.lblNotice.Location = new System.Drawing.Point(0, 559);
+            this.lblNotice.Margin = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Name = "lblNotice";
+            this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Size = new System.Drawing.Size(680, 32);
+            this.lblNotice.TabIndex = 32;
+            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
+            this.lblNotice.Visible = false;
             // 
             // FamiliesMainForm
             // 
@@ -301,6 +317,7 @@
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).EndInit();
             this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFamilies)).EndInit();
@@ -326,5 +343,6 @@
         private System.Windows.Forms.TextBox tbSearchHusband;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbSearchWife;
+        private System.Windows.Forms.Label lblNotice;
     }
 }

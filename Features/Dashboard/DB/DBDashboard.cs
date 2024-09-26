@@ -28,5 +28,25 @@ namespace FamilySprout.Features.Dashboard.DB
                 MessageBox.Show($"An error occurred while creating the database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public static int GetTotalFamilyCount()
+        {
+            return 0;
+        }
+
+        public static int GetTotalParentCount()
+        {
+            return 0;
+        }
+
+        public static int GetTotalChildCount()
+        {
+            return 0;
+        }
+
+        public static int GetTotalUserCount()
+        {
+            return 0;
+        }
     }
 }

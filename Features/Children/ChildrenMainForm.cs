@@ -26,6 +26,7 @@ namespace FamilySprout.Features.Children
             if (SessionManager.CurrentUser.role == Constants.User.USER)
             {
                 btnNewChild.Visible = false;
+                lblNotice.Visible = true;
             }
 
             FetchChildren();

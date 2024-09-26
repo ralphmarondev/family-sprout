@@ -129,6 +129,12 @@
     <Compile Include="Features\Children\Dialog\ViewChildDialog.Designer.cs">
       <DependentUpon>ViewChildDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Dashboard\Controls\TotalCountUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Dashboard\Controls\TotalCountUserControl.Designer.cs">
+      <DependentUpon>TotalCountUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Dashboard\DashboardMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Children\Dialog\ViewChildDialog.resx">
       <DependentUpon>ViewChildDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Dashboard\Controls\TotalCountUserControl.resx">
+      <DependentUpon>TotalCountUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Dashboard\DashboardMainForm.resx">
       <DependentUpon>DashboardMainForm.cs</DependentUpon>

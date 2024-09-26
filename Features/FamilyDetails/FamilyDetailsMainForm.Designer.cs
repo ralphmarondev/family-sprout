@@ -59,6 +59,7 @@
             this.lblHusbandBday = new System.Windows.Forms.Label();
             this.lblHusbandName = new System.Windows.Forms.Label();
             this.lblBack = new System.Windows.Forms.LinkLabel();
+            this.lblNotice = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -196,6 +197,7 @@
             this.panel2.Controls.Add(this.btnNext);
             this.panel2.Controls.Add(this.listPanel);
             this.panel2.Controls.Add(this.lblBack);
+            this.panel2.Controls.Add(this.lblNotice);
             this.panel2.Location = new System.Drawing.Point(22, 22);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(885, 551);
@@ -538,6 +540,20 @@
             this.lblBack.Text = "BACK";
             this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
             // 
+            // lblNotice
+            // 
+            this.lblNotice.AutoSize = true;
+            this.lblNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblNotice.ForeColor = System.Drawing.Color.Tomato;
+            this.lblNotice.Location = new System.Drawing.Point(0, 519);
+            this.lblNotice.Margin = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Name = "lblNotice";
+            this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Size = new System.Drawing.Size(680, 32);
+            this.lblNotice.TabIndex = 36;
+            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
+            this.lblNotice.Visible = false;
+            // 
             // FamilyDetailsMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
@@ -605,5 +621,6 @@
         private System.Windows.Forms.Button btnUpdateFamily;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbHometown;
+        private System.Windows.Forms.Label lblNotice;
     }
 }

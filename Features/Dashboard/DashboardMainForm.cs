@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.Utils;
+using FamilySprout.Features.Dashboard.Controls;
 using FamilySprout.Features.Dashboard.DB;
 using FamilySprout.Features.Home;
 using System;
@@ -15,9 +16,36 @@ namespace FamilySprout.Features.Dashboard
             SetupPopupPanel();
 
             lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
+            lblGreetings.Text = $"Hello, {SessionManager.CurrentUser.fullName}";
 
             if (SessionManager.CurrentUser.role == Constants.User.USER)
+            {
                 btnBackup.Visible = false;
+                lblNotice.Visible = true;
+            }
+
+            GetTotalCounts();
+        }
+
+        private void GetTotalCounts()
+        {
+            flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+            flowLayoutPanel1.WrapContents = true;
+
+            var items = new (string header, int value)[]
+            {
+                ("Family Count", DBDashboard.GetTotalFamilyCount()),
+                ("Parent Count", DBDashboard.GetTotalParentCount()),
+                ("Child Count", DBDashboard.GetTotalChildCount()),
+                ("User Count", DBDashboard.GetTotalUserCount())
+            };
+
+            foreach (var item in items)
+            {
+                TotalCountUserControl totalCountControl = new TotalCountUserControl(item.header, item.value);
+
+                flowLayoutPanel1.Controls.Add(totalCountControl);
+            }
         }
 
         private void btnFullScreen_Click(object sender, EventArgs e)
@@ -32,7 +60,12 @@ namespace FamilySprout.Features.Dashboard
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            DBDashboard.BackUpDatabase();
+            DialogResult result = MessageBox.Show("Do you want to create a backup database?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                DBDashboard.BackUpDatabase();
+            }
         }
 
 
