@@ -171,8 +171,6 @@ namespace FamilySprout.Features.Dashboard
         }
         #endregion DESTINATION
 
-        #endregion USER_INTERFACE
-
 
         #region LABEL_CURRENT_USER
         private void lblCurrentUser_MouseUp(object sender, MouseEventArgs e)
@@ -204,5 +202,7 @@ namespace FamilySprout.Features.Dashboard
             HidePopUp();
         }
         #endregion BUTTON_CURRENT_USER_INFO
+
+        #endregion USER_INTERFACE
     }
 }

@@ -33,7 +33,7 @@
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleNavPanel = new System.Windows.Forms.Button();
             this.btnCurrentUserInfo = new System.Windows.Forms.PictureBox();
-            this.lblAdminName = new System.Windows.Forms.Label();
+            this.lblCurrentUser = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnChildrens = new System.Windows.Forms.Button();
@@ -55,7 +55,7 @@
             this.panelTitle.Controls.Add(this.btnFullScreen);
             this.panelTitle.Controls.Add(this.btnToggleNavPanel);
             this.panelTitle.Controls.Add(this.btnCurrentUserInfo);
-            this.panelTitle.Controls.Add(this.lblAdminName);
+            this.panelTitle.Controls.Add(this.lblCurrentUser);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTitle.ForeColor = System.Drawing.Color.Purple;
@@ -65,6 +65,9 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(930, 68);
             this.panelTitle.TabIndex = 19;
+            this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
+            this.panelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
+            this.panelTitle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseUp);
             // 
             // lblDestination
             // 
@@ -74,6 +77,9 @@
             this.lblDestination.Size = new System.Drawing.Size(70, 22);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "TRASH";
+            this.lblDestination.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseDown);
+            this.lblDestination.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseMove);
+            this.lblDestination.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseUp);
             // 
             // btnFullScreen
             // 
@@ -93,6 +99,7 @@
             this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
             this.btnFullScreen.TabIndex = 6;
             this.btnFullScreen.UseVisualStyleBackColor = false;
+            this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
             // 
             // btnToggleNavPanel
             // 
@@ -126,19 +133,24 @@
             this.btnCurrentUserInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCurrentUserInfo.TabIndex = 4;
             this.btnCurrentUserInfo.TabStop = false;
+            this.btnCurrentUserInfo.MouseLeave += new System.EventHandler(this.btnCurrentUserInfo_MouseLeave);
+            this.btnCurrentUserInfo.MouseHover += new System.EventHandler(this.btnCurrentUserInfo_MouseHover);
             // 
-            // lblAdminName
+            // lblCurrentUser
             // 
-            this.lblAdminName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAdminName.AutoSize = true;
-            this.lblAdminName.BackColor = System.Drawing.Color.White;
-            this.lblAdminName.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminName.ForeColor = System.Drawing.Color.Purple;
-            this.lblAdminName.Location = new System.Drawing.Point(569, 24);
-            this.lblAdminName.Name = "lblAdminName";
-            this.lblAdminName.Size = new System.Drawing.Size(70, 22);
-            this.lblAdminName.TabIndex = 0;
-            this.lblAdminName.Text = "ADMIN";
+            this.lblCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentUser.AutoSize = true;
+            this.lblCurrentUser.BackColor = System.Drawing.Color.White;
+            this.lblCurrentUser.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentUser.ForeColor = System.Drawing.Color.Purple;
+            this.lblCurrentUser.Location = new System.Drawing.Point(569, 24);
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Size = new System.Drawing.Size(70, 22);
+            this.lblCurrentUser.TabIndex = 0;
+            this.lblCurrentUser.Text = "ADMIN";
+            this.lblCurrentUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseDown);
+            this.lblCurrentUser.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseMove);
+            this.lblCurrentUser.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseUp);
             // 
             // mainPanel
             // 
@@ -276,7 +288,7 @@
         private System.Windows.Forms.Button btnFullScreen;
         private System.Windows.Forms.Button btnToggleNavPanel;
         private System.Windows.Forms.PictureBox btnCurrentUserInfo;
-        private System.Windows.Forms.Label lblAdminName;
+        private System.Windows.Forms.Label lblCurrentUser;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnChildrens;
