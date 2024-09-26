@@ -18,8 +18,11 @@ namespace FamilySprout.Features.Children.Controls
 
             if (SessionManager.CurrentUser.role == Constants.User.USER)
             {
-                btnUpdate.Enabled = false;
-                btnDelete.Enabled = false;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+
+                // change the location of view button
+                btnView.Location = new System.Drawing.Point(625, 12);
             }
         }
 

@@ -135,6 +135,7 @@
     <Compile Include="Features\Dashboard\DashboardMainForm.Designer.cs">
       <DependentUpon>DashboardMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Dashboard\DB\DBDashboard.cs" />
     <Compile Include="Features\Families\DB\DBFamilyList.cs" />
     <Compile Include="Features\Families\FamiliesMainForm.cs">
       <SubType>Form</SubType>

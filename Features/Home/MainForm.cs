@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FamilySprout.Core.Utils;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,6 +11,14 @@ namespace FamilySprout.Features.Home
         {
             InitializeComponent();
             OpenDashboard();
+
+            // user role check
+            if (SessionManager.CurrentUser.role == Constants.User.USER)
+            {
+                btnNewFamily.Visible = false;
+                btnUsers.Visible = false;
+                btnTrash.Visible = false;
+            }
         }
 
 

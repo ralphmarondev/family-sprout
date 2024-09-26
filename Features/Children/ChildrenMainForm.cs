@@ -22,6 +22,12 @@ namespace FamilySprout.Features.Children
             this.famId = famId;
             lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
 
+            // user role check
+            if (SessionManager.CurrentUser.role == Constants.User.USER)
+            {
+                btnNewChild.Visible = false;
+            }
+
             FetchChildren();
         }
 

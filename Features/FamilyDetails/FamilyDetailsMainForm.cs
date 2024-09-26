@@ -22,6 +22,21 @@ namespace FamilySprout.Features.FamilyDetails
             Console.WriteLine($"FamId: {famId}");
 
             lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
+
+            // user role check
+            if (SessionManager.CurrentUser.role == Constants.User.USER)
+            {
+                btnUpdateFamily.Visible = false;
+                btnDeleteFamily.Visible = false;
+
+                btnUpdateHusband.Visible = false;
+                btnUpdateWife.Visible = false;
+
+                // change button location
+                btnViewHusband.Location = new Point(763, 15);
+                btnViewWife.Location = new Point(763, 15);
+            }
+
             FetchData();
         }
 

@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.Utils;
+using FamilySprout.Features.Dashboard.DB;
 using FamilySprout.Features.Home;
 using System;
 using System.Drawing;
@@ -14,6 +15,9 @@ namespace FamilySprout.Features.Dashboard
             SetupPopupPanel();
 
             lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
+
+            if (SessionManager.CurrentUser.role == Constants.User.USER)
+                btnBackup.Visible = false;
         }
 
         private void btnFullScreen_Click(object sender, EventArgs e)
@@ -28,7 +32,7 @@ namespace FamilySprout.Features.Dashboard
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
-
+            DBDashboard.BackUpDatabase();
         }
 
 
