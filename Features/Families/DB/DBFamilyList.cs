@@ -140,6 +140,50 @@ namespace FamilySprout.Features.Families.DB
             }
             return filteredFamilies;
         }
+        public static List<FamilyModel> UpdateDisplayedFamiliesByHometown(string hometown)
+        {
+            List<FamilyModel> filteredFamilies = new List<FamilyModel>();
+
+            using (var connection = new SQLiteConnection(DBConfig.connectionString))
+            {
+                connection.Open();
+
+                try
+                {
+                    string query = "SELECT id, husband, husband_name, wife, wife_name, remarks, child_count " +
+                                   "FROM families WHERE is_deleted = 0 AND hometown = @hometown;";
+
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@hometown", hometown);
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                FamilyModel family = new FamilyModel();
+
+                                family.id = reader.GetInt64(reader.GetOrdinal("id"));
+                                family.husband = reader.GetInt64(reader.GetOrdinal("husband"));
+                                family.husbandName = reader.GetString(reader.GetOrdinal("husband_name"));
+                                family.wife = reader.GetInt64(reader.GetOrdinal("wife"));
+                                family.wifeName = reader.GetString(reader.GetOrdinal("wife_name"));
+                                family.remarks = reader.GetString(reader.GetOrdinal("remarks"));
+                                family.childCount = reader.GetInt32(reader.GetOrdinal("child_count"));
+                                family.hometown = hometown;
+
+                                filteredFamilies.Add(family);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error [UpdateDisplayedFamilies]: {ex.Message}");
+                }
+            }
+            return filteredFamilies;
+        }
 
     }
 }

@@ -190,7 +190,39 @@ namespace FamilySprout.Features.Families
 
         private void tbSelectedHometown_TextChanged(object sender, EventArgs e)
         {
+            // update the content
+            tbSearchHusband.Text = string.Empty;
+            tbSearchWife.Text = string.Empty;
 
+            if (tbSelectedHometown.Text.Trim() == string.Empty)
+            {
+                FetchFamilies();
+                return;
+            }
+
+            families = DBFamilyList.UpdateDisplayedFamiliesByHometown(tbSelectedHometown.Text.Trim());
+
+            if (families.Count > 0)
+            {
+                lblEmpty.Visible = false;
+                dataGridViewFamilies.Rows.Clear();
+
+                foreach (var family in families)
+                {
+                    dataGridViewFamilies.Rows.Add(
+                        family.id,
+                        family.husbandName,
+                        family.wifeName,
+                        family.childCount
+                        );
+                }
+            }
+            else
+            {
+                lblEmpty.Visible = true;
+                lblEmpty.BringToFront();
+                dataGridViewFamilies.Rows.Clear();
+            }
         }
         #endregion SEARCH
 

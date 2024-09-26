@@ -88,6 +88,26 @@ namespace FamilySprout.Features.Trash.DB
 
                         command.ExecuteNonQuery();
                     }
+
+                    // get child_count
+                    long child_count = 0;
+                    query = "SELECT COUNT(*) FROM children WHERE fam_id = @fam_id AND is_deleted = 0";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@fam_id", famId);
+
+                        child_count = (long)command.ExecuteScalar();
+                    }
+
+                    // update family column [child_count]
+                    query = "UPDATE families SET child_count = @child_count WHERE id = @id;";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@child_count", child_count);
+                        command.Parameters.AddWithValue("@id", famId);
+
+                        command.ExecuteNonQuery();
+                    }
                 }
                 return true;
             }
