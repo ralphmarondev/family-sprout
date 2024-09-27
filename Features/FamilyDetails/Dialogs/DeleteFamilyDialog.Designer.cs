@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tbHusband = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbWife = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbChildCount = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbHometown = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbHometown = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbChildCount = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbWife = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbHusband = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -60,86 +60,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(553, 260);
             this.panel1.TabIndex = 0;
-            // 
-            // tbHusband
-            // 
-            this.tbHusband.BackColor = System.Drawing.SystemColors.Window;
-            this.tbHusband.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbHusband.Location = new System.Drawing.Point(19, 41);
-            this.tbHusband.Name = "tbHusband";
-            this.tbHusband.ReadOnly = true;
-            this.tbHusband.Size = new System.Drawing.Size(245, 34);
-            this.tbHusband.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label1.Location = new System.Drawing.Point(15, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "HUSBAND:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label2.Location = new System.Drawing.Point(280, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "WIFE:";
-            // 
-            // tbWife
-            // 
-            this.tbWife.BackColor = System.Drawing.SystemColors.Window;
-            this.tbWife.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbWife.Location = new System.Drawing.Point(284, 41);
-            this.tbWife.Name = "tbWife";
-            this.tbWife.ReadOnly = true;
-            this.tbWife.Size = new System.Drawing.Size(245, 34);
-            this.tbWife.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label3.Location = new System.Drawing.Point(15, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "CHILD COUNT:";
-            // 
-            // tbChildCount
-            // 
-            this.tbChildCount.BackColor = System.Drawing.SystemColors.Window;
-            this.tbChildCount.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbChildCount.Location = new System.Drawing.Point(19, 106);
-            this.tbChildCount.Name = "tbChildCount";
-            this.tbChildCount.ReadOnly = true;
-            this.tbChildCount.Size = new System.Drawing.Size(245, 34);
-            this.tbChildCount.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Courier New", 10F);
-            this.label4.Location = new System.Drawing.Point(280, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "HOMETOWN:";
-            // 
-            // tbHometown
-            // 
-            this.tbHometown.BackColor = System.Drawing.SystemColors.Window;
-            this.tbHometown.Font = new System.Drawing.Font("Courier New", 14F);
-            this.tbHometown.Location = new System.Drawing.Point(284, 106);
-            this.tbHometown.Name = "tbHometown";
-            this.tbHometown.ReadOnly = true;
-            this.tbHometown.Size = new System.Drawing.Size(245, 34);
-            this.tbHometown.TabIndex = 6;
             // 
             // label5
             // 
@@ -166,6 +86,86 @@
             this.tbRemarks.Size = new System.Drawing.Size(510, 61);
             this.tbRemarks.TabIndex = 8;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Courier New", 10F);
+            this.label4.Location = new System.Drawing.Point(280, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "HOMETOWN:";
+            // 
+            // tbHometown
+            // 
+            this.tbHometown.BackColor = System.Drawing.SystemColors.Window;
+            this.tbHometown.Font = new System.Drawing.Font("Courier New", 14F);
+            this.tbHometown.Location = new System.Drawing.Point(284, 106);
+            this.tbHometown.Name = "tbHometown";
+            this.tbHometown.ReadOnly = true;
+            this.tbHometown.Size = new System.Drawing.Size(245, 34);
+            this.tbHometown.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 10F);
+            this.label3.Location = new System.Drawing.Point(15, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(129, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "CHILD COUNT:";
+            // 
+            // tbChildCount
+            // 
+            this.tbChildCount.BackColor = System.Drawing.SystemColors.Window;
+            this.tbChildCount.Font = new System.Drawing.Font("Courier New", 14F);
+            this.tbChildCount.Location = new System.Drawing.Point(19, 106);
+            this.tbChildCount.Name = "tbChildCount";
+            this.tbChildCount.ReadOnly = true;
+            this.tbChildCount.Size = new System.Drawing.Size(245, 34);
+            this.tbChildCount.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Courier New", 10F);
+            this.label2.Location = new System.Drawing.Point(280, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "WIFE:";
+            // 
+            // tbWife
+            // 
+            this.tbWife.BackColor = System.Drawing.SystemColors.Window;
+            this.tbWife.Font = new System.Drawing.Font("Courier New", 14F);
+            this.tbWife.Location = new System.Drawing.Point(284, 41);
+            this.tbWife.Name = "tbWife";
+            this.tbWife.ReadOnly = true;
+            this.tbWife.Size = new System.Drawing.Size(245, 34);
+            this.tbWife.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Courier New", 10F);
+            this.label1.Location = new System.Drawing.Point(15, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "HUSBAND:";
+            // 
+            // tbHusband
+            // 
+            this.tbHusband.BackColor = System.Drawing.SystemColors.Window;
+            this.tbHusband.Font = new System.Drawing.Font("Courier New", 14F);
+            this.tbHusband.Location = new System.Drawing.Point(19, 41);
+            this.tbHusband.Name = "tbHusband";
+            this.tbHusband.ReadOnly = true;
+            this.tbHusband.Size = new System.Drawing.Size(245, 34);
+            this.tbHusband.TabIndex = 0;
+            // 
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -173,7 +173,7 @@
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.Purple;
             this.btnDelete.Location = new System.Drawing.Point(384, 294);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
@@ -192,7 +192,7 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.Purple;
             this.btnCancel.Location = new System.Drawing.Point(181, 294);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
@@ -215,7 +215,7 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DeleteFamilyDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

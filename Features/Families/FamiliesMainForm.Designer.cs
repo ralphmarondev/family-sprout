@@ -178,7 +178,7 @@
             this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
             this.lblNotice.Size = new System.Drawing.Size(680, 32);
             this.lblNotice.TabIndex = 32;
-            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
+            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISABLED ON NON-SUPERUSER***";
             this.lblNotice.Visible = false;
             // 
             // panel1

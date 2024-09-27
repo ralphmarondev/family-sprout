@@ -150,9 +150,11 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.Controls.Add(this.btnNew);
             this.mainPanel.Controls.Add(this.panel1);
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 68);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(930, 591);
@@ -160,14 +162,14 @@
             // 
             // btnNew
             // 
-            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNew.BackColor = System.Drawing.Color.Gainsboro;
             this.btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNew.FlatAppearance.BorderSize = 0;
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.Purple;
-            this.btnNew.Location = new System.Drawing.Point(22, 506);
+            this.btnNew.Location = new System.Drawing.Point(695, 506);
             this.btnNew.Margin = new System.Windows.Forms.Padding(0);
             this.btnNew.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnNew.Name = "btnNew";
@@ -186,7 +188,7 @@
             this.panel1.Controls.Add(this.userListPanel);
             this.panel1.Location = new System.Drawing.Point(22, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 472);
+            this.panel1.Size = new System.Drawing.Size(874, 472);
             this.panel1.TabIndex = 24;
             // 
             // userListPanel
@@ -196,7 +198,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userListPanel.Location = new System.Drawing.Point(22, 22);
             this.userListPanel.Name = "userListPanel";
-            this.userListPanel.Size = new System.Drawing.Size(826, 437);
+            this.userListPanel.Size = new System.Drawing.Size(827, 437);
             this.userListPanel.TabIndex = 0;
             // 
             // UsersMainForm

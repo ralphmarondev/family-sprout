@@ -173,7 +173,7 @@
             this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestore.FlatAppearance.BorderSize = 0;
             this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestore.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnRestore.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnRestore.ForeColor = System.Drawing.Color.Purple;
             this.btnRestore.Location = new System.Drawing.Point(384, 294);
             this.btnRestore.Margin = new System.Windows.Forms.Padding(0);
@@ -192,7 +192,7 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.Purple;
             this.btnCancel.Location = new System.Drawing.Point(181, 294);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(0);

@@ -154,11 +154,13 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.Controls.Add(this.btnUsers);
             this.mainPanel.Controls.Add(this.btnChildrens);
             this.mainPanel.Controls.Add(this.btnFamilies);
             this.mainPanel.Controls.Add(this.panel1);
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 68);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(930, 591);
@@ -166,14 +168,14 @@
             // 
             // btnUsers
             // 
-            this.btnUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUsers.BackColor = System.Drawing.Color.Gainsboro;
             this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUsers.FlatAppearance.BorderSize = 0;
             this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsers.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsers.ForeColor = System.Drawing.Color.Purple;
-            this.btnUsers.Location = new System.Drawing.Point(441, 502);
+            this.btnUsers.Location = new System.Drawing.Point(696, 506);
             this.btnUsers.Margin = new System.Windows.Forms.Padding(0);
             this.btnUsers.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnUsers.Name = "btnUsers";
@@ -185,14 +187,14 @@
             // 
             // btnChildrens
             // 
-            this.btnChildrens.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnChildrens.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChildrens.BackColor = System.Drawing.Color.Gainsboro;
             this.btnChildrens.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChildrens.FlatAppearance.BorderSize = 0;
             this.btnChildrens.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChildrens.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChildrens.ForeColor = System.Drawing.Color.Purple;
-            this.btnChildrens.Location = new System.Drawing.Point(232, 502);
+            this.btnChildrens.Location = new System.Drawing.Point(488, 506);
             this.btnChildrens.Margin = new System.Windows.Forms.Padding(0);
             this.btnChildrens.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnChildrens.Name = "btnChildrens";
@@ -204,14 +206,14 @@
             // 
             // btnFamilies
             // 
-            this.btnFamilies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFamilies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFamilies.BackColor = System.Drawing.Color.Gainsboro;
             this.btnFamilies.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFamilies.FlatAppearance.BorderSize = 0;
             this.btnFamilies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFamilies.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFamilies.ForeColor = System.Drawing.Color.Purple;
-            this.btnFamilies.Location = new System.Drawing.Point(22, 502);
+            this.btnFamilies.Location = new System.Drawing.Point(278, 506);
             this.btnFamilies.Margin = new System.Windows.Forms.Padding(0);
             this.btnFamilies.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnFamilies.Name = "btnFamilies";
@@ -230,7 +232,7 @@
             this.panel1.Controls.Add(this.listOfItemsPanel);
             this.panel1.Location = new System.Drawing.Point(22, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(859, 472);
+            this.panel1.Size = new System.Drawing.Size(874, 472);
             this.panel1.TabIndex = 0;
             // 
             // listOfItemsPanel
@@ -241,7 +243,7 @@
             this.listOfItemsPanel.Controls.Add(this.lblEmpty);
             this.listOfItemsPanel.Location = new System.Drawing.Point(22, 22);
             this.listOfItemsPanel.Name = "listOfItemsPanel";
-            this.listOfItemsPanel.Size = new System.Drawing.Size(817, 433);
+            this.listOfItemsPanel.Size = new System.Drawing.Size(832, 433);
             this.listOfItemsPanel.TabIndex = 0;
             // 
             // lblEmpty

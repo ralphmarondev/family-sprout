@@ -63,6 +63,9 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(930, 68);
             this.panelTitle.TabIndex = 23;
+            this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
+            this.panelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
+            this.panelTitle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseUp);
             // 
             // lblDestination
             // 
@@ -72,6 +75,9 @@
             this.lblDestination.Size = new System.Drawing.Size(106, 22);
             this.lblDestination.TabIndex = 7;
             this.lblDestination.Text = "CHILDREN";
+            this.lblDestination.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseDown);
+            this.lblDestination.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseMove);
+            this.lblDestination.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDestination_MouseUp);
             // 
             // btnFullScreen
             // 
@@ -125,6 +131,8 @@
             this.btnCurrentUserInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCurrentUserInfo.TabIndex = 4;
             this.btnCurrentUserInfo.TabStop = false;
+            this.btnCurrentUserInfo.MouseLeave += new System.EventHandler(this.btnCurrentUserInfo_MouseLeave);
+            this.btnCurrentUserInfo.MouseHover += new System.EventHandler(this.btnCurrentUserInfo_MouseHover);
             // 
             // lblCurrentUser
             // 
@@ -139,6 +147,9 @@
             this.lblCurrentUser.Size = new System.Drawing.Size(70, 22);
             this.lblCurrentUser.TabIndex = 0;
             this.lblCurrentUser.Text = "ADMIN";
+            this.lblCurrentUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseDown);
+            this.lblCurrentUser.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseMove);
+            this.lblCurrentUser.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblCurrentUser_MouseUp);
             // 
             // panel1
             // 
@@ -177,23 +188,23 @@
             this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
             this.lblNotice.Size = new System.Drawing.Size(680, 32);
             this.lblNotice.TabIndex = 33;
-            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
+            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISABLED ON NON-SUPERUSER***";
             this.lblNotice.Visible = false;
             // 
             // btnNewChild
             // 
             this.btnNewChild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNewChild.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnNewChild.BackColor = System.Drawing.Color.Gainsboro;
             this.btnNewChild.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNewChild.FlatAppearance.BorderSize = 0;
             this.btnNewChild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewChild.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnNewChild.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnNewChild.ForeColor = System.Drawing.Color.Purple;
             this.btnNewChild.Location = new System.Drawing.Point(663, 490);
             this.btnNewChild.Margin = new System.Windows.Forms.Padding(0);
             this.btnNewChild.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnNewChild.Name = "btnNewChild";
-            this.btnNewChild.Size = new System.Drawing.Size(191, 43);
+            this.btnNewChild.Size = new System.Drawing.Size(200, 36);
             this.btnNewChild.TabIndex = 1;
             this.btnNewChild.Text = "NEW CHILD";
             this.btnNewChild.UseVisualStyleBackColor = false;

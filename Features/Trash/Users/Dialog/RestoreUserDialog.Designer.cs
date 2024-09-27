@@ -70,7 +70,7 @@
             this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestore.FlatAppearance.BorderSize = 0;
             this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestore.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnRestore.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnRestore.ForeColor = System.Drawing.Color.Purple;
             this.btnRestore.Location = new System.Drawing.Point(329, 321);
             this.btnRestore.Margin = new System.Windows.Forms.Padding(0);

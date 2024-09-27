@@ -210,13 +210,12 @@
             this.btnDeleteFamily.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteFamily.FlatAppearance.BorderSize = 0;
             this.btnDeleteFamily.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteFamily.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteFamily.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnDeleteFamily.ForeColor = System.Drawing.Color.Purple;
-            this.btnDeleteFamily.Location = new System.Drawing.Point(261, 490);
+            this.btnDeleteFamily.Location = new System.Drawing.Point(241, 490);
             this.btnDeleteFamily.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDeleteFamily.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnDeleteFamily.Name = "btnDeleteFamily";
-            this.btnDeleteFamily.Size = new System.Drawing.Size(191, 43);
+            this.btnDeleteFamily.Size = new System.Drawing.Size(200, 36);
             this.btnDeleteFamily.TabIndex = 7;
             this.btnDeleteFamily.Text = "DELETE";
             this.btnDeleteFamily.UseVisualStyleBackColor = false;
@@ -229,13 +228,12 @@
             this.btnUpdateFamily.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdateFamily.FlatAppearance.BorderSize = 0;
             this.btnUpdateFamily.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateFamily.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnUpdateFamily.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnUpdateFamily.ForeColor = System.Drawing.Color.Purple;
-            this.btnUpdateFamily.Location = new System.Drawing.Point(461, 490);
+            this.btnUpdateFamily.Location = new System.Drawing.Point(452, 490);
             this.btnUpdateFamily.Margin = new System.Windows.Forms.Padding(0);
-            this.btnUpdateFamily.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnUpdateFamily.Name = "btnUpdateFamily";
-            this.btnUpdateFamily.Size = new System.Drawing.Size(191, 43);
+            this.btnUpdateFamily.Size = new System.Drawing.Size(200, 36);
             this.btnUpdateFamily.TabIndex = 6;
             this.btnUpdateFamily.Text = "UPDATE";
             this.btnUpdateFamily.UseVisualStyleBackColor = false;
@@ -248,13 +246,12 @@
             this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold);
+            this.btnNext.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.btnNext.ForeColor = System.Drawing.Color.Purple;
             this.btnNext.Location = new System.Drawing.Point(663, 490);
             this.btnNext.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNext.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(191, 43);
+            this.btnNext.Size = new System.Drawing.Size(200, 36);
             this.btnNext.TabIndex = 1;
             this.btnNext.Text = "NEXT";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -551,7 +548,7 @@
             this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
             this.lblNotice.Size = new System.Drawing.Size(680, 32);
             this.lblNotice.TabIndex = 36;
-            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
+            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISABLED ON NON-SUPERUSER***";
             this.lblNotice.Visible = false;
             // 
             // FamilyDetailsMainForm
