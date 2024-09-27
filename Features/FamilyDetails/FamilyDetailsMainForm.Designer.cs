@@ -119,7 +119,7 @@
             this.btnFullScreen.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnFullScreen.Name = "btnFullScreen";
             this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
-            this.btnFullScreen.TabIndex = 6;
+            this.btnFullScreen.TabIndex = 10;
             this.btnFullScreen.UseVisualStyleBackColor = false;
             this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
             // 
@@ -139,7 +139,7 @@
             this.btnToggleNavPanel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnToggleNavPanel.Name = "btnToggleNavPanel";
             this.btnToggleNavPanel.Size = new System.Drawing.Size(30, 30);
-            this.btnToggleNavPanel.TabIndex = 5;
+            this.btnToggleNavPanel.TabIndex = 11;
             this.btnToggleNavPanel.UseVisualStyleBackColor = false;
             // 
             // btnCurrentUserInfo
@@ -217,7 +217,7 @@
             this.btnDeleteFamily.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnDeleteFamily.Name = "btnDeleteFamily";
             this.btnDeleteFamily.Size = new System.Drawing.Size(191, 43);
-            this.btnDeleteFamily.TabIndex = 35;
+            this.btnDeleteFamily.TabIndex = 7;
             this.btnDeleteFamily.Text = "DELETE";
             this.btnDeleteFamily.UseVisualStyleBackColor = false;
             this.btnDeleteFamily.Click += new System.EventHandler(this.btnDeleteFamily_Click);
@@ -236,7 +236,7 @@
             this.btnUpdateFamily.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnUpdateFamily.Name = "btnUpdateFamily";
             this.btnUpdateFamily.Size = new System.Drawing.Size(191, 43);
-            this.btnUpdateFamily.TabIndex = 23;
+            this.btnUpdateFamily.TabIndex = 6;
             this.btnUpdateFamily.Text = "UPDATE";
             this.btnUpdateFamily.UseVisualStyleBackColor = false;
             this.btnUpdateFamily.Click += new System.EventHandler(this.btnUpdateFamily_Click);
@@ -255,7 +255,7 @@
             this.btnNext.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(191, 43);
-            this.btnNext.TabIndex = 22;
+            this.btnNext.TabIndex = 1;
             this.btnNext.Text = "NEXT";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -310,7 +310,7 @@
             this.tbHometown.Name = "tbHometown";
             this.tbHometown.ReadOnly = true;
             this.tbHometown.Size = new System.Drawing.Size(767, 34);
-            this.tbHometown.TabIndex = 34;
+            this.tbHometown.TabIndex = 9;
             // 
             // label7
             // 
@@ -343,7 +343,7 @@
             this.tbRemarks.Name = "tbRemarks";
             this.tbRemarks.ReadOnly = true;
             this.tbRemarks.Size = new System.Drawing.Size(767, 65);
-            this.tbRemarks.TabIndex = 31;
+            this.tbRemarks.TabIndex = 8;
             // 
             // label6
             // 
@@ -397,7 +397,7 @@
             this.btnViewWife.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnViewWife.Name = "btnViewWife";
             this.btnViewWife.Size = new System.Drawing.Size(45, 41);
-            this.btnViewWife.TabIndex = 11;
+            this.btnViewWife.TabIndex = 3;
             this.btnViewWife.UseVisualStyleBackColor = false;
             this.btnViewWife.Click += new System.EventHandler(this.btnViewWife_Click);
             // 
@@ -417,7 +417,7 @@
             this.btnUpdateWife.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnUpdateWife.Name = "btnUpdateWife";
             this.btnUpdateWife.Size = new System.Drawing.Size(45, 41);
-            this.btnUpdateWife.TabIndex = 10;
+            this.btnUpdateWife.TabIndex = 5;
             this.btnUpdateWife.UseVisualStyleBackColor = false;
             this.btnUpdateWife.Click += new System.EventHandler(this.btnUpdateWife_Click);
             // 
@@ -479,7 +479,7 @@
             this.btnViewHusband.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnViewHusband.Name = "btnViewHusband";
             this.btnViewHusband.Size = new System.Drawing.Size(45, 41);
-            this.btnViewHusband.TabIndex = 11;
+            this.btnViewHusband.TabIndex = 2;
             this.btnViewHusband.UseVisualStyleBackColor = false;
             this.btnViewHusband.Click += new System.EventHandler(this.btnViewHusband_Click);
             // 
@@ -499,7 +499,7 @@
             this.btnUpdateHusband.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnUpdateHusband.Name = "btnUpdateHusband";
             this.btnUpdateHusband.Size = new System.Drawing.Size(45, 41);
-            this.btnUpdateHusband.TabIndex = 10;
+            this.btnUpdateHusband.TabIndex = 4;
             this.btnUpdateHusband.UseVisualStyleBackColor = false;
             this.btnUpdateHusband.Click += new System.EventHandler(this.btnUpdateHusband_Click);
             // 
@@ -535,7 +535,7 @@
             this.lblBack.Location = new System.Drawing.Point(10, 10);
             this.lblBack.Name = "lblBack";
             this.lblBack.Size = new System.Drawing.Size(58, 22);
-            this.lblBack.TabIndex = 1;
+            this.lblBack.TabIndex = 12;
             this.lblBack.TabStop = true;
             this.lblBack.Text = "BACK";
             this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);

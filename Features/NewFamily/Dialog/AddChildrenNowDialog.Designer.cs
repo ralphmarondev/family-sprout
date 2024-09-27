@@ -47,7 +47,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(219, 43);
-            this.btnCancel.TabIndex = 27;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "I\'LL ADD LATER";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -66,7 +66,7 @@
             this.btnYes.Margin = new System.Windows.Forms.Padding(0);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(219, 43);
-            this.btnYes.TabIndex = 26;
+            this.btnYes.TabIndex = 1;
             this.btnYes.Text = "YES, ADD NOW";
             this.btnYes.UseVisualStyleBackColor = false;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
@@ -93,7 +93,7 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddChildrenNowDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

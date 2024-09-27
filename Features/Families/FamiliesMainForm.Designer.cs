@@ -216,7 +216,7 @@
             this.tbSearchWife.Location = new System.Drawing.Point(253, 30);
             this.tbSearchWife.Name = "tbSearchWife";
             this.tbSearchWife.Size = new System.Drawing.Size(209, 34);
-            this.tbSearchWife.TabIndex = 7;
+            this.tbSearchWife.TabIndex = 2;
             this.tbSearchWife.TextChanged += new System.EventHandler(this.tbSearchWife_TextChanged);
             // 
             // label1
@@ -248,7 +248,7 @@
             this.tbSelectedHometown.Location = new System.Drawing.Point(638, 31);
             this.tbSelectedHometown.Name = "tbSelectedHometown";
             this.tbSelectedHometown.Size = new System.Drawing.Size(209, 33);
-            this.tbSelectedHometown.TabIndex = 4;
+            this.tbSelectedHometown.TabIndex = 3;
             this.tbSelectedHometown.TextChanged += new System.EventHandler(this.tbSelectedHometown_TextChanged);
             // 
             // lblSearchText
@@ -267,7 +267,7 @@
             this.tbSearchHusband.Location = new System.Drawing.Point(28, 30);
             this.tbSearchHusband.Name = "tbSearchHusband";
             this.tbSearchHusband.Size = new System.Drawing.Size(209, 34);
-            this.tbSearchHusband.TabIndex = 3;
+            this.tbSearchHusband.TabIndex = 1;
             this.tbSearchHusband.TextChanged += new System.EventHandler(this.tbSearchHusband_TextChanged);
             // 
             // lblEmpty

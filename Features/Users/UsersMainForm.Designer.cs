@@ -93,7 +93,7 @@
             this.btnFullScreen.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnFullScreen.Name = "btnFullScreen";
             this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
-            this.btnFullScreen.TabIndex = 6;
+            this.btnFullScreen.TabIndex = 2;
             this.btnFullScreen.UseVisualStyleBackColor = false;
             this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
             // 
@@ -113,7 +113,7 @@
             this.btnToggleNavPanel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnToggleNavPanel.Name = "btnToggleNavPanel";
             this.btnToggleNavPanel.Size = new System.Drawing.Size(30, 30);
-            this.btnToggleNavPanel.TabIndex = 5;
+            this.btnToggleNavPanel.TabIndex = 3;
             this.btnToggleNavPanel.UseVisualStyleBackColor = false;
             // 
             // btnCurrentUserInfo
@@ -172,7 +172,7 @@
             this.btnNew.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(200, 36);
-            this.btnNew.TabIndex = 25;
+            this.btnNew.TabIndex = 1;
             this.btnNew.Text = "NEW USER";
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);

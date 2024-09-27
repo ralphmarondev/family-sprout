@@ -69,7 +69,7 @@
             this.btnRestore.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(45, 41);
-            this.btnRestore.TabIndex = 10;
+            this.btnRestore.TabIndex = 1;
             this.btnRestore.UseVisualStyleBackColor = false;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
@@ -111,7 +111,7 @@
             this.btnPermanentDelete.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnPermanentDelete.Name = "btnPermanentDelete";
             this.btnPermanentDelete.Size = new System.Drawing.Size(45, 41);
-            this.btnPermanentDelete.TabIndex = 7;
+            this.btnPermanentDelete.TabIndex = 2;
             this.btnPermanentDelete.UseVisualStyleBackColor = false;
             this.btnPermanentDelete.Click += new System.EventHandler(this.btnPermanentDelete_Click);
             // 

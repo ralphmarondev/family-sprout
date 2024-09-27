@@ -96,7 +96,7 @@
             this.tbContactNumber.Name = "tbContactNumber";
             this.tbContactNumber.ReadOnly = true;
             this.tbContactNumber.Size = new System.Drawing.Size(284, 34);
-            this.tbContactNumber.TabIndex = 29;
+            this.tbContactNumber.TabIndex = 2;
             // 
             // label17
             // 
@@ -186,7 +186,7 @@
             this.tbBirthPlace.Name = "tbBirthPlace";
             this.tbBirthPlace.ReadOnly = true;
             this.tbBirthPlace.Size = new System.Drawing.Size(284, 34);
-            this.tbBirthPlace.TabIndex = 27;
+            this.tbBirthPlace.TabIndex = 4;
             // 
             // tbName
             // 
@@ -206,7 +206,7 @@
             this.tbBday.Name = "tbBday";
             this.tbBday.ReadOnly = true;
             this.tbBday.Size = new System.Drawing.Size(284, 34);
-            this.tbBday.TabIndex = 2;
+            this.tbBday.TabIndex = 3;
             // 
             // tbBaptism
             // 
@@ -216,7 +216,7 @@
             this.tbBaptism.Name = "tbBaptism";
             this.tbBaptism.ReadOnly = true;
             this.tbBaptism.Size = new System.Drawing.Size(284, 34);
-            this.tbBaptism.TabIndex = 3;
+            this.tbBaptism.TabIndex = 5;
             // 
             // tbMatrimony
             // 
@@ -226,7 +226,7 @@
             this.tbMatrimony.Name = "tbMatrimony";
             this.tbMatrimony.ReadOnly = true;
             this.tbMatrimony.Size = new System.Drawing.Size(284, 34);
-            this.tbMatrimony.TabIndex = 5;
+            this.tbMatrimony.TabIndex = 7;
             // 
             // tbHc
             // 
@@ -236,7 +236,7 @@
             this.tbHc.Name = "tbHc";
             this.tbHc.ReadOnly = true;
             this.tbHc.Size = new System.Drawing.Size(284, 34);
-            this.tbHc.TabIndex = 4;
+            this.tbHc.TabIndex = 6;
             // 
             // tbObitus
             // 
@@ -246,7 +246,7 @@
             this.tbObitus.Name = "tbObitus";
             this.tbObitus.ReadOnly = true;
             this.tbObitus.Size = new System.Drawing.Size(284, 34);
-            this.tbObitus.TabIndex = 6;
+            this.tbObitus.TabIndex = 8;
             // 
             // btnClose
             // 
@@ -262,7 +262,7 @@
             this.btnClose.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(200, 43);
-            this.btnClose.TabIndex = 17;
+            this.btnClose.TabIndex = 9;
             this.btnClose.Text = "CLOSE";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);

@@ -84,7 +84,7 @@
             this.tbRemarks.Name = "tbRemarks";
             this.tbRemarks.ReadOnly = true;
             this.tbRemarks.Size = new System.Drawing.Size(510, 61);
-            this.tbRemarks.TabIndex = 8;
+            this.tbRemarks.TabIndex = 7;
             // 
             // label4
             // 
@@ -124,7 +124,7 @@
             this.tbChildCount.Name = "tbChildCount";
             this.tbChildCount.ReadOnly = true;
             this.tbChildCount.Size = new System.Drawing.Size(245, 34);
-            this.tbChildCount.TabIndex = 4;
+            this.tbChildCount.TabIndex = 5;
             // 
             // label2
             // 
@@ -144,7 +144,7 @@
             this.tbWife.Name = "tbWife";
             this.tbWife.ReadOnly = true;
             this.tbWife.Size = new System.Drawing.Size(245, 34);
-            this.tbWife.TabIndex = 2;
+            this.tbWife.TabIndex = 4;
             // 
             // label1
             // 
@@ -164,7 +164,7 @@
             this.tbHusband.Name = "tbHusband";
             this.tbHusband.ReadOnly = true;
             this.tbHusband.Size = new System.Drawing.Size(245, 34);
-            this.tbHusband.TabIndex = 0;
+            this.tbHusband.TabIndex = 3;
             // 
             // btnDelete
             // 
@@ -180,7 +180,7 @@
             this.btnDelete.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(191, 43);
-            this.btnDelete.TabIndex = 40;
+            this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -199,7 +199,7 @@
             this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(191, 43);
-            this.btnCancel.TabIndex = 39;
+            this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -215,7 +215,7 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PermanentlyDeleteFamilyDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

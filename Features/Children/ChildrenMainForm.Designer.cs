@@ -36,10 +36,10 @@
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblNotice = new System.Windows.Forms.Label();
             this.btnNewChild = new System.Windows.Forms.Button();
             this.listPanel = new System.Windows.Forms.Panel();
             this.lblBack = new System.Windows.Forms.LinkLabel();
-            this.lblNotice = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -89,7 +89,7 @@
             this.btnFullScreen.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnFullScreen.Name = "btnFullScreen";
             this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
-            this.btnFullScreen.TabIndex = 6;
+            this.btnFullScreen.TabIndex = 2;
             this.btnFullScreen.UseVisualStyleBackColor = false;
             this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
             // 
@@ -109,7 +109,7 @@
             this.btnToggleNavPanel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnToggleNavPanel.Name = "btnToggleNavPanel";
             this.btnToggleNavPanel.Size = new System.Drawing.Size(30, 30);
-            this.btnToggleNavPanel.TabIndex = 5;
+            this.btnToggleNavPanel.TabIndex = 3;
             this.btnToggleNavPanel.UseVisualStyleBackColor = false;
             // 
             // btnCurrentUserInfo
@@ -166,6 +166,20 @@
             this.panel2.Size = new System.Drawing.Size(885, 551);
             this.panel2.TabIndex = 24;
             // 
+            // lblNotice
+            // 
+            this.lblNotice.AutoSize = true;
+            this.lblNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblNotice.ForeColor = System.Drawing.Color.Tomato;
+            this.lblNotice.Location = new System.Drawing.Point(0, 519);
+            this.lblNotice.Margin = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Name = "lblNotice";
+            this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Size = new System.Drawing.Size(680, 32);
+            this.lblNotice.TabIndex = 33;
+            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
+            this.lblNotice.Visible = false;
+            // 
             // btnNewChild
             // 
             this.btnNewChild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -180,7 +194,7 @@
             this.btnNewChild.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnNewChild.Name = "btnNewChild";
             this.btnNewChild.Size = new System.Drawing.Size(191, 43);
-            this.btnNewChild.TabIndex = 22;
+            this.btnNewChild.TabIndex = 1;
             this.btnNewChild.Text = "NEW CHILD";
             this.btnNewChild.UseVisualStyleBackColor = false;
             this.btnNewChild.Click += new System.EventHandler(this.btnNewChild_Click);
@@ -201,24 +215,10 @@
             this.lblBack.Location = new System.Drawing.Point(10, 10);
             this.lblBack.Name = "lblBack";
             this.lblBack.Size = new System.Drawing.Size(58, 22);
-            this.lblBack.TabIndex = 1;
+            this.lblBack.TabIndex = 4;
             this.lblBack.TabStop = true;
             this.lblBack.Text = "BACK";
             this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
-            // 
-            // lblNotice
-            // 
-            this.lblNotice.AutoSize = true;
-            this.lblNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblNotice.ForeColor = System.Drawing.Color.Tomato;
-            this.lblNotice.Location = new System.Drawing.Point(0, 519);
-            this.lblNotice.Margin = new System.Windows.Forms.Padding(5);
-            this.lblNotice.Name = "lblNotice";
-            this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNotice.Size = new System.Drawing.Size(680, 32);
-            this.lblNotice.TabIndex = 33;
-            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
-            this.lblNotice.Visible = false;
             // 
             // ChildrenMainForm
             // 

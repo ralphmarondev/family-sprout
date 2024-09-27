@@ -97,7 +97,7 @@
             this.btnFullScreen.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnFullScreen.Name = "btnFullScreen";
             this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
-            this.btnFullScreen.TabIndex = 6;
+            this.btnFullScreen.TabIndex = 4;
             this.btnFullScreen.UseVisualStyleBackColor = false;
             this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
             // 
@@ -178,7 +178,7 @@
             this.btnUsers.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(200, 36);
-            this.btnUsers.TabIndex = 29;
+            this.btnUsers.TabIndex = 3;
             this.btnUsers.Text = "USERS";
             this.btnUsers.UseVisualStyleBackColor = false;
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
@@ -197,7 +197,7 @@
             this.btnChildrens.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnChildrens.Name = "btnChildrens";
             this.btnChildrens.Size = new System.Drawing.Size(200, 36);
-            this.btnChildrens.TabIndex = 28;
+            this.btnChildrens.TabIndex = 2;
             this.btnChildrens.Text = "CHILDRENS";
             this.btnChildrens.UseVisualStyleBackColor = false;
             this.btnChildrens.Click += new System.EventHandler(this.btnChildrens_Click);
@@ -216,7 +216,7 @@
             this.btnFamilies.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnFamilies.Name = "btnFamilies";
             this.btnFamilies.Size = new System.Drawing.Size(200, 36);
-            this.btnFamilies.TabIndex = 26;
+            this.btnFamilies.TabIndex = 1;
             this.btnFamilies.Text = "FAMILIES";
             this.btnFamilies.UseVisualStyleBackColor = false;
             this.btnFamilies.Click += new System.EventHandler(this.btnFamilies_Click);

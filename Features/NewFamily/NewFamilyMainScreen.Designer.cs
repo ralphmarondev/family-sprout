@@ -249,7 +249,7 @@
             this.panelParentInfo.Location = new System.Drawing.Point(111, 50);
             this.panelParentInfo.Name = "panelParentInfo";
             this.panelParentInfo.Size = new System.Drawing.Size(708, 462);
-            this.panelParentInfo.TabIndex = 23;
+            this.panelParentInfo.TabIndex = 1;
             // 
             // btnPrev
             // 
@@ -265,7 +265,7 @@
             this.btnPrev.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(200, 43);
-            this.btnPrev.TabIndex = 11;
+            this.btnPrev.TabIndex = 10;
             this.btnPrev.Text = "PREV";
             this.btnPrev.UseVisualStyleBackColor = false;
             this.btnPrev.Visible = false;
@@ -285,7 +285,7 @@
             this.btnNext.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(200, 43);
-            this.btnNext.TabIndex = 7;
+            this.btnNext.TabIndex = 9;
             this.btnNext.Text = "NEXT";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -330,7 +330,7 @@
             this.panelHusband.Location = new System.Drawing.Point(28, 24);
             this.panelHusband.Name = "panelHusband";
             this.panelHusband.Size = new System.Drawing.Size(652, 360);
-            this.panelHusband.TabIndex = 10;
+            this.panelHusband.TabIndex = 2;
             // 
             // lblClearFullName
             // 
@@ -339,7 +339,7 @@
             this.lblClearFullName.Location = new System.Drawing.Point(276, 68);
             this.lblClearFullName.Name = "lblClearFullName";
             this.lblClearFullName.Size = new System.Drawing.Size(42, 15);
-            this.lblClearFullName.TabIndex = 33;
+            this.lblClearFullName.TabIndex = 9;
             this.lblClearFullName.TabStop = true;
             this.lblClearFullName.Text = "CLEAR";
             this.lblClearFullName.Visible = false;
@@ -352,7 +352,7 @@
             this.lblClearContactNo.Location = new System.Drawing.Point(591, 68);
             this.lblClearContactNo.Name = "lblClearContactNo";
             this.lblClearContactNo.Size = new System.Drawing.Size(42, 15);
-            this.lblClearContactNo.TabIndex = 32;
+            this.lblClearContactNo.TabIndex = 10;
             this.lblClearContactNo.TabStop = true;
             this.lblClearContactNo.Text = "CLEAR";
             this.lblClearContactNo.Visible = false;
@@ -364,7 +364,7 @@
             this.lblClearBirthPlace.Location = new System.Drawing.Point(591, 137);
             this.lblClearBirthPlace.Name = "lblClearBirthPlace";
             this.lblClearBirthPlace.Size = new System.Drawing.Size(42, 15);
-            this.lblClearBirthPlace.TabIndex = 31;
+            this.lblClearBirthPlace.TabIndex = 12;
             this.lblClearBirthPlace.TabStop = true;
             this.lblClearBirthPlace.Text = "CLEAR";
             this.lblClearBirthPlace.Visible = false;
@@ -387,7 +387,7 @@
             this.tbContactNumber.Location = new System.Drawing.Point(338, 84);
             this.tbContactNumber.Name = "tbContactNumber";
             this.tbContactNumber.Size = new System.Drawing.Size(284, 34);
-            this.tbContactNumber.TabIndex = 29;
+            this.tbContactNumber.TabIndex = 2;
             // 
             // label17
             // 
@@ -416,7 +416,7 @@
             this.lblClearMatrimony.Location = new System.Drawing.Point(276, 280);
             this.lblClearMatrimony.Name = "lblClearMatrimony";
             this.lblClearMatrimony.Size = new System.Drawing.Size(42, 15);
-            this.lblClearMatrimony.TabIndex = 26;
+            this.lblClearMatrimony.TabIndex = 15;
             this.lblClearMatrimony.TabStop = true;
             this.lblClearMatrimony.Text = "CLEAR";
             this.lblClearMatrimony.Visible = false;
@@ -429,7 +429,7 @@
             this.lblClearObitus.Location = new System.Drawing.Point(591, 277);
             this.lblClearObitus.Name = "lblClearObitus";
             this.lblClearObitus.Size = new System.Drawing.Size(42, 15);
-            this.lblClearObitus.TabIndex = 25;
+            this.lblClearObitus.TabIndex = 16;
             this.lblClearObitus.TabStop = true;
             this.lblClearObitus.Text = "CLEAR";
             this.lblClearObitus.Visible = false;
@@ -442,7 +442,7 @@
             this.lblClearHc.Location = new System.Drawing.Point(591, 210);
             this.lblClearHc.Name = "lblClearHc";
             this.lblClearHc.Size = new System.Drawing.Size(42, 15);
-            this.lblClearHc.TabIndex = 24;
+            this.lblClearHc.TabIndex = 14;
             this.lblClearHc.TabStop = true;
             this.lblClearHc.Text = "CLEAR";
             this.lblClearHc.Visible = false;
@@ -455,7 +455,7 @@
             this.lblClearBday.Location = new System.Drawing.Point(276, 137);
             this.lblClearBday.Name = "lblClearBday";
             this.lblClearBday.Size = new System.Drawing.Size(42, 15);
-            this.lblClearBday.TabIndex = 19;
+            this.lblClearBday.TabIndex = 11;
             this.lblClearBday.TabStop = true;
             this.lblClearBday.Text = "CLEAR";
             this.lblClearBday.Visible = false;
@@ -468,7 +468,7 @@
             this.lblClearBaptism.Location = new System.Drawing.Point(276, 212);
             this.lblClearBaptism.Name = "lblClearBaptism";
             this.lblClearBaptism.Size = new System.Drawing.Size(42, 15);
-            this.lblClearBaptism.TabIndex = 18;
+            this.lblClearBaptism.TabIndex = 13;
             this.lblClearBaptism.TabStop = true;
             this.lblClearBaptism.Text = "CLEAR";
             this.lblClearBaptism.Visible = false;
@@ -550,7 +550,7 @@
             this.tbHc.Name = "tbHc";
             this.tbHc.ReadOnly = true;
             this.tbHc.Size = new System.Drawing.Size(284, 34);
-            this.tbHc.TabIndex = 4;
+            this.tbHc.TabIndex = 6;
             this.tbHc.TextChanged += new System.EventHandler(this.tbHc_TextChanged);
             this.tbHc.Enter += new System.EventHandler(this.tbHc_Enter);
             this.tbHc.Leave += new System.EventHandler(this.tbHc_Leave);
@@ -563,7 +563,7 @@
             this.tbBaptism.Name = "tbBaptism";
             this.tbBaptism.ReadOnly = true;
             this.tbBaptism.Size = new System.Drawing.Size(284, 34);
-            this.tbBaptism.TabIndex = 3;
+            this.tbBaptism.TabIndex = 5;
             this.tbBaptism.TextChanged += new System.EventHandler(this.tbBaptism_TextChanged);
             this.tbBaptism.Enter += new System.EventHandler(this.tbBaptism_Enter);
             this.tbBaptism.Leave += new System.EventHandler(this.tbBaptism_Leave);
@@ -576,7 +576,7 @@
             this.tbObitus.Name = "tbObitus";
             this.tbObitus.ReadOnly = true;
             this.tbObitus.Size = new System.Drawing.Size(284, 34);
-            this.tbObitus.TabIndex = 6;
+            this.tbObitus.TabIndex = 8;
             this.tbObitus.TextChanged += new System.EventHandler(this.tbObitus_TextChanged);
             this.tbObitus.Enter += new System.EventHandler(this.tbObitus_Enter);
             this.tbObitus.Leave += new System.EventHandler(this.tbObitus_Leave);
@@ -589,7 +589,7 @@
             this.tbMatrimony.Name = "tbMatrimony";
             this.tbMatrimony.ReadOnly = true;
             this.tbMatrimony.Size = new System.Drawing.Size(284, 34);
-            this.tbMatrimony.TabIndex = 5;
+            this.tbMatrimony.TabIndex = 7;
             this.tbMatrimony.TextChanged += new System.EventHandler(this.tbMatrimony_TextChanged);
             this.tbMatrimony.Enter += new System.EventHandler(this.tbMatrimony_Enter);
             this.tbMatrimony.Leave += new System.EventHandler(this.tbMatrimony_Leave);
@@ -626,7 +626,7 @@
             this.tbBirthPlace.Location = new System.Drawing.Point(338, 155);
             this.tbBirthPlace.Name = "tbBirthPlace";
             this.tbBirthPlace.Size = new System.Drawing.Size(284, 34);
-            this.tbBirthPlace.TabIndex = 27;
+            this.tbBirthPlace.TabIndex = 4;
             // 
             // dtBaptism
             // 
@@ -649,7 +649,7 @@
             this.tbBday.Name = "tbBday";
             this.tbBday.ReadOnly = true;
             this.tbBday.Size = new System.Drawing.Size(284, 34);
-            this.tbBday.TabIndex = 2;
+            this.tbBday.TabIndex = 3;
             this.tbBday.TextChanged += new System.EventHandler(this.tbBday_TextChanged);
             this.tbBday.Enter += new System.EventHandler(this.tbBday_Enter);
             this.tbBday.Leave += new System.EventHandler(this.tbBday_Leave);
@@ -720,7 +720,7 @@
             this.panelWife.Location = new System.Drawing.Point(28, 24);
             this.panelWife.Name = "panelWife";
             this.panelWife.Size = new System.Drawing.Size(652, 360);
-            this.panelWife.TabIndex = 34;
+            this.panelWife.TabIndex = 3;
             // 
             // lblClearWifeName
             // 
@@ -729,7 +729,7 @@
             this.lblClearWifeName.Location = new System.Drawing.Point(276, 68);
             this.lblClearWifeName.Name = "lblClearWifeName";
             this.lblClearWifeName.Size = new System.Drawing.Size(42, 15);
-            this.lblClearWifeName.TabIndex = 33;
+            this.lblClearWifeName.TabIndex = 9;
             this.lblClearWifeName.TabStop = true;
             this.lblClearWifeName.Text = "CLEAR";
             this.lblClearWifeName.Visible = false;
@@ -741,7 +741,7 @@
             this.lblClearWifeContactNo.Location = new System.Drawing.Point(591, 68);
             this.lblClearWifeContactNo.Name = "lblClearWifeContactNo";
             this.lblClearWifeContactNo.Size = new System.Drawing.Size(42, 15);
-            this.lblClearWifeContactNo.TabIndex = 32;
+            this.lblClearWifeContactNo.TabIndex = 10;
             this.lblClearWifeContactNo.TabStop = true;
             this.lblClearWifeContactNo.Text = "CLEAR";
             this.lblClearWifeContactNo.Visible = false;
@@ -753,7 +753,7 @@
             this.lblClearWifeBirthPlace.Location = new System.Drawing.Point(591, 137);
             this.lblClearWifeBirthPlace.Name = "lblClearWifeBirthPlace";
             this.lblClearWifeBirthPlace.Size = new System.Drawing.Size(42, 15);
-            this.lblClearWifeBirthPlace.TabIndex = 31;
+            this.lblClearWifeBirthPlace.TabIndex = 12;
             this.lblClearWifeBirthPlace.TabStop = true;
             this.lblClearWifeBirthPlace.Text = "CLEAR";
             this.lblClearWifeBirthPlace.Visible = false;
@@ -774,7 +774,7 @@
             this.tbWifeContactNumber.Location = new System.Drawing.Point(338, 84);
             this.tbWifeContactNumber.Name = "tbWifeContactNumber";
             this.tbWifeContactNumber.Size = new System.Drawing.Size(284, 34);
-            this.tbWifeContactNumber.TabIndex = 29;
+            this.tbWifeContactNumber.TabIndex = 2;
             // 
             // label2
             // 
@@ -803,7 +803,7 @@
             this.lblClearWifeMatrimony.Location = new System.Drawing.Point(276, 280);
             this.lblClearWifeMatrimony.Name = "lblClearWifeMatrimony";
             this.lblClearWifeMatrimony.Size = new System.Drawing.Size(42, 15);
-            this.lblClearWifeMatrimony.TabIndex = 26;
+            this.lblClearWifeMatrimony.TabIndex = 15;
             this.lblClearWifeMatrimony.TabStop = true;
             this.lblClearWifeMatrimony.Text = "CLEAR";
             this.lblClearWifeMatrimony.Visible = false;
@@ -816,7 +816,7 @@
             this.lblClearWifeObitus.Location = new System.Drawing.Point(591, 277);
             this.lblClearWifeObitus.Name = "lblClearWifeObitus";
             this.lblClearWifeObitus.Size = new System.Drawing.Size(42, 15);
-            this.lblClearWifeObitus.TabIndex = 25;
+            this.lblClearWifeObitus.TabIndex = 16;
             this.lblClearWifeObitus.TabStop = true;
             this.lblClearWifeObitus.Text = "CLEAR";
             this.lblClearWifeObitus.Visible = false;
@@ -829,7 +829,7 @@
             this.lblClearWifeHc.Location = new System.Drawing.Point(591, 210);
             this.lblClearWifeHc.Name = "lblClearWifeHc";
             this.lblClearWifeHc.Size = new System.Drawing.Size(42, 15);
-            this.lblClearWifeHc.TabIndex = 24;
+            this.lblClearWifeHc.TabIndex = 14;
             this.lblClearWifeHc.TabStop = true;
             this.lblClearWifeHc.Text = "CLEAR";
             this.lblClearWifeHc.Visible = false;
@@ -842,7 +842,7 @@
             this.lblClearWifeBday.Location = new System.Drawing.Point(276, 137);
             this.lblClearWifeBday.Name = "lblClearWifeBday";
             this.lblClearWifeBday.Size = new System.Drawing.Size(42, 15);
-            this.lblClearWifeBday.TabIndex = 19;
+            this.lblClearWifeBday.TabIndex = 11;
             this.lblClearWifeBday.TabStop = true;
             this.lblClearWifeBday.Text = "CLEAR";
             this.lblClearWifeBday.Visible = false;
@@ -855,7 +855,7 @@
             this.lblClearWifeBaptism.Location = new System.Drawing.Point(276, 212);
             this.lblClearWifeBaptism.Name = "lblClearWifeBaptism";
             this.lblClearWifeBaptism.Size = new System.Drawing.Size(42, 15);
-            this.lblClearWifeBaptism.TabIndex = 18;
+            this.lblClearWifeBaptism.TabIndex = 13;
             this.lblClearWifeBaptism.TabStop = true;
             this.lblClearWifeBaptism.Text = "CLEAR";
             this.lblClearWifeBaptism.Visible = false;
@@ -935,7 +935,7 @@
             this.tbWifeBirthPlace.Location = new System.Drawing.Point(338, 155);
             this.tbWifeBirthPlace.Name = "tbWifeBirthPlace";
             this.tbWifeBirthPlace.Size = new System.Drawing.Size(284, 34);
-            this.tbWifeBirthPlace.TabIndex = 27;
+            this.tbWifeBirthPlace.TabIndex = 4;
             // 
             // tbWifeHc
             // 
@@ -945,7 +945,7 @@
             this.tbWifeHc.Name = "tbWifeHc";
             this.tbWifeHc.ReadOnly = true;
             this.tbWifeHc.Size = new System.Drawing.Size(284, 34);
-            this.tbWifeHc.TabIndex = 4;
+            this.tbWifeHc.TabIndex = 6;
             this.tbWifeHc.TextChanged += new System.EventHandler(this.tbWifeHc_TextChanged);
             this.tbWifeHc.Enter += new System.EventHandler(this.tbWifeHc_Enter);
             this.tbWifeHc.Leave += new System.EventHandler(this.tbWifeHc_Leave);
@@ -958,7 +958,7 @@
             this.tbWifeBaptism.Name = "tbWifeBaptism";
             this.tbWifeBaptism.ReadOnly = true;
             this.tbWifeBaptism.Size = new System.Drawing.Size(284, 34);
-            this.tbWifeBaptism.TabIndex = 3;
+            this.tbWifeBaptism.TabIndex = 5;
             this.tbWifeBaptism.TextChanged += new System.EventHandler(this.tbWifeBaptism_TextChanged);
             this.tbWifeBaptism.Enter += new System.EventHandler(this.tbWifeBaptism_Enter);
             this.tbWifeBaptism.Leave += new System.EventHandler(this.tbWifeBaptism_Leave);
@@ -971,7 +971,7 @@
             this.tbWifeObitus.Name = "tbWifeObitus";
             this.tbWifeObitus.ReadOnly = true;
             this.tbWifeObitus.Size = new System.Drawing.Size(284, 34);
-            this.tbWifeObitus.TabIndex = 6;
+            this.tbWifeObitus.TabIndex = 8;
             this.tbWifeObitus.TextChanged += new System.EventHandler(this.tbWifeObitus_TextChanged);
             this.tbWifeObitus.Enter += new System.EventHandler(this.tbWifeObitus_Enter);
             this.tbWifeObitus.Leave += new System.EventHandler(this.tbWifeObitus_Leave);
@@ -984,7 +984,7 @@
             this.tbWifeBday.Name = "tbWifeBday";
             this.tbWifeBday.ReadOnly = true;
             this.tbWifeBday.Size = new System.Drawing.Size(284, 34);
-            this.tbWifeBday.TabIndex = 2;
+            this.tbWifeBday.TabIndex = 3;
             this.tbWifeBday.TextChanged += new System.EventHandler(this.tbWifeBday_TextChanged);
             this.tbWifeBday.Enter += new System.EventHandler(this.tbWifeBday_Enter);
             this.tbWifeBday.Leave += new System.EventHandler(this.tbWifeBday_Leave);
@@ -1036,7 +1036,7 @@
             this.tbWifeMatrimony.Name = "tbWifeMatrimony";
             this.tbWifeMatrimony.ReadOnly = true;
             this.tbWifeMatrimony.Size = new System.Drawing.Size(284, 34);
-            this.tbWifeMatrimony.TabIndex = 5;
+            this.tbWifeMatrimony.TabIndex = 7;
             this.tbWifeMatrimony.TextChanged += new System.EventHandler(this.tbWifeMatrimony_TextChanged);
             this.tbWifeMatrimony.Enter += new System.EventHandler(this.tbWifeMatrimony_Enter);
             this.tbWifeMatrimony.Leave += new System.EventHandler(this.tbWifeMatrimony_Leave);
@@ -1094,7 +1094,7 @@
             this.btnBack.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(200, 43);
-            this.btnBack.TabIndex = 11;
+            this.btnBack.TabIndex = 4;
             this.btnBack.Text = "BACK";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -1113,7 +1113,7 @@
             this.btnSave.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(200, 43);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -1148,7 +1148,7 @@
             this.tbTown.Location = new System.Drawing.Point(35, 188);
             this.tbTown.Name = "tbTown";
             this.tbTown.Size = new System.Drawing.Size(580, 33);
-            this.tbTown.TabIndex = 20;
+            this.tbTown.TabIndex = 2;
             // 
             // linkLabel4
             // 
@@ -1157,7 +1157,7 @@
             this.linkLabel4.Location = new System.Drawing.Point(573, 169);
             this.linkLabel4.Name = "linkLabel4";
             this.linkLabel4.Size = new System.Drawing.Size(42, 15);
-            this.linkLabel4.TabIndex = 19;
+            this.linkLabel4.TabIndex = 5;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "CLEAR";
             this.linkLabel4.Visible = false;

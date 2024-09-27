@@ -76,7 +76,7 @@
             this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(191, 43);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -95,7 +95,7 @@
             this.btnPermanentlyDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnPermanentlyDelete.Name = "btnPermanentlyDelete";
             this.btnPermanentlyDelete.Size = new System.Drawing.Size(248, 43);
-            this.btnPermanentlyDelete.TabIndex = 1;
+            this.btnPermanentlyDelete.TabIndex = 2;
             this.btnPermanentlyDelete.Text = "PERMANENTLY DELETE";
             this.btnPermanentlyDelete.UseVisualStyleBackColor = false;
             this.btnPermanentlyDelete.Click += new System.EventHandler(this.btnPermanentlyDelete_Click);
@@ -260,7 +260,7 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PermanentlyDeleteChildDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

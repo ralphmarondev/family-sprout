@@ -71,7 +71,7 @@
             this.btnView.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(45, 41);
-            this.btnView.TabIndex = 11;
+            this.btnView.TabIndex = 1;
             this.btnView.UseVisualStyleBackColor = false;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
@@ -91,7 +91,7 @@
             this.btnUpdate.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(45, 41);
-            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -133,7 +133,7 @@
             this.btnDelete.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(45, 41);
-            this.btnDelete.TabIndex = 7;
+            this.btnDelete.TabIndex = 3;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 

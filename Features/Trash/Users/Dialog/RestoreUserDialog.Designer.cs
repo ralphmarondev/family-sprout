@@ -77,7 +77,7 @@
             this.btnRestore.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(200, 43);
-            this.btnRestore.TabIndex = 33;
+            this.btnRestore.TabIndex = 1;
             this.btnRestore.Text = "RESTORE";
             this.btnRestore.UseVisualStyleBackColor = false;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
@@ -90,7 +90,7 @@
             this.tbRoles.Name = "tbRoles";
             this.tbRoles.ReadOnly = true;
             this.tbRoles.Size = new System.Drawing.Size(234, 34);
-            this.tbRoles.TabIndex = 4;
+            this.tbRoles.TabIndex = 5;
             // 
             // label2
             // 
@@ -120,7 +120,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.ReadOnly = true;
             this.tbUsername.Size = new System.Drawing.Size(234, 34);
-            this.tbUsername.TabIndex = 3;
+            this.tbUsername.TabIndex = 4;
             // 
             // label7
             // 
@@ -141,7 +141,7 @@
             this.tbPassword.PasswordChar = '•';
             this.tbPassword.ReadOnly = true;
             this.tbPassword.Size = new System.Drawing.Size(234, 34);
-            this.tbPassword.TabIndex = 5;
+            this.tbPassword.TabIndex = 6;
             // 
             // btnCancel
             // 
@@ -158,7 +158,7 @@
             this.btnCancel.MaximumSize = new System.Drawing.Size(200, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(200, 43);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -181,7 +181,7 @@
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
             this.tbName.Size = new System.Drawing.Size(234, 34);
-            this.tbName.TabIndex = 2;
+            this.tbName.TabIndex = 3;
             // 
             // label3
             // 
@@ -202,7 +202,7 @@
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Purple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RestoreUserDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

@@ -82,7 +82,7 @@
             this.btnView.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(45, 41);
-            this.btnView.TabIndex = 11;
+            this.btnView.TabIndex = 1;
             this.btnView.UseVisualStyleBackColor = false;
             // 
             // btnUpdate
@@ -101,7 +101,7 @@
             this.btnUpdate.MaximumSize = new System.Drawing.Size(300, 94);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(45, 41);
-            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.UseVisualStyleBackColor = false;
             // 
             // lblBday
