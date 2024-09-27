@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FamilySprout.Core.DB;
+using System;
+using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
 
@@ -29,23 +31,95 @@ namespace FamilySprout.Features.Dashboard.DB
             }
         }
 
-        public static int GetTotalFamilyCount()
+        public static long GetTotalFamilyCount()
         {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM families WHERE is_deleted = 0";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        long count = (long)command.ExecuteScalar();
+                        return count;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: ${ex.Message}");
+            }
             return 0;
         }
 
-        public static int GetTotalParentCount()
+        public static long GetTotalParentCount()
         {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM parents WHERE is_deleted = 0";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        long count = (long)command.ExecuteScalar();
+                        return count;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: ${ex.Message}");
+            }
             return 0;
         }
 
-        public static int GetTotalChildCount()
+        public static long GetTotalChildCount()
         {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM children WHERE is_deleted = 0";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        long count = (long)command.ExecuteScalar();
+                        return count;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: ${ex.Message}");
+            }
             return 0;
         }
 
-        public static int GetTotalUserCount()
+        public static long GetTotalUserCount()
         {
+            try
+            {
+                using (var connection = new SQLiteConnection(DBConfig.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM users WHERE is_deleted = 0";
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        long count = (long)command.ExecuteScalar();
+                        return count;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: ${ex.Message}");
+            }
             return 0;
         }
     }

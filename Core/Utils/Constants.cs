@@ -1,4 +1,6 @@
-﻿namespace FamilySprout.Core.Utils
+﻿using System.Collections.Generic;
+
+namespace FamilySprout.Core.Utils
 {
     public class Constants
     {
@@ -23,5 +25,18 @@
             public const string HUSBAND_LABEL = "HUSBAND";
             public const string WIFE_LABEL = "WIFE";
         }
+
+        public static List<string> itemsList = new List<string>
+        {
+            "MAL. NORTE",
+            "MAL. SUR",
+            "ALLIG",
+            "BALLUYAN",
+            "STA. MARIA",
+            "ANNINIPAN",
+            "SAN JOSE",
+            "POB. EAST",
+            "POB. WEST"
+        };
     }
 }

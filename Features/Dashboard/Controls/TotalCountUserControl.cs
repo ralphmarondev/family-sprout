@@ -4,7 +4,7 @@ namespace FamilySprout.Features.Dashboard.Controls
 {
     public partial class TotalCountUserControl : UserControl
     {
-        public TotalCountUserControl(string header, int value)
+        public TotalCountUserControl(string header, long value)
         {
             InitializeComponent();
 

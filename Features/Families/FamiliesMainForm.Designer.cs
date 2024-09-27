@@ -35,6 +35,7 @@
             this.btnCurrentUserInfo = new System.Windows.Forms.PictureBox();
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.lblNotice = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tbSearchWife = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.tbSearchHusband = new System.Windows.Forms.TextBox();
             this.lblEmpty = new System.Windows.Forms.Label();
             this.dataGridViewFamilies = new System.Windows.Forms.DataGridView();
-            this.lblNotice = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCurrentUserInfo)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -167,6 +167,20 @@
             this.mainPanel.Size = new System.Drawing.Size(930, 591);
             this.mainPanel.TabIndex = 25;
             // 
+            // lblNotice
+            // 
+            this.lblNotice.AutoSize = true;
+            this.lblNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblNotice.ForeColor = System.Drawing.Color.Tomato;
+            this.lblNotice.Location = new System.Drawing.Point(0, 559);
+            this.lblNotice.Margin = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Name = "lblNotice";
+            this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
+            this.lblNotice.Size = new System.Drawing.Size(680, 32);
+            this.lblNotice.TabIndex = 32;
+            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
+            this.lblNotice.Visible = false;
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -212,9 +226,9 @@
             this.label1.Font = new System.Drawing.Font("Courier New", 10F);
             this.label1.Location = new System.Drawing.Point(634, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
+            this.label1.Size = new System.Drawing.Size(169, 20);
             this.label1.TabIndex = 5;
-            this.label1.Text = "SELECT HOMETOWN";
+            this.label1.Text = "SELECT HOMETOWN:";
             // 
             // tbSelectedHometown
             // 
@@ -282,20 +296,6 @@
             this.dataGridViewFamilies.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewFamilies.Size = new System.Drawing.Size(821, 439);
             this.dataGridViewFamilies.TabIndex = 0;
-            // 
-            // lblNotice
-            // 
-            this.lblNotice.AutoSize = true;
-            this.lblNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblNotice.ForeColor = System.Drawing.Color.Tomato;
-            this.lblNotice.Location = new System.Drawing.Point(0, 559);
-            this.lblNotice.Margin = new System.Windows.Forms.Padding(5);
-            this.lblNotice.Name = "lblNotice";
-            this.lblNotice.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNotice.Size = new System.Drawing.Size(680, 32);
-            this.lblNotice.TabIndex = 32;
-            this.lblNotice.Text = "***SOME FUNCTIONALITES ARE DISALBED ON NON-SUPERUSER***";
-            this.lblNotice.Visible = false;
             // 
             // FamiliesMainForm
             // 

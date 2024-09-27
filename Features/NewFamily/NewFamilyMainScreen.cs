@@ -29,6 +29,13 @@ namespace FamilySprout.Features.NewFamily
 
             lblCurrentUser.Text = SessionManager.CurrentUser.fullName;
             tbRemarks.Text = Constants.REMARKS;
+
+            // add items to combo-box
+            tbTown.Items.Clear();
+            foreach (var item in Constants.itemsList)
+            {
+                tbTown.Items.Add(item);
+            }
         }
 
 

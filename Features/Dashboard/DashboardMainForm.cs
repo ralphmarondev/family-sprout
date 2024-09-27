@@ -32,7 +32,7 @@ namespace FamilySprout.Features.Dashboard
             flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
             flowLayoutPanel1.WrapContents = true;
 
-            var items = new (string header, int value)[]
+            var items = new (string header, long value)[]
             {
                 ("Family Count", DBDashboard.GetTotalFamilyCount()),
                 ("Parent Count", DBDashboard.GetTotalParentCount()),

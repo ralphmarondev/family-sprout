@@ -1,4 +1,5 @@
 ﻿using FamilySprout.Core.Model;
+using FamilySprout.Core.Utils;
 using FamilySprout.Features.FamilyDetails.DB;
 using System.Windows.Forms;
 
@@ -11,6 +12,13 @@ namespace FamilySprout.Features.FamilyDetails.Dialogs
         {
             InitializeComponent();
             this.family = family;
+
+            // add items to combo-box
+            tbTown.Items.Clear();
+            foreach (var item in Constants.itemsList)
+            {
+                tbTown.Items.Add(item);
+            }
 
             tbRemarks.Text = family.remarks;
             tbTown.Text = family.hometown;

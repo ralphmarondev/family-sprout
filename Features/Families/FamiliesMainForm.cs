@@ -24,7 +24,17 @@ namespace FamilySprout.Features.Families
             }
 
             SetupDataGridView();
+
+            families.Clear();
+            families = DBFamilyList.GetAllFamilies();
             FetchFamilies();
+
+            // add items to combo-box
+            tbSelectedHometown.Items.Clear();
+            foreach (var item in Constants.itemsList)
+            {
+                tbSelectedHometown.Items.Add(item);
+            }
         }
 
 
@@ -36,6 +46,7 @@ namespace FamilySprout.Features.Families
 
             dataGridViewFamilies.Columns.Add("HusbandName", "Husband");
             dataGridViewFamilies.Columns.Add("WifeName", "Wife");
+            dataGridViewFamilies.Columns.Add("HomeTown", "Town");
             dataGridViewFamilies.Columns.Add("ChildCount", "Child");
 
             // Create an action column with buttons
@@ -46,8 +57,9 @@ namespace FamilySprout.Features.Families
             dataGridViewFamilies.Columns.Add(actionColumn);
 
             // Set the relative widths using FillWeight
-            dataGridViewFamilies.Columns["HusbandName"].FillWeight = 35; // 35% for Husband
-            dataGridViewFamilies.Columns["WifeName"].FillWeight = 35;    // 35% for Wife
+            dataGridViewFamilies.Columns["HusbandName"].FillWeight = 25; // 25% for Husband
+            dataGridViewFamilies.Columns["WifeName"].FillWeight = 25;    // 25% for Wife
+            dataGridViewFamilies.Columns["HomeTown"].FillWeight = 20;    // 20% for Home Town
             dataGridViewFamilies.Columns["ChildCount"].FillWeight = 15;  // 15% for Child Count
             dataGridViewFamilies.Columns["Action"].FillWeight = 15;      // 15% for Action buttons
 
@@ -84,9 +96,6 @@ namespace FamilySprout.Features.Families
 
         private void FetchFamilies()
         {
-            families.Clear();
-            families = DBFamilyList.GetAllFamilies();
-
             if (families.Count > 0)
             {
                 lblEmpty.Visible = false;
@@ -98,6 +107,7 @@ namespace FamilySprout.Features.Families
                         family.id,
                         family.husbandName,
                         family.wifeName,
+                        family.hometown,
                         family.childCount
                         );
                 }
@@ -105,6 +115,8 @@ namespace FamilySprout.Features.Families
             else
             {
                 lblEmpty.Visible = true;
+                lblEmpty.BringToFront();
+                dataGridViewFamilies.Rows.Clear();
             }
         }
 
@@ -128,107 +140,106 @@ namespace FamilySprout.Features.Families
         #region SEARCH
         private void tbSearchHusband_TextChanged(object sender, EventArgs e)
         {
+            // clear searchWife
+            // check if hometown is empty
+            // if not empty: populate by husband and hometown
+            // if empty: populate by husband
+            // if husband.isEmpty: getAllFamilies
+            // if husband.isEmpty and hometown.isNotEmpty: populate by hometown
+            // 
             tbSearchWife.Text = string.Empty;
-            if (tbSearchHusband.Text.Trim() == string.Empty)
+            string search = tbSearchHusband.Text.Trim();
+            string hometown = tbSelectedHometown.Text.Trim();
+            if (search == string.Empty && hometown == string.Empty)
             {
-                FetchFamilies();
-                return;
+                families = DBFamilyList.GetAllFamilies();
             }
-
-            families = DBFamilyList.UpdateDisplayedFamiliesByHusbandName(tbSearchHusband.Text.Trim());
-
-            if (families.Count > 0)
+            else if (search == string.Empty && hometown != string.Empty)
             {
-                lblEmpty.Visible = false;
-                dataGridViewFamilies.Rows.Clear();
-
-                foreach (var family in families)
-                {
-                    dataGridViewFamilies.Rows.Add(
-                        family.id,
-                        family.husbandName,
-                        family.wifeName,
-                        family.childCount
-                        );
-                }
+                families = DBFamilyList.UpdateDisplayedFamiliesByHometown(hometown);
+            }
+            else if (search != string.Empty && hometown == string.Empty)
+            {
+                families = DBFamilyList.UpdateDisplayedFamiliesByHusbandName(search);
+            }
+            else if (search != string.Empty && hometown != string.Empty)
+            {
+                families = DBFamilyList.UpdateDisplayedFamiliesByHusbandNameAndHometown(search, hometown);
             }
             else
             {
-                lblEmpty.Visible = true;
-                lblEmpty.BringToFront();
-                dataGridViewFamilies.Rows.Clear();
+                families = DBFamilyList.GetAllFamilies();
             }
+            FetchFamilies();
         }
 
         private void tbSearchWife_TextChanged(object sender, EventArgs e)
         {
             tbSearchHusband.Text = string.Empty;
-            if (tbSearchWife.Text.Trim() == string.Empty)
+            string search = tbSearchWife.Text.Trim();
+            string hometown = tbSelectedHometown.Text.Trim();
+            if (search == string.Empty && hometown == string.Empty)
             {
-                FetchFamilies();
-                return;
+                families = DBFamilyList.GetAllFamilies();
             }
-
-            families = DBFamilyList.UpdateDisplayedFamiliesByWifeName(tbSearchWife.Text.Trim());
-
-            if (families.Count > 0)
+            else if (search == string.Empty && hometown != string.Empty)
             {
-                lblEmpty.Visible = false;
-                dataGridViewFamilies.Rows.Clear();
-
-                foreach (var family in families)
-                {
-                    dataGridViewFamilies.Rows.Add(
-                        family.id,
-                        family.husbandName,
-                        family.wifeName,
-                        family.childCount
-                        );
-                }
+                families = DBFamilyList.UpdateDisplayedFamiliesByHometown(hometown);
+            }
+            else if (search != string.Empty && hometown == string.Empty)
+            {
+                families = DBFamilyList.UpdateDisplayedFamiliesByWifeName(search);
+            }
+            else if (search != string.Empty && hometown != string.Empty)
+            {
+                families = DBFamilyList.UpdateDisplayedFamiliesByWifeNameAndHometown(search, hometown);
             }
             else
             {
-                lblEmpty.Visible = true;
-                lblEmpty.BringToFront();
-                dataGridViewFamilies.Rows.Clear();
+                families = DBFamilyList.GetAllFamilies();
             }
+            FetchFamilies();
         }
 
         private void tbSelectedHometown_TextChanged(object sender, EventArgs e)
         {
-            // update the content
-            tbSearchHusband.Text = string.Empty;
-            tbSearchWife.Text = string.Empty;
+            string husband = tbSearchHusband.Text.Trim();
+            string wife = tbSearchWife.Text.Trim();
+            string hometown = tbSelectedHometown.Text.Trim();
 
-            if (tbSelectedHometown.Text.Trim() == string.Empty)
+            if (hometown != string.Empty && husband != string.Empty && wife != string.Empty)
             {
-                FetchFamilies();
-                return;
+                families = DBFamilyList.UpdateDisplayedFamiliesByHomeTownAndHusbandAndWife(hometown, husband, wife);
             }
-
-            families = DBFamilyList.UpdateDisplayedFamiliesByHometown(tbSelectedHometown.Text.Trim());
-
-            if (families.Count > 0)
+            else if (hometown != string.Empty && husband != string.Empty && wife == string.Empty)
             {
-                lblEmpty.Visible = false;
-                dataGridViewFamilies.Rows.Clear();
-
-                foreach (var family in families)
-                {
-                    dataGridViewFamilies.Rows.Add(
-                        family.id,
-                        family.husbandName,
-                        family.wifeName,
-                        family.childCount
-                        );
-                }
+                families = DBFamilyList.UpdateDisplayedFamiliesByHusbandNameAndHometown(husband, hometown);
+            }
+            else if (hometown != string.Empty && husband == string.Empty && wife != string.Empty)
+            {
+                families = DBFamilyList.UpdateDisplayedFamiliesByWifeNameAndHometown(wife, hometown);
+            }
+            else if (hometown != string.Empty && husband == string.Empty && wife == string.Empty)
+            {
+                families = DBFamilyList.UpdateDisplayedFamiliesByHometown(hometown);
+            }
+            else if (hometown == string.Empty && husband != string.Empty && wife != string.Empty)
+            {
+                families = DBFamilyList.UpdateDisplayedFamiliesByHusbandAndWife(husband, wife);
+            }
+            else if (hometown == string.Empty && husband != string.Empty && wife == string.Empty)
+            {
+                families = DBFamilyList.UpdateDisplayedFamiliesByHusbandName(husband);
+            }
+            else if (hometown == string.Empty && husband == string.Empty && wife != string.Empty)
+            {
+                families = DBFamilyList.UpdateDisplayedFamiliesByWifeName(wife);
             }
             else
             {
-                lblEmpty.Visible = true;
-                lblEmpty.BringToFront();
-                dataGridViewFamilies.Rows.Clear();
+                families = DBFamilyList.GetAllFamilies();
             }
+            FetchFamilies();
         }
         #endregion SEARCH
 
