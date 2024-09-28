@@ -105,16 +105,22 @@ namespace FamilySprout.Features.Users.DB
                 {
                     connection.Open();
 
-                    string query = "SELECT COUNT(*) FROM users WHERE username = @username;";
+                    string query = "SELECT id FROM users WHERE username = @username AND is_deleted = 0;";
                     using (var command = new SQLiteCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@username", user.username);
 
-                        long count = (long)command.ExecuteScalar();
-                        if (count > 0)
+                        var existingUserId = command.ExecuteScalar();
+
+                        // If a user with the same username exists
+                        if (existingUserId != null)
                         {
-                            MessageBox.Show("Username is already taken.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return false;
+                            // If the ID doesn't match the current user ID, show "Username is already taken" message
+                            if ((long)existingUserId != user.id)
+                            {
+                                MessageBox.Show("Username is already taken.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return false;
+                            }
                         }
                     }
 

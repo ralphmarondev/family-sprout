@@ -45,11 +45,6 @@ namespace FamilySprout.Features.Users.Dialog
                 MessageBox.Show("Password did not match!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (user.password == oldPassword)
-            {
-                MessageBox.Show("Password must not be the same as the old password!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
             // role check
             if (tbRoles.Text.Trim() != string.Empty)
             {
@@ -69,6 +64,11 @@ namespace FamilySprout.Features.Users.Dialog
             }
             if (DBUsers.UpdateUser(user))
             {
+                if (user.password != oldPassword)
+                {
+                    MessageBox.Show("Your password has been changed successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 DialogResult = DialogResult.OK;
                 Close();
             }

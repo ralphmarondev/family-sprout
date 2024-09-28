@@ -25,6 +25,7 @@ namespace FamilySprout.Features.Users.Dialog
             user.fullName = tbName.Text.Trim();
             user.username = tbUsername.Text.Trim();
             user.password = tbPassword.Text.Trim();
+            user.createdBy = SessionManager.CurrentUser.username;
 
             if (user.fullName == string.Empty || user.username == string.Empty || user.password == string.Empty)
             {
