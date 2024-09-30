@@ -67,7 +67,6 @@ namespace FamilySprout.Features.Users.Dialog
                 if (user.password != oldPassword)
                 {
                     MessageBox.Show("Your password has been changed successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
                 }
                 DialogResult = DialogResult.OK;
                 Close();

@@ -114,7 +114,7 @@ namespace FamilySprout.Features.Auth
             };
             Label lblInfo2 = new Label
             {
-                Text = "Version 1.2 (Build 2024-09-25)",
+                Text = "Version 1.2 (Build 2024-09-30)",
                 Font = new Font("Courier New", 12),
                 AutoSize = true,
                 Location = new Point(10, lblInfo.Bottom + 5)
@@ -204,5 +204,24 @@ namespace FamilySprout.Features.Auth
         #endregion BUTTON_INFO
 
         #endregion USER_INTERFACE
+
+        private int count = 0;
+        private void pictureBox1_Click(object sender, System.EventArgs e)
+        {
+            count++;
+            switch (count)
+            {
+                case 1:
+                    lblCopyright.Text = "Build: 2024-09-30 10:12PM";
+                    break;
+                case 2:
+                    lblCopyright.Text = "Developed by: Ralph Maron Eda";
+                    break;
+                case 3:
+                    lblCopyright.Text = "Version 1.2";
+                    count = 0;
+                    break;
+            }
+        }
     }
 }
